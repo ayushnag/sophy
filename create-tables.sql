@@ -97,5 +97,6 @@ CREATE TABLE microscopy (
     superfamily varchar,
     family varchar,
     genus varchar,
-    species varchar
+    species varchar,
+    citation varchar
 );
