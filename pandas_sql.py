@@ -3,6 +3,9 @@ import sqlite3
 import pyworms
 import time
 
+con = sqlite3.connect("species_test.db")
+cur = con.cursor()
+
 data = pandas.read_csv('phytobase.csv', encoding='unicode_escape')  # full DF from dataset
 sample_df = data.filter(items=["scientificName"])  # sci_name entries per row of source dataset
 micro_df = pandas.DataFrame(columns=["aphia_id", "sci_name"])  # microscopy table
@@ -12,12 +15,10 @@ micro_df_testing = pandas.DataFrame({"aphia_id": [248106, 620590, 178590, 376694
                                                   "Dunaliella tertiolecta", "Halosphaera minor",
                                                   "Halosphaera viridis"]})  # for testing use only
 
-con = sqlite3.connect("species_test.db")
-cur = con.cursor()
-
 
 # cur.executemany("insert into sample(sci_name) values (?)", tuple(sci_name_df))
-def calc_micro_df():
+# @TODO add all taxa data to micro_df as well
+def set_microscopy_df():
     taxa = set()  # uses set() rather than repeatedly searching through DF for efficiency
     for row in range(500):  # iterate through DF for real version
         name = sample_df.at[row, "scientificName"]
@@ -30,20 +31,11 @@ def calc_micro_df():
 
 start = time.time()
 
-# temp table w/ calculated microscopy data
-# micro_df.to_sql('temp', con=con)
-# insert into microscopy table w/ proper schema
-# cur.execute("insert into microscopy(aphia_id, sci_name) select aphia_id, sci_name from temp")
-# delete temporary table
-# cur.execute("drop table temp")
 cur.executemany("insert into microscopy(aphia_id, sci_name) values(?, ?)",
                 list(micro_df_testing.itertuples(index=False, name=None)))
 
-# OPTIMIZE USING ABOVE METHOD*****
 # temp table w/ scientificNames
 sample_df.to_sql('temp_sample', con=con)
-# insert scientificNames into sample table
-
 # inserts sci_name's and matching aphia_id's into sample
 cur.execute("insert into sample(scientificName, aphia_id) select t.scientificName, "
             #  inner join on sample and microscopy to get matching aphia_id for each sci_name in sample

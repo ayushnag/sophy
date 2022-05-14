@@ -1,59 +1,68 @@
 PRAGMA foreign_keys = ON;
-CREATE TABLE sample(
-   id integer primary key autoincrement,
-   latitude float,
-   longitude float,
-   source_id int,
-   taxa_id int,
-   cruise_id int,
-   location_id int,
-   origin_id varchar,
-   notes varchar,
-   salinity float,
-   temperature float,
-   density float,
-   chlorophyll float,
-   phaeopigments float,
-   fluorescence float,
-   primary_prod float,
-   down_par float,
-   light_intensity float,
-   nitrate float,
-   nitrite float,
-   pco2 float,
-   diss_oxygen float,
-   diss_inorg_carbon float,
-   diss_inorg_nitrogen float,
-   diss_inorg_phosp float,
-   diss_org_carbon float,
-   diss_org_nitrogen float,
-   part_org_carb float,
-   part_org_nitrogen float,
-   org_carb float,
-   org_matter float,
-   org_nitrogen float,
-   phosphate float,
-   silicate float,
-   tot_nitrogen float,
-   tot_part_carb float,
-   tot_phosp float,
-   ph float,
-   foreign key(source_id) references source(id),
-   foreign key(taxa_id) references taxa(id),
-   foreign key(cruise_id) references cruise(id),
-   foreign key(location_id) references location(id)
-);
-
-CREATE TABLE extra(
-    sample_id int,
-    key varchar,
-    value varchar,
-    foreign key(sample_id) references sample(id)
-);
-
-CREATE TABLE source(
+CREATE TABLE sample (
     id integer primary key autoincrement,
-    name varchar,
+    latitude float,
+    longitude float,
+    timestamp datetime,
+    depth float,
+    pressure float,
+    tot_depth_water_col float,
+    source_name varchar references source (name),
+    aphia_id int references microscopy (aphia_id),
+    region varchar references location (region),
+
+    salinity float,
+    temperature float,
+    density float,
+    chlorophyll float,
+    phaeopigments float,
+    fluorescence float,
+    primary_prod float,
+    cruise varchar,
+
+    down_par float,
+    light_intensity float,
+
+    prasinophytes float,
+    cryptophytes float,
+    mixed_flagellates float,
+    diatoms float,
+    haptophytes float,
+
+    nitrate float,
+    nitrite float,
+    pco2 float,
+    diss_oxygen float,
+    diss_inorg_carbon float,
+    diss_inorg_nitrogen float,
+    diss_inorg_phosp float,
+    diss_org_carbon float,
+    diss_org_nitrogen float,
+    part_org_carb float,
+    part_org_nitrogen float,
+    org_carb float,
+    org_matter float,
+    org_nitrogen float,
+    phosphate float,
+    silicate float,
+    tot_nitrogen float,
+    tot_part_carb float,
+    tot_phosp float,
+    ph float,
+
+    origin_id varchar,
+    strain varchar,
+    notes varchar
+);
+
+CREATE TABLE extra (
+    sample_id integer references sample (id),
+    key varchar,
+    value varchar
+);
+
+CREATE TABLE source (
+    name varchar primary key,
     author varchar,
     doi varchar,
     url varchar,
@@ -61,39 +70,32 @@ CREATE TABLE source(
     date_ingested datetime
 );
 
-CREATE TABLE tag(
-    id integer primary key autoincrement,
+CREATE TABLE tag (
+    sample_id integer references sample (id),
     name varchar
 );
 
-CREATE TABLE sample_tag(
-    sample_id int,
-    tag_id int,
-    foreign key(sample_id) references sample(id),
-    foreign key(tag_id) references tag(id)
-);
-
-CREATE TABLE location(
-    id integer primary key autoincrement,
-    region varchar,
+CREATE TABLE location (
+    region varchar primary key,
     ice_regime varchar
 );
 
-CREATE TABLE cruise(
-    id integer primary key autoincrement,
-    name varchar
-);
-
-CREATE TABLE taxa(
-    id integer primary key autoincrement
-);
-
-CREATE TABLE pigment(
-    id int references taxa(id),
-    prasinophytes float,
-    cryptophytes float,
-    mixed_flagellates float,
-    diatoms float,
-    haptophytes float
-    -- add rest
+CREATE TABLE microscopy (
+    aphia_id integer primary key,
+    scientific_name varchar,
+    superkingdom varchar,
+    kingdom varchar,
+    phylum varchar,
+    subphylum varchar,
+    superclass varchar,
+    class varchar,
+    subclass varchar,
+    superorder varchar,
+    "order" varchar,
+    suborder varchar,
+    infraorder varchar,
+    superfamily varchar,
+    family varchar,
+    genus varchar,
+    species varchar
 );
