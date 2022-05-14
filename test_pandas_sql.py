@@ -4,7 +4,7 @@ import unittest
 # @TODO write unit tests for pandas_sql
 class TestPandasSQL(unittest.TestCase):
     print()
-    # functions that isolate and test cases in pandas_sql.py
+    # functions that isolate and test cases in sql_worms.py
     # test cases:
     # microscopy values are matched to the right aphiaID
     # invalid sci_name is handled
