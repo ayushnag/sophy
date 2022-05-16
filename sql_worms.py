@@ -2,16 +2,16 @@ import pandas as pd
 import sqlite3
 import pyworms
 import time
+from collections import OrderedDict
+from math import nan
 
-microscopy_cols = ["aphia_id", "scientific_name", "superkingdom", "kingdom", "phylum", "subphylum",
-                   "superclass", "class", "subclass", "superorder", "order", "suborder", "infraorder",
-                   "superfamily", "family", "genus", "species", "citation"]
-
-worms_micro = {"AphiaID": "aphia_id", "scientificname": "scientific_name", "superkingdom": "superkingdom",
-               "kingdom": "kingdom", "phylum": "phylum", "subphylum": "subphylum", "superclass": "superclass",
-               "class": "class", "subclass": "subclass", "superorder": "superorder", "order": "order",
-               "suborder": "suborder", "infraorder": "infraorder", "superfamily": "superfamily",
-               "family": "family", "genus": "genus", "species": "species", "citation": "citation"}
+# Order MUST match the SQLite table exactly ("FROM", "TO")
+worms_micro = OrderedDict([("AphiaID", "aphia_id"), ("scientificname", "scientific_name"),
+                           ("superkingdom", "superkingdom"), ("kingdom", "kingdom"), ("phylum", "phylum"),
+                           ("subphylum", "subphylum"), ("superclass", "superclass"), ("class", "class"),
+                           ("subclass", "subclass"), ("superorder", "superorder"), ("order", "order"),
+                           ("suborder", "suborder"), ("infraorder", "infraorder"), ("superfamily", "superfamily"),
+                           ("family", "family"), ("genus", "genus"), ("species", "species"), ("citation", "citation")])
 
 con = sqlite3.connect("species_test.db")
 cur = con.cursor()
@@ -19,20 +19,15 @@ cur = con.cursor()
 data = pd.read_csv('phytobase.csv', encoding='unicode_escape')  # full DF from dataset
 sample_df = data.filter(items=["scientificName"])  # sci_name entries per row of source dataset
 
-micro_df_testing = pd.DataFrame({"aphia_id": [248106, 620590, 178590, 376694, 134546],
-                                 "sci_name": ["Carteria marina", "Coccopterum labyrinthus",
-                                              "Dunaliella tertiolecta", "Halosphaera minor",
-                                              "Halosphaera viridis"]})  # for testing use only
-
 
 # Gets the full WoRMS taxonomy of every unique sci_name in sample_df, returns DF
 def get_microscopy_df():
     micro = pd.DataFrame()
     taxa = set()  # uses set() rather than repeatedly searching through DF for efficiency
-    for row in range(500):  # iterate through DF for real version
+    for row in range(1000):  # iterate through DF for real version
         name = sample_df.at[row, "scientificName"]
         if name not in taxa:
-            result = pyworms.aphiaRecordsByMatchNames(name)[0]
+            result = pyworms.aphiaRecordsByMatchNames(name)[0]  # full taxa records from WoRMS
             if len(result) > 0:  # when WoRMS doesn't find a matching record, len(result) = 0
                 taxa.add(name)
                 micro = pd.concat([micro, pd.DataFrame([result[0]])])
@@ -44,15 +39,15 @@ def clean_microscopy_df(df):
     df = df.filter(worms_micro.keys())  # keep only needed cols
     # find all columns not in the df with set difference: cols.keys() / df.cols = missing
     missing = worms_micro.keys() - set(df.columns.values.tolist())
-    df[list(missing)] = None  # add missing columns to df
-    df.rename(columns=worms_micro, inplace=True)  # rename cols to match our format
-    df = df[microscopy_cols]  # reorders cols to match our format
+    df[list(missing)] = nan  # add missing columns to df (does nothing if none are missing)
+    df.rename(columns=worms_micro, inplace=True)  # rename cols using dict to match our format
+    df = df[list(worms_micro.values())]  # reorders cols to match our format
     return df
 
 
 # calculate and clean taxonomy DF using original dataset DF (sample_df)
-micro_df = get_microscopy_df()
-micro_df = clean_microscopy_df(micro_df)
+# micro_df = get_microscopy_df()
+micro_df = clean_microscopy_df(pd.read_csv('micro.csv'))  # for testing use only
 
 start = time.time()
 # temp table w/ taxonomies

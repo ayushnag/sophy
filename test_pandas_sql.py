@@ -10,3 +10,4 @@ class TestPandasSQL(unittest.TestCase):
     # invalid sci_name is handled
     # empty dataset
     # class requires that tables w/ right schema are made
+    # @TODO create small csv with sample data and run operations on that
