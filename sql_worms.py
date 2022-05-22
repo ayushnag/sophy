@@ -61,7 +61,7 @@ cur.execute("drop table temp_micro")
 sample_df.to_sql('temp_sample', con=con)
 # inserts sci_name's and matching aphia_id's into sample
 # inner join on sample and microscopy to get matching aphia_id for each sci_name in sample
-cur.execute("insert into sample(scientificName, aphia_id) select t.scientificName, "
+cur.execute("insert into sample_small(scientificName, aphia_id) select t.scientificName, "
             "(select m.aphia_id from microscopy m where t.scientificName = m.scientific_name) from temp_sample t;")
 cur.execute("drop table temp_sample")
 
