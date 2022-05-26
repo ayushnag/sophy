@@ -3,13 +3,13 @@ CREATE TABLE sample (
     id integer primary key autoincrement,
     latitude float,
     longitude float,
-    timestamp datetime,
+    timestamp text,
     depth float,
     pressure float,
     tot_depth_water_col float,
-    source_name varchar references source (name),
+    source_name text references source (name),
     aphia_id int references microscopy (aphia_id),
-    region varchar references location (region),
+    region text references location (region),
 
     salinity float,
     temperature float,
@@ -18,7 +18,7 @@ CREATE TABLE sample (
     phaeopigments float,
     fluorescence float,
     primary_prod float,
-    cruise varchar,
+    cruise text,
 
     down_par float,
     light_intensity float,
@@ -50,54 +50,54 @@ CREATE TABLE sample (
     tot_phosp float,
     ph float,
 
-    origin_id varchar,
-    strain varchar,
-    notes varchar
+    origin_id text,
+    strain text,
+    notes text
 );
 
 CREATE TABLE extra (
     sample_id integer references sample (id),
-    key varchar,
-    value varchar
+    key text,
+    value text
 );
 
 CREATE TABLE source (
-    name varchar primary key,
-    author varchar,
-    doi varchar,
-    url varchar,
-    date_accessed datetime,
-    date_ingested datetime
+    name text primary key,
+    author text,
+    doi text,
+    url text,
+    date_accessed text,
+    date_ingested text
 );
 
 CREATE TABLE tag (
     sample_id integer references sample (id),
-    name varchar
+    name text
 );
 
 CREATE TABLE location (
-    region varchar primary key,
-    ice_regime varchar
+    region text primary key,
+    ice_regime text
 );
 
 CREATE TABLE microscopy (
     aphia_id integer primary key,
-    scientific_name varchar,
-    superkingdom varchar,
-    kingdom varchar,
-    phylum varchar,
-    subphylum varchar,
-    superclass varchar,
-    class varchar,
-    subclass varchar,
-    superorder varchar,
-    "order" varchar,
-    suborder varchar,
-    infraorder varchar,
-    superfamily varchar,
-    family varchar,
-    genus varchar,
-    species varchar,
-    citation varchar,
-    modified datetime
+    scientific_name text,
+    superkingdom text,
+    kingdom text,
+    phylum text,
+    subphylum text,
+    superclass text,
+    class text,
+    subclass text,
+    superorder text,
+    "order" text,
+    suborder text,
+    infraorder text,
+    superfamily text,
+    family text,
+    genus text,
+    species text,
+    citation text,
+    modified text
 );
