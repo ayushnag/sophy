@@ -98,5 +98,6 @@ CREATE TABLE microscopy (
     family varchar,
     genus varchar,
     species varchar,
-    citation varchar
+    citation varchar,
+    modified datetime
 );

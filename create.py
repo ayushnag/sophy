@@ -7,7 +7,7 @@ pigment_col = {"Prasinophytes": "prasinophytes",
                "Cryptophytes": "cryptophytes", "MixedFlagellates": "mixed_flagellates",
                "Diatoms": "diatoms", "Haptophytes": "haptophytes"}
 
-data = pandas.read_csv('lter.csv', encoding='unicode_escape')
+data = pandas.read_csv('datasets/lter.csv', encoding='unicode_escape')
 sci_name_df = data["sci_name"]
 #  sci_name_df.rename("sample_col", axis=1, inplace=True)
 

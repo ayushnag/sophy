@@ -11,19 +11,21 @@ worms_micro = OrderedDict([("AphiaID", "aphia_id"), ("scientificname", "scientif
                            ("subphylum", "subphylum"), ("superclass", "superclass"), ("class", "class"),
                            ("subclass", "subclass"), ("superorder", "superorder"), ("order", "order"),
                            ("suborder", "suborder"), ("infraorder", "infraorder"), ("superfamily", "superfamily"),
-                           ("family", "family"), ("genus", "genus"), ("species", "species"), ("citation", "citation")])
+                           ("family", "family"), ("genus", "genus"), ("species", "species"), ("citation", "citation"),
+                           ("modified", "modified")])
 
 con = sqlite3.connect("species_test.db")
 cur = con.cursor()
 
-data = pd.read_csv('phytobase.csv', encoding='unicode_escape')  # full DF from dataset
+data = pd.read_csv('datasets/phytobase.csv', encoding='unicode_escape')  # full DF from dataset
 sample_df = data.filter(items=["scientificName"])  # sci_name entries per row of source dataset
 
 
 # Gets the full WoRMS taxonomy of every unique sci_name in sample_df, returns DF
 def get_microscopy_df() -> pd.DataFrame:
     micro = pd.DataFrame()
-    taxa = set()  # should get current sci_names from the DB first
+    # get set() of scientific names already in the database
+    taxa = set(cur.execute("select scientific_name from microscopy").fetchall())
     for row in range(1000):  # iterate through DF for real version
         name: str = sample_df.at[row, "scientificName"]
         # assert @check, "invalid name at ___"
@@ -49,8 +51,9 @@ def clean_microscopy_df(df: pd.DataFrame) -> pd.DataFrame:
 
 
 # calculate and clean taxonomy DF using original dataset DF (sample_df)
-# micro_df = get_microscopy_df()
-micro_df: pd.DataFrame = clean_microscopy_df(pd.read_csv('micro.csv'))  # for testing use only
+micro_df = get_microscopy_df()
+micro_df = clean_microscopy_df(micro_df)
+# micro_df: pd.DataFrame = clean_microscopy_df(pd.read_csv('datasets/micro.csv'))  # for testing use only
 
 start: float = time.time()
 micro_df.to_sql('temp_micro', con=con, index=False)
