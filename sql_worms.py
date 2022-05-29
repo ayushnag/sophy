@@ -2,6 +2,7 @@ import pandas as pd
 import sqlite3
 import pyworms
 import time
+import warnings
 from collections import OrderedDict
 from math import nan
 
@@ -22,6 +23,7 @@ sample_df = data.filter(items=["scientificName"])  # sci_name entries per row of
 
 
 # Gets the full WoRMS taxonomy of every unique sci_name in sample_df, returns DF
+# WARNING: this method incorrectly iterates over a DF; no longer in use
 def get_microscopy_df() -> pd.DataFrame:
     micro = pd.DataFrame()
     # get set() of scientific names already in the database
@@ -31,11 +33,11 @@ def get_microscopy_df() -> pd.DataFrame:
         # assert @check, "invalid name at ___"
         if name not in taxa:
             result: list = pyworms.aphiaRecordsByMatchNames(name)[0]  # full taxa records from WoRMS
-            if len(result) > 0:  # when WoRMS doesn't find a matching record, len(result) = 0
+            if len(result) > 0:
                 taxa.add(name)
                 micro = pd.concat([micro, pd.DataFrame([result[0]])])
-            else:
-                raise ValueError(f'Invalid scientific name (row {row}): {name}')
+            else:  # when WoRMS doesn't find a matching record, len(result) = 0
+                warnings.warn(f'WoRMS found no match for "{name}" in row {row} of data source')
     return micro
 
 
@@ -51,9 +53,9 @@ def clean_microscopy_df(df: pd.DataFrame) -> pd.DataFrame:
 
 
 # calculate and clean taxonomy DF using original dataset DF (sample_df)
-micro_df = get_microscopy_df()
-micro_df = clean_microscopy_df(micro_df)
-# micro_df: pd.DataFrame = clean_microscopy_df(pd.read_csv('datasets/micro.csv'))  # for testing use only
+# micro_df = get_microscopy_df()
+# micro_df = clean_microscopy_df(micro_df)
+micro_df: pd.DataFrame = clean_microscopy_df(pd.read_csv('datasets/micro.csv'))  # for testing use only
 
 start: float = time.time()
 micro_df.to_sql('temp_micro', con=con, index=False)
