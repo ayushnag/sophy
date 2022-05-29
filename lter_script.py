@@ -42,7 +42,7 @@ lter_df.to_sql('temp_lter', con=con, index=False)
 lter_cols_str = ', '.join(lter_df.columns.values.tolist())
 # Prone to SQL injection, but does not use any user input as injected values
 # Inserts all values from lter temp table into main sample table
-cur.execute(f"insert into sample ({lter_cols_str}) select {lter_cols_str} from temp_lter;")
+cur.execute(f"insert into sample ({lter_cols_str}) select {lter_cols_str} from temp_lter")
 cur.execute("drop table temp_lter")
 con.commit()
 con.close()

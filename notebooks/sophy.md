@@ -1,6 +1,24 @@
 # SOPHY Notes
 
-###Defining geospatial regions in the Southern Ocean
+### Spring Quarter 2022 Wrap-Up
+
+### Iterating over a Dataframe
+- ADD here: incorrectly used for loop rather than vectorization and DF built in indexing
+
+### Natural Key vs AphiaID
+- Datasets that contain microscopy data will most likely contain a 'scientific_name' field that we will also have a corresponding AphiaID we will get from the WoRMS database
+- sci_name is a key for aphia_id and vice versa so we should only store one of them in the main table
+- However not all microscopy data goes to the level of sci_name and may only go down to genus
+- In that case the aphia_id approach is correct since we can keep the aphia_id for the genus and then have access to it's full taxa through the microscopy table whereas that would not be possible with only a sci_name col in the main table
+- This approach also correctly handles the issue of when two names are different in Python or just visually, but actually represent the same species in which case we should map that row to a certain aphia_id that correctly identifies them as the same
+```python
+pyworms.aphiaRecordsByMatchNames('Coccopterum labyrinthus') # accepted name
+pyworms.aphiaRecordsByMatchNames('Coccopterum_labyrinthus') # slightly different formatting
+pyworms.aphiaRecordsByMatchNames('Pterosperma labyrinthus') # unaccepted name, but same species
+```
+- A rank column may also be useful however it seems like data that can be inferred from what data is present and not present, so TBD
+
+### Defining geospatial regions in the Southern Ocean
 - We want to be able to label rows with a certain regions like the one seen in the map:
   <img alt="Southern Ocean Map" src="southern_ocean.jpg" title="Southern Ocean Map" width="300"/>
 - Cannot use simple lat long filters since they are rectangular unlike our regions
