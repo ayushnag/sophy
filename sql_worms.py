@@ -55,7 +55,7 @@ def clean_microscopy_df(df: pd.DataFrame) -> pd.DataFrame:
 # calculate and clean taxonomy DF using original dataset DF (sample_df)
 # micro_df = get_microscopy_df()
 # micro_df = clean_microscopy_df(micro_df)
-micro_df: pd.DataFrame = clean_microscopy_df(pd.read_csv('datasets/micro.csv'))  # for testing use only
+micro_df: pd.DataFrame = clean_microscopy_df(pd.read_csv('datasets/micro_lter_few.csv'))  # for testing use only
 
 start: float = time.time()
 micro_df.to_sql('temp_micro', con=con, index=False)
