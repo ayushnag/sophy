@@ -1,4 +1,3 @@
-pragma foreign_keys = on;
 create table sample (
     id integer primary key autoincrement,
     latitude float,

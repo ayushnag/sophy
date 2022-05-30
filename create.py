@@ -49,6 +49,8 @@ def write_lter():
     # read and clean dataset
     sample_df: DataFrame = pandas.read_csv('datasets/lter.csv', encoding='unicode_escape')
     sample_df = clean_df(sample_df, lter_sql)
+    # TODO: fix NaT values not getting removed
+    sample_df.dropna(subset=['timestamp'], inplace=True)
     cols_str: str = csl(sample_df)
     sample_df.to_sql('temp_lter', con=con, index=False)
     # write sample dataframe to sql database
@@ -62,15 +64,15 @@ def write_phybase():
     sample_df: DataFrame = pandas.read_csv('datasets/phytobase.csv', encoding='unicode_escape')
     sample_df = clean_df(sample_df, phybase_sql)
 
-    # Merge three columns into one with proper datetime format
-    sample_df['timestamp'] = pandas.to_datetime(sample_df[['year', 'month', 'day']], format='%m-%d-%Y', errors='coerce')
+    # Merge three columns into one with proper datetime format (no NaT)
+    sample_df['timestamp'] = pandas.to_datetime(sample_df[['year', 'month', 'day']], format='%m-%d-%Y', errors='coerce').dropna()
     sample_df.drop(columns=['organismQuantity', 'year', 'month', 'day'], inplace=True)
 
     sci_names_data = set(sample_df['scientific_name'].unique())
     sci_names_micro = set(cur.execute("select scientific_name from microscopy").fetchall())
     missing: set = sci_names_data - sci_names_micro
     # get full taxonomy of microscopy data using WoRMS
-    #micro_df: DataFrame = worms_taxa(list(missing)) ~7 minutes for 1700 taxa from phytobase
+    # micro_df: DataFrame = worms_taxa(list(missing)) ~7 minutes for 1700 taxa from phytobase
     micro_df: DataFrame = clean_df(pandas.read_csv('datasets/micro_phybase.csv'), worms_micro)  # Only for testing purposes
     # join on sample and microscopy (by aphia_id), then filter out extra microscopy columns
     sample_df: DataFrame = pandas.merge(sample_df, micro_df).filter(sample_cols)
@@ -124,7 +126,8 @@ def csl(df: DataFrame) -> str:
 con = sqlite3.connect("species_test.db")
 cur = con.cursor()
 
-# TODO: create_tables.sql using script
+with open('create_tables.sql', 'r') as create_tables:
+    con.executescript(create_tables.read())
 write_lter()
 write_phybase()
 
