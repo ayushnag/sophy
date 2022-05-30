@@ -62,9 +62,8 @@ def write_phybase():
     sample_df: DataFrame = pandas.read_csv('datasets/phytobase.csv', encoding='unicode_escape')
     sample_df = clean_df(sample_df, phybase_sql)
 
-    # TODO: weird anomalies in phybase.csv (year, month, day) to fix
-    # make modifications to dataframes
-    sample_df['timestamp'] = sample_df['year'].astype(str) + '-' + sample_df['month'].astype(str) + '-' + sample_df['day'].astype(str)
+    # Merge three columns into one with proper datetime format
+    sample_df['timestamp'] = pandas.to_datetime(sample_df[['year', 'month', 'day']], format='%m-%d-%Y', errors='coerce')
     sample_df.drop(columns=['organismQuantity', 'year', 'month', 'day'], inplace=True)
 
     sci_names_data = set(sample_df['scientific_name'].unique())
@@ -95,17 +94,17 @@ def write_phybase():
 
 # Gets full taxonomy records of given scientific names using the WoRMS database
 def worms_taxa(taxa: list) -> DataFrame:
-    microscopy = list()
-    no_result = list()
-    # full taxa records from WoRMS; format = [{}, {}, , {}]
+    microscopy, no_result = list()
+    # full taxa records from WoRMS; worms = [[{}], [{}], [], [{}], ...]
     worms: list = pyworms.aphiaRecordsByMatchNames(taxa)
     for i in range(len(worms)):
         if len(worms[i]) > 0:
             microscopy.append(worms[i][0])
         else:  # no WoRMS record was found since len(result) = 0
             no_result.append(microscopy[i])
-    # outputs which taxa (first 20) the WoRMS database found no result for
-    if len(no_result) != 0: warnings.warn(f"{str(no_result[:20])} were not found by the WoRMS database")
+    # outputs which taxa (first 20 for brevity) the WoRMS database found no result for
+    if len(no_result) != 0:
+        warnings.warn(f"No results found by WoRMS database: {str(no_result[:20])}...")
     # convert list of dict() -> dataframe and clean it
     return clean_df(pd.DataFrame(microscopy), worms_micro)
 
