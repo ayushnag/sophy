@@ -1,5 +1,5 @@
-PRAGMA foreign_keys = ON;
-CREATE TABLE sample (
+pragma foreign_keys = on;
+create table sample (
     id integer primary key autoincrement,
     latitude float,
     longitude float,
@@ -23,6 +23,7 @@ CREATE TABLE sample (
     down_par float,
     light_intensity float,
 
+    scientific_name text,
     prasinophytes float,
     cryptophytes float,
     mixed_flagellates float,
@@ -55,13 +56,13 @@ CREATE TABLE sample (
     notes text
 );
 
-CREATE TABLE extra (
+create table extra (
     sample_id integer references sample (id),
     key text,
     value text
 );
 
-CREATE TABLE source (
+create table source (
     name text primary key,
     author text,
     doi text,
@@ -70,17 +71,17 @@ CREATE TABLE source (
     date_ingested text
 );
 
-CREATE TABLE tag (
+create table tag (
     sample_id integer references sample (id),
     name text
 );
 
-CREATE TABLE location (
+create table location (
     region text primary key,
     ice_regime text
 );
 
-CREATE TABLE microscopy (
+create table microscopy (
     aphia_id integer primary key,
     scientific_name text,
     superkingdom text,
@@ -91,13 +92,12 @@ CREATE TABLE microscopy (
     class text,
     subclass text,
     superorder text,
-    "order" text,
+    t_order text,
     suborder text,
     infraorder text,
     superfamily text,
     family text,
     genus text,
     species text,
-    citation text,
     modified text
 );
