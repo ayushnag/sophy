@@ -71,7 +71,7 @@ def write_phybase():
     sci_names_micro = set(cur.execute("select scientific_name from microscopy").fetchall())
     missing: set = sci_names_data - sci_names_micro
     # get full taxonomy of microscopy data using WoRMS
-    # micro_df: DataFrame = worms_taxa(list(missing)) ~7 minutes for 1700 taxa from phytobase
+    #micro_df: DataFrame = worms_taxa(list(missing)) ~7 minutes for 1700 taxa from phytobase
     micro_df: DataFrame = clean_df(pandas.read_csv('datasets/micro_phybase.csv'), worms_micro)  # Only for testing purposes
     # join on sample and microscopy (by aphia_id), then filter out extra microscopy columns
     sample_df: DataFrame = pandas.merge(sample_df, micro_df).filter(sample_cols)
