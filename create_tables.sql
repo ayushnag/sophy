@@ -1,4 +1,4 @@
-create table sample (
+create table if not exists sample (
     id integer primary key autoincrement,
     latitude float,
     longitude float,
@@ -55,13 +55,13 @@ create table sample (
     notes text
 );
 
-create table extra (
+create table if not exists extra (
     sample_id integer references sample (id),
     key text,
     value text
 );
 
-create table source (
+create table if not exists source (
     name text primary key,
     author text,
     doi text,
@@ -70,17 +70,17 @@ create table source (
     date_ingested text
 );
 
-create table tag (
+create table if not exists tag (
     sample_id integer references sample (id),
     name text
 );
 
-create table location (
+create table if not exists location (
     region text primary key,
     ice_regime text
 );
 
-create table microscopy (
+create table if not exists microscopy (
     aphia_id integer primary key,
     scientific_name text,
     superkingdom text,
