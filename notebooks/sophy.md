@@ -1,20 +1,41 @@
 # SOPHY Notes
 
 ### Spring Quarter 2022 Wrap-Up
+- Feature List:
+  - Main script can add two full datasets to database (~1.3 mil rows)
+    - _LTER_ and _Phytobase_ were chosen since they cover the two different formats of taxonomy data (microscopy and CHEMTAX)
+    - Also adds foreign keys from microscopy table (Phytobase)
+  - Query WoRMS database for taxa records
+    - Converts result from pyworms package into formatted dataframe
+  - **Modular code** that easily translates to other datasets
+    - Code from this quarter is quite short since I have reviewed each operation several times to prioritize simplicity and performance as a setup for the summer
+    - The formula is made for how to add new datasets; data read, modify, write, and fk setup
+- Next steps:
+  - Support for location, source, and tag tables as part of data insert
+  - Work on test suite even though code format may change (new classes/functions)
+  - Build collection of datasets we want to add to SOPHY
+    - Can be done concurrently with writing new code
+    - The schema and code will adapt to deal with new challenges or design changes
+  - How to interact with the database?
+    - Research how scientific databases are usually presented (GUI, Jupyter, etc.)
+    - We can make pre-built use cases for common operations
 
 ### Iterating over a Dataframe
-- ADD here: incorrectly used for loop rather than vectorization and DF built in indexing
+- I was finding methods to iterate over a dataframe such as itterows(), but operations seemed to be taking longer than expected (~2s)
+- Across several functions, I was incorrectly iterating over a dataframe rather than **vectorization** and using pandas built in indexing
+- **Vectorization** means using pre-defined, highly optimized methods to process data
+- The time complexity and runtime is orders of magnitude lower when using vectorization since DataFrame's are meant to use it
 
 ### Natural Key vs AphiaID
 - Datasets that contain microscopy data will most likely contain a 'scientific_name' field that we will also have a corresponding AphiaID we will get from the WoRMS database
 - sci_name is a key for aphia_id and vice versa so we should only store one of them in the main table
 - However not all microscopy data goes to the level of sci_name and may only go down to genus
 - In that case the aphia_id approach is correct since we can keep the aphia_id for the genus and then have access to it's full taxa through the microscopy table whereas that would not be possible with only a sci_name col in the main table
-- This approach also correctly handles the issue of when two names are different in Python or just visually, but actually represent the same species in which case we should map that row to a certain aphia_id that correctly identifies them as the same
+- This approach also correctly handles the issue of when two names are different in Python or just visually, but actually represent the same species (WoRMS flags species name as unaccepted)
 ```python
-pyworms.aphiaRecordsByMatchNames('Coccopterum labyrinthus') # accepted name
-pyworms.aphiaRecordsByMatchNames('Coccopterum_labyrinthus') # slightly different formatting
-pyworms.aphiaRecordsByMatchNames('Pterosperma labyrinthus') # unaccepted name, but same species
+pyworms.aphiaRecordsByMatchNames('Coccopterum labyrinthus')  # accepted name
+pyworms.aphiaRecordsByMatchNames('Coccopterum_labyrinthus')  # slightly different formatting
+pyworms.aphiaRecordsByMatchNames('Pterosperma labyrinthus')  # unaccepted name, but same species
 ```
 - A rank column may also be useful however it seems like data that can be inferred from what data is present and not present, so TBD
 
@@ -32,7 +53,7 @@ pyworms.aphiaRecordsByMatchNames('Pterosperma labyrinthus') # unaccepted name, b
 ### Workflow of Python and SQLite
 - Both have a way of storing large amounts of 2D data(dataframes vs. tables) so it can be confusing when to use which
 - Dataframes are much easier to modify, can be used alongside python code, and keeps history of operation
-- SQLite is much faster at writing queries and join style operations
+- SQLite is [much faster](https://www.thedataincubator.com/blog/2018/05/23/sqlite-vs-pandas-performance-benchmarks/) at select style operations
 - Data loading, cleanup, and write to database will be done in Python with dataframes 
 - Then queries only with SQLite
 
