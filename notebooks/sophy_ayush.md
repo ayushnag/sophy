@@ -1,4 +1,4 @@
-# SOPHY Notes Test Commit
+# SOPHY Notes
 
 ### Feature Ideas
 - Think about how this could be adapted to the future of phytoplankton data
