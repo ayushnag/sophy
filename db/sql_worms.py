@@ -18,7 +18,7 @@ worms_micro = OrderedDict([("AphiaID", "aphia_id"), ("scientificname", "scientif
 con = sqlite3.connect("species_test.db")
 cur = con.cursor()
 
-data = pd.read_csv('datasets/phytobase.csv', encoding='unicode_escape')  # full DF from dataset
+data = pd.read_csv('../datasets/phytobase.csv', encoding='unicode_escape')  # full DF from dataset
 sample_df = data.filter(items=["scientificName"])  # sci_name entries per row of source dataset
 
 
@@ -55,7 +55,7 @@ def clean_microscopy_df(df: pd.DataFrame) -> pd.DataFrame:
 # calculate and clean taxonomy DF using original dataset DF (sample_df)
 # micro_df = get_microscopy_df()
 # micro_df = clean_microscopy_df(micro_df)
-micro_df: pd.DataFrame = clean_microscopy_df(pd.read_csv('datasets/micro_lter_few.csv'))  # for testing use only
+micro_df: pd.DataFrame = clean_microscopy_df(pd.read_csv('../datasets/micro_lter_few.csv'))  # for testing use only
 
 start: float = time.time()
 micro_df.to_sql('temp_micro', con=con, index=False)

@@ -46,7 +46,7 @@ phybase_sql: dict = {"scientificName": "scientific_name", "decimalLongitude": "l
 
 def write_lter():
     # read and clean dataset
-    sample_df: DataFrame = pd.read_csv('datasets/lter.csv', encoding='unicode_escape')
+    sample_df: DataFrame = pd.read_csv('../datasets/lter.csv', encoding='unicode_escape')
     sample_df = clean_df(sample_df, lter_sql)
 
     # drop rows with null time, lat, or long
@@ -63,7 +63,7 @@ def write_lter():
 
 def write_phybase():
     # read and clean dataset
-    sample_df: DataFrame = pd.read_csv('datasets/phytobase.csv', encoding='unicode_escape')
+    sample_df: DataFrame = pd.read_csv('../datasets/phytobase.csv', encoding='unicode_escape')
     sample_df = clean_df(sample_df, phybase_sql)
 
     # Merge three columns into one with proper datetime format (no NaT)
@@ -75,7 +75,7 @@ def write_phybase():
     missing: set = sci_names_data - sci_names_micro  # sci_names that are missing from our database taxa records
     # get full taxonomy of microscopy data as dataframe
     # micro_df: DataFrame = worms_taxa(list(missing)) ~7 minutes for 1700 taxa from phytobase
-    micro_df: DataFrame = clean_df(pd.read_csv('datasets/micro_phybase.csv'), worms_sql)  # Only for testing purposes
+    micro_df: DataFrame = clean_df(pd.read_csv('../datasets/micro_phybase.csv'), worms_sql)  # Only for testing purposes
     # join on sample and microscopy (by aphia_id), only keep cols in the sample table (filter out order, genus, etc)
     sample_df: DataFrame = pd.merge(sample_df, micro_df).filter(sample_cols)
 
