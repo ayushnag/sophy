@@ -1,5 +1,12 @@
 # SOPHY Notes
 
+### Feature Ideas
+- Think about how this could be adapted to the future of phytoplankton data
+  - For example if Argo floats may start having taxa data
+  - Or just any sensor based data that includes taxa because our current model is just for _in situ_ observations
+- What are side 'features/products' that I can make for SOPHY and general use
+  - Adapter class that provides starter code for converting dataset into SQLite
+
 ### Spring Quarter 2022 Wrap-Up
 - Feature List:
   - Main script can add two full datasets to database (~1.3 mil rows)
