@@ -4,7 +4,7 @@ import unittest
 # @TODO write unit tests for pandas_sql
 class TestPandasSQL(unittest.TestCase):
     print()
-    # functions that isolate and test cases in sql_worms.py
+    # functions that isolate and test cases in test_sql_worms.py
     # test cases:
     # microscopy values are matched to the right aphiaID
     # injection avoidance (string params dont delete or modify sql commands (DELETE, DROP, etc))

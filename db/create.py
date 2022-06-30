@@ -86,7 +86,7 @@ def write_df_sql(table_name: str, df: DataFrame, cols: tuple):
     assert cur.execute(f"select name from sqlite_master where type='table' and name='{{table_name}}'") == 1, f'{table_name} does not exist'
     assert set(df.columns.values.tolist()).issubset(set(cols)), f'Provided {table_name} table has invalid column(s)'
     df.to_sql("temp", con=con, index=False)
-    cols_str: str = csl(df)
+    cols_str: str = csl(df.columns.values.tolist())
     cur.execute(f"insert into {table_name} ({cols_str}) select {cols_str} from temp")
     cur.execute("drop table temp")
     con.commit()
@@ -115,10 +115,10 @@ def clean_df(df: DataFrame, source_sql: dict) -> DataFrame:
     return df.rename(columns=source_sql)  # rename columns using dict()
 
 
-# Returns comma seperated list of DataFrame columns
+# Converts list of values to comma separated string
 # Ex: [A, B, C] --> A, B, C
-def csl(df: DataFrame) -> str:
-    return ', '.join(df.columns.values.tolist())
+def csl(cols: list) -> str:
+    return ', '.join(cols)
 
 
 con = sqlite3.connect("sophy.db")
