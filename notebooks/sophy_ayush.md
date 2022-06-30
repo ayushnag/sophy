@@ -1,5 +1,22 @@
 # SOPHY Notes
 
+### Data Science Notebook Options
+#### Jupyter
+- Runs locally so no internet connection needed after download
+- Dataset has to be stored on local machine
+#### Google Colab
+- Ease of use to share and use
+- Backend performance of Google servers
+  - Particularly important for ML models which actually need extra power
+- Modules are pre-installed
+- Easy versioning with Google and GitHub integration
+#### Deepnote
+- Designed for collaboration. Multiple people can live edit a notebook
+- Many code "intelligence" features like auto install packages and autocomplete
+
+Current pick is to create Jupyter file and work in Intellij. Then if storage/performance becomes an issue, we can easily port the document into Google Colab. UW provides Google Drive storage which could be an option to store the database and then connect to Colab. If the database is stored on GitHub (regular Jupyter Notebook), file size may become an issue.
+
+
 ### Summer 2022 Goals
 - Add more datasets to SOPHY
   - Start with LTER and Phytobase. LTER is the most ideal format to test and Phytobase has by far the most microscopy data
