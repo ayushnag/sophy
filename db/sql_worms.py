@@ -15,7 +15,7 @@ worms_micro = OrderedDict([("AphiaID", "aphia_id"), ("scientificname", "scientif
                            ("family", "family"), ("genus", "genus"), ("species", "species"), ("citation", "citation"),
                            ("modified", "modified")])
 
-con = sqlite3.connect("species_test.db")
+con = sqlite3.connect("sophy.db")
 cur = con.cursor()
 
 data = pd.read_csv('../datasets/phytobase.csv', encoding='unicode_escape')  # full DF from dataset

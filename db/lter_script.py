@@ -35,7 +35,7 @@ def clean_df(df: DataFrame, source_sql: OrderedDict) -> DataFrame:
     return df
 
 
-con = sqlite3.connect("species_test.db")
+con = sqlite3.connect("sophy.db")
 cur = con.cursor()
 lter_df = load_lter(cur)
 lter_df.to_sql('temp_lter', con=con, index=False)

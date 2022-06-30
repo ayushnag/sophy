@@ -53,7 +53,7 @@ def write_lter():
     sample_df.dropna(subset=['timestamp', 'latitude', 'longitude'], inplace=True)
 
     # write sample dataframe to sql database
-    write_df("sample", sample_df, sample_cols)
+    write_df_sql("sample", sample_df, sample_cols)
 
 
 def write_phybase():
@@ -76,14 +76,15 @@ def write_phybase():
     sample_df: DataFrame = pd.merge(sample_df, micro_df).filter(sample_cols)
 
     # write microscopy dataframe to sql database
-    write_df("microscopy", micro_df, microscopy_cols)
-
+    write_df_sql("microscopy", micro_df, microscopy_cols)
     # write sample dataframe to sql database
-    write_df("sample", sample_df, sample_cols)
+    write_df_sql("sample", sample_df, sample_cols)
 
 
-def write_df(table_name: str, df: DataFrame, cols: tuple):
-    assert set(df.columns.values.tolist()).issubset(set(cols)), f'Created {table_name} table with has invalid column(s)'
+# Writes data frame to the SQLite table named @param: 'table_name'
+def write_df_sql(table_name: str, df: DataFrame, cols: tuple):
+    assert cur.execute(f"select name from sqlite_master where type='table' and name='{{table_name}}'") == 1, f'{table_name} does not exist'
+    assert set(df.columns.values.tolist()).issubset(set(cols)), f'Provided {table_name} table has invalid column(s)'
     df.to_sql("temp", con=con, index=False)
     cols_str: str = csl(df)
     cur.execute(f"insert into {table_name} ({cols_str}) select {cols_str} from temp")
@@ -92,7 +93,7 @@ def write_df(table_name: str, df: DataFrame, cols: tuple):
 
 
 # Gets full taxonomy records of given scientific names using the WoRMS database
-# Note: param: taxa ordering does not matter however WoRMS API requires list instead of set
+# Note: @param: 'taxa' ordering does not matter, however pyworms requires a list instead of set
 def worms_taxa(taxa: list) -> DataFrame:
     microscopy, no_result = list()
     # full taxa records from WoRMS; worms = [[{}], [{}], [], [{}], ...]
@@ -120,7 +121,7 @@ def csl(df: DataFrame) -> str:
     return ', '.join(df.columns.values.tolist())
 
 
-con = sqlite3.connect("species_test.db")
+con = sqlite3.connect("sophy.db")
 cur = con.cursor()
 
 with open('create_tables.sql', 'r') as create_tables:
