@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="sophy" uuid="fa7bf8a0-59bd-4a6b-b03c-a6696b399c24">
+    <data-source source="LOCAL" name="species_test.db" uuid="fa7bf8a0-59bd-4a6b-b03c-a6696b399c24">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\Ayush Nag\vault\sophy\species_test.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\Ayush Nag\vault\sophy\db/species_test.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>

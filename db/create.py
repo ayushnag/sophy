@@ -53,12 +53,7 @@ def write_lter():
     sample_df.dropna(subset=['timestamp', 'latitude', 'longitude'], inplace=True)
 
     # write sample dataframe to sql database
-    assert set(sample_df.columns.values.tolist()).issubset(set(sample_cols)), "Created sample table has invalid column(s)"
-    cols_str: str = csl(sample_df)
-    sample_df.to_sql('temp_lter', con=con, index=False)
-    cur.execute(f"insert into sample ({cols_str}) select {cols_str} from temp_lter")
-    cur.execute("drop table temp_lter")
-    con.commit()
+    write_df("sample", sample_df, sample_cols)
 
 
 def write_phybase():
@@ -67,7 +62,8 @@ def write_phybase():
     sample_df = clean_df(sample_df, phybase_sql)
 
     # Merge three columns into one with proper datetime format (no NaT)
-    sample_df['timestamp'] = pd.to_datetime(sample_df[['year', 'month', 'day']], format='%m-%d-%Y', errors='coerce').dropna()
+    sample_df['timestamp'] = pd.to_datetime(sample_df[['year', 'month', 'day']], format='%m-%d-%Y',
+                                            errors='coerce').dropna()
     sample_df.drop(columns=['organismQuantity', 'year', 'month', 'day'], inplace=True)
 
     sci_names_data = set(sample_df['scientific_name'].unique())
@@ -80,19 +76,18 @@ def write_phybase():
     sample_df: DataFrame = pd.merge(sample_df, micro_df).filter(sample_cols)
 
     # write microscopy dataframe to sql database
-    assert set(micro_df.columns.values.tolist()).issubset(set(microscopy_cols)), "Created microscopy table has invalid column(s)"
-    cols_str: str = csl(micro_df)
-    micro_df.to_sql("temp_micro", con=con, index=False)
-    cur.execute(f"insert into microscopy ({cols_str}) select {cols_str} from temp_micro")
-    cur.execute("drop table temp_micro")
-    con.commit()
+    write_df("microscopy", micro_df, microscopy_cols)
 
     # write sample dataframe to sql database
-    assert set(sample_df.columns.values.tolist()).issubset(set(sample_cols)), "Created sample table has invalid column(s)"
-    sample_df.to_sql("temp_phybase", con=con, index=False)
-    cols_str: str = csl(sample_df)
-    cur.execute(f"insert into sample ({cols_str}) select {cols_str} from temp_phybase")
-    cur.execute("drop table temp_phybase")
+    write_df("sample", sample_df, sample_cols)
+
+
+def write_df(table_name: str, df: DataFrame, cols: tuple):
+    assert set(df.columns.values.tolist()).issubset(set(cols)), f'Created {table_name} table with has invalid column(s)'
+    df.to_sql("temp", con=con, index=False)
+    cols_str: str = csl(df)
+    cur.execute(f"insert into {table_name} ({cols_str}) select {cols_str} from temp")
+    cur.execute("drop table temp")
     con.commit()
 
 

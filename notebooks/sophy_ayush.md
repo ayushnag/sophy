@@ -1,10 +1,18 @@
 # SOPHY Notes
 
+### Summer 2022 Goals
+- Add more datasets to SOPHY
+  - Start with LTER and Phytobase. LTER is the most ideal format to test and Phytobase has by far the most microscopy data
+- Create Jupyter notebook or Google Colab front end
+  - Custom python functions for common oceanography use cases of this data
+  - Direct SQLite editor for advanced users
+  - Map visualization of all data
+
 ### Feature Ideas
 - Think about how this could be adapted to the future of phytoplankton data
   - For example if Argo floats may start having taxa data
   - Or just any sensor based data that includes taxa because our current model is just for _in situ_ observations
-- What are side 'features/products' that I can make for SOPHY and general use
+- What are side 'features/products' that can be made for SOPHY and general use
   - Adapter class that provides starter code for converting dataset into SQLite
 
 ### Spring Quarter 2022 Wrap-Up
