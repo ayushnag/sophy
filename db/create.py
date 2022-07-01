@@ -44,7 +44,7 @@ phybase_sql: dict = {"scientificName": "scientific_name", "decimalLongitude": "l
                      "depth": "depth", "organismQuantity": "organismQuantity"}
 
 
-def write_lter():
+def write_lter() -> None:
     # read and clean dataset
     sample_df: DataFrame = pd.read_csv('../datasets/lter.csv', encoding='unicode_escape')
     sample_df = clean_df(sample_df, lter_sql)
@@ -56,7 +56,7 @@ def write_lter():
     write_df_sql("sample", sample_df, sample_cols)
 
 
-def write_phybase():
+def write_phybase() -> None:
     # read and clean dataset
     sample_df: DataFrame = pd.read_csv('../datasets/phytobase.csv', encoding='unicode_escape')
     sample_df = clean_df(sample_df, phybase_sql)
@@ -82,7 +82,7 @@ def write_phybase():
 
 
 # Writes data frame to the SQLite table named @param: 'table_name'
-def write_df_sql(table_name: str, df: DataFrame, cols: tuple):
+def write_df_sql(table_name: str, df: DataFrame, cols: tuple) -> None:
     assert cur.execute(f"select name from sqlite_master where type='table' and name='{{table_name}}'") == 1, f'{table_name} does not exist'
     assert set(df.columns.values.tolist()).issubset(set(cols)), f'Provided {table_name} table has invalid column(s)'
     df.to_sql("temp", con=con, index=False)
