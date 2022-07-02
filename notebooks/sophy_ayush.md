@@ -1,4 +1,4 @@
-# SOPHY Notes
+# SOPHY Notes - Ayush Nag
 
 ### Data Science Notebook Options
 #### Jupyter
@@ -20,10 +20,17 @@ Current pick is to create Jupyter file and work in Intellij. Then if storage/per
 ### Summer 2022 Goals
 - Add more datasets to SOPHY
   - Start with LTER and Phytobase. LTER is the most ideal format to test and Phytobase has by far the most microscopy data
+- Define regions and tags for data
+  - Use GeoJSON/GeoPandas to label data
+  - Brainstorm all the regions that are needed (oceans, fronts, etc.)
 - Create Jupyter notebook or Google Colab front end
   - Custom python functions for common oceanography use cases of this data
   - Direct SQLite editor for advanced users
   - Map visualization of all data
+  - UW Research Computing Club has access to Azure, AWS, etc. servers for ML 
+- Start niche model/ML/Objective 3
+  - An idea is to start with unsupervised learning and then switching to supervised. Let's the ML project get started and potentially find trends we were not expecting.
+  - Could use synthetic data while real data is not there 
 
 ### Feature Ideas
 - Think about how this could be adapted to the future of phytoplankton data
@@ -81,6 +88,7 @@ pyworms.aphiaRecordsByMatchNames('Pterosperma labyrinthus')  # unaccepted name, 
 - Mapping can and should be done at insert time, not runtime to speed up queries that use this data
 - Some options are GeoPandas, [GeoJSON](https://handsondataviz.org/geojsonio.html), ArcGIS, PostGIS, pyshp, PyGIS, and arcpy
 - An issue with the Arc family is that they are not open-source unlike GeoJSON and others
+- 
 
 ### Workflow of Python and SQLite
 - Both have a way of storing large amounts of 2D data(dataframes vs. tables) so it can be confusing when to use which
