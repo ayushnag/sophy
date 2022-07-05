@@ -46,7 +46,7 @@ phybase_sql: dict = {"scientificName": "scientific_name", "decimalLongitude": "l
 
 def write_lter() -> None:
     # read and clean dataset
-    sample_df: DataFrame = pd.read_csv('../datasets/lter.csv', encoding='unicode_escape')
+    sample_df: DataFrame = pd.read_csv('datasets/lter.csv', encoding='unicode_escape')
     sample_df = clean_df(sample_df, lter_sql)
 
     # drop rows with null time, lat, or long
@@ -58,7 +58,7 @@ def write_lter() -> None:
 
 def write_phybase() -> None:
     # read and clean dataset
-    sample_df: DataFrame = pd.read_csv('../datasets/phytobase.csv', encoding='unicode_escape')
+    sample_df: DataFrame = pd.read_csv('datasets/phytobase.csv', encoding='unicode_escape')
     sample_df = clean_df(sample_df, phybase_sql)
 
     # Merge three columns into one with proper datetime format (no NaT)
@@ -70,8 +70,8 @@ def write_phybase() -> None:
     sci_names_micro = set(cur.execute("select scientific_name from microscopy").fetchall())
     missing: set = sci_names_data - sci_names_micro  # sci_names that are missing from our database taxa records
     # get full taxonomy of microscopy data as dataframe
-    # micro_df: DataFrame = worms_taxa(list(missing)) ~7 minutes for 1700 taxa from phytobase
-    micro_df: DataFrame = clean_df(pd.read_csv('../datasets/micro_phybase.csv'), worms_sql)  # Only for testing purposes
+    #micro_df: DataFrame = worms_taxa(list(missing))
+    micro_df: DataFrame = clean_df(pd.read_csv('datasets/micro_phybase.csv'), worms_sql)  # Only for testing purposes
     # join on sample and microscopy (by aphia_id), only keep cols in the sample table (filter out order, genus, etc)
     sample_df: DataFrame = pd.merge(sample_df, micro_df).filter(sample_cols)
 
@@ -93,16 +93,16 @@ def write_df_sql(table_name: str, df: DataFrame, cols: tuple) -> None:
 
 
 # Gets full taxonomy records of given scientific names using the WoRMS database
-# Note: @param: 'taxa' ordering does not matter, however pyworms requires a list instead of set
-def worms_taxa(taxa: list) -> DataFrame:
-    microscopy, no_result = list()
+# Note: @param: 'input' ordering does not matter, however pyworms requires a list instead of set
+def worms_taxa(input: list) -> DataFrame:
+    microscopy, no_result = [], []
     # full taxa records from WoRMS; worms = [[{}], [{}], [], [{}], ...]
-    worms: list = pyworms.aphiaRecordsByMatchNames(taxa)
+    worms: list = pyworms.aphiaRecordsByMatchNames(input)
     for i in range(len(worms)):
         if len(worms[i]) > 0:
-            microscopy.append(worms[i][0])
+            microscopy.append(worms[i])
         else:  # no WoRMS record was found since len(result) = 0
-            no_result.append(taxa[i])
+            no_result.append(input[i])
     if len(no_result) != 0:  # outputs taxa (first 20 for brevity) where WoRMS database found no result
         warnings.warn(f"No results found by WoRMS database: {str(no_result[:20])}...")
     # convert list of dict() -> dataframe and clean it
@@ -124,7 +124,7 @@ def csl(cols: list) -> str:
 con = sqlite3.connect("sophy.db")
 cur = con.cursor()
 
-with open('create_tables.sql', 'r') as create_tables:
+with open('db/create_tables.sql', 'r') as create_tables:
     con.executescript(create_tables.read())
 write_lter()
 write_phybase()
