@@ -121,7 +121,7 @@ def csl(cols: list) -> str:
     return ', '.join(cols)
 
 
-con = sqlite3.connect("sophy.db")
+con = sqlite3.connect("db\sophy.db")
 cur = con.cursor()
 
 with open('db/create_tables.sql', 'r') as create_tables:

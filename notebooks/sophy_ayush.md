@@ -1,5 +1,31 @@
 # SOPHY Notes - Ayush Nag
 
+### Southern Ocean Fronts and Sectors
+#### Fronts
+- "Boundary between two distinct water masses"
+- Essentially dividing line where ocean is physically different
+- Change over time but data uses composite data to pick one line for a span of time (e.g. 1 year)
+- Get raw data as series of points over time. Convert that to shape file (GeoJSON?). Load into python and geopandas
+- Then users can add new front data if they want by simply replacing the file and calling an update on the database
+<p align="center">
+  <img 
+    width="350"
+    src="fronts.png"
+  >
+</p>
+
+#### Sectors
+- Fixed sectors of the sea commonly used
+- Arbitrarily defined so people have other definitions they use
+- Similar to fronts, define a shape file and allow users to upload one of their own
+<p align="center">
+  <img 
+    width="350"
+    src="sectors.png"
+  >
+</p>
+
+
 ### Data Science Notebook Options
 #### Jupyter
 - Runs locally so no internet connection needed after download
