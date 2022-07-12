@@ -50,7 +50,7 @@ def write_lter() -> None:
     sample_df = clean_df(sample_df, lter_sql)
 
     # drop rows with null time, lat, or long
-    sample_df.dropna(subset=['timestamp', 'latitude', 'longitude'], inplace=True)
+    sample_df = sample_df.dropna(subset=['timestamp', 'latitude', 'longitude'])
 
     # write sample dataframe to sql database
     write_df_sql("sample", sample_df, sample_cols)
@@ -64,7 +64,7 @@ def write_phybase() -> None:
     # Merge three columns into one with proper datetime format (no NaT)
     sample_df['timestamp'] = pd.to_datetime(sample_df[['year', 'month', 'day']], format='%m-%d-%Y',
                                             errors='coerce').dropna()
-    sample_df.drop(columns=['organismQuantity', 'year', 'month', 'day'], inplace=True)
+    sample_df = sample_df.drop(columns=['organismQuantity', 'year', 'month', 'day'])
 
     sci_names_data = set(sample_df['scientific_name'].unique())
     sci_names_micro = set(cur.execute("select scientific_name from microscopy").fetchall())

@@ -1,16 +1,38 @@
 # SOPHY Notes - Ayush Nag
 
+### Spatial Data Workflow
+- How will data flow from raw input data to queriable results at the front end?
+- Geo data is different because points inside a shape are not directly stored (only the edges are)
+- This section describes the different technologies that can be used and how they will interact
+
+#### GeoPandas and GeoJSON
+- GeoJSON is an open-source format for encoding a variety of geographic data structures such as Lines, Polygons, Inner/Outer Rings, etc
+- Similar to the popular ESRI shape file but it's open source. It can also be easily modified and created with python/shapely
+- GeoPandas allows for geospatial queries with GeoJSON's and DataFrames
+- For example PIP calculations can be done with a geospatial join using .contains(), .within(), .join(), etc.
+- GeoPandas also allows for indexing GeoJSON's for speeding up queries. [This example](https://geoffboeing.com/2016/10/r-tree-spatial-index-python/) shows R-Tree Spatial Indexing in GeoPandas
+#### SpatiaLite?
+-  Open-source extension to SQLite that allows for spatial data (like GeoJSON shapes) to be stored and queried from
+- Has all the functionality of sqlite so it doesn't narrow the usability of the database
+- This will only be used if we decide to decide to keep shape files in the database for query use. Otherwise just labeling data serves the same purpose of having geospatial queries
+#### Point Inside Polygon (PIP)
+- Large amounts of data will need to be processed with PIP
+- All data entries will be labeled with a zone (STZ, SAZ, etc.) and sector which could be expensive
+- An alternative is to store the shapes and calcualte PIP at runtime
+  - However this is a runtime cost whereas I am trying to optimize for insert time costs
+  - This also adds complexity for the users since they need to understand what a polygon/shapefile is and how to use them in queries
+
 ### Southern Ocean Fronts and Sectors
 #### Fronts
 - "Boundary between two distinct water masses"
-- Essentially dividing line where ocean is physically different
+- Dividing line where ocean is physically different
 - Change over time but data uses composite data to pick one line for a span of time (e.g. 1 year)
 - Get raw data as series of points over time. Convert that to shape file (GeoJSON?). Load into python and geopandas
 - Then users can add new front data if they want by simply replacing the file and calling an update on the database
 <p align="center">
   <img 
     width="350"
-    src="fronts.png"
+    src="img/fronts.png"
   >
 </p>
 
@@ -21,7 +43,7 @@
 <p align="center">
   <img 
     width="350"
-    src="sectors.png"
+    src="img/sectors.png"
   >
 </p>
 
@@ -106,7 +128,7 @@ pyworms.aphiaRecordsByMatchNames('Pterosperma labyrinthus')  # unaccepted name, 
 
 ### Defining geospatial regions in the Southern Ocean
 - We want to be able to label rows with a certain regions like the one seen in the map:
-  <img alt="Southern Ocean Map" src="southern_ocean.jpg" title="Southern Ocean Map" width="300"/>
+  <img alt="Southern Ocean Map" src="img/southern_ocean.jpg" title="Southern Ocean Map" width="300"/>
 - Cannot use simple lat long filters since they are rectangular unlike our regions
 - Solutions inlcude ArcGIS filter/map or polygons that have predefined these regions
 - Main point is that there must be a mapping from latitude to region
