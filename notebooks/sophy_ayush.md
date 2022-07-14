@@ -120,6 +120,7 @@ Current pick is to create Jupyter file and work in Intellij. Then if storage/per
 - In that case the aphia_id approach is correct since we can keep the aphia_id for the genus and then have access to it's full taxa through the microscopy table whereas that would not be possible with only a sci_name col in the main table
 - This approach also correctly handles the issue of when two names are different in Python or just visually, but actually represent the same species (WoRMS flags species name as unaccepted)
 ```python
+import pyworms
 pyworms.aphiaRecordsByMatchNames('Coccopterum labyrinthus')  # accepted name
 pyworms.aphiaRecordsByMatchNames('Coccopterum_labyrinthus')  # slightly different formatting
 pyworms.aphiaRecordsByMatchNames('Pterosperma labyrinthus')  # unaccepted name, but same species

@@ -95,6 +95,14 @@ def write_df_sql(table_name: str, df: DataFrame, cols: tuple) -> None:
 # Gets full taxonomy records of given scientific names using the WoRMS database
 # Note: @param: 'input' ordering does not matter, however pyworms requires a list instead of set
 def worms_taxa(input: list) -> DataFrame:
+    """_summary_
+
+    Args:
+        input (list): _description_
+
+    Returns:
+        DataFrame: _description_
+    """
     microscopy, no_result = [], []
     # full taxa records from WoRMS; worms = [[{}], [{}], [], [{}], ...]
     worms: list = pyworms.aphiaRecordsByMatchNames(input)
