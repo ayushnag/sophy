@@ -1,5 +1,29 @@
 # SOPHY Notes - Ayush Nag
 
+### NetCDF
+
+### RG Climatology to Southern Ocean Fronts
+- Member of my lab group has written code that converts [RG Climatology data](http://sio-argo.ucsd.edu/RG_Climatology.html) from Argo sensors into ocean front polygons
+- The two options are:
+1) Rewrite all the code
+   - Code is well documented but not efficient and contains lots of extra steps, hardcoded values, and not very modular
+   - Meet with author and document every step/calculation. Then replicate process but with my own code
+   - Pros:
+     - High quality code. Easy to read, modify, and debug
+   - Cons:
+     - Time (at least a week). I need to understand the program, new datastructures, new packages etc.
+     - If there are updates to the original code, I will not receive them (no longer a fork)
+2) Make small updates to code
+   - Fix hardcoding
+   - Pros:
+     - Code is already written and verified 
+     - Saves me a lot of time
+   - Cons:
+     - Leaves overall codebase vulnerable to bugs in that portion of code
+  - My current choice is option 2. The core of this project is to make the most useful database possible, so I think my time is better spent building other features. I will still make updates to the code to avoid hardcoding and small performance issues as they come up. Now I can focus on tasks building around this code. Some examples include:
+    - Automatic data retrieval. Simply call a function or script and the database will download new climatology data, calculate the fronts, and update the database.
+    - NetCDF export/import. Add feature to export fronts as a NetCDF file, so it can be used for other research. In the future, if there are new ways of calculating fronts we can import the NetCDF from that calculation and keep the rest of the code the same.
+
 ### Spatial Data Workflow
 - How will data flow from raw input data to queriable results at the front end?
 - Geo data is different because points inside a shape are not directly stored (only the edges are)
@@ -7,19 +31,19 @@
 
 #### GeoPandas and GeoJSON
 - GeoJSON is an open-source format for encoding a variety of geographic data structures such as Lines, Polygons, Inner/Outer Rings, etc
-- Similar to the popular ESRI shape file but it's open source. It can also be easily modified and created with python/shapely
+- Similar to the popular ESRI shape file, but it's open source. It can also be easily modified and created with python/shapely
 - GeoPandas allows for geospatial queries with GeoJSON's and DataFrames
 - For example PIP calculations can be done with a geospatial join using .contains(), .within(), .join(), etc.
 - GeoPandas also allows for indexing GeoJSON's for speeding up queries. [This example](https://geoffboeing.com/2016/10/r-tree-spatial-index-python/) shows R-Tree Spatial Indexing in GeoPandas
 #### SpatiaLite?
 -  Open-source extension to SQLite that allows for spatial data (like GeoJSON shapes) to be stored and queried from
-- Has all the functionality of sqlite so it doesn't narrow the usability of the database
-- This will only be used if we decide to decide to keep shape files in the database for query use. Otherwise just labeling data serves the same purpose of having geospatial queries
+- Has all the functionality of sqlite, so it doesn't narrow the usability of the database
+- This will only be used if we decide to keep shape files in the database for query use. Otherwise just labeling data serves the same purpose of having geospatial queries
 #### Point Inside Polygon (PIP)
 - Large amounts of data will need to be processed with PIP
 - All data entries will be labeled with a zone (STZ, SAZ, etc.) and sector which could be expensive
-- An alternative is to store the shapes and calcualte PIP at runtime
-  - However this is a runtime cost whereas I am trying to optimize for insert time costs
+- An alternative is to store the shapes and calculate PIP at runtime
+  - However, this is a runtime cost whereas I am trying to optimize for insert time costs
   - This also adds complexity for the users since they need to understand what a polygon/shapefile is and how to use them in queries
 
 ### Southern Ocean Fronts and Sectors
@@ -77,7 +101,7 @@ Current pick is to create Jupyter file and work in Intellij. Then if storage/per
   - Map visualization of all data
   - UW Research Computing Club has access to Azure, AWS, etc. servers for ML 
 - Start niche model/ML/Objective 3
-  - An idea is to start with unsupervised learning and then switching to supervised. Let's the ML project get started and potentially find trends we were not expecting.
+  - An idea is to start with unsupervised learning and then switching to supervised. Lets the ML project get started and potentially find trends we were not expecting.
   - Could use synthetic data while real data is not there 
 
 ### Feature Ideas
@@ -115,7 +139,7 @@ Current pick is to create Jupyter file and work in Intellij. Then if storage/per
 
 ### Natural Key vs AphiaID
 - Datasets that contain microscopy data will most likely contain a 'scientific_name' field that we will also have a corresponding AphiaID we will get from the WoRMS database
-- sci_name is a key for aphia_id and vice versa so we should only store one of them in the main table
+- sci_name is a key for aphia_id and vice versa, so we should only store one of them in the main table
 - However not all microscopy data goes to the level of sci_name and may only go down to genus
 - In that case the aphia_id approach is correct since we can keep the aphia_id for the genus and then have access to it's full taxa through the microscopy table whereas that would not be possible with only a sci_name col in the main table
 - This approach also correctly handles the issue of when two names are different in Python or just visually, but actually represent the same species (WoRMS flags species name as unaccepted)
