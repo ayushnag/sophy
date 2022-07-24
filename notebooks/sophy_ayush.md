@@ -1,6 +1,7 @@
 # SOPHY Notes - Ayush Nag
 
-### NetCDF
+### Unsupervised learning to define Southern Ocean sectors
+
 
 ### RG Climatology to Southern Ocean Fronts
 - Member of my lab group has written code that converts [RG Climatology data](http://sio-argo.ucsd.edu/RG_Climatology.html) from Argo sensors into ocean front polygons
@@ -90,7 +91,7 @@ Current pick is to create Jupyter file and work in Intellij. Then if storage/per
 
 
 ### Summer 2022 Goals
-- Add more datasets to SOPHY
+- Add more data to SOPHY
   - Start with LTER and Phytobase. LTER is the most ideal format to test and Phytobase has by far the most microscopy data
 - Define regions and tags for data
   - Use GeoJSON/GeoPandas to label data
@@ -113,18 +114,18 @@ Current pick is to create Jupyter file and work in Intellij. Then if storage/per
 
 ### Spring Quarter 2022 Wrap-Up
 - Feature List:
-  - Main script can add two full datasets to database (~1.3 mil rows)
+  - Main script can add two full data to database (~1.3 mil rows)
     - _LTER_ and _Phytobase_ were chosen since they cover the two different formats of taxonomy data (microscopy and CHEMTAX)
     - Also adds foreign keys from microscopy table (Phytobase)
   - Query WoRMS database for taxa records
     - Converts result from pyworms package into formatted dataframe
-  - **Modular code** that easily translates to other datasets
+  - **Modular code** that easily translates to other data
     - Code from this quarter is quite short since I have reviewed each operation several times to prioritize simplicity and performance as a setup for the summer
-    - The formula is made for how to add new datasets; data read, modify, write, and fk setup
+    - The formula is made for how to add new data; data read, modify, write, and fk setup
 - Next steps:
   - Support for location, source, and tag tables as part of data insert
   - Work on test suite even though code format may change (new classes/functions)
-  - Build collection of datasets we want to add to SOPHY
+  - Build collection of data we want to add to SOPHY
     - Can be done concurrently with writing new code
     - The schema and code will adapt to deal with new challenges or design changes
   - How to interact with the database?

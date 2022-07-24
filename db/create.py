@@ -82,35 +82,35 @@ def write_phybase() -> None:
 
 
 # Writes data frame to the SQLite table named @param: 'table_name'
-def write_df_sql(table_name: str, df: DataFrame, cols: tuple) -> None:
+def write_df_sql(table_name: str, data: DataFrame, cols: tuple) -> None:
     assert cur.execute(f"select name from sqlite_master where type='table' and name='{{table_name}}'") == 1, f'{table_name} does not exist'
-    assert set(df.columns.values.tolist()).issubset(set(cols)), f'Provided {table_name} table has invalid column(s)'
-    df.to_sql("temp", con=con, index=False)
-    cols_str: str = csl(df.columns.values.tolist())
+    assert set(data.columns.values.tolist()).issubset(set(cols)), f'Provided {table_name} table has invalid column(s)'
+    data.to_sql("temp", con=con, index=False)
+    cols_str: str = csl(data.columns.values.tolist())
     cur.execute(f"insert into {table_name} ({cols_str}) select {cols_str} from temp")
     cur.execute("drop table temp")
     con.commit()
 
 
 # Gets full taxonomy records of given scientific names using the WoRMS database
-# Note: @param: 'input' ordering does not matter, however pyworms requires a list instead of set
-def worms_taxa(input: list) -> DataFrame:
+# Note: @param: 'taxa' ordering does not matter, however pyworms requires a list instead of set
+def worms_taxa(taxa: list) -> DataFrame:
     """_summary_
 
     Args:
-        input (list): _description_
+        taxa (list): _description_
 
     Returns:
         DataFrame: _description_
     """
     microscopy, no_result = [], []
     # full taxa records from WoRMS; worms = [[{}], [{}], [], [{}], ...]
-    worms: list = pyworms.aphiaRecordsByMatchNames(input)
+    worms: list = pyworms.aphiaRecordsByMatchNames(taxa)
     for i in range(len(worms)):
         if len(worms[i]) > 0:
             microscopy.append(worms[i])
         else:  # no WoRMS record was found since len(result) = 0
-            no_result.append(input[i])
+            no_result.append(taxa[i])
     if len(no_result) != 0:  # outputs taxa (first 20 for brevity) where WoRMS database found no result
         warnings.warn(f"No results found by WoRMS database: {str(no_result[:20])}...")
     # convert list of dict() -> dataframe and clean it
@@ -118,9 +118,9 @@ def worms_taxa(input: list) -> DataFrame:
 
 
 # Performs few operations on DF for ease of use prepare for inserting into SQLite table
-def clean_df(df: DataFrame, source_sql: dict) -> DataFrame:
-    df = df.filter(source_sql.keys())  # filter out columns that are not in the set
-    return df.rename(columns=source_sql)  # rename columns using dict()
+def clean_df(data: DataFrame, source_sql: dict) -> DataFrame:
+    data = data.filter(source_sql.keys())  # filter out columns that are not in the set
+    return data.rename(columns=source_sql)  # rename columns using dict()
 
 
 # Converts list of values to comma separated string
@@ -128,8 +128,7 @@ def clean_df(df: DataFrame, source_sql: dict) -> DataFrame:
 def csl(cols: list) -> str:
     return ', '.join(cols)
 
-
-con = sqlite3.connect("db\sophy.db")
+con = sqlite3.connect("db/sophy.db")
 cur = con.cursor()
 
 with open('db/create_tables.sql', 'r') as create_tables:

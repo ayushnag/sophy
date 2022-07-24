@@ -4,6 +4,7 @@ create table if not exists sample (
     longitude float,
     timestamp text,
     depth float,
+    front_zone,
     pressure float,
     tot_depth_water_col float,
     source_name text references source (name),
@@ -21,6 +22,8 @@ create table if not exists sample (
 
     down_par float,
     light_intensity float,
+    mld float,
+    xld float,
 
     scientific_name text,
     prasinophytes float,
@@ -73,11 +76,6 @@ create table if not exists source (
 create table if not exists tag (
     sample_id integer references sample (id),
     name text
-);
-
-create table if not exists location (
-    region text primary key,
-    ice_regime text
 );
 
 create table if not exists microscopy (
