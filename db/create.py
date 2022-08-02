@@ -64,7 +64,7 @@ def write_phybase() -> None:
     sample_df: DataFrame = pd.read_csv('datasets/phytobase.csv', encoding='unicode_escape')
     sample_df = clean_df(sample_df, phybase_sql)
 
-    # Merge three columns into one with proper datetime format (no NaT)
+    # merge three columns into one with proper datetime format (no NaT)
     sample_df['timestamp'] = pd.to_datetime(sample_df[['year', 'month', 'day']], format='%m-%d-%Y',
                                             errors='coerce').dropna()
     sample_df = sample_df.drop(columns=['organismQuantity', 'year', 'month', 'day'])
