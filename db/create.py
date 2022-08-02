@@ -1,3 +1,5 @@
+"""Instructions to create the database from scratch. New functions are also used to update the database"""
+__author__ = 'Ayush Nag'
 import warnings
 import sqlite3
 import pandas as pd
@@ -45,7 +47,7 @@ phybase_sql: dict = {"scientificName": "scientific_name", "decimalLongitude": "l
 
 
 def write_lter() -> None:
-    # read and clean dataset
+    """Writes LTER dataset to database"""
     sample_df: DataFrame = pd.read_csv('datasets/lter.csv', encoding='unicode_escape')
     sample_df = clean_df(sample_df, lter_sql)
 
@@ -57,6 +59,7 @@ def write_lter() -> None:
 
 
 def write_phybase() -> None:
+    """Writes Phytobase dataset to database"""
     # read and clean dataset
     sample_df: DataFrame = pd.read_csv('datasets/phytobase.csv', encoding='unicode_escape')
     sample_df = clean_df(sample_df, phybase_sql)
@@ -70,7 +73,7 @@ def write_phybase() -> None:
     sci_names_micro = set(cur.execute("select scientific_name from microscopy").fetchall())
     missing: set = sci_names_data - sci_names_micro  # sci_names that are missing from our database taxa records
     # get full taxonomy of microscopy data as dataframe
-    #micro_df: DataFrame = worms_taxa(list(missing))
+    # micro_df: DataFrame = worms_taxa(list(missing))
     micro_df: DataFrame = clean_df(pd.read_csv('datasets/micro_phybase.csv'), worms_sql)  # Only for testing purposes
     # join on sample and microscopy (by aphia_id), only keep cols in the sample table (filter out order, genus, etc)
     sample_df: DataFrame = pd.merge(sample_df, micro_df).filter(sample_cols)
@@ -81,9 +84,10 @@ def write_phybase() -> None:
     write_df_sql("sample", sample_df, sample_cols)
 
 
-# Writes data frame to the SQLite table named @param: 'table_name'
 def write_df_sql(table_name: str, data: DataFrame, cols: tuple) -> None:
-    assert cur.execute(f"select name from sqlite_master where type='table' and name='{{table_name}}'") == 1, f'{table_name} does not exist'
+    """Writes data frame to the SQLite table table_name:param"""
+    assert cur.execute(
+        f"select name from sqlite_master where type='table' and name='{{table_name}}'") == 1, f'{table_name} does not exist'
     assert set(data.columns.values.tolist()).issubset(set(cols)), f'Provided {table_name} table has invalid column(s)'
     data.to_sql("temp", con=con, index=False)
     cols_str: str = csl(data.columns.values.tolist())
@@ -92,17 +96,8 @@ def write_df_sql(table_name: str, data: DataFrame, cols: tuple) -> None:
     con.commit()
 
 
-# Gets full taxonomy records of given scientific names using the WoRMS database
-# Note: @param: 'taxa' ordering does not matter, however pyworms requires a list instead of set
 def worms_taxa(taxa: list) -> DataFrame:
-    """_summary_
-
-    Args:
-        taxa (list): _description_
-
-    Returns:
-        DataFrame: _description_
-    """
+    """Finds full species composition of provided taxa. Uses WoRMS database to find data"""
     microscopy, no_result = [], []
     # full taxa records from WoRMS; worms = [[{}], [{}], [], [{}], ...]
     worms: list = pyworms.aphiaRecordsByMatchNames(taxa)
@@ -117,16 +112,16 @@ def worms_taxa(taxa: list) -> DataFrame:
     return clean_df(pd.DataFrame(microscopy), worms_sql)
 
 
-# Performs few operations on DF for ease of use prepare for inserting into SQLite table
 def clean_df(data: DataFrame, source_sql: dict) -> DataFrame:
+    """Performs few operations on DF for ease of use prepare for inserting into SQLite table"""
     data = data.filter(source_sql.keys())  # filter out columns that are not in the set
     return data.rename(columns=source_sql)  # rename columns using dict()
 
 
-# Converts list of values to comma separated string
-# Ex: [A, B, C] --> A, B, C
 def csl(cols: list) -> str:
+    """Converts list of values to comma separated string. Ex: [A, B, C] --> A, B, C"""
     return ', '.join(cols)
+
 
 con = sqlite3.connect("db/sophy.db")
 cur = con.cursor()
