@@ -6,6 +6,8 @@ import pandas as pd
 import pyworms
 from pandas import DataFrame
 
+from db.geolabel import GeoLabel
+
 # columns expected in the sample table
 sample_cols: tuple = ("latitude", "longitude", "timestamp", "depth", "pressure", "tot_depth_water_col", "source_name",
                       "aphia_id", "region", "salinity", "temperature", "density", "chlorophyll", "phaeopigments",
@@ -48,7 +50,7 @@ phybase_sql: dict = {"scientificName": "scientific_name", "decimalLongitude": "l
 
 def write_lter() -> None:
     """Writes LTER dataset to database"""
-    sample_df: DataFrame = pd.read_csv('datasets/lter.csv', encoding='unicode_escape')
+    sample_df: DataFrame = pd.read_csv('data/lter.csv', encoding='unicode_escape')
     sample_df = clean_df(sample_df, lter_sql)
 
     # drop rows with null time, lat, or long
@@ -61,7 +63,7 @@ def write_lter() -> None:
 def write_phybase() -> None:
     """Writes Phytobase dataset to database"""
     # read and clean dataset
-    sample_df: DataFrame = pd.read_csv('datasets/phytobase.csv', encoding='unicode_escape')
+    sample_df: DataFrame = pd.read_csv('data/phytobase.csv', encoding='unicode_escape')
     sample_df = clean_df(sample_df, phybase_sql)
 
     # merge three columns into one with proper datetime format (no NaT)
@@ -77,7 +79,6 @@ def write_phybase() -> None:
     micro_df: DataFrame = clean_df(pd.read_csv('datasets/micro_phybase.csv'), worms_sql)  # Only for testing purposes
     # join on sample and microscopy (by aphia_id), only keep cols in the sample table (filter out order, genus, etc)
     sample_df: DataFrame = pd.merge(sample_df, micro_df).filter(sample_cols)
-
     # write microscopy dataframe to sql database
     write_df_sql("microscopy", micro_df, microscopy_cols)
     # write sample dataframe to sql database

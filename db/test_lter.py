@@ -22,7 +22,7 @@ def load_lter(cursor) -> DataFrame:
                            ("POC", "part_org_carbon"), ("SiO4", "silicate"), ("N", "tot_nitrogen"),
                            ("PO4", "phosphate"), ("Notes1", "notes")])
 
-    data: DataFrame = pandas.read_csv('../data/lter.csv', encoding='unicode_escape')
+    data: DataFrame = pandas.read_csv('../data/datasets/lter.csv', encoding='unicode_escape')
     df = clean_df(data, lter_sql)
     return df
 
