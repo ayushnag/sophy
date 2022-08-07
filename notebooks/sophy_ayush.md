@@ -1,5 +1,9 @@
 # SOPHY Notes - Ayush Nag
 
+### Modifications to Kim and Orsi's front data
+- Removed small extra dots included in the fronts
+- Fixed large gap in  the inner front
+
 ### Unsupervised learning to define Southern Ocean sectors
 
 
