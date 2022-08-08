@@ -1,11 +1,19 @@
 # SOPHY Notes - Ayush Nag
 
+### GeoLabel class
+- Wrote hundreds of test lines over 2 weeks to get shapefiles and geopandas working
+- Refactored several times to simplify the functions as much as possible. Zones are labeled with a simple geospatial join
+
 ### Modifications to Kim and Orsi's front data
 - Removed small extra dots included in the fronts
-- Fixed large gap in  the inner front
+- Old versions have SBdy from Kim and Orsi. There is a large gap in the SBdy that is closed with a straight line by Shapely
+- Data includes points from lat [-180, 360] but [-180, 180] is duplicate of [0, 360] and we kept [-180, 180]
 
 ### Unsupervised learning to define Southern Ocean sectors
-
+- The niche model will not use the traditional front definitions to group data
+- Instead we will use temp + salinity + other bio factors to make custom clusters with unsupervised machine learning
+- Based off the work in [this](https://doi.org/10.1029/2018JC014629) paper by Dan Jones in 2019
+- Fronts are difficult to define as a fixed boundary which is why a more open clustering system seems more representitive
 
 ### RG Climatology to Southern Ocean Fronts
 - Member of my lab group has written code that converts [RG Climatology data](http://sio-argo.ucsd.edu/RG_Climatology.html) from Argo sensors into ocean front polygons
