@@ -1,6 +1,6 @@
-"""Defines static methods that can be used to interact with Southern Ocean fronts and sectors"""
 __author__ = 'Ayush Nag'
 
+from os.path import exists
 import numpy as np
 import pandas as pd
 import scipy.io as sio
@@ -8,14 +8,16 @@ import matplotlib.pyplot as plt
 import cartopy
 import cartopy.crs as ccrs
 import geopandas as gpd
-from os.path import exists
 from shapely.geometry import Polygon
 
 
 class GeoLabel:
+    """Defines static methods that can be used to interact with Southern Ocean fronts and sectors"""
     kim_orsi_file: str = '../data/fronts/ys_fronts.mat'
     fronts_shapefile: str = '../data/shapefiles/fronts/so_fronts.shp'
-    zones_shapefile: str = '../data/shapefiles/so_zones/zones.shp'
+    zones_shapefile: str = '../data/shapefiles/zones/so_zones.shp'
+    # TODO: still needs to be implemented
+    sectors_shapefile: str = '../data/shapefiles/sectors/so_sectors.shp'
     world_shapefile: str = '../data/shapefiles/world/world.shp'
 
     @staticmethod
@@ -31,9 +33,10 @@ class GeoLabel:
         keep = ((44, 2633), (0, 2305), (0, 2614), (60, 2154))
         front_names: tuple = ('SAF', 'PF', 'SACC', 'SBdy')
         fronts: dict = {}
-        for i in range(len(orsi_data)):
+        for i, orsi_front in enumerate(orsi_data):
             # convert np array to df
-            front_df = pd.DataFrame(data=orsi_data[i], columns=['Latitude', 'Longitude'], index=np.arange(len(orsi_data[i])))
+            front_df = pd.DataFrame(data=orsi_front, columns=['Latitude', 'Longitude'], 
+                                                     index=np.arange(len(orsi_front)))
             # remove extra points such as small holes in the front
             front_df = front_df.iloc[keep[i][0]:keep[i][1]]
             # data has points [-180, 360] but [-180, 180] is duplicate of [0, 360]
@@ -51,29 +54,31 @@ class GeoLabel:
         antarctica: Polygon = antarctica['geometry'].values[0]
 
         zones: dict = {'zone': ['PFZ', 'ASZ', 'SOZ', 'SIZ'], 'geometry': [fronts['SAF'] - fronts['PF'], 
-                                                                          fronts['PF'] - fronts['SACC'], 
-                                                                          fronts['SACC'] - fronts['SBdy'],
-                                                                          fronts['SIE'] - antarctica]}
+                                                                        fronts['PF'] - fronts['SACC'], 
+                                                                        fronts['SACC'] - fronts['SBdy'],
+                                                                        fronts['SIE'] - antarctica]}
         zones_gdf = gpd.GeoDataFrame(zones, crs='EPSG:3031')
         zones_gdf.to_file(GeoLabel.zones_shapefile)
 
     @staticmethod
-    def get_front(lat: float, lon: float) -> str:
+    def get_zone(lat: float, lon: float) -> str:
         # assert that the range is in the Southern Ocean
-        print('temp')
+        # Calls label_fronts with lat, lon pair as DataFrame
+        return GeoLabel.label_zones(pd.DataFrame([(lat, lon)], columns=['lat', 'lon']), 'lat', 'lon')['zone'][0]
 
     @staticmethod
-    def label_fronts(data: pd.DataFrame, lat_col: str, lon_col: str) -> pd.DataFrame:
+    def label_zones(data: pd.DataFrame, lat_col: str, lon_col: str) -> pd.DataFrame:
         """Labels provided data with fronts"""
         assert {lat_col, lon_col}.issubset(data.columns), 'f"{lat_col}" or "{lon_col}" are not present in the provided DataFrame'
+        assert exists(GeoLabel.zones_shapefile), 'missing frontal zones shapefile; try running create_fronts_zones_shapes()'
 
         # df = pd.read_csv("../data/datasets/lter.csv", encoding='unicode_escape')
-        lter_gdf = gpd.GeoDataFrame(data, geometry=gpd.points_from_xy(data[lat_col], data[lon_col]), crs='EPSG:4326')
-        lter_gdf.to_crs(crs='EPSG:3031', inplace=True)
+        data_gdf = gpd.GeoDataFrame(data, geometry=gpd.points_from_xy(data[lat_col], data[lon_col]), crs='EPSG:4326')
+        data_gdf.to_crs(crs='EPSG:3031', inplace=True)
 
         zones_gdf = gpd.read_file(GeoLabel.zones_shapefile)
 
-        result = gpd.sjoin(lter_gdf, zones_gdf)
+        result = gpd.sjoin(data_gdf, zones_gdf)
         return pd.DataFrame(result.drop(columns='geometry'))
 
 
@@ -106,8 +111,8 @@ class GeoLabel:
         # filters out extra data and only keeps the 4 Southern Ocean fronts
         orsi_fronts = orsi_fronts[:4]
         colors = ['c', 'b', 'g', 'r']
-        for i in range(len(orsi_fronts)):
-            front = orsi_fronts[i].T
+        for i, orsi_front in enumerate(orsi_fronts):
+            front = orsi_front.T
             # data has points [-180, 360] but [-180, 180] is duplicate of [0, 360]
             extra = np.where(front[0] > 180)
             # delete [180, 360]

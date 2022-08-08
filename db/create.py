@@ -1,12 +1,10 @@
-"""Instructions to create the database from scratch. New functions are also used to update the database"""
+"""Instructions to create the database from scratch. New functions are used to update the database"""
 __author__ = 'Ayush Nag'
 import warnings
 import sqlite3
 import pandas as pd
 import pyworms
 from pandas import DataFrame
-
-from db.geolabel import GeoLabel
 
 # columns expected in the sample table
 sample_cols: tuple = ("latitude", "longitude", "timestamp", "depth", "pressure", "tot_depth_water_col", "source_name",
@@ -75,7 +73,7 @@ def write_phybase() -> None:
     sci_names_micro = set(cur.execute("select scientific_name from microscopy").fetchall())
     missing: set = sci_names_data - sci_names_micro  # sci_names that are missing from our database taxa records
     # get full taxonomy of microscopy data as dataframe
-    # micro_df: DataFrame = worms_taxa(list(missing))
+    # TODO: enable this line when not testing; micro_df: DataFrame = worms_taxa(list(missing))
     micro_df: DataFrame = clean_df(pd.read_csv('datasets/micro_phybase.csv'), worms_sql)  # Only for testing purposes
     # join on sample and microscopy (by aphia_id), only keep cols in the sample table (filter out order, genus, etc)
     sample_df: DataFrame = pd.merge(sample_df, micro_df).filter(sample_cols)
@@ -102,12 +100,12 @@ def worms_taxa(taxa: list) -> DataFrame:
     microscopy, no_result = [], []
     # full taxa records from WoRMS; worms = [[{}], [{}], [], [{}], ...]
     worms: list = pyworms.aphiaRecordsByMatchNames(taxa)
-    for i in range(len(worms)):
-        if len(worms[i]) > 0:
-            microscopy.append(worms[i])
+    for i, taxonomy in enumerate(worms):
+        if len(taxonomy) > 0:
+            microscopy.append(taxonomy)
         else:  # no WoRMS record was found since len(result) = 0
             no_result.append(taxa[i])
-    if len(no_result) != 0:  # outputs taxa (first 20 for brevity) where WoRMS database found no result
+    if len(no_result) != 0:  # outputs taxa (first 20) where WoRMS database found no result
         warnings.warn(f"No results found by WoRMS database: {str(no_result[:20])}...")
     # convert list of dict() -> dataframe and clean it
     return clean_df(pd.DataFrame(microscopy), worms_sql)
