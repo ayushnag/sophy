@@ -43,12 +43,12 @@ lter_sql: dict = {"DatetimeGMT": "timestamp", "Latitude": "latitude", "Longitude
 # phytobase -> sql col name. Also include columns from the original data that are needed but don't need renaming
 phybase_sql: dict = {"scientificName": "scientific_name", "decimalLongitude": "longitude",
                      "decimalLatitude": "latitude", "year": "year", "month": "month", "day": "day",
-                     "depth": "depth", "organismQuantity": "organismQuantity"}
+                     "depth": "depth"}
 
 
 def write_lter() -> None:
     """Writes LTER dataset to database"""
-    sample_df: DataFrame = pd.read_csv('data/lter.csv', encoding='unicode_escape')
+    sample_df: DataFrame = pd.read_csv('../data/datasets/lter.csv', encoding='unicode_escape')
     sample_df = clean_df(sample_df, lter_sql)
 
     # drop rows with null time, lat, or long
@@ -60,23 +60,28 @@ def write_lter() -> None:
 
 def write_phybase() -> None:
     """Writes Phytobase dataset to database"""
-    # read and clean dataset
-    sample_df: DataFrame = pd.read_csv('data/phytobase.csv', encoding='unicode_escape')
+    sample_df: DataFrame = pd.read_csv('../data/datasets/phytobase.csv', encoding='unicode_escape')
     sample_df = clean_df(sample_df, phybase_sql)
-
-    # merge three columns into one with proper datetime format (no NaT)
-    sample_df['timestamp'] = pd.to_datetime(sample_df[['year', 'month', 'day']], format='%m-%d-%Y',
-                                            errors='coerce').dropna()
-    sample_df = sample_df.drop(columns=['organismQuantity', 'year', 'month', 'day'])
 
     sci_names_data = set(sample_df['scientific_name'].unique())
     sci_names_micro = set(cur.execute("select scientific_name from microscopy").fetchall())
     missing: set = sci_names_data - sci_names_micro  # sci_names that are missing from our database taxa records
     # get full taxonomy of microscopy data as dataframe
     # TODO: enable this line when not testing; micro_df: DataFrame = worms_taxa(list(missing))
-    micro_df: DataFrame = clean_df(pd.read_csv('datasets/micro_phybase.csv'), worms_sql)  # Only for testing purposes
+    micro_df: DataFrame = clean_df(pd.read_csv('../data/datasets/micro_phybase.csv'), worms_sql)  # Testing only
+
+    # keep only data in the Southern Ocean (latitude < -30 degrees)
+    # not filtered earlier to get maximum taxa data possible for microscopy table
+    sample_df = sample_df[sample_df['latitude'] < -30]
+    # drop rows with null time, lat, or long
+    sample_df = sample_df.dropna(subset=['latitude', 'longitude'])
+    # merge three columns into one with proper datetime format (no NaT)
+    sample_df['timestamp'] = pd.to_datetime(sample_df[['year', 'month', 'day']], format='%m-%d-%Y',
+                                            errors='coerce').dropna()
+    sample_df = sample_df.drop(columns=['year', 'month', 'day'])
     # join on sample and microscopy (by aphia_id), only keep cols in the sample table (filter out order, genus, etc)
     sample_df: DataFrame = pd.merge(sample_df, micro_df).filter(sample_cols)
+
     # write microscopy dataframe to sql database
     write_df_sql("microscopy", micro_df, microscopy_cols)
     # write sample dataframe to sql database
@@ -85,9 +90,8 @@ def write_phybase() -> None:
 
 def write_df_sql(table_name: str, data: DataFrame, cols: tuple) -> None:
     """Writes data frame to the SQLite table table_name:param"""
-    assert cur.execute(
-        f"select name from sqlite_master where type='table' and name='{{table_name}}'") == 1, f'{table_name} does not exist'
     assert set(data.columns.values.tolist()).issubset(set(cols)), f'Provided {table_name} table has invalid column(s)'
+    # Create temp table, send data to table_name, and drop temp table
     data.to_sql("temp", con=con, index=False)
     cols_str: str = csl(data.columns.values.tolist())
     cur.execute(f"insert into {table_name} ({cols_str}) select {cols_str} from temp")
@@ -111,10 +115,10 @@ def worms_taxa(taxa: list) -> DataFrame:
     return clean_df(pd.DataFrame(microscopy), worms_sql)
 
 
-def clean_df(data: DataFrame, source_sql: dict) -> DataFrame:
-    """Performs few operations on DF for ease of use prepare for inserting into SQLite table"""
-    data = data.filter(source_sql.keys())  # filter out columns that are not in the set
-    return data.rename(columns=source_sql)  # rename columns using dict()
+def clean_df(data: DataFrame, df_sql_map: dict) -> DataFrame:
+    """Performs few operations on DF for ease of use and prepare for inserting into SQLite table"""
+    data = data.filter(df_sql_map.keys())  # filter out columns that are not in the set
+    return data.rename(columns=df_sql_map)  # rename columns using dict()
 
 
 def csl(cols: list) -> str:
@@ -122,11 +126,13 @@ def csl(cols: list) -> str:
     return ', '.join(cols)
 
 
-con = sqlite3.connect("db/sophy.db")
+con = sqlite3.connect("sophy.db")
 cur = con.cursor()
 
-with open('db/create_tables.sql', 'r') as create_tables:
+with open('create_tables.sql', 'r') as create_tables:
     con.executescript(create_tables.read())
+con.commit()
+
 write_lter()
 write_phybase()
 

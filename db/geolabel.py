@@ -4,9 +4,6 @@ from os.path import exists
 import numpy as np
 import pandas as pd
 import scipy.io as sio
-import matplotlib.pyplot as plt
-# import cartopy
-# import cartopy.crs as ccrs
 import geopandas as gpd
 from shapely.geometry import Polygon
 
@@ -35,8 +32,8 @@ class GeoLabel:
         shapes: dict = {}
         for i, orsi_front in enumerate(orsi_data):
             # convert np array to df
-            front_df = pd.DataFrame(data=orsi_front, columns=['Latitude', 'Longitude'], 
-                                                        index=np.arange(len(orsi_front)))
+            front_df = pd.DataFrame(data=orsi_front, columns=['Latitude', 'Longitude'],
+                                    index=np.arange(len(orsi_front)))
             # remove extra points such as small holes in the front
             front_df = front_df.iloc[keep[i][0]:keep[i][1]]
             # data has points [-180, 360] but [-180, 180] is duplicate of [0, 360]
@@ -50,17 +47,16 @@ class GeoLabel:
         # fronts_gdf = fronts_gdf.set
         # fronts_gdf.to_file('../data/shapefiles/fronts/so_fronts.shp')
 
-
         world: gpd.GeoDataFrame = gpd.read_file('../data/shapefiles/world/world.shp')
         antarctica: gpd.GeoDataFrame = world[world['NAME'] == 'Antarctica']
         antarctica = antarctica.to_crs(epsg=3031)
         antarctica: Polygon = antarctica['geometry'].values[0]
 
         shapes = dict(zip(fronts_gdf['front'], fronts_gdf['geometry']))
-        zones: dict = {'zone': ['PFZ', 'ASZ', 'SOZ', 'SIZ'], 'geometry': [shapes['SAF'] - shapes['PF'], 
-                                                                        shapes['PF'] - shapes['SACC'], 
-                                                                        shapes['SACC'] - shapes['SBdy'],
-                                                                        shapes['SBdy'] - antarctica]}
+        zones: dict = {'zone': ['PFZ', 'ASZ', 'SOZ', 'SIZ'], 'geometry': [shapes['SAF'] - shapes['PF'],
+                                                                          shapes['PF'] - shapes['SACC'],
+                                                                          shapes['SACC'] - shapes['SBdy'],
+                                                                          shapes['SBdy'] - antarctica]}
         zones_gdf = gpd.GeoDataFrame(zones, crs='EPSG:3031')
         zones_gdf.to_file(GeoLabel.zones_shapefile)
 
@@ -73,10 +69,11 @@ class GeoLabel:
     @staticmethod
     def label_zones(data: pd.DataFrame, lat_col: str, lon_col: str) -> pd.DataFrame:
         """Labels provided data with fronts"""
-        assert {lat_col, lon_col}.issubset(data.columns), 'f"{lat_col}" or "{lon_col}" are not present in the provided DataFrame'
-        assert exists(GeoLabel.zones_shapefile), 'missing frontal zones shapefile; try running create_fronts_zones_shapes()'
+        assert {lat_col, lon_col}.issubset(
+            data.columns), f'"{lat_col}" or "{lon_col}"are not present in the provided DataFrame'
+        assert exists(
+            GeoLabel.zones_shapefile), 'missing frontal zones shapefile; try running create_fronts_zones_shapes()'
 
-        # df = pd.read_csv("../data/datasets/lter.csv", encoding='unicode_escape')
         data_gdf = gpd.GeoDataFrame(data, geometry=gpd.points_from_xy(data[lat_col], data[lon_col]), crs='EPSG:4326')
         data_gdf.to_crs(crs='EPSG:3031', inplace=True)
 
@@ -84,7 +81,6 @@ class GeoLabel:
 
         result = gpd.sjoin(data_gdf, zones_gdf)
         return pd.DataFrame(result.drop(columns='geometry'))
-
 
     @staticmethod
     def get_sector(lat: float, lon: float) -> str:
