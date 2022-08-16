@@ -12,61 +12,36 @@ import alphashape
 import pyproj
 from shapely.geometry import Polygon
 from shapely.ops import transform
+from pyproj import Transformer
 
 
 class GeoLabel:
     """Defines static methods that can be used to interact with Southern Ocean fronts and sectors"""
     kim_orsi_file: str = '../data/fronts/ys_fronts.mat'
+    nsidc_sea_ice_file: str = '../data/sea_ice/mean.sep.1979-2021.s'
     gray_fronts_file: str = '../data/fronts/fronts_Gray.mat'
     fronts_shapefile: str = '../data/shapefiles/fronts/so_fronts.shp'
     zones_shapefile: str = '../data/shapefiles/zones/so_zones.shp'
+    project: Transformer = pyproj.Transformer.from_crs(pyproj.CRS('EPSG:4326'), pyproj.CRS('EPSG:3031'),
+                                                       always_xy=True)
 
     @staticmethod
     def create_fronts_zones_shapes():
         """Creates shapefiles for fronts and zones between fronts"""
+        # All fronts being used are STF, SAF, PF, SACC, and Sea Ice Concentration (SIE)
         shapes: dict = {}
         world: gpd.GeoDataFrame = gpd.read_file(gpd.datasets.get_path("naturalearth_lowres"))
         world = world.to_crs(epsg=3031)
         antarctica: Polygon = world[world['continent'] == 'Antarctica']['geometry'].values[0]
         south_america: Polygon = world[world['continent'] == 'South America']['geometry'].values[0]
-        project = pyproj.Transformer.from_crs(pyproj.CRS('EPSG:4326'), pyproj.CRS('EPSG:3031'),
-                                              always_xy=True).transform
 
-        gray_mat: dict = sio.loadmat(GeoLabel.gray_fronts_file)
-        stf: Polygon = transform(project, Polygon(zip(gray_mat['lon_stf'][0], gray_mat['lat_stf'][0])))
+        stf: Polygon = GeoLabel.get_stf()
         shapes['STF'] = stf - south_america
 
-        # Writes the Kim & Orsi 2014 fronts to a shapefile
-        orsi_mat: dict = sio.loadmat('../data/fronts/ys_fronts.mat')
-        # fronts = ([[lat1, lon1], [lat2, lon2]], [[lat1, lon1], ...], ...)
-        orsi_fronts: tuple = orsi_mat['ys_fronts'].tolist()[0][0]
-        # filters out extra data and only keeps the 4 Southern Ocean fronts
-        orsi_fronts = orsi_fronts[:3]
-        front_names: tuple = ('SAF', 'PF', 'SACC')
-        # points from each front that follow a smooth contour (no holes in the front)
-        keep: tuple = ((44, 2633), (0, 2305), (0, 2614))
-        for i, orsi_front in enumerate(orsi_fronts):
-            # convert np array to df
-            front_df = pd.DataFrame(data=orsi_front, columns=['Latitude', 'Longitude'],
-                                    index=np.arange(len(orsi_front)))
-            # remove extra points such as small holes in the front
-            front_df = front_df.iloc[keep[i][0]:keep[i][1]]
-            # data has points [-180, 360] but [-180, 180] is duplicate of [0, 360]
-            front_df = front_df[front_df.Latitude <= 180]
-            # make new polygon and add to list
-            orsi_shp: Polygon = transform(project, Polygon(zip(front_df.Latitude, front_df.Longitude)))
-            shapes[front_names[i]] = orsi_shp
+        orsi_fronts: list = GeoLabel.get_orsi_fronts()
+        shapes['SAF'], shapes['PF'], shapes['SACC'] = orsi_fronts
 
-        ice = np.fromfile("../data/sea_ice/mean.sep.1979-2021.s", dtype=np.uint8)
-        dx = dy = 25000
-        x = np.arange(-3950000, +3950000, +dx)
-        y = np.arange(+4350000, -3950000, -dy)
-        grid = np.dstack(np.meshgrid(x, y)).reshape(-1, 2)
-        points = grid[np.logical_and(15 <= ice, ice <= 25)].T
-        sie_gdf = gpd.GeoDataFrame(geometry=gpd.points_from_xy(x=points[0], y=points[1]), crs='EPSG:3031')
-        # Generating alpha shape takes ~8 minutes
-        alpha: gpd.GeoDataFrame = alphashape.alphashape(sie_gdf)
-        sie: Polygon = alpha['geometry'].values[0]
+        sie: Polygon = GeoLabel.get_sie()
         shapes['SIE'] = sie
 
         fronts_gdf = gpd.GeoDataFrame({'front': shapes.keys(), 'geometry': shapes.values()}, crs='EPSG:3031')
@@ -79,6 +54,50 @@ class GeoLabel:
                                                                                  shapes['SIE'] - antarctica]}
         zones_gdf = gpd.GeoDataFrame(zones, crs='EPSG:3031')
         zones_gdf.to_file(GeoLabel.zones_shapefile)
+
+    @staticmethod
+    def get_stf() -> Polygon:
+        gray_mat: dict = sio.loadmat(GeoLabel.gray_fronts_file)
+        return transform(GeoLabel.project.transform, Polygon(zip(gray_mat['lon_stf'][0], gray_mat['lat_stf'][0])))
+
+    @staticmethod
+    def get_orsi_fronts() -> list:
+        result: list = []
+        # Writes the Kim & Orsi 2014 fronts to a shapefile
+        orsi_mat: dict = sio.loadmat(GeoLabel.kim_orsi_file)
+        # fronts = ([[lat1, lon1], [lat2, lon2]], [[lat1, lon1], ...], ...)
+        orsi_fronts: tuple = orsi_mat['ys_fronts'].tolist()[0][0]
+        # filters out extra data and only keeps the 3 Southern Ocean fronts: (SAF, PF, SACC)
+        orsi_fronts = orsi_fronts[:3]
+        # points from each front that follow a smooth contour (no holes in the front)
+        keep: tuple = ((44, 2633), (0, 2305), (0, 2614))
+        for i, orsi_front in enumerate(orsi_fronts):
+            # convert np array to df
+            front_df = pd.DataFrame(data=orsi_front, columns=['Latitude', 'Longitude'],
+                                    index=np.arange(len(orsi_front)))
+            # remove extra points such as small holes in the front
+            front_df = front_df.iloc[keep[i][0]:keep[i][1]]
+            # data has points [-180, 360] but [-180, 180] is duplicate of [0, 360]
+            front_df = front_df[front_df.Latitude <= 180]
+            # make new polygon and add to list
+            orsi_shp: Polygon = transform(GeoLabel.project.transform, Polygon(zip(front_df.Latitude, front_df.Longitude)))
+            result.append(orsi_shp)
+        return result
+
+    @staticmethod
+    def get_sie() -> Polygon:
+        ice = np.fromfile(GeoLabel.nsidc_sea_ice_file, dtype=np.uint8)
+        # Space between grid cells = 25km
+        dx = dy = 25000
+        # NSIDC Southern Hemisphere Grid Coordinates
+        x, y = np.arange(-3950000, +3950000, +dx), np.arange(+4350000, -3950000, -dy)
+        # Creates 316x332 grid and converts to list of points
+        list_grid = np.dstack(np.meshgrid(x, y)).reshape(-1, 2)
+        points = list_grid[np.logical_and(15 <= ice, ice <= 25)].T
+        sie_gdf = gpd.GeoDataFrame(geometry=gpd.points_from_xy(x=points[0], y=points[1]), crs='EPSG:3031')
+        # Generating alpha shape takes ~8 minutes
+        alpha: gpd.GeoDataFrame = alphashape.alphashape(sie_gdf)
+        return alpha['geometry'].values[0]
 
     @staticmethod
     def get_zone(lat: float, lon: float) -> str:
@@ -106,7 +125,7 @@ class GeoLabel:
     def get_sector(lat: float, lon: float) -> str:
         assert lat <= -30, "Provided latitude is not in the Southern Ocean (must be less than -30 degrees)"
         # Calls label_fronts with lat, lon pair as DataFrame
-        return GeoLabel.label_sectors(pd.DataFrame([(lat, lon)], columns=['lat', 'lon']), 'lat', 'lon')['sector'][0]
+        return GeoLabel.label_sectors(pd.DataFrame([(lat, lon)], columns=['lat', 'lon']), 'lat')['sector'][0]
 
     @staticmethod
     def label_sectors(data: pd.DataFrame, lat_col: str) -> pd.DataFrame:
