@@ -109,11 +109,12 @@ class GeoLabel:
         return GeoLabel.label_sectors(pd.DataFrame([(lat, lon)], columns=['lat', 'lon']), 'lat', 'lon')['sector'][0]
 
     @staticmethod
-    def label_sectors(data: pd.DataFrame, lat_col: str, lon_col: str) -> pd.DataFrame:
+    def label_sectors(data: pd.DataFrame, lat_col: str) -> pd.DataFrame:
         """Labels provided data with sectors"""
-        # So the way Im going to do this is with lines of longitude
-        # so if it's x then do blah
-        print('temp')
+        assert lat_col in data.columns, f'"{lat_col}" is not present in the provided DataFrame'
+        sectors_series: pd.Series = pd.cut(data[lat_col], bins=[-180, -130, -60, 20, 90, 160, 180],
+                                           labels=['Ross', 'BA', 'Weddell', 'Indian', 'WPO', 'Ross'], ordered=False)
+        return data.assign(sector=sectors_series)
 
     @staticmethod
     def plot_orsi_fronts():
