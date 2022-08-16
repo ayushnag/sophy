@@ -17,27 +17,35 @@ from shapely.ops import transform
 class GeoLabel:
     """Defines static methods that can be used to interact with Southern Ocean fronts and sectors"""
     kim_orsi_file: str = '../data/fronts/ys_fronts.mat'
+    gray_fronts_file: str = '../data/fronts/fronts_Gray.mat'
     fronts_shapefile: str = '../data/shapefiles/fronts/so_fronts.shp'
     zones_shapefile: str = '../data/shapefiles/zones/so_zones.shp'
-    # TODO: still needs to be implemented
-    sectors_shapefile: str = '../data/shapefiles/sectors/so_sectors.shp'
-    world_shapefile: str = '../data/shapefiles/world/world.shp'
 
     @staticmethod
     def create_fronts_zones_shapes():
         """Creates shapefiles for fronts and zones between fronts"""
-        # Writes the Kim & Orsi 2014 fronts to a shapefile
-        mat_data: dict = sio.loadmat('../data/fronts/ys_fronts.mat')
-        # fronts = ([[lat1, lon1], [lat2, lon2]], [[lat1, lon1], ...], ...)
-        orsi_data: tuple = mat_data['ys_fronts'].tolist()[0][0]
-        # filters out extra data and only keeps the 4 Southern Ocean fronts
-        orsi_data = orsi_data[:3]
-        # points from each front that follow a smooth contour (no holes in the front)
-        keep = ((44, 2633), (0, 2305), (0, 2614))
-        front_names: tuple = ('SAF', 'PF', 'SACC', 'SIE')
         shapes: dict = {}
-        project = pyproj.Transformer.from_crs(pyproj.CRS('EPSG:4326'), pyproj.CRS('EPSG:3031'), always_xy=True).transform
-        for i, orsi_front in enumerate(orsi_data):
+        world: gpd.GeoDataFrame = gpd.read_file(gpd.datasets.get_path("naturalearth_lowres"))
+        world = world.to_crs(epsg=3031)
+        antarctica: Polygon = world[world['continent'] == 'Antarctica']['geometry'].values[0]
+        south_america: Polygon = world[world['continent'] == 'South America']['geometry'].values[0]
+        project = pyproj.Transformer.from_crs(pyproj.CRS('EPSG:4326'), pyproj.CRS('EPSG:3031'),
+                                              always_xy=True).transform
+
+        gray_mat: dict = sio.loadmat(GeoLabel.gray_fronts_file)
+        stf: Polygon = transform(project, Polygon(zip(gray_mat['lon_stf'][0], gray_mat['lat_stf'][0])))
+        shapes['STF'] = stf - south_america
+
+        # Writes the Kim & Orsi 2014 fronts to a shapefile
+        orsi_mat: dict = sio.loadmat('../data/fronts/ys_fronts.mat')
+        # fronts = ([[lat1, lon1], [lat2, lon2]], [[lat1, lon1], ...], ...)
+        orsi_fronts: tuple = orsi_mat['ys_fronts'].tolist()[0][0]
+        # filters out extra data and only keeps the 4 Southern Ocean fronts
+        orsi_fronts = orsi_fronts[:3]
+        front_names: tuple = ('SAF', 'PF', 'SACC')
+        # points from each front that follow a smooth contour (no holes in the front)
+        keep: tuple = ((44, 2633), (0, 2305), (0, 2614))
+        for i, orsi_front in enumerate(orsi_fronts):
             # convert np array to df
             front_df = pd.DataFrame(data=orsi_front, columns=['Latitude', 'Longitude'],
                                     index=np.arange(len(orsi_front)))
@@ -46,35 +54,29 @@ class GeoLabel:
             # data has points [-180, 360] but [-180, 180] is duplicate of [0, 360]
             front_df = front_df[front_df.Latitude <= 180]
             # make new polygon and add to list
-            name = front_names[i]
-            shapes[name] = transform(project, Polygon(zip(front_df.Latitude, front_df.Longitude)))
+            orsi_shp: Polygon = transform(project, Polygon(zip(front_df.Latitude, front_df.Longitude)))
+            shapes[front_names[i]] = orsi_shp
 
-        f = open(r"../data/sea_ice/mean.sep.1979-2021.s", "r")
-        ice = np.fromfile(f, dtype=np.uint8)
-        edge = np.logical_and(15 <= ice, ice <= 25)
+        ice = np.fromfile("../data/sea_ice/mean.sep.1979-2021.s", dtype=np.uint8)
         dx = dy = 25000
         x = np.arange(-3950000, +3950000, +dx)
         y = np.arange(+4350000, -3950000, -dy)
         grid = np.dstack(np.meshgrid(x, y)).reshape(-1, 2)
-        points = grid[edge].T
-        gdf = gpd.GeoDataFrame(geometry=gpd.points_from_xy(x=points[0], y=points[1]), crs='EPSG:3031')
+        points = grid[np.logical_and(15 <= ice, ice <= 25)].T
+        sie_gdf = gpd.GeoDataFrame(geometry=gpd.points_from_xy(x=points[0], y=points[1]), crs='EPSG:3031')
         # Generating alpha shape takes ~8 minutes
-        alpha: gpd.GeoDataFrame = alphashape.alphashape(gdf)
+        alpha: gpd.GeoDataFrame = alphashape.alphashape(sie_gdf)
         sie: Polygon = alpha['geometry'].values[0]
         shapes['SIE'] = sie
 
         fronts_gdf = gpd.GeoDataFrame({'front': shapes.keys(), 'geometry': shapes.values()}, crs='EPSG:3031')
         fronts_gdf.to_file(GeoLabel.fronts_shapefile)
 
-        world: gpd.GeoDataFrame = gpd.read_file(GeoLabel.world_shapefile)
-        antarctica: gpd.GeoDataFrame = world[world['NAME'] == 'Antarctica']
-        antarctica = antarctica.to_crs(epsg=3031)
-        antarctica: Polygon = antarctica['geometry'].values[0]
-
-        zones: dict = {'zone': ['PFZ', 'ASZ', 'SOZ', 'SIZ'], 'geometry': [shapes['SAF'] - shapes['PF'],
-                                                                          shapes['PF'] - shapes['SACC'],
-                                                                          shapes['SACC'] - shapes['SIE'],
-                                                                          shapes['SIE'] - antarctica]}
+        zones: dict = {'zone': ['SAZ', 'PFZ', 'ASZ', 'SOZ', 'SIZ'], 'geometry': [shapes['STF'] - shapes['SAF'],
+                                                                                 shapes['SAF'] - shapes['PF'],
+                                                                                 shapes['PF'] - shapes['SACC'],
+                                                                                 shapes['SACC'] - shapes['SIE'],
+                                                                                 shapes['SIE'] - antarctica]}
         zones_gdf = gpd.GeoDataFrame(zones, crs='EPSG:3031')
         zones_gdf.to_file(GeoLabel.zones_shapefile)
 
