@@ -97,7 +97,7 @@ class GeoLabel:
         x, y = np.arange(-3950000, +3950000, +dx), np.arange(+4350000, -3950000, -dy)
         # Creates 316x332 grid and converts to list of points
         list_grid = np.dstack(np.meshgrid(x, y)).reshape(-1, 2)
-        # Keep only concentrations [15, 25] since 15 is minimum for sea-ice
+        # Keep only concentrations [15, 25] since 15 is minimum for sea-ice, found 25 as optimal for alphashape
         points = list_grid[np.logical_and(15 <= ice, ice <= 25)].T
         sie_gdf = gpd.GeoDataFrame(geometry=gpd.points_from_xy(x=points[0], y=points[1]), crs='EPSG:3031')
         # Make convex hull of points. Generating alpha shape takes ~8 minutes
