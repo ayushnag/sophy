@@ -47,11 +47,11 @@ class GeoLabel:
         fronts_gdf = gpd.GeoDataFrame({'front': shapes.keys(), 'geometry': shapes.values()}, crs='EPSG:3031')
         fronts_gdf.to_file(GeoLabel.fronts_shapefile)
 
-        zones: dict = {'zone': ['SAZ', 'PFZ', 'ASZ', 'SOZ', 'SIZ'], 'geometry': [shapes['STF'] - shapes['SAF'],
-                                                                                 shapes['SAF'] - shapes['PF'],
-                                                                                 shapes['PF'] - shapes['SACC'],
-                                                                                 shapes['SACC'] - shapes['SIE'],
-                                                                                 shapes['SIE'] - antarctica]}
+        zones: dict = {'front_zone': ['SAZ', 'PFZ', 'ASZ', 'SOZ', 'SIZ'], 'geometry': [shapes['STF'] - shapes['SAF'],
+                                                                                       shapes['SAF'] - shapes['PF'],
+                                                                                       shapes['PF'] - shapes['SACC'],
+                                                                                       shapes['SACC'] - shapes['SIE'],
+                                                                                       shapes['SIE'] - antarctica]}
         zones_gdf = gpd.GeoDataFrame(zones, crs='EPSG:3031')
         zones_gdf.to_file(GeoLabel.zones_shapefile)
 
@@ -81,7 +81,8 @@ class GeoLabel:
             front_df = front_df.iloc[keep[i][0]:keep[i][1]]
             # data has points [-180, 360] but [-180, 180] is duplicate of [0, 360]
             front_df = front_df[front_df.Latitude <= 180]
-            orsi_shp: Polygon = transform(GeoLabel.project.transform, Polygon(zip(front_df.Latitude, front_df.Longitude)))
+            orsi_shp: Polygon = transform(GeoLabel.project.transform,
+                                          Polygon(zip(front_df.Latitude, front_df.Longitude)))
             result.append(orsi_shp)
         return result
 

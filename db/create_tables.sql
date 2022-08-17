@@ -1,7 +1,7 @@
 create table if not exists sample (
     id integer primary key autoincrement,
     source_name text references source(name),
-    aphia_id int references species(aphia_id),
+    aphia_id int references taxonomy(aphia_id),
 
     latitude real,
     longitude real,
@@ -63,10 +63,12 @@ create table if not exists sample (
 
 create table if not exists occurrence (
     id integer primary key autoincrement,
-    aphia_id integer references species(aphia_id),
+    aphia_id integer references taxonomy(aphia_id),
     latitude text,
     longitude real,
     timestamp real,
+    front_zone text,
+    sector text,
     depth real,
     notes text
 );

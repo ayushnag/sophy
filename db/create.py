@@ -6,19 +6,21 @@ import sqlite3
 import pandas as pd
 import pyworms
 from pandas import DataFrame
+from geolabel import GeoLabel
 
 # columns expected in the sample table
-sample_cols: tuple = ("latitude", "longitude", "timestamp", "depth", "pressure", "tot_depth_water_col", "source_name",
-                      "aphia_id", "salinity", "temperature", "density", "chlorophyll", "phaeopigments",
-                      "fluorescence", "primary_prod", "cruise", "down_par", "light_intensity", "light_transmission",
-                      "mld", "scientific_name", "prasinophytes", "cryptophytes", "mixed_flagellates", "diatoms",
-                      "haptophytes", "nitrate", "nitrite", "pco2", "diss_oxygen", "diss_inorg_carbon",
-                      "diss_inorg_nitrogen", "diss_inorg_phosp", "diss_org_carbon", "diss_org_nitrogen",
-                      "part_org_carbon", "part_org_nitrogen", "org_carbon", "org_matter", "org_nitrogen", "phosphate",
-                      "silicate", "tot_nitrogen", "tot_part_carbon", "tot_phosp", "ph", "origin_id", "strain", "notes")
+sample_cols: tuple = ("latitude", "longitude", "timestamp", "front_zone", "sector", "depth", "pressure",
+                      "tot_depth_water_col", "source_name", "aphia_id", "salinity", "temperature", "density",
+                      "chlorophyll", "phaeopigments", "fluorescence", "primary_prod", "cruise", "down_par",
+                      "light_intensity", "light_transmission", "mld", "scientific_name", "prasinophytes",
+                      "cryptophytes", "mixed_flagellates", "diatoms", "haptophytes", "nitrate", "nitrite", "pco2",
+                      "diss_oxygen", "diss_inorg_carbon", "diss_inorg_nitrogen", "diss_inorg_phosp", "diss_org_carbon",
+                      "diss_org_nitrogen", "part_org_carbon", "part_org_nitrogen", "org_carbon", "org_matter",
+                      "org_nitrogen", "phosphate", "silicate", "tot_nitrogen", "tot_part_carbon", "tot_phosp", "ph",
+                      "origin_id", "strain", "notes")
 
 # columns expected in the occurence table
-occurrence_cols: tuple = ("latitude", "longitude", "timestamp", "aphia_id", "depth", "notes")
+occurrence_cols: tuple = ("latitude", "longitude", "timestamp", "aphia_id", "front_zone", "sector", "depth", "notes")
 
 # columns expected in the taxonomy table
 taxa_cols: tuple = ("aphia_id", "scientific_name", "superkingdom", "kingdom", "phylum", "subphylum", "superclass",
@@ -58,6 +60,9 @@ def write_lter() -> None:
     # drop rows with null time, lat, or long
     sample_df = sample_df.dropna(subset=['timestamp', 'latitude', 'longitude'])
 
+    sample_df = GeoLabel.label_zones(sample_df, 'latitude', 'longitude').drop('index_right', axis=1)
+    sample_df = GeoLabel.label_sectors(sample_df, 'latitude')
+
     # write sample dataframe to sql database
     write_df_sql("sample", sample_df, sample_cols)
 
@@ -85,6 +90,9 @@ def write_phybase() -> None:
     occ_df = occ_df.drop(columns=['year', 'month', 'day'])
     # join on sample and taxonomy (by aphia_id), only keep cols in the occurrence table (filter out order, genus, etc)
     occ_df: DataFrame = pd.merge(occ_df, taxa_df).filter(occurrence_cols)
+
+    occ_df = GeoLabel.label_zones(occ_df, 'latitude', 'longitude').drop('index_right', axis=1)
+    occ_df = GeoLabel.label_sectors(occ_df, 'latitude')
 
     # write taxonomy dataframe to sql database
     write_df_sql("taxonomy", taxa_df, taxa_cols)
