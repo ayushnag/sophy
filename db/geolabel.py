@@ -6,7 +6,7 @@ import pandas as pd
 import scipy.io as sio
 import cartopy
 import cartopy.crs as ccrs
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import geopandas as gpd
 import alphashape
 import pyproj
@@ -57,13 +57,15 @@ class GeoLabel:
 
     @staticmethod
     def get_stf() -> Polygon:
+        """Generates Polygon for the SubTropical Front. Data from Gray et al. 2018"""
         gray_mat: dict = sio.loadmat(GeoLabel.gray_fronts_file)
         return transform(GeoLabel.project.transform, Polygon(zip(gray_mat['lon_stf'][0], gray_mat['lat_stf'][0])))
 
     @staticmethod
     def get_orsi_fronts() -> list:
+        """Generates list of Polygons for the SubAntarctic Front, Polar Front, and Southern ACC Front.
+         Data from Kim and Orsi 2014"""
         result: list = []
-        # Writes the Kim & Orsi 2014 fronts to a shapefile
         orsi_mat: dict = sio.loadmat(GeoLabel.kim_orsi_file)
         # fronts = ([[lat1, lon1], [lat2, lon2]], [[lat1, lon1], ...], ...)
         orsi_fronts: tuple = orsi_mat['ys_fronts'].tolist()[0][0]
@@ -79,13 +81,15 @@ class GeoLabel:
             front_df = front_df.iloc[keep[i][0]:keep[i][1]]
             # data has points [-180, 360] but [-180, 180] is duplicate of [0, 360]
             front_df = front_df[front_df.Latitude <= 180]
-            # make new polygon and add to list
             orsi_shp: Polygon = transform(GeoLabel.project.transform, Polygon(zip(front_df.Latitude, front_df.Longitude)))
             result.append(orsi_shp)
         return result
 
     @staticmethod
     def get_sie() -> Polygon:
+        """Generates Polygon for Sea Ice Concentration.
+         Data from NSIDC SMMR and SSM/I-SSMIS v3. Dataset: NSIDC-0192
+         Used September mean (1979-2021) for max sea ice extent"""
         ice = np.fromfile(GeoLabel.nsidc_sea_ice_file, dtype=np.uint8)
         # Space between grid cells = 25km
         dx = dy = 25000
@@ -93,9 +97,10 @@ class GeoLabel:
         x, y = np.arange(-3950000, +3950000, +dx), np.arange(+4350000, -3950000, -dy)
         # Creates 316x332 grid and converts to list of points
         list_grid = np.dstack(np.meshgrid(x, y)).reshape(-1, 2)
+        # Keep only concentrations [15, 25] since 15 is minimum for sea-ice
         points = list_grid[np.logical_and(15 <= ice, ice <= 25)].T
         sie_gdf = gpd.GeoDataFrame(geometry=gpd.points_from_xy(x=points[0], y=points[1]), crs='EPSG:3031')
-        # Generating alpha shape takes ~8 minutes
+        # Make convex hull of points. Generating alpha shape takes ~8 minutes
         alpha: gpd.GeoDataFrame = alphashape.alphashape(sie_gdf)
         return alpha['geometry'].values[0]
 
@@ -117,12 +122,13 @@ class GeoLabel:
         data_gdf.to_crs(crs='EPSG:3031', inplace=True)
 
         zones_gdf = gpd.read_file(GeoLabel.zones_shapefile)
-
+        # Spatially join data points with zones (polygons) to get labelled data
         result = gpd.sjoin(data_gdf, zones_gdf)
         return pd.DataFrame(result.drop(columns='geometry'))
 
     @staticmethod
     def get_sector(lat: float, lon: float) -> str:
+        """Gets sector for provided lat, lon. Useful for testing"""
         assert lat <= -30, "Provided latitude is not in the Southern Ocean (must be less than -30 degrees)"
         # Calls label_fronts with lat, lon pair as DataFrame
         return GeoLabel.label_sectors(pd.DataFrame([(lat, lon)], columns=['lat', 'lon']), 'lat')['sector'][0]
@@ -131,6 +137,8 @@ class GeoLabel:
     def label_sectors(data: pd.DataFrame, lat_col: str) -> pd.DataFrame:
         """Labels provided data with sectors"""
         assert lat_col in data.columns, f'"{lat_col}" is not present in the provided DataFrame'
+        # Labels data by sectors (bins) and their latitude range
+        # Ross Sea sector overlaps with the start and end of range: [-180, 180] so it is defined with two split ranges
         sectors_series: pd.Series = pd.cut(data[lat_col], bins=[-180, -130, -60, 20, 90, 160, 180],
                                            labels=['Ross', 'BA', 'Weddell', 'Indian', 'WPO', 'Ross'], ordered=False)
         return data.assign(sector=sectors_series)
@@ -139,7 +147,7 @@ class GeoLabel:
     def plot_orsi_fronts():
         """Plots the contents of ys_fronts.mat on a Southern Ocean map"""
         map_proj = ccrs.SouthPolarStereo()
-        fig = plt.figure(figsize=[20, 20])  # inches
+        fig = plt.figure(figsize=[15, 15])  # inches
         ax = plt.subplot(projection=map_proj)
         ax.set_extent([-180, 180, -90, -39.4], ccrs.PlateCarree())
         fig.subplots_adjust(bottom=0.05, top=0.95, left=0.04, right=0.95, wspace=0.02)
@@ -164,3 +172,27 @@ class GeoLabel:
             lat, lon = lat[~np.isnan(lat)], lon[~np.isnan(lon)]
             ax.plot(lat, lon, marker='o', linestyle='', color=colors[i], transform=ccrs.PlateCarree())
         plt.show()
+
+    @staticmethod
+    def plot_nsidc_sie():
+        map_proj = ccrs.SouthPolarStereo()
+        fig = plt.figure(figsize=[15, 15])  # inches
+        ax = plt.subplot(projection=map_proj)
+        ax.set_extent([-180, 180, -90, -39.4], ccrs.PlateCarree())
+        fig.subplots_adjust(bottom=0.05, top=0.95, left=0.04, right=0.95, wspace=0.02)
+
+        # Credit: Filipe Fernandes (python4oceanographers)
+        ice = np.fromfile(GeoLabel.nsidc_sea_ice_file, dtype=np.uint8)
+        ice = ice.reshape(332, 316)
+        ice = ice / 250.
+        # mask all land and missing values
+        ice = np.ma.masked_greater(ice, 1.0)
+        ice = np.ma.masked_less(ice, 0.15)
+
+        ax.add_feature(cartopy.feature.LAND)
+        ax.gridlines(draw_labels=True)
+
+        dx = dy = 25000
+        x = np.arange(-3950000, +3950000, +dx)
+        y = np.arange(+4350000, -3950000, -dy)
+        ax.pcolormesh(x, y, ice, cmap=plt.cm.Blues, transform=ccrs.SouthPolarStereo())

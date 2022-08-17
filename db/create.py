@@ -1,5 +1,6 @@
 """Instructions to create the database from scratch. New functions are used to update the database"""
 __author__ = 'Ayush Nag'
+
 import warnings
 import sqlite3
 import pandas as pd
@@ -8,18 +9,21 @@ from pandas import DataFrame
 
 # columns expected in the sample table
 sample_cols: tuple = ("latitude", "longitude", "timestamp", "depth", "pressure", "tot_depth_water_col", "source_name",
-                      "aphia_id", "region", "salinity", "temperature", "density", "chlorophyll", "phaeopigments",
-                      "fluorescence", "primary_prod", "cruise", "down_par", "light_intensity", "scientific_name",
-                      "prasinophytes", "cryptophytes", "mixed_flagellates", "diatoms", "haptophytes", "nitrate",
-                      "nitrite", "pco2", "diss_oxygen", "diss_inorg_carbon", "diss_inorg_nitrogen", "diss_inorg_phosp",
-                      "diss_org_carbon", "diss_org_nitrogen", "part_org_carbon", "part_org_nitrogen", "org_carbon",
-                      "org_matter", "org_nitrogen", "phosphate", "silicate", "tot_nitrogen", "tot_part_carbon",
-                      "tot_phosp", "ph", "origin_id", "strain", "notes")
+                      "aphia_id", "salinity", "temperature", "density", "chlorophyll", "phaeopigments",
+                      "fluorescence", "primary_prod", "cruise", "down_par", "light_intensity", "light_transmission",
+                      "mld", "scientific_name", "prasinophytes", "cryptophytes", "mixed_flagellates", "diatoms",
+                      "haptophytes", "nitrate", "nitrite", "pco2", "diss_oxygen", "diss_inorg_carbon",
+                      "diss_inorg_nitrogen", "diss_inorg_phosp", "diss_org_carbon", "diss_org_nitrogen",
+                      "part_org_carbon", "part_org_nitrogen", "org_carbon", "org_matter", "org_nitrogen", "phosphate",
+                      "silicate", "tot_nitrogen", "tot_part_carbon", "tot_phosp", "ph", "origin_id", "strain", "notes")
 
-# columns expected in the microscopy table
-microscopy_cols: tuple = ("aphia_id", "scientific_name", "superkingdom", "kingdom", "phylum", "subphylum", "superclass",
-                          "class", "subclass", "superorder", "t_order", "suborder", "infraorder", "superfamily",
-                          "family", "genus", "species", "modified")
+# columns expected in the occurence table
+occurrence_cols: tuple = ("latitude", "longitude", "timestamp", "aphia_id", "depth", "notes")
+
+# columns expected in the taxonomy table
+taxa_cols: tuple = ("aphia_id", "scientific_name", "superkingdom", "kingdom", "phylum", "subphylum", "superclass",
+                    "class", "subclass", "superorder", "t_order", "suborder", "infraorder", "superfamily",
+                    "family", "genus", "species", "modified")
 
 # worms output -> sql col name. Also include columns from the original data that are needed but don't need renaming
 # Ex: "class" -> "class" means col name is correct but class column is needed for calculations and/or used in database
@@ -60,32 +64,32 @@ def write_lter() -> None:
 
 def write_phybase() -> None:
     """Writes Phytobase dataset to database"""
-    sample_df: DataFrame = pd.read_csv('../data/datasets/phytobase.csv', encoding='unicode_escape')
-    sample_df = clean_df(sample_df, phybase_sql)
+    occ_df: DataFrame = pd.read_csv('../data/datasets/phytobase.csv', encoding='unicode_escape')
+    occ_df = clean_df(occ_df, phybase_sql)
 
-    sci_names_data = set(sample_df['scientific_name'].unique())
-    sci_names_micro = set(cur.execute("select scientific_name from microscopy").fetchall())
+    sci_names_data = set(occ_df['scientific_name'].unique())
+    sci_names_micro = set(cur.execute("select scientific_name from taxonomy").fetchall())
     missing: set = sci_names_data - sci_names_micro  # sci_names that are missing from our database taxa records
     # get full taxonomy of microscopy data as dataframe
-    # TODO: enable this line when not testing; micro_df: DataFrame = worms_taxa(list(missing))
-    micro_df: DataFrame = clean_df(pd.read_csv('../data/datasets/micro_phybase.csv'), worms_sql)  # Testing only
+    # TODO: enable this line when not testing; taxa_df: DataFrame = worms_taxa(list(missing))
+    taxa_df: DataFrame = clean_df(pd.read_csv('../data/datasets/micro_phybase.csv'), worms_sql)  # Testing only
 
     # keep only data in the Southern Ocean (latitude < -30 degrees)
     # not filtered earlier to get maximum taxa data possible for microscopy table
-    sample_df = sample_df[sample_df['latitude'] < -30]
+    occ_df = occ_df[occ_df['latitude'] < -30]
     # drop rows with null time, lat, or long
-    sample_df = sample_df.dropna(subset=['latitude', 'longitude'])
+    occ_df = occ_df.dropna(subset=['latitude', 'longitude'])
     # merge three columns into one with proper datetime format (no NaT)
-    sample_df['timestamp'] = pd.to_datetime(sample_df[['year', 'month', 'day']], format='%m-%d-%Y',
-                                            errors='coerce').dropna()
-    sample_df = sample_df.drop(columns=['year', 'month', 'day'])
-    # join on sample and microscopy (by aphia_id), only keep cols in the sample table (filter out order, genus, etc)
-    sample_df: DataFrame = pd.merge(sample_df, micro_df).filter(sample_cols)
+    occ_df['timestamp'] = pd.to_datetime(occ_df[['year', 'month', 'day']], format='%m-%d-%Y',
+                                         errors='coerce').dropna()
+    occ_df = occ_df.drop(columns=['year', 'month', 'day'])
+    # join on sample and taxonomy (by aphia_id), only keep cols in the occurrence table (filter out order, genus, etc)
+    occ_df: DataFrame = pd.merge(occ_df, taxa_df).filter(occurrence_cols)
 
-    # write microscopy dataframe to sql database
-    write_df_sql("microscopy", micro_df, microscopy_cols)
-    # write sample dataframe to sql database
-    write_df_sql("sample", sample_df, sample_cols)
+    # write taxonomy dataframe to sql database
+    write_df_sql("taxonomy", taxa_df, taxa_cols)
+    # write occurrence dataframe to sql database
+    write_df_sql("occurrence", occ_df, occurrence_cols)
 
 
 def write_df_sql(table_name: str, data: DataFrame, cols: tuple) -> None:
@@ -95,7 +99,7 @@ def write_df_sql(table_name: str, data: DataFrame, cols: tuple) -> None:
     data.to_sql("temp", con=con, index=False)
     cols_str: str = csl(data.columns.values.tolist())
     cur.execute(f"insert into {table_name} ({cols_str}) select {cols_str} from temp")
-    cur.execute("drop table temp")
+    cur.execute(f"drop table temp")
     con.commit()
 
 
@@ -137,3 +141,4 @@ write_lter()
 write_phybase()
 
 con.close()  # closes connection
+print('DONE')

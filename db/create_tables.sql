@@ -1,84 +1,89 @@
 create table if not exists sample (
     id integer primary key autoincrement,
-    latitude float,
-    longitude float,
-    timestamp text,
-    depth float,
-    front_zone,
-    pressure float,
-    tot_depth_water_col float,
-    source_name text references source (name),
-    aphia_id int references microscopy (aphia_id),
-    region text references location (region),
+    source_name text references source(name),
+    aphia_id int references species(aphia_id),
 
-    salinity float,
-    temperature float,
-    density float,
-    chlorophyll float,
-    phaeopigments float,
-    fluorescence float,
-    primary_prod float,
+    latitude real,
+    longitude real,
+    timestamp text,
+
+    front_zone text,
+    sector text,
+
+    depth real,
+    pressure real,
+    tot_depth_water_col real,
+
+    salinity real,
+    temperature real,
+    density real,
+    chlorophyll real,
+    phaeopigments real,
+    fluorescence real,
+    primary_prod real,
     cruise text,
 
-    down_par float,
-    light_intensity float,
-    mld float,
-    xld float,
+    down_par real,
+    light_intensity real,
+    light_transmission real,
+    mld real,
 
     scientific_name text,
-    prasinophytes float,
-    cryptophytes float,
-    mixed_flagellates float,
-    diatoms float,
-    haptophytes float,
+    prasinophytes real,
+    cryptophytes real,
+    mixed_flagellates real,
+    diatoms real,
+    haptophytes real,
 
-    nitrate float,
-    nitrite float,
-    pco2 float,
-    diss_oxygen float,
-    diss_inorg_carbon float,
-    diss_inorg_nitrogen float,
-    diss_inorg_phosp float,
-    diss_org_carbon float,
-    diss_org_nitrogen float,
-    part_org_carbon float,
-    part_org_nitrogen float,
-    org_carbon float,
-    org_matter float,
-    org_nitrogen float,
-    phosphate float,
-    silicate float,
-    tot_nitrogen float,
-    tot_part_carbon float,
-    tot_phosp float,
-    ph float,
+    nitrate real,
+    nitrite real,
+    pco2 real,
+    diss_oxygen real,
+    diss_inorg_carbon real,
+    diss_inorg_nitrogen real,
+    diss_inorg_phosp real,
+    diss_org_carbon real,
+    diss_org_nitrogen real,
+    part_org_carbon real,
+    part_org_nitrogen real,
+    org_carbon real,
+    org_matter real,
+    org_nitrogen real,
+    phosphate real,
+    silicate real,
+    tot_nitrogen real,
+    tot_part_carbon real,
+    tot_phosp real,
+    ph real,
 
     origin_id text,
     strain text,
     notes text
 );
 
-create table if not exists extra (
-    sample_id integer references sample (id),
-    key text,
-    value text
+create table if not exists occurrence (
+    id integer primary key autoincrement,
+    aphia_id integer references species(aphia_id),
+    latitude text,
+    longitude real,
+    timestamp real,
+    depth real,
+    notes text
 );
 
 create table if not exists source (
     name text primary key,
-    author text,
-    doi text,
-    url text,
+    full_reference text,
     date_accessed text,
     date_ingested text
 );
 
 create table if not exists tag (
-    sample_id integer references sample (id),
+    sample_id integer references sample(id),
     name text
 );
 
-create table if not exists microscopy (
+create table if not exists taxonomy (
     aphia_id integer primary key,
     scientific_name text,
     superkingdom text,
