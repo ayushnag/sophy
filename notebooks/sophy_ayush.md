@@ -1,25 +1,18 @@
 # SOPHY Notes - Ayush Nag
 
-### Split data into sample and occurrence
-- Currently, datasets like Phytobase and LTER are in the same table of the database
-- However, Phytobase has minimal biological data and only has 5 columns of value to show phytoplankton occurrence
-- So I have split the data into two tables: sample and occurrence
-- This allows the LTER type datasets to fill many of the columns in the sample table and same for Phytobase with occurrence
-- When we are doing the clustering in objective 3, the data already being split will also help
+### Summer 2022 second half goals
+- Main goal is to enter data and make visualization/front end for the database
+- Features still pending are metadata information when entering datasets and ways to visualize the different types of data
+- Latest task completed was seperating data into two different categories. Presesence vs data with biological and chemical data present. Essentially a table that has our ideal datasets like LTER with HPLC + chlorophyll, etc. Then another table for datasets that have lat, lon, time, and species present only. Phytobase and OBIS have lots of data like that. All the data will still be there, it will just avoid having tons of data with no entry for our biological columns. It can also make grouping the data easier since we can just ignore the Phytobase type data when we are doing clustering later on.
 
 ### GeoLabel class
 - Wrote hundreds of test lines over 2 weeks to get shapefiles and geopandas working
 - Refactored several times to simplify the functions as much as possible. Zones are labeled with a simple geospatial join
-- Sectors were labeled with a simple pd.cut() and latitude ranges
-- Added STF from Gray et al. 2018
-- Also added some utility plotting functions to visualize the raw data from each front source
-- TODO: add image of fronts and sectors
 
 ### Modifications to Kim and Orsi's front data
 - Removed small extra dots included in the fronts
 - Old versions have SBdy from Kim and Orsi. There is a large gap in the SBdy that is closed with a straight line by Shapely
-- UPDATE: No longer using SBdy from Kim and Orsi. Now using mean Sea Ice Concentration from NSIDC SMMR and SSM/I-SSMIS Version 3
-- Data includes points from lat [-180, 360] but [-180, 180] is duplicate of [0, 360] and we kept [-180, 180]
+- Data includes points from lat [-180, 360] but [-180, 180] is duplicate of [0, 360]; we kept [-180, 180]
 
 ### Unsupervised learning to define Southern Ocean sectors
 - The niche model will not use the traditional front definitions to group data
