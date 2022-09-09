@@ -54,6 +54,7 @@ class GeoLabel:
                                                                                        shapes['SIE'] - antarctica]}
         zones_gdf = gpd.GeoDataFrame(zones, crs='EPSG:3031')
         zones_gdf.to_file(GeoLabel.zones_shapefile)
+        print('Success! Shapefiles generated')
 
     @staticmethod
     def get_stf() -> Polygon:
@@ -92,18 +93,34 @@ class GeoLabel:
          Data from NSIDC SMMR and SSM/I-SSMIS v3. Dataset: NSIDC-0192
          Used September mean (1979-2021) for max sea ice extent"""
         ice = np.fromfile(GeoLabel.nsidc_sea_ice_file, dtype=np.uint8)
+        edge: list = []
+        water: bool = True
+        for i, conc in enumerate(ice):
+            if conc < 100:
+                if (water and conc >= 15) or (not water and conc == 0):
+                    edge.append(i)
+                water = conc == 0
+
         # Space between grid cells = 25km
         dx = dy = 25000
-        # NSIDC Southern Hemisphere Grid Coordinates
+        # NSIDC Southern Hemisphere Grid Coordinates (332 rows x 316 cols)
         x, y = np.arange(-3950000, +3950000, +dx), np.arange(+4350000, -3950000, -dy)
-        # Creates 316x332 grid and converts to list of points
-        list_grid = np.dstack(np.meshgrid(x, y)).reshape(-1, 2)
-        # Keep only concentrations [15, 25] since 15 is minimum for sea-ice, found 25 as optimal for alphashape
-        points = list_grid[np.logical_and(15 <= ice, ice <= 25)].T
-        sie_gdf = gpd.GeoDataFrame(geometry=gpd.points_from_xy(x=points[0], y=points[1]), crs='EPSG:3031')
-        # Make convex hull of points. Generating alpha shape takes ~8 minutes
-        alpha: gpd.GeoDataFrame = alphashape.alphashape(sie_gdf)
-        return alpha['geometry'].values[0]
+        # All points in the grid as 104,912 rows, 2 columns. Note: 104,912 = 332 * 316
+        stack_points = np.dstack(np.meshgrid(x, y)).reshape(-1, 2)
+        # Only keep points that define the perimeter
+        edge_points = stack_points[edge].T
+
+        # Points are in zigzag order because they were inserted as grid cells, not their real order along the perimeter
+        # They need to be projected to EPSG: 4326 where they lay flat and then get sorted by the x-axis (latitude)
+        # Once sorted, the points will connect to make the desired shape
+        flat_points = gpd.points_from_xy(x=edge_points[0], y=edge_points[1], crs='EPSG:3031').to_crs(crs='EPSG:4326')
+        # All points defining the perimeter as integer pairs
+        points = np.vstack((flat_points.x, flat_points.y)).T
+        # Sort the points by the x-axis (latitude)
+        sorted_points = points[points[:, 0].argsort()]
+        # Make Polygon and convert to Southern Hemisphere EPSG
+        sie = Polygon(sorted_points)
+        return transform(GeoLabel.project.transform, sie)
 
     @staticmethod
     def get_zone(lat: float, lon: float) -> str:
@@ -114,6 +131,7 @@ class GeoLabel:
     @staticmethod
     def label_zones(data: pd.DataFrame, lat_col: str, lon_col: str) -> pd.DataFrame:
         """Labels provided data with fronts"""
+        # TODO: check all latitude < -30
         assert {lat_col, lon_col}.issubset(
             data.columns), f'"{lat_col}" or "{lon_col}"are not present in the provided DataFrame'
         assert exists(
