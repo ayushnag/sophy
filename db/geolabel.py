@@ -28,13 +28,19 @@ class GeoLabel:
     @staticmethod
     def create_fronts_zones_shapes():
         """Creates shapefiles for fronts and zones between fronts"""
-        # All fronts being used are STF, SAF, PF, SACC, and Sea Ice Concentration (SIE)
+
+        # Initialize variables and helper shapes
         shapes: dict = {}
         world: gpd.GeoDataFrame = gpd.read_file(gpd.datasets.get_path("naturalearth_lowres"))
         world = world.to_crs(epsg=3031)
-        antarctica: Polygon = world[world['continent'] == 'Antarctica']['geometry'].values[0]
-        south_america: Polygon = world[world['continent'] == 'South America']['geometry'].values[0]
+        southern_ocean: Polygon = transform(GeoLabel.project.transform, Polygon(
+            zip(np.append(np.linspace(start=0, stop=360, num=100000), 0), np.full(100000, -30))))
+        antarctica: Polygon = world[world['continent'] == 'Antarctica'].unary_union
+        south_america: Polygon = world[world['continent'] == 'South America'].unary_union
+        oceania: Polygon = world[world['continent'] == 'Oceania'].unary_union
+        fr_south_lands = world[world['name'] == 'Fr. S. Antarctic Lands'].unary_union
 
+        southern_ocean = southern_ocean - south_america - oceania
         stf: Polygon = GeoLabel.get_stf()
         shapes['STF'] = stf - south_america
 
@@ -47,12 +53,12 @@ class GeoLabel:
         fronts_gdf = gpd.GeoDataFrame({'front': shapes.keys(), 'geometry': shapes.values()}, crs='EPSG:3031')
         fronts_gdf.to_file(GeoLabel.fronts_shapefile)
 
-        zones: dict = {'front_zone': ['SAZ', 'PFZ', 'ASZ', 'SOZ', 'SIZ'], 'geometry': [shapes['STF'] - shapes['SAF'],
-                                                                                       shapes['SAF'] - shapes['PF'],
-                                                                                       shapes['PF'] - shapes['SACC'],
-                                                                                       shapes['SACC'] - shapes['SIE'],
-                                                                                       shapes['SIE'] - antarctica]}
-        zones_gdf = gpd.GeoDataFrame(zones, crs='EPSG:3031')
+        zones: list = [southern_ocean - shapes['STF'], shapes['STF'] - shapes['SAF'],
+                       shapes['SAF'] - shapes['PF'] - fr_south_lands, shapes['PF'] - shapes['SACC'],
+                       shapes['SACC'] - shapes['SIE'], shapes['SIE'] - antarctica]
+        names: list = ['STZ', 'SAZ', 'PFZ', 'ASZ', 'SOZ', 'SIZ']
+
+        zones_gdf = gpd.GeoDataFrame({'front_zone': names, 'geometry': zones}, crs='EPSG:3031')
         zones_gdf.to_file(GeoLabel.zones_shapefile)
         print('Success! Shapefiles generated')
 
@@ -123,21 +129,21 @@ class GeoLabel:
         return transform(GeoLabel.project.transform, sie)
 
     @staticmethod
-    def get_zone(lat: float, lon: float) -> str:
+    def get_zone(lon: float, lat: float) -> str:
         assert lat <= -30, "Provided latitude is not in the Southern Ocean (must be less than -30 degrees)"
         # Calls label_fronts with lat, lon pair as DataFrame
-        return GeoLabel.label_zones(pd.DataFrame([(lat, lon)], columns=['lat', 'lon']), 'lat', 'lon')['zone'][0]
+        return GeoLabel.label_zones(pd.DataFrame([(lon, lat)], columns=['lon', 'lat']), 'lon', 'lat')['zone'][0]
 
     @staticmethod
-    def label_zones(data: pd.DataFrame, lat_col: str, lon_col: str) -> pd.DataFrame:
+    def label_zones(data: pd.DataFrame, lon_col: str, lat_col: str) -> pd.DataFrame:
         """Labels provided data with fronts"""
         # TODO: check all latitude < -30
-        assert {lat_col, lon_col}.issubset(
-            data.columns), f'"{lat_col}" or "{lon_col}"are not present in the provided DataFrame'
+        assert {lon_col, lat_col}.issubset(
+            data.columns), f'"{lon_col}" or "{lat_col}"are not present in the provided DataFrame'
         assert exists(
             GeoLabel.zones_shapefile), 'missing frontal zones shapefile; try running create_fronts_zones_shapes()'
 
-        data_gdf = gpd.GeoDataFrame(data, geometry=gpd.points_from_xy(data[lat_col], data[lon_col]), crs='EPSG:4326')
+        data_gdf = gpd.GeoDataFrame(data, geometry=gpd.points_from_xy(data[lon_col], data[lat_col]), crs='EPSG:4326')
         data_gdf.to_crs(crs='EPSG:3031', inplace=True)
 
         zones_gdf = gpd.read_file(GeoLabel.zones_shapefile)

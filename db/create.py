@@ -58,9 +58,9 @@ def write_lter() -> None:
     sample_df = clean_df(sample_df, lter_sql)
 
     # drop rows with null time, lat, or long
-    sample_df = sample_df.dropna(subset=['timestamp', 'latitude', 'longitude'])
+    sample_df = sample_df.dropna(subset=['timestamp', 'longitude', 'latitude'])
 
-    sample_df = GeoLabel.label_zones(sample_df, 'latitude', 'longitude').drop('index_right', axis=1)
+    sample_df = GeoLabel.label_zones(sample_df, 'longitude', 'latitude').drop('index_right', axis=1)
     sample_df = GeoLabel.label_sectors(sample_df, 'latitude')
 
     # write sample dataframe to sql database
@@ -83,7 +83,7 @@ def write_phybase() -> None:
     # not filtered earlier to get maximum taxa data possible for microscopy table
     occ_df = occ_df[occ_df['latitude'] < -30]
     # drop rows with null time, lat, or long
-    occ_df = occ_df.dropna(subset=['latitude', 'longitude'])
+    occ_df = occ_df.dropna(subset=['longitude', 'latitude'])
     # merge three columns into one with proper datetime format (no NaT)
     occ_df['timestamp'] = pd.to_datetime(occ_df[['year', 'month', 'day']], format='%m-%d-%Y',
                                          errors='coerce').dropna()
@@ -91,7 +91,7 @@ def write_phybase() -> None:
     # join on sample and taxonomy (by aphia_id), only keep cols in the occurrence table (filter out order, genus, etc)
     occ_df: DataFrame = pd.merge(occ_df, taxa_df).filter(occurrence_cols)
 
-    occ_df = GeoLabel.label_zones(occ_df, 'latitude', 'longitude').drop('index_right', axis=1)
+    occ_df = GeoLabel.label_zones(occ_df, 'longitude', 'latitude').drop('index_right', axis=1)
     occ_df = GeoLabel.label_sectors(occ_df, 'latitude')
 
     # write taxonomy dataframe to sql database
