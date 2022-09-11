@@ -1,3 +1,6 @@
 # SOPHY
 # Southern Ocean Phytoplankton Database
-# In situ observations combined with phytoplankton taxonomies, ocean fronts, and ocean sectors
+UW Oceanography
+Made by Ayush Nag and Hannah Joy-Warren
+
+In situ observations combined with phytoplankton taxonomies, ocean fronts, and ocean sectors
