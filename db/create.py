@@ -61,7 +61,7 @@ def write_lter() -> None:
     sample_df = sample_df.dropna(subset=['timestamp', 'longitude', 'latitude'])
 
     sample_df = GeoLabel.label_zones(sample_df, 'longitude', 'latitude').drop('index_right', axis=1)
-    sample_df = GeoLabel.label_sectors(sample_df, 'latitude')
+    sample_df = GeoLabel.label_sectors(sample_df, 'longitude')
 
     # write sample dataframe to sql database
     write_df_sql("sample", sample_df, sample_cols)
@@ -81,7 +81,7 @@ def write_phybase() -> None:
 
     # keep only data in the Southern Ocean (latitude < -30 degrees)
     # not filtered earlier to get maximum taxa data possible for microscopy table
-    occ_df = occ_df[occ_df['latitude'] < -30]
+    occ_df = occ_df[occ_df['latitude'] <= -30]
     # drop rows with null time, lat, or long
     occ_df = occ_df.dropna(subset=['longitude', 'latitude'])
     # merge three columns into one with proper datetime format (no NaT)
@@ -92,7 +92,7 @@ def write_phybase() -> None:
     occ_df: DataFrame = pd.merge(occ_df, taxa_df).filter(occurrence_cols)
 
     occ_df = GeoLabel.label_zones(occ_df, 'longitude', 'latitude').drop('index_right', axis=1)
-    occ_df = GeoLabel.label_sectors(occ_df, 'latitude')
+    occ_df = GeoLabel.label_sectors(occ_df, 'longitude')
 
     # write taxonomy dataframe to sql database
     write_df_sql("taxonomy", taxa_df, taxa_cols)

@@ -34,7 +34,7 @@ class GeoLabel:
         world: gpd.GeoDataFrame = gpd.read_file(gpd.datasets.get_path("naturalearth_lowres"))
         world = world.to_crs(epsg=3031)
         southern_ocean: Polygon = transform(GeoLabel.project.transform, Polygon(
-            zip(np.append(np.linspace(start=0, stop=360, num=100000), 0), np.full(100000, -30))))
+            zip(np.append(np.linspace(start=0, stop=360, num=10000), 0), np.full(10000, -30))))
         antarctica: Polygon = world[world['continent'] == 'Antarctica'].unary_union
         south_america: Polygon = world[world['continent'] == 'South America'].unary_union
         oceania: Polygon = world[world['continent'] == 'Oceania'].unary_union
@@ -107,8 +107,7 @@ class GeoLabel:
                     edge.append(i)
                 water = conc == 0
 
-        # Space between grid cells = 25km
-        dx = dy = 25000
+        dx = dy = 25000  # Space between grid cells = 25km
         # NSIDC Southern Hemisphere Grid Coordinates (332 rows x 316 cols)
         x, y = np.arange(-3950000, +3950000, +dx), np.arange(+4350000, -3950000, -dy)
         # All points in the grid as 104,912 rows, 2 columns. Note: 104,912 = 332 * 316
@@ -117,13 +116,13 @@ class GeoLabel:
         edge_points = stack_points[edge].T
 
         # Points are in zigzag order because they were inserted as grid cells, not their real order along the perimeter
-        # They need to be projected to EPSG: 4326 where they lay flat and then get sorted by the x-axis (latitude)
+        # They need to be projected to EPSG: 4326 where they lay flat and then get sorted by the x-axis (longitude)
         # Once sorted, the points will connect to make the desired shape
         flat_points = gpd.points_from_xy(x=edge_points[0], y=edge_points[1], crs='EPSG:3031').to_crs(crs='EPSG:4326')
         # All points defining the perimeter as integer pairs
         points = np.vstack((flat_points.x, flat_points.y)).T
-        # Sort the points by the x-axis (latitude)
-        sorted_points = points[points[:, 0].argsort()]
+        # Sort the points by the x-axis (longitude)
+        sorted_points = np.sort(points, axis=0)
         # Make Polygon and convert to Southern Hemisphere EPSG
         sie = Polygon(sorted_points)
         return transform(GeoLabel.project.transform, sie)
@@ -152,19 +151,19 @@ class GeoLabel:
         return pd.DataFrame(result.drop(columns='geometry'))
 
     @staticmethod
-    def get_sector(lat: float, lon: float) -> str:
+    def get_sector(lon: float, lat: float) -> str:
         """Gets sector for provided lat, lon. Useful for testing"""
         assert lat <= -30, "Provided latitude is not in the Southern Ocean (must be less than -30 degrees)"
         # Calls label_fronts with lat, lon pair as DataFrame
-        return GeoLabel.label_sectors(pd.DataFrame([(lat, lon)], columns=['lat', 'lon']), 'lat')['sector'][0]
+        return GeoLabel.label_sectors(pd.DataFrame([(lon, lat)], columns=['lon', 'lat']), 'lon')['sector'][0]
 
     @staticmethod
-    def label_sectors(data: pd.DataFrame, lat_col: str) -> pd.DataFrame:
+    def label_sectors(data: pd.DataFrame, lon_col: str) -> pd.DataFrame:
         """Labels provided data with sectors"""
-        assert lat_col in data.columns, f'"{lat_col}" is not present in the provided DataFrame'
+        assert lon_col in data.columns, f'"{lon_col}" is not present in the provided DataFrame'
         # Labels data by sectors (bins) and their latitude range
         # Ross Sea sector overlaps with the start and end of range: [-180, 180] so it is defined with two split ranges
-        sectors_series: pd.Series = pd.cut(data[lat_col], bins=[-180, -130, -60, 20, 90, 160, 180],
+        sectors_series: pd.Series = pd.cut(data[lon_col], bins=[-180, -130, -60, 20, 90, 160, 180],
                                            labels=['Ross', 'BA', 'Weddell', 'Indian', 'WPO', 'Ross'], ordered=False)
         return data.assign(sector=sectors_series)
 
