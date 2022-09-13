@@ -16,7 +16,7 @@
 
 ### Unsupervised learning to define Southern Ocean sectors
 - The niche model will not use the traditional front definitions to group data
-- Instead we will use temp + salinity + other bio factors to make custom clusters with unsupervised machine learning
+- Instead, we will use temp + salinity + other bio factors to make custom clusters with unsupervised machine learning
 - Based off the work in [this](https://doi.org/10.1029/2018JC014629) paper by Dan Jones in 2019
 - Fronts are difficult to define as a fixed boundary which is why a more open clustering system seems more representitive
 
@@ -43,7 +43,7 @@
     - NetCDF export/import. Add feature to export fronts as a NetCDF file, so it can be used for other research. In the future, if there are new ways of calculating fronts we can import the NetCDF from that calculation and keep the rest of the code the same.
 
 ### Spatial Data Workflow
-- How will data flow from raw input data to queriable results at the front end?
+- How will data flow from raw input data to queryable results at the front end?
 - Geo data is different because points inside a shape are not directly stored (only the edges are)
 - This section describes the different technologies that can be used and how they will interact
 
