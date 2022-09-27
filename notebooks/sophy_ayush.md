@@ -1,13 +1,60 @@
 # SOPHY Notes - Ayush Nag
 
+### Fall 2022 goals
+SOPhy database
+- Continue adding datasets from papers
+  - Add phytoplankton groups feature and modify schema to accommodate variety of data
+- Make frontend for visualizations and data use
+  - GitHub pages, Jupyter Notebook, or Python to visualization packages
+- Publish database
+  - Hosted on GitHub or Zenodo repository
+  - Publish paper
+
+### LTER ML model focus idea
+- The LTER dataset is the golden standard in terms of format and amount of data (30,000 data points over 30 years)
+- The rest of the datasets will contain ~150 data points total and seem insufficient to train the niche model
+- Idea: Make the niche model a proof of concept using only the LTER dataset
+  - Continue with original plan of clustering using BGC-ARGO floats
+  - Then instead of training niche model on the entire dataset just use LTER
+  - If successful, we will have a proof of concept for the core idea
+  - Once NASA PACE is online we will have significantly more data and can apply the same techniques to all available data
+
+### Data format challenge
+- I have started working through the datasets that can be entered in the database
+- The issue is that their formats are significantly different
+  - Some contain ratios of values where we expect a quantity
+  - Some contain a mix of CHEMTAX and microscopy in one row
+  - Some average values over a certain region and don't publish the individual points, so we cannot use it
+  - In general, many essential fields are missing (lat, depth) that need to be tracked down
+- We will have to come up with a new approach to entering data, since there are oceanography decisions to be made when entering data where I don't have experience.
+
+### NSIDC Sea Ice Extent data challenge
+- TODO: finish section
+- [Include images of the grid from NSIDC]
+- Isolated boundary but the points were out of order. Solution to that problem
+
 ### Summer 2022 second half goals
 - Main goal is to enter data and make visualization/front end for the database
 - Features still pending are metadata information when entering datasets and ways to visualize the different types of data
-- Latest task completed was seperating data into two different categories. Presesence vs data with biological and chemical data present. Essentially a table that has our ideal datasets like LTER with HPLC + chlorophyll, etc. Then another table for datasets that have lat, lon, time, and species present only. Phytobase and OBIS have lots of data like that. All the data will still be there, it will just avoid having tons of data with no entry for our biological columns. It can also make grouping the data easier since we can just ignore the Phytobase type data when we are doing clustering later on.
+- Latest task completed was separating data into two different categories. Presence vs data with biological and chemical data present. Essentially a table that has our ideal datasets like LTER with HPLC + chlorophyll, etc. Then another table for datasets that have lat, lon, time, and species present only. Phytobase and OBIS have lots of data like that. All the data will still be there, it will just avoid having tons of data with no entry for our biological columns. It can also make grouping the data easier since we can just ignore the Phytobase type data when we are doing clustering later on.
+- Current software progress:
+<p align="center">
+  <img 
+    width="350"
+    src="img/fronts_shapes.png"
+>
+</p>
+
+- All fronts/boundaries and their respective zones are shapefiles. Data is easily labelled with a spatial join to this GeoDataFrame
 
 ### GeoLabel class
 - Wrote hundreds of test lines over 2 weeks to get shapefiles and geopandas working
 - Refactored several times to simplify the functions as much as possible. Zones are labeled with a simple geospatial join
+```python
+import geopandas as gpd
+zones_gdf = gpd.read_file(GeoLabel.zones_shapefile)
+result = gpd.sjoin(data_gdf, zones_gdf)
+```
 
 ### Modifications to Kim and Orsi's front data
 - Removed small extra dots included in the fronts
@@ -21,7 +68,7 @@
 - Fronts are difficult to define as a fixed boundary which is why a more open clustering system seems more representitive
 
 ### RG Climatology to Southern Ocean Fronts
-- Member of my lab group has written code that converts [RG Climatology data](http://sio-argo.ucsd.edu/RG_Climatology.html) from Argo sensors into ocean front polygons
+- I have access to code that converts [RG Climatology data](http://sio-argo.ucsd.edu/RG_Climatology.html) from Argo sensors into ocean front polygons
 - The two options are:
 1) Rewrite all the code
    - Code is well documented but not efficient and contains lots of extra steps, hardcoded values, and not very modular
@@ -32,7 +79,7 @@
      - Time (at least a week). I need to understand the program, new datastructures, new packages etc.
      - If there are updates to the original code, I will not receive them (no longer a fork)
 2) Make small updates to code
-   - Fix hardcoding
+   - Fix hard coding
    - Pros:
      - Code is already written and verified 
      - Saves me a lot of time
@@ -75,7 +122,7 @@
   <img 
     width="350"
     src="img/fronts.png"
-  >
+>
 </p>
 
 #### Sectors
@@ -171,8 +218,12 @@ pyworms.aphiaRecordsByMatchNames('Pterosperma labyrinthus')  # unaccepted name, 
 
 ### Defining geospatial regions in the Southern Ocean
 - We want to be able to label rows with a certain regions like the one seen in the map:
-  <img alt="Southern Ocean Map" src="img/southern_ocean.jpg" title="Southern Ocean Map" width="300"/>
-- Cannot use simple lat long filters since they are rectangular unlike our regions
+<p align="center">
+  <img 
+    width="350"
+    src="img/southern_ocean.jpg"
+>
+</p>- Cannot use simple lat long filters since they are rectangular unlike our regions
 - Solutions inlcude ArcGIS filter/map or polygons that have predefined these regions
 - Main point is that there must be a mapping from latitude to region
 - If one is not available, we can explore how to create that mapping
