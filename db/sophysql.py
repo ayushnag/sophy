@@ -2,7 +2,6 @@
 __author__ = 'Ayush Nag'
 
 import sqlite3
-
 from pandas import DataFrame
 
 con = sqlite3.connect("sophy.db")
@@ -11,7 +10,7 @@ cur = con.cursor()
 
 def create_tables() -> None:
     """Creates tables based on schema and fields in lists"""
-    with open('create_tables.sql', 'r') as sql_file:
+    with open('schema.sql', 'r') as sql_file:
         con.executescript(sql_file.read())
     con.commit()
 

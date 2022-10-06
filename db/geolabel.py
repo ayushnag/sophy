@@ -1,3 +1,4 @@
+"""Defines static methods that can be used to interact with Southern Ocean fronts and sectors"""
 __author__ = 'Ayush Nag'
 
 from os.path import exists
@@ -15,7 +16,6 @@ from pyproj import Transformer
 from geopandas import GeoDataFrame
 from pandas import DataFrame, Series
 
-"""Defines static methods that can be used to interact with Southern Ocean fronts and sectors"""
 kim_orsi_file: str = '../data/fronts/ys_fronts.mat'
 nsidc_sea_ice_file: str = '../data/sea_ice/mean.sep.1979-2021.s'
 gray_fronts_file: str = '../data/fronts/fronts_Gray.mat'

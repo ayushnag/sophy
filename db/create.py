@@ -36,6 +36,7 @@ def write_lter() -> None:
     sample_df = geolabel.label_zones(sample_df, 'longitude', 'latitude').drop('index_right', axis=1)
     sample_df = geolabel.label_sectors(sample_df, 'longitude')
 
+    # TODO: chemtax into groups
     # write sample dataframe to sql database
     sophysql.write_dataset("sample", sample_df)
 
@@ -51,11 +52,8 @@ def write_phybase() -> None:
     # TODO: enable this line when not testing; taxa_df: DataFrame = worms_taxa(list(missing))
     taxa_df: DataFrame = pd.read_csv('../data/datasets/sample_worms.csv')  # Testing only
     taxa_df = taxa_df.rename(columns=worms_sql)
-    # keep only data in the Southern Ocean (latitude < -30 degrees)
     # not filtered earlier to get maximum taxa data possible for microscopy table
-    occ_df = occ_df[occ_df['latitude'] <= -30]
-    # drop rows with null time, lat, or long
-    occ_df = occ_df.dropna(subset=['longitude', 'latitude'])
+    occ_df = basic_filter(occ_df)
     # merge three columns into one with proper datetime format (no NaT)
     occ_df['timestamp'] = pd.to_datetime(occ_df[['year', 'month', 'day']], format='%m-%d-%Y',
                                          errors='coerce').dropna()
@@ -70,6 +68,26 @@ def write_phybase() -> None:
     sophysql.write_dataset(table_name="taxonomy", data=taxa_df)
     # write occurrence dataframe to sql database
     sophysql.write_dataset(table_name="occurrence", data=occ_df)
+
+
+def write_joy_warren() -> None:
+    """Writes Joy-Warren 2019 dataset to database"""
+    sample_df: DataFrame = pd.read_csv('../data/datasets/joy_warren.csv', encoding='unicode_escape')
+    sample_df = basic_filter(sample_df)
+    sample_df = geolabel.label_zones(sample_df, 'longitude', 'latitude').drop('index_right', axis=1)
+    sample_df = geolabel.label_sectors(sample_df, 'longitude')
+    # add entries from supplemental csv into the microscopy table
+    # TODO: chemtax into groups
+
+
+def write_alderkamp() -> None:
+    """Writes Alderkamp 2018 dataset to database"""
+    sample_df: DataFrame = pd.read_csv('../data/datasets/alderkamp.csv', encoding='unicode_escape')
+    sample_df = basic_filter(sample_df)
+    # label zones and sectors
+    sample_df = geolabel.label_zones(sample_df, 'longitude', 'latitude').drop('index_right', axis=1)
+    sample_df = geolabel.label_sectors(sample_df, 'longitude')
+    sophysql.write_dataset("sample", sample_df)
 
 
 def worms_taxa(taxa: list) -> DataFrame:
@@ -88,8 +106,9 @@ def worms_taxa(taxa: list) -> DataFrame:
     return DataFrame(microscopy).rename(worms_sql)
 
 
-def basic_fixes(data: DataFrame) -> DataFrame:
+def basic_filter(data: DataFrame) -> DataFrame:
     """Performs basic fixes on DF before inserting into SQLite table"""
+    # keep only data in the Southern Ocean (latitude <= -30 degrees)
     data = data[data['latitude'] <= -30]
     data = data.dropna(subset=['longitude', 'latitude'])
     return data

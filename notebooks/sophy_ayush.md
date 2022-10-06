@@ -1,5 +1,9 @@
 # SOPHY Notes - Ayush Nag
 
+
+### Updates on new table microscopy in schema and DB design
+
+
 ### Fall 2022 goals
 SOPhy database
 - Continue adding datasets from papers
