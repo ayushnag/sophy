@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Milestone updates; alderkamp method shell and new schema version">
+      <change beforePath="$PROJECT_DIR$/db/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/create_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/sophy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/db/sophy.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/sophy_db.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/db/sophysandbox.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemas/sophy.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/sophy.drawio" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseLocalColorSettings">
+    <colors>
+      <entry key="320983db-ffed-4714-9d37-5a1586897fd3" value="Violet" />
+    </colors>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jupyter Notebook" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2D5DWeHTFvmS0A4zt0WedXqwKLS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Project.color&quot;: &quot;344640&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ayush Nag/Downloads&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ayush Nag\vault\sophy\notebooks\img" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.create">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="sophy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="create" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="sophy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/db" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/db/create.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="scratch" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="sophy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/db" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/db/scratch.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.create" />
+        <item itemvalue="Python.scratch" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="" />
+      <created>1659980085437</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1659980085437</updated>
+      <workItem from="1659980087153" duration="1791000" />
+      <workItem from="1659983175244" duration="51000" />
+      <workItem from="1659983239065" duration="203000" />
+      <workItem from="1659983456219" duration="6072000" />
+      <workItem from="1660060888156" duration="2425000" />
+      <workItem from="1660063530853" duration="368000" />
+      <workItem from="1660063912625" duration="17051000" />
+      <workItem from="1660233260724" duration="88960000" />
+      <workItem from="1660665439395" duration="5854000" />
+      <workItem from="1660675309592" duration="65000" />
+      <workItem from="1660675408962" duration="236000" />
+      <workItem from="1660676153854" duration="7006000" />
+      <workItem from="1660693979153" duration="742000" />
+      <workItem from="1660756709211" duration="17502000" />
+      <workItem from="1662488479570" duration="2448000" />
+      <workItem from="1662567355496" duration="64782000" />
+      <workItem from="1662844848430" duration="108000" />
+      <workItem from="1662857260595" duration="833000" />
+      <workItem from="1663003512243" duration="8981000" />
+      <workItem from="1663091104347" duration="3312000" />
+      <workItem from="1663110681796" duration="821000" />
+      <workItem from="1663116457315" duration="605000" />
+      <workItem from="1663181636034" duration="8278000" />
+      <workItem from="1663293465546" duration="10130000" />
+      <workItem from="1663697704932" duration="2013000" />
+      <workItem from="1663776717892" duration="8053000" />
+      <workItem from="1663804633877" duration="2660000" />
+      <workItem from="1663858243694" duration="12075000" />
+      <workItem from="1663948814837" duration="19941000" />
+      <workItem from="1664295601484" duration="14008000" />
+      <workItem from="1664395754005" duration="5111000" />
+      <workItem from="1664551789832" duration="15988000" />
+      <workItem from="1664760492851" duration="12433000" />
+      <workItem from="1664987089132" duration="10140000" />
+      <workItem from="1665109566922" duration="1587000" />
+      <workItem from="1665162929622" duration="4793000" />
+    </task>
+    <task id="LOCAL-00001" summary="Buf fixes in create.py and geolabel.py">
+      <created>1660069576418</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1660069576418</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Updated geolabel.py to use the NSIDC SMMR v3 for sea ice concentration">
+      <created>1660587702693</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1660587702693</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added STF to geolabel.py w/ data from Gray et al. 2018">
+      <created>1660636122552</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1660636122552</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Wrote feature to label sectors in geolabel.py">
+      <created>1660636517969</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1660636517969</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added fronts_Gray.mat from Gray et al. 2018">
+      <created>1660636577127</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1660636577127</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Converted large create_fronts_zone_shapes() into more modular parts">
+      <created>1660676280559</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1660676280559</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Updated schema and code to split data into sample and occurrence tables">
+      <created>1660717392422</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1660717392422</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Updated notes">
+      <created>1660719138171</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1660719138171</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Integrated geolabel features into create.py">
+      <created>1660759840452</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1660759840452</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Updated geolabel.py with an improved method of calculating SIE from NSIDC data">
+      <created>1662748427958</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1662748427958</updated>
+    </task>
+    <task id="LOCAL-00011" summary="New pie style visual for view fronts, sectors, and data">
+      <created>1662748472629</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1662748472629</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Fixed issue where lat and lon were incorrectly reversed in some locations. Also added STZ to zones file">
+      <created>1662771484576</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1662771484576</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Another lat/lon reverse issue fixed">
+      <created>1663113462976</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1663113462976</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Update workspace and test environment">
+      <created>1663113545615</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1663113545615</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Converted geolabel.py to simple file with functions and removed static method decorators">
+      <created>1663887582613</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1663887582613</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Created new helper class sophysql.py and shifted functionality from create.py">
+      <created>1664302763324</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1664302763324</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Updated notes for Fall 2022 and tracking sandbox changes">
+      <created>1664302800705</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1664302800705</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Milestone updates; alderkamp method shell and new schema version">
+      <created>1665021515432</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1665021515432</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Buf fixes in create.py and geolabel.py" />
+    <MESSAGE value="Updated geolabel.py to use the NSIDC SMMR v3 for sea ice concentration" />
+    <MESSAGE value="Added STF to geolabel.py w/ data from Gray et al. 2018" />
+    <MESSAGE value="Wrote feature to label sectors in geolabel.py" />
+    <MESSAGE value="Added fronts_Gray.mat from Gray et al. 2018" />
+    <MESSAGE value="Converted large create_fronts_zone_shapes() into more modular parts" />
+    <MESSAGE value="Updated schema and code to split data into sample and occurrence tables" />
+    <MESSAGE value="Updated notes" />
+    <MESSAGE value="Integrated geolabel features into create.py" />
+    <MESSAGE value="Updated geolabel.py with an improved method of calculating SIE from NSIDC data" />
+    <MESSAGE value="New pie style visual for view fronts, sectors, and data" />
+    <MESSAGE value="Fixed issue where lat and lon were incorrectly reversed in some locations. Also added STZ to zones file" />
+    <MESSAGE value="Another lat/lon reverse issue fixed" />
+    <MESSAGE value="Update workspace and test environment" />
+    <MESSAGE value="Converted geolabel.py to simple file with functions and removed static method decorators" />
+    <MESSAGE value="Created new helper class sophysql.py and shifted functionality from create.py" />
+    <MESSAGE value="Updated notes for Fall 2022 and tracking sandbox changes" />
+    <MESSAGE value="Milestone updates; alderkamp method shell and new schema version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Milestone updates; alderkamp method shell and new schema version" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>notebook://C:/Users/Ayush Nag/vault/sophy/db/sophy_db.ipynb</url>
+          <line>304</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>notebook://C:/Users/Ayush Nag/vault/sophy/db/sophy_db.ipynb</url>
+          <line>420</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>notebook://C:/Users/Ayush Nag/vault/sophy/db/sophy_db.ipynb</url>
+          <line>375</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>notebook://C:/Users/Ayush Nag/vault/sophy/db/sophy_db.ipynb</url>
+          <line>464</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>notebook://C:/Users/Ayush Nag/vault/sophy/db/sophy.ipynb</url>
+          <line>56</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>notebook://C:/Users/Ayush Nag/vault/sophy/db/sophy_db.ipynb</url>
+          <line>167</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>notebook://C:/Users/Ayush Nag/vault/sophy/db/sophy_db.ipynb</url>
+          <line>199</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>notebook://C:/Users/Ayush Nag/vault/sophy/db/sophy_db.ipynb</url>
+          <line>493</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>notebook://C:/Users/Ayush Nag/vault/sophy/db/sophy.ipynb</url>
+          <line>127</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/sophy$scratch.coverage" NAME="scratch Coverage Results" MODIFIED="1660416224515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db" />
+    <SUITE FILE_PATH="coverage/sophy$create.coverage" NAME="create Coverage Results" MODIFIED="1662695849551" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db" />
+  </component>
+</project>
