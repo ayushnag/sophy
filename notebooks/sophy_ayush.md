@@ -2,6 +2,8 @@
 
 
 ### Updates on new table microscopy in schema and DB design
+- Some datasets provide microscopy data with many columns of taxa information that were all measured in the same sample. There is one row in the sample table that they match to so I needed another table to avoid storing these taxa redundantly in the sample table.
+- Microscopy table allows for many taxa to be grouped under the same sample with a foreign key
 
 
 ### Fall 2022 goals
@@ -52,6 +54,7 @@ SOPhy database
 - All fronts/boundaries and their respective zones are shapefiles. Data is easily labelled with a spatial join to this GeoDataFrame
 
 ### GeoLabel class
+- Class to label data by fronts and sector. Also creates the shapefiles with raw data
 - Wrote hundreds of test lines over 2 weeks to get shapefiles and geopandas working
 - Refactored several times to simplify the functions as much as possible. Zones are labeled with a simple geospatial join
 ```python

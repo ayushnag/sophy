@@ -24,7 +24,7 @@ def get_table_cols(table: str) -> tuple:
         raise ValueError(f"Table {table} does not exist in the database")
 
 
-def write_dataset(table_name: str, data: DataFrame) -> None:
+def write_dataset(data: DataFrame, table_name: str) -> None:
     """Writes data frame to the SQLite table table_name:param"""
     # Columns present in data and in the destination SQL table
     common = set(data.columns.values.tolist()).intersection(set(get_table_cols(table_name)))
@@ -39,8 +39,7 @@ def write_dataset(table_name: str, data: DataFrame) -> None:
 
 def query(query: str):
     # TODO: do some checks/give useful error messages for query
-    # TODO: format output to return DataFrame instead of list
-    return cur.execute(query).fetchall()
+    return DataFrame(cur.execute(query).fetchall())
 
 
 def full() -> DataFrame:

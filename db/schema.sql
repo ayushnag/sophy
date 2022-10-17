@@ -28,17 +28,22 @@ create table if not exists sample (
     light_transmission real,
     mld real,
 
-    scientific_name text,
-    prasinophytes real,
-    cryptophytes real,
-    mixed_flagellates real,
-    diatoms real,
-    haptophytes real,
+    chemtax_prasinophytes real,
+    chemtax_cryptophytes real,
+    chemtax_mixed_flagellates real,
+    chemtax_diatoms real,
+    chemtax_haptophytes real,
+    chemtax_chlorophytes real,
+
+    category_phaeocystis real,
+    category_diatoms real,
+    category_other real,
 
     nitrate real,
     nitrite real,
     pco2 real,
     diss_oxygen real,
+    diss_iron real,
     diss_inorg_carbon real,
     diss_inorg_nitrogen real,
     diss_inorg_phosp real,
@@ -73,6 +78,14 @@ create table if not exists occurrence (
     notes text
 );
 
+create table if not exists microscopy (
+    sample_id integer references sample(id),
+    aphia_id integer references taxonomy(aphia_id),
+    groups text,
+    biovolume real,
+    concentration real
+);
+
 create table if not exists source (
     name text primary key,
     full_reference text,
@@ -96,7 +109,7 @@ create table if not exists taxonomy (
     class text,
     subclass text,
     superorder text,
-    t_order text,
+    orders text,
     suborder text,
     infraorder text,
     superfamily text,

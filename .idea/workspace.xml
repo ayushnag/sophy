@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Milestone updates; alderkamp method shell and new schema version">
+    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Created sample queries to test use cases">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/create.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/create_tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/geolabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/geolabel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/sophy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/db/sophy.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sophy_db.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/db/sophysandbox.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/sophysandbox.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/db/sophysandbox.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/sophysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/sophysql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/sophy_ayush.md" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/sophy_ayush.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schemas/sophy.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/sophy.drawio" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +176,11 @@
       <workItem from="1664760492851" duration="12433000" />
       <workItem from="1664987089132" duration="10140000" />
       <workItem from="1665109566922" duration="1587000" />
-      <workItem from="1665162929622" duration="4793000" />
+      <workItem from="1665162929622" duration="11315000" />
+      <workItem from="1665337164457" duration="2631000" />
+      <workItem from="1665359516497" duration="20883000" />
+      <workItem from="1665678269895" duration="12028000" />
+      <workItem from="1665785159406" duration="8066000" />
     </task>
     <task id="LOCAL-00001" summary="Buf fixes in create.py and geolabel.py">
       <created>1660069576418</created>
@@ -300,7 +308,28 @@
       <option name="project" value="LOCAL" />
       <updated>1665021515432</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Updates to sandbox and multi-dataset plotting">
+      <created>1665178490880</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1665178490880</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Renamed from create_tables.sql">
+      <created>1665178505425</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1665178505425</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Created sample queries to test use cases">
+      <created>1665178626799</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1665178626799</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +365,10 @@
     <MESSAGE value="Created new helper class sophysql.py and shifted functionality from create.py" />
     <MESSAGE value="Updated notes for Fall 2022 and tracking sandbox changes" />
     <MESSAGE value="Milestone updates; alderkamp method shell and new schema version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Milestone updates; alderkamp method shell and new schema version" />
+    <MESSAGE value="Updates to sandbox and multi-dataset plotting" />
+    <MESSAGE value="Renamed from create_tables.sql" />
+    <MESSAGE value="Created sample queries to test use cases" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created sample queries to test use cases" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -363,7 +395,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
           <url>notebook://C:/Users/Ayush Nag/vault/sophy/db/sophy.ipynb</url>
-          <line>56</line>
+          <line>59</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
@@ -383,8 +415,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
           <url>notebook://C:/Users/Ayush Nag/vault/sophy/db/sophy.ipynb</url>
-          <line>127</line>
+          <line>131</line>
           <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>notebook://C:/Users/Ayush Nag/vault/sophy/db/sophysandbox.ipynb</url>
+          <line>444</line>
+          <option name="timeStamp" value="52" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

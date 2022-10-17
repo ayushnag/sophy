@@ -33,7 +33,7 @@ def create_fronts_zones_shapes():
     world: GeoDataFrame = gpd.read_file(gpd.datasets.get_path("naturalearth_lowres"))
     world = world.to_crs(epsg=3031)
     southern_ocean: Polygon = transform(project.transform, Polygon(
-        zip(np.append(np.linspace(start=0, stop=360, num=10000), 0), np.full(10000, -30))))
+        zip(np.append(np.linspace(start=0, stop=360, num=1000), 0), np.full(1000, -29.5))))
     antarctica: Polygon = world[world['continent'] == 'Antarctica'].unary_union
     south_america: Polygon = world[world['continent'] == 'South America'].unary_union
     oceania: Polygon = world[world['continent'] == 'Oceania'].unary_union

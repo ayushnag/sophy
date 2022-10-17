@@ -37,8 +37,29 @@ def write_lter() -> None:
     sample_df = geolabel.label_sectors(sample_df, 'longitude')
 
     # TODO: chemtax into groups
+    # make a function that can take in a dataframe with some* chemtax cols and return the same DF with the group_X cols filled out
     # write sample dataframe to sql database
-    sophysql.write_dataset("sample", sample_df)
+    sophysql.write_dataset(data=sample_df, table_name="sample")
+
+
+def split_groups(data: DataFrame) -> DataFrame:
+    """Creates three new columns (phaeocystis, diatoms, and other) based on chemtax columns"""
+    assert {'chemtax_haptophytes', 'chemtax_diatoms'}.issubset(
+        data.columns), 'chemtax_haptophytes and chemtax_diatoms are not present in the provided DataFrame'
+    chemtax_other: set = {'chemtax_prasinophytes', 'chemtax_mixed_flagellates', 'chemtax_cryptophytes',
+                          'chemtax_chlorophytes'}
+    data['group_phaeocystis'] = data['chemtax_haptophytes']
+    data['group_diatoms'] = data['chemtax_diatoms']
+    extra: set = chemtax_other.intersection(data.columns)
+    data['group_other'] = data[extra].sum(axis=1)
+    return data
+
+
+def microscopy_to_groups(micro_df: DataFrame) -> DataFrame:
+    x: int = 8
+    # first create column that gives them their label to be able to be merged
+    # all other == other
+    # so first
 
 
 def write_phybase() -> None:
@@ -49,7 +70,6 @@ def write_phybase() -> None:
     sci_names_micro = set(cur.execute("select scientific_name from taxonomy").fetchall())
     missing: set = sci_names_data - sci_names_micro  # sci_names that are missing from our database taxa records
     # get full taxonomy of microscopy data as dataframe
-    # TODO: enable this line when not testing; taxa_df: DataFrame = worms_taxa(list(missing))
     taxa_df: DataFrame = pd.read_csv('../data/datasets/sample_worms.csv')  # Testing only
     taxa_df = taxa_df.rename(columns=worms_sql)
     # not filtered earlier to get maximum taxa data possible for microscopy table
@@ -65,32 +85,37 @@ def write_phybase() -> None:
     occ_df = geolabel.label_sectors(occ_df, 'longitude')
 
     # write taxonomy dataframe to sql database
-    sophysql.write_dataset(table_name="taxonomy", data=taxa_df)
+    sophysql.write_dataset(data=taxa_df, table_name="taxonomy")
     # write occurrence dataframe to sql database
-    sophysql.write_dataset(table_name="occurrence", data=occ_df)
+    sophysql.write_dataset(data=occ_df, table_name="occurrence")
 
 
 def write_joy_warren() -> None:
     """Writes Joy-Warren 2019 dataset to database"""
     sample_df: DataFrame = pd.read_csv('../data/datasets/joy_warren.csv', encoding='unicode_escape')
     sample_df = basic_filter(sample_df)
+
+    # shifts index to match the id in the sample table
+    max_id: int = sophysql.query("select max(id) from sample")[0][0]
+    sample_df.index += (max_id + 1)
+
+    # TODO: chemtax into categories
+
     sample_df = geolabel.label_zones(sample_df, 'longitude', 'latitude').drop('index_right', axis=1)
     sample_df = geolabel.label_sectors(sample_df, 'longitude')
-    # add entries from supplemental csv into the microscopy table
-    # TODO: chemtax into groups
 
 
 def write_alderkamp() -> None:
-    """Writes Alderkamp 2018 dataset to database"""
+    """Writes Alderkamp 2019 dataset to database"""
     sample_df: DataFrame = pd.read_csv('../data/datasets/alderkamp.csv', encoding='unicode_escape')
     sample_df = basic_filter(sample_df)
     # label zones and sectors
     sample_df = geolabel.label_zones(sample_df, 'longitude', 'latitude').drop('index_right', axis=1)
     sample_df = geolabel.label_sectors(sample_df, 'longitude')
-    sophysql.write_dataset("sample", sample_df)
+    sophysql.write_dataset(data=sample_df, table_name="sample")
 
 
-def worms_taxa(taxa: list) -> DataFrame:
+def update_sample_worms(taxa: list) -> None:
     """Finds full species composition of provided taxa. Uses WoRMS database to find data"""
     microscopy, no_result = [], []
     # full taxa records from WoRMS; worms = [[{}], [{}], [], [{}], ...]
@@ -103,7 +128,11 @@ def worms_taxa(taxa: list) -> DataFrame:
     if len(no_result) != 0:  # outputs taxa (first 20) where WoRMS database found no result
         warnings.warn(f"No results found by WoRMS database: {str(no_result[:20])}...")
     # convert list of dict() -> dataframe and clean it
-    return DataFrame(microscopy).rename(worms_sql)
+    new = DataFrame(microscopy).rename(worms_sql)
+    curr = pd.read_csv("../data/datasets/sample_worms.csv")
+    full: DataFrame = new.append(curr)
+    full = full.drop_duplicates(subset=['aphia_id'])
+    full.to_csv("../data/datasets/sample_worms.csv", encoding='utf-8', index=False)
 
 
 def basic_filter(data: DataFrame) -> DataFrame:
