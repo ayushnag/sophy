@@ -83,6 +83,7 @@ create table if not exists microscopy (
     aphia_id integer references taxonomy(aphia_id),
     groups text,
     biovolume real,
+    biomass real,
     concentration real
 );
 
