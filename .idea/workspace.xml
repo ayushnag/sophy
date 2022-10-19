@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="general updates; added new group/category feature to microscopy">
+    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Added new class sophytaxa.py to manage taxa interactions/transformations">
+      <change afterPath="$PROJECT_DIR$/notebooks/geolabel.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notebooks/sophysql.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notebooks/sophytaxa.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sophy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/db/sophy.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sophysandbox.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/db/sophysandbox.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/sophytaxa.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/sophytaxa.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/img/epsg3031.png" beforeDir="false" afterPath="$PROJECT_DIR$/notes/img/epsg3031.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/img/epsg4326.png" beforeDir="false" afterPath="$PROJECT_DIR$/notes/img/epsg4326.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/img/fronts.png" beforeDir="false" afterPath="$PROJECT_DIR$/notes/img/fronts.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/img/fronts_shapes.png" beforeDir="false" afterPath="$PROJECT_DIR$/notes/img/fronts_shapes.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/img/sectors.png" beforeDir="false" afterPath="$PROJECT_DIR$/notes/img/sectors.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/img/southern_ocean.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/notes/img/southern_ocean.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/python_speed.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notes/python_speed.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/sophy_ayush.md" beforeDir="false" afterPath="$PROJECT_DIR$/notes/sophy_ayush.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/sophy_rishabh.md" beforeDir="false" afterPath="$PROJECT_DIR$/notes/sophy_rishabh.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jupyter Notebook" />
         <option value="Python Script" />
+        <option value="Jupyter Notebook" />
       </list>
     </option>
   </component>
@@ -51,6 +62,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ayush Nag\vault\sophy\notes" />
       <recent name="C:\Users\Ayush Nag\vault\sophy\notebooks\img" />
     </key>
   </component>
@@ -176,7 +188,7 @@
       <workItem from="1665359516497" duration="20883000" />
       <workItem from="1665678269895" duration="12028000" />
       <workItem from="1665785159406" duration="13352000" />
-      <workItem from="1666198109540" duration="834000" />
+      <workItem from="1666198109540" duration="2806000" />
     </task>
     <task id="LOCAL-00001" summary="Buf fixes in create.py and geolabel.py">
       <created>1660069576418</created>
@@ -332,7 +344,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666035047169</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Added new class sophytaxa.py to manage taxa interactions/transformations">
+      <created>1666200990450</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1666200990450</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,7 +391,8 @@
     <MESSAGE value="Renamed from create_tables.sql" />
     <MESSAGE value="Created sample queries to test use cases" />
     <MESSAGE value="general updates; added new group/category feature to microscopy" />
-    <option name="LAST_COMMIT_MESSAGE" value="general updates; added new group/category feature to microscopy" />
+    <MESSAGE value="Added new class sophytaxa.py to manage taxa interactions/transformations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new class sophytaxa.py to manage taxa interactions/transformations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
