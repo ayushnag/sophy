@@ -2,7 +2,7 @@
 <dataSource name="sophy">
   <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.43">
     <root id="1">
-      <ServerVersion>3.38.0</ServerVersion>
+      <ServerVersion>3.39.2</ServerVersion>
     </root>
     <collation id="2" parent="1" name="BINARY"/>
     <collation id="3" parent="1" name="NOCASE"/>

@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Added new class sophytaxa.py to manage taxa interactions/transformations">
-      <change afterPath="$PROJECT_DIR$/notebooks/geolabel.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notebooks/sophysql.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notebooks/sophytaxa.ipynb" afterDir="false" />
+    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Shifted around files and created demo Jupyter NBs">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/sophy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/db/sophy.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/sophysandbox.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/db/sophysandbox.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/sophytaxa.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/sophytaxa.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/img/epsg3031.png" beforeDir="false" afterPath="$PROJECT_DIR$/notes/img/epsg3031.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/img/epsg4326.png" beforeDir="false" afterPath="$PROJECT_DIR$/notes/img/epsg4326.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/img/fronts.png" beforeDir="false" afterPath="$PROJECT_DIR$/notes/img/fronts.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/img/fronts_shapes.png" beforeDir="false" afterPath="$PROJECT_DIR$/notes/img/fronts_shapes.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/img/sectors.png" beforeDir="false" afterPath="$PROJECT_DIR$/notes/img/sectors.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/img/southern_ocean.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/notes/img/southern_ocean.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/python_speed.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notes/python_speed.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/sophy_ayush.md" beforeDir="false" afterPath="$PROJECT_DIR$/notes/sophy_ayush.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/sophy_rishabh.md" beforeDir="false" afterPath="$PROJECT_DIR$/notes/sophy_rishabh.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemas/sophy.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/sophy.drawio" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +52,12 @@
     &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Ayush Nag/Downloads&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
@@ -188,7 +188,12 @@
       <workItem from="1665359516497" duration="20883000" />
       <workItem from="1665678269895" duration="12028000" />
       <workItem from="1665785159406" duration="13352000" />
-      <workItem from="1666198109540" duration="2806000" />
+      <workItem from="1666198109540" duration="17773000" />
+      <workItem from="1666584123590" duration="16125000" />
+      <workItem from="1666809597778" duration="3354000" />
+      <workItem from="1667445694790" duration="6061000" />
+      <workItem from="1667793520196" duration="20040000" />
+      <workItem from="1667933988709" duration="7023000" />
     </task>
     <task id="LOCAL-00001" summary="Buf fixes in create.py and geolabel.py">
       <created>1660069576418</created>
@@ -351,7 +356,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666200990450</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Shifted around files and created demo Jupyter NBs">
+      <created>1666203143975</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1666203143975</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,7 +404,8 @@
     <MESSAGE value="Created sample queries to test use cases" />
     <MESSAGE value="general updates; added new group/category feature to microscopy" />
     <MESSAGE value="Added new class sophytaxa.py to manage taxa interactions/transformations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new class sophytaxa.py to manage taxa interactions/transformations" />
+    <MESSAGE value="Shifted around files and created demo Jupyter NBs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Shifted around files and created demo Jupyter NBs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -419,7 +432,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
           <url>notebook://C:/Users/Ayush Nag/vault/sophy/db/sophy.ipynb</url>
-          <line>59</line>
+          <line>67</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
@@ -439,13 +452,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
           <url>notebook://C:/Users/Ayush Nag/vault/sophy/db/sophy.ipynb</url>
-          <line>131</line>
+          <line>125</line>
           <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
           <url>notebook://C:/Users/Ayush Nag/vault/sophy/db/sophysandbox.ipynb</url>
           <line>444</line>
           <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>notebook://C:/Users/Ayush Nag/vault/sophy/db/sophysandbox.ipynb</url>
+          <line>592</line>
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

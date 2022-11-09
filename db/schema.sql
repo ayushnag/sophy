@@ -1,12 +1,10 @@
 create table if not exists sample (
     id integer primary key autoincrement,
     source_name text references source(name),
-    aphia_id int references taxonomy(aphia_id),
 
     latitude real,
     longitude real,
     timestamp text,
-
     front_zone text,
     sector text,
 
@@ -17,17 +15,16 @@ create table if not exists sample (
     salinity real,
     temperature real,
     density real,
-    chlorophyll real,
-    phaeopigments real,
-    fluorescence real,
+    -- figure out which one is more commonly used
+    chlorophyll_a_hplc real,
+    chlorophyll_a_fluor real,
     primary_prod real,
     cruise text,
 
-    down_par real,
-    light_intensity real,
-    light_transmission real,
+    down_par real, -- check if these are mains
     mld real,
 
+    -- species composition
     chemtax_prasinophytes real,
     chemtax_cryptophytes real,
     chemtax_mixed_flagellates real,
@@ -35,35 +32,34 @@ create table if not exists sample (
     chemtax_haptophytes real,
     chemtax_chlorophytes real,
 
+    --percentage of each category for this sample
     category_phaeocystis real,
     category_diatoms real,
     category_other real,
 
+    -- JSON extra column
+    extra_json text,
+
+    -- chem/phys measurements
     nitrate real,
     nitrite real,
     pco2 real,
     diss_oxygen real,
     diss_iron real,
     diss_inorg_carbon real,
+    total_alkalinity,
     diss_inorg_nitrogen real,
     diss_inorg_phosp real,
     diss_org_carbon real,
     diss_org_nitrogen real,
     part_org_carbon real,
     part_org_nitrogen real,
-    org_carbon real,
-    org_matter real,
-    org_nitrogen real,
     phosphate real,
     silicate real,
     tot_nitrogen real,
     tot_part_carbon real,
     tot_phosp real,
-    ph real,
-
-    origin_id text,
-    strain text,
-    notes text
+    ph real
 );
 
 create table if not exists occurrence (
@@ -75,12 +71,14 @@ create table if not exists occurrence (
     front_zone text,
     sector text,
     depth real,
+    extra_json text,
     notes text
 );
 
 create table if not exists microscopy (
     sample_id integer references sample(id),
     aphia_id integer references taxonomy(aphia_id),
+    name text,
     groups text,
     biovolume real,
     biomass real,
@@ -102,6 +100,7 @@ create table if not exists tag (
 create table if not exists taxonomy (
     aphia_id integer primary key,
     scientific_name text,
+    authority text,
     superkingdom text,
     kingdom text,
     phylum text,

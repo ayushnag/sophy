@@ -7,6 +7,7 @@ import pandas as pd
 import pyworms
 import geolabel
 import sophysql
+import sophytaxa
 from pandas import DataFrame
 
 
@@ -53,7 +54,7 @@ def write_phybase() -> None:
     missing: set = sci_names_data - sci_names_micro  # sci_names that are missing from our database taxa records
     # get full taxonomy of microscopy data as dataframe
     taxa_df: DataFrame = pd.read_csv('../data/datasets/sample_worms.csv')  # Testing only
-    taxa_df = taxa_df.rename(columns=worms_sql)
+    taxa_df = taxa_df.rename(columns=sophytaxa.worms_sql)
     # not filtered earlier to get maximum taxa data possible for microscopy table
     occ_df = basic_filter(occ_df)
     # merge three columns into one with proper datetime format (no NaT)
@@ -85,6 +86,7 @@ def write_joy_warren() -> None:
 
     sample_df = geolabel.label_zones(sample_df, 'longitude', 'latitude').drop('index_right', axis=1)
     sample_df = geolabel.label_sectors(sample_df, 'longitude')
+    sophysql.write_dataset(data=sample_df, table_name="sample")
 
 
 def write_alderkamp() -> None:
