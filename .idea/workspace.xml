@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Shifted around files and created demo Jupyter NBs">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/create.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.sql" afterDir="false" />
+    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Added modified source datasets">
       <change beforePath="$PROJECT_DIR$/db/sophy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/db/sophy.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sophysandbox.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/db/sophysandbox.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sophytaxa.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/sophytaxa.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemas/sophy.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/schemas/sophy.drawio" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +53,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ayush Nag\vault\sophy\data\datasets\modified" />
       <recent name="C:\Users\Ayush Nag\vault\sophy\notes" />
       <recent name="C:\Users\Ayush Nag\vault\sophy\notebooks\img" />
     </key>
@@ -193,7 +185,7 @@
       <workItem from="1666809597778" duration="3354000" />
       <workItem from="1667445694790" duration="6061000" />
       <workItem from="1667793520196" duration="20040000" />
-      <workItem from="1667933988709" duration="7023000" />
+      <workItem from="1667933988709" duration="7386000" />
     </task>
     <task id="LOCAL-00001" summary="Buf fixes in create.py and geolabel.py">
       <created>1660069576418</created>
@@ -363,7 +355,42 @@
       <option name="project" value="LOCAL" />
       <updated>1666203143975</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Refactored schema to hold JSON data as extra cols">
+      <created>1668013628934</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1668013628934</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Sandbox update">
+      <created>1668013644498</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1668013644498</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Created shell function for microscopy -&gt; categories">
+      <created>1668013681316</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1668013681316</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Added modified source datasets">
+      <created>1668013849553</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1668013849553</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Added modified source datasets">
+      <created>1668013871413</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1668013871413</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,9 +408,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Buf fixes in create.py and geolabel.py" />
-    <MESSAGE value="Updated geolabel.py to use the NSIDC SMMR v3 for sea ice concentration" />
-    <MESSAGE value="Added STF to geolabel.py w/ data from Gray et al. 2018" />
     <MESSAGE value="Wrote feature to label sectors in geolabel.py" />
     <MESSAGE value="Added fronts_Gray.mat from Gray et al. 2018" />
     <MESSAGE value="Converted large create_fronts_zone_shapes() into more modular parts" />
@@ -405,7 +429,11 @@
     <MESSAGE value="general updates; added new group/category feature to microscopy" />
     <MESSAGE value="Added new class sophytaxa.py to manage taxa interactions/transformations" />
     <MESSAGE value="Shifted around files and created demo Jupyter NBs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Shifted around files and created demo Jupyter NBs" />
+    <MESSAGE value="Refactored schema to hold JSON data as extra cols" />
+    <MESSAGE value="Sandbox update" />
+    <MESSAGE value="Created shell function for microscopy -&gt; categories" />
+    <MESSAGE value="Added modified source datasets" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added modified source datasets" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

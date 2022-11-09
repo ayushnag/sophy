@@ -18,7 +18,7 @@ worms_micro = OrderedDict([("AphiaID", "aphia_id"), ("scientificname", "scientif
 con = sqlite3.connect("sophy.db")
 cur = con.cursor()
 
-data = pd.read_csv('../data/datasets/phytobase.csv', encoding='unicode_escape')  # full DF from dataset
+data = pd.read_csv('../data/datasets/modified/phytobase.csv', encoding='unicode_escape')  # full DF from dataset
 sample_df = data.filter(items=["scientificName"])  # sci_name entries per row of source dataset
 
 

@@ -47,7 +47,7 @@ def microscopy_to_groups(micro_df: DataFrame) -> DataFrame:
 
 def write_phybase() -> None:
     """Writes Phytobase dataset to database"""
-    occ_df: DataFrame = pd.read_csv('../data/datasets/phytobase.csv', encoding='unicode_escape')
+    occ_df: DataFrame = pd.read_csv('../data/datasets/modified/phytobase.csv', encoding='unicode_escape')
 
     sci_names_data = set(occ_df['scientific_name'].unique())
     sci_names_micro = set(cur.execute("select scientific_name from taxonomy").fetchall())
@@ -75,7 +75,7 @@ def write_phybase() -> None:
 
 def write_joy_warren() -> None:
     """Writes Joy-Warren 2019 dataset to database"""
-    sample_df: DataFrame = pd.read_csv('../data/datasets/joy_warren.csv', encoding='unicode_escape')
+    sample_df: DataFrame = pd.read_csv('../data/datasets/modified/joy_warren.csv', encoding='unicode_escape')
     sample_df = basic_filter(sample_df)
 
     # shifts index to match the id in the sample table
