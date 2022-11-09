@@ -9,7 +9,8 @@ from pandas import DataFrame
 
 # worms output -> sql col name. Also include columns from the original data that are needed but don't need renaming
 # Ex: "class" -> "class" means col name is correct but class column is needed for calculations and/or used in database
-worms_sql: dict = {"AphiaID": "aphia_id", "scientificname": "scientific_name", "superkingdom": "superkingdom",
+worms_sql: dict = {"AphiaID": "aphia_id", "scientificname": "scientific_name", "authority": "authority",
+                   "superkingdom": "superkingdom",
                    "kingdom": "kingdom", "phylum": "phylum", "subphylum": "subphylum", "superclass": "superclass",
                    "class": "class", "subclass": "subclass", "superorder": "superorder", "order": "t_order",
                    "suborder": "suborder", "infraorder": "infraorder", "superfamily": "superfamily",
@@ -47,3 +48,7 @@ def split_groups(data: DataFrame) -> DataFrame:
     extra: set = chemtax_other.intersection(data.columns)
     data['group_other'] = data[extra].sum(axis=1)
     return data
+
+
+def taxa_categories(data: DataFrame) -> DataFrame:
+    """Creates three new columns (phaeocystis, diatoms, and other) based on microscopy columns"""
