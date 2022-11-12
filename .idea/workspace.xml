@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Added unit tests for main classes">
+    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="deleted ml dir">
       <change afterPath="$PROJECT_DIR$/sophy/sophy.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sophy/sophy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/create.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/geolabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/geolabel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/samples.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/samples.sql" afterDir="false" />
@@ -15,7 +17,6 @@
       <change beforePath="$PROJECT_DIR$/db/test_pandas_sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/test_pandas_sql.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/test_phytobase_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/test_phytobase_script.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/test_sql_worms.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/test_sql_worms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ml/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +31,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Jupyter Notebook" />
         <option value="Python Unit Test" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -201,7 +202,7 @@
       <workItem from="1667793520196" duration="20040000" />
       <workItem from="1667933988709" duration="15510000" />
       <workItem from="1668115646832" duration="5543000" />
-      <workItem from="1668194542372" duration="18599000" />
+      <workItem from="1668194542372" duration="21109000" />
     </task>
     <task id="LOCAL-00001" summary="Buf fixes in create.py and geolabel.py">
       <created>1660069576418</created>
@@ -427,7 +428,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668289642418</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="deleted ml dir">
+      <created>1668289717035</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1668289717035</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -445,7 +453,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added fronts_Gray.mat from Gray et al. 2018" />
     <MESSAGE value="Converted large create_fronts_zone_shapes() into more modular parts" />
     <MESSAGE value="Updated schema and code to split data into sample and occurrence tables" />
     <MESSAGE value="Updated notes" />
@@ -470,7 +477,8 @@
     <MESSAGE value="Created shell function for microscopy -&gt; categories" />
     <MESSAGE value="Added modified source datasets" />
     <MESSAGE value="Added unit tests for main classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added unit tests for main classes" />
+    <MESSAGE value="deleted ml dir" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted ml dir" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -534,11 +542,6 @@
           <url>notebook://C:/Users/Ayush Nag/vault/sophy/sophy/sophysandbox.ipynb</url>
           <line>477</line>
           <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/sophy/sophytaxa.py</url>
-          <line>20</line>
-          <option name="timeStamp" value="56" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
