@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Added modified source datasets">
-      <change afterPath="$PROJECT_DIR$/sophy/__init__.py" afterDir="false" />
+    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Added unit tests for main classes">
       <change afterPath="$PROJECT_DIR$/sophy/sophy.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/cf67cb65-2256-4ce5-a0ea-eb583c0180e9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/create.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/geolabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/geolabel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/samples.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/samples.sql" afterDir="false" />
@@ -19,6 +15,7 @@
       <change beforePath="$PROJECT_DIR$/db/test_pandas_sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/test_pandas_sql.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/test_phytobase_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/test_phytobase_script.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/test_sql_worms.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/test_sql_worms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +32,7 @@
       <list>
         <option value="Python Script" />
         <option value="Jupyter Notebook" />
+        <option value="Python Unit Test" />
       </list>
     </option>
   </component>
@@ -203,7 +201,7 @@
       <workItem from="1667793520196" duration="20040000" />
       <workItem from="1667933988709" duration="15510000" />
       <workItem from="1668115646832" duration="5543000" />
-      <workItem from="1668194542372" duration="18253000" />
+      <workItem from="1668194542372" duration="18599000" />
     </task>
     <task id="LOCAL-00001" summary="Buf fixes in create.py and geolabel.py">
       <created>1660069576418</created>
@@ -422,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668015908006</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Added unit tests for main classes">
+      <created>1668289642418</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1668289642418</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -440,7 +445,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Wrote feature to label sectors in geolabel.py" />
     <MESSAGE value="Added fronts_Gray.mat from Gray et al. 2018" />
     <MESSAGE value="Converted large create_fronts_zone_shapes() into more modular parts" />
     <MESSAGE value="Updated schema and code to split data into sample and occurrence tables" />
@@ -465,7 +469,8 @@
     <MESSAGE value="Sandbox update" />
     <MESSAGE value="Created shell function for microscopy -&gt; categories" />
     <MESSAGE value="Added modified source datasets" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added modified source datasets" />
+    <MESSAGE value="Added unit tests for main classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added unit tests for main classes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
