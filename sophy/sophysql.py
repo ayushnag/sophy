@@ -39,6 +39,9 @@ def write_dataset(data: DataFrame, table_name: str) -> None:
 
 def query(query: str):
     # TODO: do some checks/give useful error messages for query
+    # TODO: add stats, how long query took, rows returned, etc.
+
+    # print(f"SOPHY SQL operations: {time.time() - start} seconds")
     return DataFrame(cur.execute(query).fetchall())
 
 

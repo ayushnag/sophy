@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="deleted ml dir">
+    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Bug fixes and speed optimizations in worms query">
       <change afterPath="$PROJECT_DIR$/sophy/sophy.ipynb" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/sophy/sophy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/create.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/geolabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/geolabel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/samples.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/samples.sql" afterDir="false" />
@@ -12,11 +11,11 @@
       <change beforePath="$PROJECT_DIR$/db/sophy.ipynb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/db/sophysandbox.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophysandbox.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/sophysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophysql.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sophytaxa.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophytaxa.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/test_lter.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/test_lter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/test_pandas_sql.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/test_pandas_sql.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/test_phytobase_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/test_phytobase_script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/test_sql_worms.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/test_sql_worms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/test_lter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/test_pandas_sql.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/test_phytobase_script.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/test_sql_worms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/tests/test_sophysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/tests/test_sophysql.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +201,7 @@
       <workItem from="1667793520196" duration="20040000" />
       <workItem from="1667933988709" duration="15510000" />
       <workItem from="1668115646832" duration="5543000" />
-      <workItem from="1668194542372" duration="21109000" />
+      <workItem from="1668194542372" duration="21435000" />
     </task>
     <task id="LOCAL-00001" summary="Buf fixes in create.py and geolabel.py">
       <created>1660069576418</created>
@@ -435,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668289717035</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Bug fixes and speed optimizations in worms query">
+      <created>1668292255332</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1668292255332</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,7 +459,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Converted large create_fronts_zone_shapes() into more modular parts" />
     <MESSAGE value="Updated schema and code to split data into sample and occurrence tables" />
     <MESSAGE value="Updated notes" />
     <MESSAGE value="Integrated geolabel features into create.py" />
@@ -478,7 +483,8 @@
     <MESSAGE value="Added modified source datasets" />
     <MESSAGE value="Added unit tests for main classes" />
     <MESSAGE value="deleted ml dir" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleted ml dir" />
+    <MESSAGE value="Bug fixes and speed optimizations in worms query" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug fixes and speed optimizations in worms query" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
