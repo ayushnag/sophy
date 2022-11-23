@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Bug fixes and speed optimizations in worms query">
-      <change afterPath="$PROJECT_DIR$/sophy/sophy.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sophy/sophy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/create.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/geolabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/geolabel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/samples.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/samples.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sophy.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sophysandbox.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophysandbox.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sophysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophysql.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/test_lter.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/test_pandas_sql.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/test_phytobase_script.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/test_sql_worms.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/tests/test_sophysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/tests/test_sophysql.py" afterDir="false" />
+    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="General updates and added new main sophy.py file">
+      <change afterPath="$PROJECT_DIR$/sophy/sophy.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/datasets/modified/joy_warren_chemtax.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/datasets/modified/joy_warren_chemtax.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/datasets/sample_worms.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/datasets/sample_worms.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/sophy_ayush.md" beforeDir="false" afterPath="$PROJECT_DIR$/notes/sophy_ayush.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemas/schema_v1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemas/schema_v2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemas/schema_v3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemas/sophy.drawio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/create.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/sophy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/sophysandbox.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophysandbox.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/sophysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophysql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/sophytaxa.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophytaxa.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +60,7 @@
     &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Ayush Nag/Downloads&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
@@ -99,16 +102,13 @@
       <module name="sophy" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/db" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sophy" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/db/create.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sophy/create.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -139,6 +139,10 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.create" />
+      <item itemvalue="Python.scratch" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.create" />
@@ -201,7 +205,10 @@
       <workItem from="1667793520196" duration="20040000" />
       <workItem from="1667933988709" duration="15510000" />
       <workItem from="1668115646832" duration="5543000" />
-      <workItem from="1668194542372" duration="21435000" />
+      <workItem from="1668194542372" duration="51052000" />
+      <workItem from="1668404119227" duration="353000" />
+      <workItem from="1668448688986" duration="17951000" />
+      <workItem from="1668720502769" duration="41971000" />
     </task>
     <task id="LOCAL-00001" summary="Buf fixes in create.py and geolabel.py">
       <created>1660069576418</created>
@@ -441,7 +448,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668292255332</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="General updates and added new main sophy.py file">
+      <created>1668292583046</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1668292583046</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -459,7 +473,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated schema and code to split data into sample and occurrence tables" />
     <MESSAGE value="Updated notes" />
     <MESSAGE value="Integrated geolabel features into create.py" />
     <MESSAGE value="Updated geolabel.py with an improved method of calculating SIE from NSIDC data" />
@@ -484,7 +497,8 @@
     <MESSAGE value="Added unit tests for main classes" />
     <MESSAGE value="deleted ml dir" />
     <MESSAGE value="Bug fixes and speed optimizations in worms query" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fixes and speed optimizations in worms query" />
+    <MESSAGE value="General updates and added new main sophy.py file" />
+    <option name="LAST_COMMIT_MESSAGE" value="General updates and added new main sophy.py file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -543,11 +557,6 @@
           <url>notebook://C:/Users/Ayush Nag/vault/sophy/db/sophysandbox.ipynb</url>
           <line>592</line>
           <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
-          <url>notebook://C:/Users/Ayush Nag/vault/sophy/sophy/sophysandbox.ipynb</url>
-          <line>477</line>
-          <option name="timeStamp" value="55" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

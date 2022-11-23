@@ -33,8 +33,11 @@ create table if not exists sample (
     chemtax_chlorophytes real,
 
     --percentage of each category for this sample
+    category_diatom real,
     category_phaeocystis real,
-    category_diatoms real,
+    category_dinoflagellate real,
+    category_silicoflagellate real,
+    category_mixed_flagellates real,
     category_other real,
 
     -- JSON extra column
@@ -64,6 +67,7 @@ create table if not exists sample (
 
 create table if not exists occurrence (
     id integer primary key autoincrement,
+    source_name text references source(name),
     aphia_id integer references taxonomy(aphia_id),
     latitude text,
     longitude real,
@@ -79,7 +83,6 @@ create table if not exists microscopy (
     sample_id integer references sample(id),
     aphia_id integer references taxonomy(aphia_id),
     name text,
-    groups text,
     biovolume real,
     biomass real,
     concentration real

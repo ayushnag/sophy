@@ -37,9 +37,12 @@ def write_dataset(data: DataFrame, table_name: str) -> None:
     con.commit()
 
 
-def query(query: str):
+def query(query: str, readonly=True):
+    """Readonly is enabled by default so that assure user database will be preserved with each query"""
     # TODO: do some checks/give useful error messages for query
     # TODO: add stats, how long query took, rows returned, etc.
+    # TODO: disable writes by default, but allowed with readonly=True
+
 
     # print(f"SOPHY SQL operations: {time.time() - start} seconds")
     return DataFrame(cur.execute(query).fetchall())

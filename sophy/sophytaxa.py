@@ -13,26 +13,28 @@ from pandas import DataFrame
 worms_sql: dict = {"AphiaID": "aphia_id", "scientificname": "scientific_name", "authority": "authority",
                    "superkingdom": "superkingdom",
                    "kingdom": "kingdom", "phylum": "phylum", "subphylum": "subphylum", "superclass": "superclass",
-                   "class": "class", "subclass": "subclass", "superorder": "superorder", "order": "t_order",
+                   "class": "class", "subclass": "subclass", "superorder": "superorder", "order": "orders",
                    "suborder": "suborder", "infraorder": "infraorder", "superfamily": "superfamily",
                    "family": "family", "genus": "genus", "species": "species", "modified": "modified"}
 
 
-def query_worms(taxa: list, update_sample_worms=False) -> DataFrame | None:
+def query_worms(taxa: list, sqlformat=False, update_sample_worms=False) -> DataFrame | None:
     """Finds full species composition of provided taxa. Uses WoRMS database to find data"""
     # full taxa records from WoRMS; worms = [[{}], [{}], [], [{}], ...]
     worms = pyworms.aphiaRecordsByMatchNames(taxa)  # Calls WoRMS API with pyworms package
-    worms_df = pd.json_normalize(DataFrame(worms)[0]).filter(worms_sql.keys()).rename(columns=worms_sql)
-    no_result = np.array(taxa)[worms_df['aphia_id'].isna()]  # values from provided list that were null in WoRMS query
+    worms_df = pd.json_normalize(DataFrame(worms)[0])
+    no_result = np.array(taxa)[worms_df['AphiaID'].isna()]  # values from provided list that were null in WoRMS query
     if len(no_result) != 0:  # outputs taxa (first 20) where WoRMS database found no result
         warnings.warn(f"No results found by WoRMS database: {str(no_result[:20])}...")
     if update_sample_worms:
         # Retrieves current records and appends rows with unique aphia_id's
         curr = pd.read_csv("../data/datasets/sample_worms.csv")
-        full: DataFrame = worms_df.append(curr)
-        full = full.drop_duplicates(subset=['aphia_id'])
+        full: DataFrame = pd.concat([curr, worms_df])
+        full = full.drop_duplicates(subset=['AphiaID'])
         full.to_csv("../data/datasets/sample_worms.csv", encoding='utf-8', index=False)
         return None
+    elif sqlformat:
+        return worms_df.filter(worms_sql.keys()).rename(columns=worms_sql)
     else:
         return worms_df
 

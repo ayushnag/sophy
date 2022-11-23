@@ -1,7 +1,19 @@
 # SOPHY Notes - Ayush Nag
 
+### Complex data transformation functions
+- FINISH SECTION; INCLUDE CODE SNIPPETS
+- Can combine a common format of phytoplankton taxa data into our format
+- Includes row averaging system, multi-key joins, and JSON compression
+
+
+Purpose: Starting point for sqlite observational datasets. give example features/how to build your database, example advanced queries that can be done, examples of how the results can be plotted
+- Advanced queries with SQL and plotting with python
+- Rather than doing a bunch of data transformations in pandas, you can use the existing, quick, platform of sqlite
+- With Jupyter, database is a command line like interface that allows for lots of experimentation
+- Can help you create a relational database with a cell in jupyter that generates your current schema (eralchemy package?). Then you can experiment with create_tables.sql and see the visual right away
 
 ### Updates on new table microscopy in schema and DB design
+- FINISH SECTION
 - Some datasets provide microscopy data with many columns of taxa information that were all measured in the same sample. There is one row in the sample table that they match to so I needed another table to avoid storing these taxa redundantly in the sample table.
 - Microscopy table allows for many taxa to be grouped under the same sample with a foreign key
 
@@ -35,7 +47,7 @@ SOPhy database
 - We will have to come up with a new approach to entering data, since there are oceanography decisions to be made when entering data where I don't have experience.
 
 ### NSIDC Sea Ice Extent data challenge
-- TODO: finish section
+- TODO: FINISH SECTION
 - [Include images of the grid from NSIDC]
 - Isolated boundary but the points were out of order. Solution to that problem
 
