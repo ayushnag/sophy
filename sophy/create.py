@@ -9,6 +9,7 @@ import geolabel
 import sophysql
 import sophytaxa
 from pandas import DataFrame
+from tqdm import tqdm
 
 con = sqlite3.connect("sophy.db")
 cur = con.cursor()
@@ -124,7 +125,7 @@ def write_joy_warren() -> None:
                                     "mixed_flagellate": "category_mixed_flagellate",
                                     "silicoflagellate": "category_silicoflagellate"})
 
-    max_id: int = sophysql.query("select max(id) from sample")['max(id)'][0] + 1
+    max_id: int = sophysql.query("select max(id) from sample", internal=True)['max(id)'][0] + 1
     sample['id'] = np.arange(max_id, max_id + len(sample))
 
     jwmkey = pd.concat([sample['id'], sample['station'], sample['depth']], axis=1).sort_values(by='depth')
@@ -182,11 +183,17 @@ def csl(cols: list) -> str:
 
 print("Building the SOPHY database")
 # write_source()
+pbar = tqdm(total=100)
 write_taxonomy()
+pbar.update(20)
 write_lter()
+pbar.update(20)
 write_phytobase()
+pbar.update(20)
 write_joy_warren()
+pbar.update(20)
 write_alderkamp()
-
+pbar.update(20)
+pbar.close()
 con.close()  # closes connection
 print('SOPHY build successful!')
