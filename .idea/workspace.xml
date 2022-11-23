@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Full SOPHY build successful">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/create.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/sophy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/sophysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophysql.py" afterDir="false" />
-    </list>
+    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Updates to v0.5 SOPHY build" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -198,7 +192,7 @@
       <workItem from="1668404119227" duration="353000" />
       <workItem from="1668448688986" duration="17951000" />
       <workItem from="1668720502769" duration="45208000" />
-      <workItem from="1669223965979" duration="14663000" />
+      <workItem from="1669223965979" duration="14743000" />
     </task>
     <task id="LOCAL-00001" summary="Buf fixes in create.py and geolabel.py">
       <created>1660069576418</created>
@@ -459,7 +453,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669236854480</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Updates to v0.5 SOPHY build">
+      <created>1669238871737</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1669238871737</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -477,7 +478,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated geolabel.py with an improved method of calculating SIE from NSIDC data" />
     <MESSAGE value="New pie style visual for view fronts, sectors, and data" />
     <MESSAGE value="Fixed issue where lat and lon were incorrectly reversed in some locations. Also added STZ to zones file" />
     <MESSAGE value="Another lat/lon reverse issue fixed" />
@@ -502,7 +502,8 @@
     <MESSAGE value="General updates and added new main sophy.py file" />
     <MESSAGE value="Base code for joy_warren entered" />
     <MESSAGE value="Full SOPHY build successful" />
-    <option name="LAST_COMMIT_MESSAGE" value="Full SOPHY build successful" />
+    <MESSAGE value="Updates to v0.5 SOPHY build" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates to v0.5 SOPHY build" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
