@@ -18,7 +18,7 @@ worms_sql: dict = {"AphiaID": "aphia_id", "scientificname": "scientific_name", "
                    "family": "family", "genus": "genus", "species": "species", "modified": "modified"}
 
 
-def query_worms(taxa: list, sqlformat=False, update_sample_worms=False) -> DataFrame | None:
+def query_worms(taxa: list, sqlformat=False, new_file='') -> DataFrame | None:
     """Finds full species composition of provided taxa. Uses WoRMS database to find data"""
     # full taxa records from WoRMS; worms = [[{}], [{}], [], [{}], ...]
     worms = pyworms.aphiaRecordsByMatchNames(taxa)  # Calls WoRMS API with pyworms package
@@ -26,12 +26,9 @@ def query_worms(taxa: list, sqlformat=False, update_sample_worms=False) -> DataF
     no_result = np.array(taxa)[worms_df['AphiaID'].isna()]  # values from provided list that were null in WoRMS query
     if len(no_result) != 0:  # outputs taxa (first 20) where WoRMS database found no result
         warnings.warn(f"No results found by WoRMS database: {str(no_result[:20])}...")
-    if update_sample_worms:
+    if len(new_file) > 0:
         # Retrieves current records and appends rows with unique aphia_id's
-        curr = pd.read_csv("../data/datasets/sample_worms.csv")
-        full: DataFrame = pd.concat([curr, worms_df])
-        full = full.drop_duplicates(subset=['AphiaID'])
-        full.to_csv("../data/datasets/sample_worms.csv", encoding='utf-8', index=False)
+        worms_df.to_csv('../data/worms/' + new_file + '.csv', encoding='utf-8', index=False)
         return None
     elif sqlformat:
         return worms_df.filter(worms_sql.keys()).rename(columns=worms_sql)

@@ -2,9 +2,12 @@
 __author__ = 'Ayush Nag'
 
 import sqlite3
+import time
+import pandas as pd
 from pandas import DataFrame
 
 con = sqlite3.connect("sophy.db")
+con.row_factory = sqlite3.Row
 cur = con.cursor()
 
 
@@ -37,15 +40,15 @@ def write_dataset(data: DataFrame, table_name: str) -> None:
     con.commit()
 
 
-def query(query: str, readonly=True):
+def query(query: str, readonly=True) -> DataFrame:
     """Readonly is enabled by default so that assure user database will be preserved with each query"""
     # TODO: do some checks/give useful error messages for query
     # TODO: add stats, how long query took, rows returned, etc.
     # TODO: disable writes by default, but allowed with readonly=True
-
-
-    # print(f"SOPHY SQL operations: {time.time() - start} seconds")
-    return DataFrame(cur.execute(query).fetchall())
+    start = time.time()
+    result: DataFrame = pd.read_sql(query, con=con)
+    print(f"SOPHY SQL operations: {round(time.time() - start, 5)} seconds")
+    return result
 
 
 def full() -> DataFrame:
