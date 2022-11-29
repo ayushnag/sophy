@@ -21,7 +21,7 @@ nsidc_sea_ice_file: str = '../data/sea_ice/mean.sep.1979-2021.s'
 gray_fronts_file: str = '../data/fronts/fronts_Gray.mat'
 fronts_shapefile: str = '../data/shapefiles/fronts/so_fronts.shp'
 zones_shapefile: str = '../data/shapefiles/zones/so_zones.shp'
-project: Transformer = pyproj.Transformer.from_crs(pyproj.CRS('EPSG:4326'), pyproj.CRS('EPSG:3031'),
+project: Transformer = pyproj.Transformer.from_crs(pyproj.CRS('EPSG:4326'), ccrs.SouthPolarStereo(),
                                                    always_xy=True)
 
 
@@ -30,8 +30,7 @@ def create_fronts_zones_shapes():
 
     # Initialize variables and helper shapes
     shapes: dict = {}
-    world: GeoDataFrame = gpd.read_file(gpd.datasets.get_path("naturalearth_lowres"))
-    world = world.to_crs(epsg=3031)
+    world: GeoDataFrame = gpd.read_file(gpd.datasets.get_path("naturalearth_lowres")).to_crs(crs=ccrs.SouthPolarStereo())
     southern_ocean: Polygon = transform(project.transform, Polygon(
         zip(np.append(np.linspace(start=0, stop=360, num=1000), 0), np.full(1000, -29.5))))
     antarctica: Polygon = world[world['continent'] == 'Antarctica'].unary_union
@@ -49,7 +48,7 @@ def create_fronts_zones_shapes():
     sie: Polygon = get_sie()
     shapes['SIE'] = sie
 
-    fronts_gdf = GeoDataFrame({'front': shapes.keys(), 'geometry': shapes.values()}, crs='EPSG:3031')
+    fronts_gdf = GeoDataFrame({'front': shapes.keys(), 'geometry': shapes.values()}, crs=ccrs.SouthPolarStereo())
     fronts_gdf.to_file(fronts_shapefile)
 
     zones: list = [southern_ocean - shapes['STF'], shapes['STF'] - shapes['SAF'],
@@ -57,7 +56,7 @@ def create_fronts_zones_shapes():
                    shapes['SACC'] - shapes['SIE'], shapes['SIE'] - antarctica]
     names: list = ['STZ', 'SAZ', 'PFZ', 'ASZ', 'SOZ', 'SIZ']
 
-    zones_gdf = GeoDataFrame({'front_zone': names, 'geometry': zones}, crs='EPSG:3031')
+    zones_gdf = GeoDataFrame({'front_zone': names, 'geometry': zones}, crs=ccrs.SouthPolarStereo())
     zones_gdf.to_file(zones_shapefile)
     print('Success! Shapefiles generated')
 
@@ -117,7 +116,7 @@ def get_sie() -> Polygon:
     # Points are in zigzag order because they were inserted as grid cells, not their real order along the perimeter
     # They need to be projected to EPSG: 4326 where they lay flat and then get sorted by the x-axis (longitude)
     # Once sorted, the points will connect to make the desired shape
-    flat_points = gpd.points_from_xy(x=edge_points[0], y=edge_points[1], crs='EPSG:3031').to_crs(crs='EPSG:4326')
+    flat_points = gpd.points_from_xy(x=edge_points[0], y=edge_points[1], crs=ccrs.SouthPolarStereo()).to_crs(crs='EPSG:4326')
     # All points defining the perimeter as integer pairs
     points = np.vstack((flat_points.x, flat_points.y)).T
     # Sort the points by the x-axis (longitude)
@@ -141,7 +140,7 @@ def label_zones(data: DataFrame, lon_col: str, lat_col: str) -> DataFrame:
         zones_shapefile), 'missing frontal zones shapefile; try running create_fronts_zones_shapes()'
 
     data_gdf = GeoDataFrame(data, geometry=gpd.points_from_xy(data[lon_col], data[lat_col]), crs='EPSG:4326')
-    data_gdf.to_crs(crs='EPSG:3031', inplace=True)
+    data_gdf.to_crs(crs=ccrs.SouthPolarStereo(), inplace=True)
 
     zones_gdf = gpd.read_file(zones_shapefile)
     # Spatially join data points with zones (polygons) to get labelled data

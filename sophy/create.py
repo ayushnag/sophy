@@ -9,7 +9,7 @@ import geolabel
 import sophysql
 import sophytaxa
 from pandas import DataFrame
-from tqdm import tqdm
+from tqdm.notebook import tqdm
 
 con = sqlite3.connect("sophy.db")
 cur = con.cursor()
