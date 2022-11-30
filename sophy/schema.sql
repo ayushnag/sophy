@@ -10,19 +10,17 @@ create table if not exists sample (
 
     depth real,
     pressure real,
-    tot_depth_water_col real,
-
     salinity real,
     temperature real,
     density real,
-    -- figure out which one is more commonly used
-    chlorophyll_a_hplc real,
-    chlorophyll_a_fluor real,
-    primary_prod real,
-    cruise text,
-
-    down_par real, -- check if these are mains
     mld real,
+    chlorophyll_a_fluor real,
+    nitrate real,
+    nitrite real,
+    phosphate real,
+    silicate real,
+    -- JSON extra column
+    extra_json text,
 
     -- species composition
     chemtax_prasinophytes real,
@@ -40,12 +38,15 @@ create table if not exists sample (
     category_mixed_flagellates real,
     category_other real,
 
-    -- JSON extra column
-    extra_json text,
+    cruise text,
+
+    tot_depth_water_col real,
+    -- figure out which one is more commonly used
+    chlorophyll_a_hplc real,
+    primary_prod real,
+    down_par real, -- check if these are mains
 
     -- chem/phys measurements
-    nitrate real,
-    nitrite real,
     pco2 real,
     diss_oxygen real,
     diss_iron real,
@@ -57,8 +58,6 @@ create table if not exists sample (
     diss_org_nitrogen real,
     part_org_carbon real,
     part_org_nitrogen real,
-    phosphate real,
-    silicate real,
     tot_nitrogen real,
     tot_part_carbon real,
     tot_phosp real,

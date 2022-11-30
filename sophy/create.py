@@ -40,6 +40,10 @@ def write_lter() -> None:
     sample_df['source_name'] = 'lter'
     # drop rows with null time, lat, or long
     sample_df = sample_df.dropna(subset=['timestamp', 'longitude', 'latitude'])
+    # columns to be excluded from the json combined column
+    exclude_json = ['JulianDay', 'FilterCode']
+    extra = sample_df.columns.difference(sophysql.get_table_cols("sample")).drop(exclude_json)
+    sample_df["extra_json"] = sample_df[extra].agg(lambda r: r[r.notna()].to_json(), axis=1)
 
     sample_df = geolabel.label_zones(sample_df, 'longitude', 'latitude').drop('index_right', axis=1)
     sample_df = geolabel.label_sectors(sample_df, 'longitude')
@@ -96,7 +100,7 @@ def write_joy_warren() -> None:
     # -------------------------------------------------
     joy_warren: DataFrame = pd.read_csv(joywarren_file, encoding='utf-8')
     # group by depth and station: station1([1.7, 1.8, 2.1][9.7. 9.8, 10.2]...), station2...
-    joy_warren = joy_warren.groupby([joy_warren["depth"].pct_change().abs().gt(0.15).cumsum(), "station"]).mean()
+    joy_warren = joy_warren.groupby([joy_warren["depth"].pct_change().abs().gt(0.15).cumsum(), "station"]).mean(numeric_only=True)
     joy_warren = joy_warren.reset_index(level=0, drop=True).reset_index(level=0).sort_values(by='depth')
     joy_warren.sort_values(by=['station', 'depth'])
     # --------------------------------------------------
@@ -110,13 +114,13 @@ def write_joy_warren() -> None:
         columns=['date', 'time'])
     sample['source_name'] = 'joyw'
     extra = sample.columns.difference(sophysql.get_table_cols("sample")).drop(['station'])
-    sample["extra"] = sample[extra].agg(lambda r: r[r.notna()].to_json(), axis=1)
+    sample["extra_json"] = sample[extra].agg(lambda r: r[r.notna()].to_json(), axis=1)
     sample = sample.drop(columns=list(extra))
     # ----------------------------------------------------
     sample = sample.reset_index(drop=True)
 
     category_groups = microscopy.groupby(['station', 'category', 'depth'])['biovolume'].sum()
-    station_sums = microscopy.groupby(['station']).sum()['biovolume']
+    station_sums = microscopy.groupby(['station']).sum(numeric_only=True)['biovolume']
     category_fractions = category_groups / station_sums
     category_fractions = category_fractions.to_frame().unstack(level=1, fill_value=0).droplevel(level=0, axis=1).reset_index()
     sample = pd.merge(sample, category_fractions, on=['station', 'depth'], how='outer')

@@ -19,7 +19,7 @@ def create_tables() -> None:
 
 
 def get_table_cols(table: str) -> tuple:
-    """TODO: update docstring"""
+    """List of columns in SQL table"""
     data = cur.execute(f"pragma table_info({table})").fetchall()
     if data:
         return list(zip(*data))[1]
@@ -28,7 +28,7 @@ def get_table_cols(table: str) -> tuple:
 
 
 def write_dataset(data: DataFrame, table_name: str) -> None:
-    """Writes data frame to the SQLite table table_name:param"""
+    """Writes DataFrame to the SQLite table table_name:param"""
     # Columns present in data and in the destination SQL table
     common = set(data.columns.values.tolist()).intersection(set(get_table_cols(table_name)))
     assert len(common) != 0, "No columns in provided data match given table"
@@ -48,12 +48,13 @@ def query(query: str, readonly=True, internal=False) -> DataFrame:
     start = time.time()
     result: DataFrame = pd.read_sql(query, con=con)
     if not internal:
-        print(f"SOPHY SQL operations: {round(time.time() - start, 5)} seconds")
+        print(f"SOPHY SQL: {round(time.time() - start, 5)} seconds")
     return result
 
 
 def full() -> DataFrame:
-    """TODO: Returns the entire SOPhy database in a single DataFrame"""
+    """Returns the entire SOPhy database in a single DataFrame"""
+    raise NotImplementedError
 
 
 def clean_df(data: DataFrame, df_sql_map: dict) -> DataFrame:

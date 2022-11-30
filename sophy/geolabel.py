@@ -127,6 +127,7 @@ def get_sie() -> Polygon:
 
 
 def get_zone(lon: float, lat: float) -> str:
+    """Find zone that given point (lon, lat) is in"""
     assert lat <= -30, "Provided latitude is not in the Southern Ocean (must be less than -30 degrees)"
     # Calls label_fronts with lat, lon pair as DataFrame
     return label_zones(pd.DataFrame([(lon, lat)], columns=['lon', 'lat']), 'lon', 'lat')['zone'][0]
@@ -142,7 +143,7 @@ def label_zones(data: DataFrame, lon_col: str, lat_col: str) -> DataFrame:
     data_gdf = GeoDataFrame(data, geometry=gpd.points_from_xy(data[lon_col], data[lat_col]), crs='EPSG:4326')
     data_gdf.to_crs(crs=ccrs.SouthPolarStereo(), inplace=True)
 
-    zones_gdf = gpd.read_file(zones_shapefile)
+    zones_gdf = gpd.read_file(zones_shapefile).to_crs(ccrs.SouthPolarStereo())
     # Spatially join data points with zones (polygons) to get labelled data
     result = gpd.sjoin(data_gdf, zones_gdf)
     return DataFrame(result.drop(columns='geometry'))
@@ -196,6 +197,7 @@ def plot_orsi_fronts():
 
 
 def plot_nsidc_sie():
+    """Plots the contents of NSIDC September mean (1979-2021) sea ice extent"""
     map_proj = ccrs.SouthPolarStereo()
     fig = plt.figure(figsize=[15, 15])  # inches
     ax = plt.subplot(projection=map_proj)

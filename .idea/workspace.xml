@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Added extra sample query in sophy.ipynb">
+    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="globally switched epsg:3031 to ccrs.SouthPolarStereo()">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sophy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sophy.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shapefiles/fronts/so_fronts.dbf" beforeDir="false" afterPath="$PROJECT_DIR$/data/shapefiles/fronts/so_fronts.dbf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shapefiles/zones/so_zones.dbf" beforeDir="false" afterPath="$PROJECT_DIR$/data/shapefiles/zones/so_zones.dbf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shapefiles/zones/so_zones.shp" beforeDir="false" afterPath="$PROJECT_DIR$/data/shapefiles/zones/so_zones.shp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shapefiles/zones/so_zones.shx" beforeDir="false" afterPath="$PROJECT_DIR$/data/shapefiles/zones/so_zones.shx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sophy/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/create.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sophy/geolabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/geolabel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sophy/sophy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sophy/sophysandbox.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophysandbox.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/sophysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophysql.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,24 +43,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Project.color&quot;: &quot;344640&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ayush Nag/Downloads&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Project.color": "344640",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "full.screen.before.presentation.mode": "false",
+    "last_opened_file_path": "C:/Users/Ayush Nag/Downloads",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlite&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Ayush Nag\vault\sophy\sophy" />
@@ -96,6 +96,9 @@
       <module name="sophy" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sophy" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -203,7 +206,10 @@
       <workItem from="1668404119227" duration="353000" />
       <workItem from="1668448688986" duration="17951000" />
       <workItem from="1668720502769" duration="45208000" />
-      <workItem from="1669223965979" duration="36555000" />
+      <workItem from="1669223965979" duration="60609000" />
+      <workItem from="1669823413052" duration="283000" />
+      <workItem from="1669823831966" duration="2573000" />
+      <workItem from="1669827541486" duration="1308000" />
     </task>
     <task id="LOCAL-00001" summary="Buf fixes in create.py and geolabel.py">
       <created>1660069576418</created>
@@ -478,7 +484,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669241508698</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="globally switched epsg:3031 to ccrs.SouthPolarStereo()">
+      <created>1669692330922</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1669692330922</updated>
+    </task>
+    <task id="LOCAL-00041" summary="globally switched epsg:3031 to ccrs.SouthPolarStereo()">
+      <created>1669692342631</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1669692342631</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -496,7 +516,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed issue where lat and lon were incorrectly reversed in some locations. Also added STZ to zones file" />
     <MESSAGE value="Another lat/lon reverse issue fixed" />
     <MESSAGE value="Update workspace and test environment" />
     <MESSAGE value="Converted geolabel.py to simple file with functions and removed static method decorators" />
@@ -521,7 +540,8 @@
     <MESSAGE value="Full SOPHY build successful" />
     <MESSAGE value="Updates to v0.5 SOPHY build" />
     <MESSAGE value="Added extra sample query in sophy.ipynb" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added extra sample query in sophy.ipynb" />
+    <MESSAGE value="globally switched epsg:3031 to ccrs.SouthPolarStereo()" />
+    <option name="LAST_COMMIT_MESSAGE" value="globally switched epsg:3031 to ccrs.SouthPolarStereo()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -592,9 +612,9 @@
           <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/sophy/create.py</url>
-          <line>138</line>
-          <option name="timeStamp" value="61" />
+          <url>file://$PROJECT_DIR$/sophy/geolabel.py</url>
+          <line>147</line>
+          <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
