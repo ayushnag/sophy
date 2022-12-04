@@ -1,0 +1,138 @@
+experiment,station,depth,group,taxa,biovolume,category,AphiaID
+3,016_02,9.9,centric,centric,288707,diatom,
+3,016_02,9.9,centric,Proboscia,108731,diatom,149167.0
+3,016_02,9.9,centric,Thalassiosira,7719487,diatom,148912.0
+3,016_02,9.9,ciliate,ciliate,174,mixed_flagellate,
+3,016_02,9.9,dinoflagellate,dinoflagellate,252,dinoflagellate,
+3,016_02,9.9,pennate,Fragilariopsis,52801,diatom,149313.0
+3,016_02,9.9,pennate,Navicula,20254,diatom,149142.0
+3,016_02,9.9,pennate,pennate,274,diatom,
+3,016_02,9.9,Phaeocystis,Phaeocystis antarctica,775145,phaeocystis,341585.0
+3,016_02,9.9,unknown diatom,unknown diatom,47,diatom,
+4,046_01,10.2,centric,Asteromphalus,90626,diatom,162254.0
+4,046_01,10.2,centric,centric,122181,diatom,
+4,046_01,10.2,centric,Chaetoceros,118523,diatom,148985.0
+4,046_01,10.2,centric,Eucampia,107710,diatom,149130.0
+4,046_01,10.2,centric,Guinardia,1961,diatom,149111.0
+4,046_01,10.2,centric,Proboscia,148349,diatom,149167.0
+4,046_01,10.2,centric,Thalassiosira,1160419,diatom,148912.0
+4,046_01,10.2,dinoflagellate,dinoflagellate,506,dinoflagellate,
+4,046_01,10.2,pennate,Banquisia,26844,diatom,291402.0
+4,046_01,10.2,pennate,Fragilariopsis,1385217,diatom,149313.0
+4,046_01,10.2,pennate,Navicula,10098,diatom,149142.0
+4,046_01,10.2,pennate,Nitzschia longissima,4932,diatom,149150.0
+4,046_01,10.2,pennate,pennate,17378,diatom,
+4,046_01,10.2,pennate,Pseudo-nitzschia,22810,diatom,149151.0
+4,046_01,10.2,Phaeocystis,Phaeocystis antarctica,2380262,phaeocystis,341585.0
+4,046_01,10.2,silicoflagellate,silicoflagellate,2070,silicoflagellate,
+4,046_01,10.2,unknown diatom,unknown diatom,505,diatom,
+5,050_03,25.4,centric,Asteromphalus,597664,diatom,162254.0
+5,050_03,25.4,centric,centric,7511144,diatom,
+5,050_03,25.4,centric,Chaetoceros,635555,diatom,148985.0
+5,050_03,25.4,centric,Corethron,200196,diatom,149109.0
+5,050_03,25.4,centric,Guinardia,603307,diatom,149111.0
+5,050_03,25.4,centric,Proboscia,482902,diatom,149167.0
+5,050_03,25.4,centric,Thalassiosira,4954745,diatom,148912.0
+5,050_03,25.4,dinoflagellate,dinoflagellate,1076,dinoflagellate,
+5,050_03,25.4,pennate,Fragilariopsis,347996,diatom,149313.0
+5,050_03,25.4,pennate,pennate,51238,diatom,
+5,050_03,25.4,pennate,Pseudo-nitzschia,165508,diatom,149151.0
+5,050_03,25.4,Phaeocystis,Phaeocystis antarctica,263589832,phaeocystis,341585.0
+5,050_03,25.4,silicoflagellate,silicoflagellate,304,silicoflagellate,
+5,050_03,25.4,unknown diatom,unknown diatom,848,diatom,
+6,052_01,10.0,centric,centric,2674957,diatom,
+6,052_01,10.0,centric,Chaetoceros,650025,diatom,148985.0
+6,052_01,10.0,centric,Corethron,48370,diatom,149109.0
+6,052_01,10.0,centric,Eucampia,210282,diatom,149130.0
+6,052_01,10.0,centric,Proboscia,519490,diatom,149167.0
+6,052_01,10.0,centric,Rhizosolenia,579035,diatom,149069.0
+6,052_01,10.0,centric,Thalassiosira,2983896,diatom,148912.0
+6,052_01,10.0,dinoflagellate,dinoflagellate,926,dinoflagellate,
+6,052_01,10.0,pennate,Amphiprora,90,diatom,149140.0
+6,052_01,10.0,pennate,Fragilariopsis,564416,diatom,149313.0
+6,052_01,10.0,pennate,Nitzschia longissima,25969,diatom,149150.0
+6,052_01,10.0,pennate,pennate,16477,diatom,
+6,052_01,10.0,pennate,Plagiotropidaceae,244,diatom,149515.0
+6,052_01,10.0,pennate,Pseudo-nitzschia,206199,diatom,149151.0
+6,052_01,10.0,Phaeocystis,Phaeocystis antarctica,43864459,phaeocystis,341585.0
+6,052_01,10.0,radiolarian,radiolarian,991,other,
+6,052_01,10.0,silicoflagellate,silicoflagellate,124,silicoflagellate,
+6,052_01,10.0,unknown diatom,unknown diatom,784,diatom,
+8,058_01,1.8,centric,Asteromphalus,100097,diatom,162254.0
+8,058_01,1.8,centric,centric,6026,diatom,
+8,058_01,1.8,centric,Proboscia,39235,diatom,149167.0
+8,058_01,1.8,centric,Thalassiosira,3187660,diatom,148912.0
+8,058_01,1.8,dinoflagellate,dinoflagellate,455,dinoflagellate,
+8,058_01,1.8,pennate,Banquisia,96678,diatom,291402.0
+8,058_01,1.8,pennate,Fragilariopsis,1018531,diatom,149313.0
+8,058_01,1.8,pennate,Navicula,43332,diatom,149142.0
+8,058_01,1.8,pennate,Nitzschia longissima,11423,diatom,149150.0
+8,058_01,1.8,pennate,pennate,613332,diatom,
+8,058_01,1.8,pennate,Pseudo-nitzschia,131660,diatom,149151.0
+8,058_01,1.8,Phaeocystis,Phaeocystis antarctica,39773639,phaeocystis,341585.0
+8,058_01,1.8,unknown diatom,unknown diatom,1936,diatom,
+9,061_01,9.7,centric,Chaetoceros,1029442,diatom,148985.0
+9,061_01,9.7,centric,Corethron,94687,diatom,149109.0
+9,061_01,9.7,centric,Coscinodiscids,11529094,diatom,148917.0
+9,061_01,9.7,centric,Eucampia,182277,diatom,149130.0
+9,061_01,9.7,centric,Proboscia,1424508,diatom,149167.0
+9,061_01,9.7,centric,Thalassiosira,6306148,diatom,148912.0
+9,061_01,9.7,ciliate,ciliate,749,mixed_flagellate,
+9,061_01,9.7,dinoflagellate,dinoflagellate,1588,dinoflagellate,
+9,061_01,9.7,pennate,Fragilariopsis,468098,diatom,149313.0
+9,061_01,9.7,pennate,Nitzschia longissima,2789,diatom,149150.0
+9,061_01,9.7,pennate,pennate,232032,diatom,
+9,061_01,9.7,pennate,Pseudo-nitzschia,18702,diatom,149151.0
+9,061_01,9.7,Phaeocystis,Phaeocystis antarctica,44216187,phaeocystis,341585.0
+9,061_01,9.7,silicoflagellate,silicoflagellate,116,silicoflagellate,
+9,061_01,9.7,unknown diatom,unknown diatom,793,diatom,
+12,078_03,25.2,centric,centric,212806,diatom,
+12,078_03,25.2,centric,Chaetoceros,80981,diatom,148985.0
+12,078_03,25.2,centric,Proboscia,1659949,diatom,149167.0
+12,078_03,25.2,centric,Thalassiosira,3964570,diatom,148912.0
+12,078_03,25.2,dinoflagellate,dinoflagellate,483,dinoflagellate,
+12,078_03,25.2,pennate,Fragilariopsis,102554,diatom,149313.0
+12,078_03,25.2,pennate,pennate,617,diatom,
+12,078_03,25.2,Phaeocystis,Phaeocystis antarctica,160190911,phaeocystis,341585.0
+12,078_03,25.2,unknown diatom,unknown diatom,2581,diatom,
+13,082_03,10.0,centric,centric,491274,diatom,
+13,082_03,10.0,centric,Chaetoceros,763671,diatom,148985.0
+13,082_03,10.0,centric,Corethron,157853,diatom,149109.0
+13,082_03,10.0,centric,Proboscia,55381,diatom,149167.0
+13,082_03,10.0,centric,Thalassiosira,2085989,diatom,148912.0
+13,082_03,10.0,dinoflagellate,dinoflagellate,434,dinoflagellate,
+13,082_03,10.0,pennate,Banquisia,127577,diatom,291402.0
+13,082_03,10.0,pennate,Fragilariopsis,3539903,diatom,149313.0
+13,082_03,10.0,pennate,Nitzschia longissima,1452,diatom,149150.0
+13,082_03,10.0,pennate,pennate,4172,diatom,
+13,082_03,10.0,pennate,Plagiotropidaceae,237,diatom,149515.0
+13,082_03,10.0,pennate,Pseudo-nitzschia,74266,diatom,149151.0
+13,082_03,10.0,Phaeocystis,Phaeocystis antarctica,5483220,phaeocystis,341585.0
+13,082_03,10.0,silicoflagellate,silicoflagellate,244,silicoflagellate,
+13,082_03,10.0,unknown diatom,unknown diatom,1026,diatom,
+14,088_01,9.9,centric,Asteromphalus,1705174,diatom,162254.0
+14,088_01,9.9,centric,centric,983775,diatom,
+14,088_01,9.9,centric,Chaetoceros,159300,diatom,148985.0
+14,088_01,9.9,centric,Eucampia,4459,diatom,149130.0
+14,088_01,9.9,centric,Guinardia,177067,diatom,149111.0
+14,088_01,9.9,centric,Proboscia,13621,diatom,149167.0
+14,088_01,9.9,centric,Rhizosolenia,45053,diatom,149069.0
+14,088_01,9.9,centric,Thalassiosira,3059295,diatom,148912.0
+14,088_01,9.9,ciliate,ciliate,197,mixed_flagellate,
+14,088_01,9.9,dinoflagellate,dinoflagellate,478,dinoflagellate,
+14,088_01,9.9,pennate,Fragilariopsis,878914,diatom,149313.0
+14,088_01,9.9,pennate,Nitzschia longissima,304,diatom,149150.0
+14,088_01,9.9,pennate,pennate,61821,diatom,
+14,088_01,9.9,Phaeocystis,Phaeocystis antarctica,350523,phaeocystis,341585.0
+14,088_01,9.9,silicoflagellate,silicoflagellate,36,silicoflagellate,
+14,088_01,9.9,unknown diatom,unknown diatom,784,diatom,
+15,066_01,9.9,centric,Chaetoceros,4898,diatom,148985.0
+15,066_01,9.9,centric,Thalassiosira,45332,diatom,148912.0
+15,066_01,9.9,ciliate,ciliate,12,mixed_flagellate,
+15,066_01,9.9,dinoflagellate,dinoflagellate,39,dinoflagellate,
+15,066_01,9.9,pennate,Fragilariopsis,19220,diatom,149313.0
+15,066_01,9.9,pennate,Nitzschia longissima,1485,diatom,149150.0
+15,066_01,9.9,pennate,pennate,2214,diatom,
+15,066_01,9.9,pennate,Pseudo-nitzschia,7876,diatom,149151.0
+15,066_01,9.9,Phaeocystis,Phaeocystis antarctica,1038141,phaeocystis,341585.0
+15,066_01,9.9,unknown diatom,unknown diatom,27,diatom,

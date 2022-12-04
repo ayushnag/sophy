@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Clean up of sophy.ipynb and minor bug fixes">
-      <change afterPath="$PROJECT_DIR$/data/datasets/mod/lter.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/datasets/mod/phytobase.csv" afterDir="false" />
+    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Write sophy.py. Will replace create.py">
       <change afterPath="$PROJECT_DIR$/sophy/sophy2.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datasets/modified/lter.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/datasets/modified/lter.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datasets/modified/phytobase.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/create.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/sophy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/sophy.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/sophysandbox.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophysandbox.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +226,7 @@
       <workItem from="1669823413052" duration="283000" />
       <workItem from="1669823831966" duration="2573000" />
       <workItem from="1669827541486" duration="8821000" />
-      <workItem from="1669935330913" duration="39316000" />
+      <workItem from="1669935330913" duration="39656000" />
     </task>
     <task id="LOCAL-00001" summary="Buf fixes in create.py and geolabel.py">
       <created>1660069576418</created>
@@ -532,7 +522,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669828921809</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Write sophy.py. Will replace create.py">
+      <created>1670154972926</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1670154972926</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -550,7 +547,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update workspace and test environment" />
     <MESSAGE value="Converted geolabel.py to simple file with functions and removed static method decorators" />
     <MESSAGE value="Created new helper class sophysql.py and shifted functionality from create.py" />
     <MESSAGE value="Updated notes for Fall 2022 and tracking sandbox changes" />
@@ -575,7 +571,8 @@
     <MESSAGE value="Added extra sample query in sophy.ipynb" />
     <MESSAGE value="globally switched epsg:3031 to ccrs.SouthPolarStereo()" />
     <MESSAGE value="Clean up of sophy.ipynb and minor bug fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean up of sophy.ipynb and minor bug fixes" />
+    <MESSAGE value="Write sophy.py. Will replace create.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Write sophy.py. Will replace create.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -649,11 +646,6 @@
           <url>file://$PROJECT_DIR$/sophy/sophy.py</url>
           <line>46</line>
           <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/sophy/sophy.py</url>
-          <line>119</line>
-          <option name="timeStamp" value="63" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
