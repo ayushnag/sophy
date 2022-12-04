@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="globally switched epsg:3031 to ccrs.SouthPolarStereo()">
+    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Clean up of sophy.ipynb and minor bug fixes">
+      <change afterPath="$PROJECT_DIR$/data/datasets/mod/lter.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/datasets/mod/phytobase.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sophy/sophy2.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sophy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sophy.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/datasets/modified/lter.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/datasets/modified/lter.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/datasets/modified/phytobase.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/sophy/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/create.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/geolabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/geolabel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sophy/sophy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/sophy.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sophy/sophysandbox.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophysandbox.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/sophysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophysql.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,9 +27,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jupyter Notebook" />
         <option value="Python Unit Test" />
         <option value="Python Script" />
+        <option value="Jupyter Notebook" />
       </list>
     </option>
   </component>
@@ -51,9 +52,9 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "full.screen.before.presentation.mode": "false",
-    "last_opened_file_path": "C:/Users/Ayush Nag/Downloads",
+    "last_opened_file_path": "C:/Users/Ayush Nag/vault/sophy/data/datasets/mod",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -62,14 +63,18 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ayush Nag\vault\sophy\data\datasets\mod" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ayush Nag\vault\sophy\data\datasets\mod" />
       <recent name="C:\Users\Ayush Nag\vault\sophy\sophy" />
       <recent name="C:\Users\Ayush Nag\vault\sophy\data\datasets\modified" />
       <recent name="C:\Users\Ayush Nag\vault\sophy\notes" />
       <recent name="C:\Users\Ayush Nag\vault\sophy\notebooks\img" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.create">
+  <component name="RunManager" selected="Python.sophy">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="sophy" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -136,12 +141,33 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="sophy" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="sophy" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sophy" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sophy/sophy.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
+      <item itemvalue="Python.sophy" />
       <item itemvalue="Python.create" />
       <item itemvalue="Python.scratch" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.sophy" />
         <item itemvalue="Python.create" />
         <item itemvalue="Python.scratch" />
       </list>
@@ -209,7 +235,8 @@
       <workItem from="1669223965979" duration="60609000" />
       <workItem from="1669823413052" duration="283000" />
       <workItem from="1669823831966" duration="2573000" />
-      <workItem from="1669827541486" duration="1308000" />
+      <workItem from="1669827541486" duration="8821000" />
+      <workItem from="1669935330913" duration="39316000" />
     </task>
     <task id="LOCAL-00001" summary="Buf fixes in create.py and geolabel.py">
       <created>1660069576418</created>
@@ -498,7 +525,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669692342631</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Clean up of sophy.ipynb and minor bug fixes">
+      <created>1669828921809</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1669828921809</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -516,7 +550,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Another lat/lon reverse issue fixed" />
     <MESSAGE value="Update workspace and test environment" />
     <MESSAGE value="Converted geolabel.py to simple file with functions and removed static method decorators" />
     <MESSAGE value="Created new helper class sophysql.py and shifted functionality from create.py" />
@@ -541,7 +574,8 @@
     <MESSAGE value="Updates to v0.5 SOPHY build" />
     <MESSAGE value="Added extra sample query in sophy.ipynb" />
     <MESSAGE value="globally switched epsg:3031 to ccrs.SouthPolarStereo()" />
-    <option name="LAST_COMMIT_MESSAGE" value="globally switched epsg:3031 to ccrs.SouthPolarStereo()" />
+    <MESSAGE value="Clean up of sophy.ipynb and minor bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean up of sophy.ipynb and minor bug fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -603,7 +637,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
           <url>notebook://C:/Users/Ayush Nag/vault/sophy/sophy/sophysandbox.ipynb</url>
-          <line>834</line>
+          <line>835</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -612,9 +646,14 @@
           <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/sophy/geolabel.py</url>
-          <line>147</line>
-          <option name="timeStamp" value="57" />
+          <url>file://$PROJECT_DIR$/sophy/sophy.py</url>
+          <line>46</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sophy/sophy.py</url>
+          <line>119</line>
+          <option name="timeStamp" value="63" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -629,5 +668,6 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/sophy$scratch.coverage" NAME="scratch Coverage Results" MODIFIED="1660416224515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/db" />
     <SUITE FILE_PATH="coverage/sophy$create.coverage" NAME="create Coverage Results" MODIFIED="1669235968942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sophy" />
+    <SUITE FILE_PATH="coverage/sophy$sophy.coverage" NAME="sophy Coverage Results" MODIFIED="1670154760353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sophy" />
   </component>
 </project>

@@ -17,7 +17,7 @@ sophysql.create_tables()
 
 worms_folder: str = '../data/worms/'
 lter_file: str = '../data/datasets/modified/lter.csv'
-phytobase_file: str = '../data/datasets/modified/phytobase.csv'
+phytobase_file: str = '../data/datasets/mod/phytobase.csv'
 joywarren_file: str = '../data/datasets/modified/joy_warren.csv'
 joywarren_chemtax_file: str = '../data/datasets/modified/joy_warren_chemtax.csv'
 joywarren_microscopy_file: str = '../data/datasets/modified/joy_warren_microscopy.csv'
@@ -36,12 +36,10 @@ def sophy_transform(data: DataFrame) -> DataFrame:
 def write_lter() -> None:
     """Writes LTER dataset to database"""
     sample_df: DataFrame = pd.read_csv(lter_file, encoding='unicode_escape')
-    sample_df['timestamp'] = pd.to_datetime(sample_df['timestamp'])
-    sample_df['source_name'] = 'lter'
     # drop rows with null time, lat, or long
     sample_df = sample_df.dropna(subset=['timestamp', 'longitude', 'latitude'])
     # columns to be excluded from the json combined column
-    exclude_json = ['JulianDay', 'FilterCode']
+    exclude_json = ['FilterCode']
     extra = sample_df.columns.difference(sophysql.get_table_cols("sample")).drop(exclude_json)
     sample_df["extra_json"] = sample_df[extra].agg(lambda r: r[r.notna()].to_json(), axis=1)
 
@@ -108,7 +106,7 @@ def write_joy_warren() -> None:
     jwchemtax['chemtax_haptophytes'] = jwchemtax['Haptophytes1_frac_chla'] + jwchemtax['Haptophytes2_frac_chla']
     jwchemtax = jwchemtax.dropna().sort_values(by='depth')
     sample: DataFrame = pd.merge_asof(jwchemtax, joy_warren, by='station', on='depth', direction='nearest',
-                                      tolerance=1).sort_values(by='station')
+                                      tolerance=2).sort_values(by='station')
 
     sample['timestamp'] = pd.to_datetime(sample['date'], format='%Y%m%d', errors='coerce').dropna().drop(
         columns=['date', 'time'])
