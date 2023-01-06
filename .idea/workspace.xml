@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Started progress on shift to multi-format database (xlsx and datasette)">
+    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="updated README">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/sophysandbox.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophysandbox.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +238,7 @@
       <workItem from="1670873648589" duration="4951000" />
       <workItem from="1671587097307" duration="764000" />
       <workItem from="1672364844742" duration="50000" />
-      <workItem from="1672973219190" duration="12809000" />
+      <workItem from="1672973219190" duration="14221000" />
     </task>
     <task id="LOCAL-00001" summary="Buf fixes in create.py and geolabel.py">
       <created>1660069576418</created>
@@ -554,7 +555,21 @@
       <option name="project" value="LOCAL" />
       <updated>1672995048152</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="updated README">
+      <created>1672995916630</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1672995916630</updated>
+    </task>
+    <task id="LOCAL-00047" summary="updated README">
+      <created>1672995954232</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1672995954232</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -572,7 +587,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated notes for Fall 2022 and tracking sandbox changes" />
     <MESSAGE value="Milestone updates; alderkamp method shell and new schema version" />
     <MESSAGE value="Updates to sandbox and multi-dataset plotting" />
     <MESSAGE value="Renamed from create_tables.sql" />
@@ -597,7 +611,8 @@
     <MESSAGE value="Write sophy.py. Will replace create.py" />
     <MESSAGE value="Dataset update" />
     <MESSAGE value="Started progress on shift to multi-format database (xlsx and datasette)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started progress on shift to multi-format database (xlsx and datasette)" />
+    <MESSAGE value="updated README" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated README" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -659,7 +674,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
           <url>notebook://C:/Users/Ayush Nag/vault/sophy/sophy/sophysandbox.ipynb</url>
-          <line>836</line>
+          <line>837</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
