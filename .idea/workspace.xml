@@ -1,24 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Dataset update">
-      <change afterPath="$PROJECT_DIR$/sophy/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sophy/metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Started progress on shift to multi-format database (xlsx and datasette)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datasets/mod/joy_warren.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/datasets/mod/joy_warren.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datasets/mod/lter.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/datasets/mod/lter.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datasets/mod/phytobase.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/datasets/mod/phytobase.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/geolabel.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/species_predict.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/sophysql.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/sophytaxa.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/sophy_ayush.md" beforeDir="false" afterPath="$PROJECT_DIR$/notes/sophy_ayush.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/geolabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/geolabel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/sophy.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/sophy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/sophysandbox.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophysandbox.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +237,7 @@
       <workItem from="1670873648589" duration="4951000" />
       <workItem from="1671587097307" duration="764000" />
       <workItem from="1672364844742" duration="50000" />
-      <workItem from="1672973219190" duration="12078000" />
+      <workItem from="1672973219190" duration="12809000" />
     </task>
     <task id="LOCAL-00001" summary="Buf fixes in create.py and geolabel.py">
       <created>1660069576418</created>
@@ -562,7 +547,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670155219053</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Started progress on shift to multi-format database (xlsx and datasette)">
+      <created>1672995048152</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1672995048152</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,7 +572,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Created new helper class sophysql.py and shifted functionality from create.py" />
     <MESSAGE value="Updated notes for Fall 2022 and tracking sandbox changes" />
     <MESSAGE value="Milestone updates; alderkamp method shell and new schema version" />
     <MESSAGE value="Updates to sandbox and multi-dataset plotting" />
@@ -605,7 +596,8 @@
     <MESSAGE value="Clean up of sophy.ipynb and minor bug fixes" />
     <MESSAGE value="Write sophy.py. Will replace create.py" />
     <MESSAGE value="Dataset update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dataset update" />
+    <MESSAGE value="Started progress on shift to multi-format database (xlsx and datasette)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started progress on shift to multi-format database (xlsx and datasette)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
