@@ -1,67 +1,33 @@
 create table if not exists sample (
     id integer primary key autoincrement,
     source_name text references source(name),
+    cruise text,
 
+    -- location(s) and time
     latitude real,
     longitude real,
     timestamp text,
     front_zone text,
     sector text,
 
+    -- species composition
+    percent_phaeo real,
+    percent_diatom real,
+    percent_other real,
+
+    -- chem/phys variables
     depth real,
-    pressure real,
+    chl_a real,
     salinity real,
     temperature real,
-    density real,
     mld real,
-    chlorophyll_a_fluor real,
+    par real,
     nitrate real,
     nitrite real,
     phosphate real,
     silicate real,
     -- JSON extra column
-    extra_json text,
-
-    -- species composition
-    chemtax_prasinophytes real,
-    chemtax_cryptophytes real,
-    chemtax_mixed_flagellates real,
-    chemtax_diatoms real,
-    chemtax_haptophytes real,
-    chemtax_chlorophytes real,
-
-    --percentage of each category for this sample
-    category_diatom real,
-    category_phaeocystis real,
-    category_dinoflagellate real,
-    category_silicoflagellate real,
-    category_mixed_flagellates real,
-    category_other real,
-
-    cruise text,
-
-    tot_depth_water_col real,
-    -- figure out which one is more commonly used
-    chlorophyll_a_hplc real,
-    primary_prod real,
-    down_par real, -- check if these are mains
-
-    -- chem/phys measurements
-    pco2 real,
-    diss_oxygen real,
-    diss_iron real,
-    diss_inorg_carbon real,
-    total_alkalinity,
-    diss_inorg_nitrogen real,
-    diss_inorg_phosp real,
-    diss_org_carbon real,
-    diss_org_nitrogen real,
-    part_org_carbon real,
-    part_org_nitrogen real,
-    tot_nitrogen real,
-    tot_part_carbon real,
-    tot_phosp real,
-    ph real
+    extra_json text
 );
 
 create table if not exists occurrence (

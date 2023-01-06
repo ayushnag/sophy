@@ -1,5 +1,14 @@
 # SOPHY Notes - Ayush Nag
 
+### Quarter Recap
+- Make sure David is in the loop for the 496 grading
+- Lay out what was accomplished by me and Hannah (mention her progress on clusters and GMM)
+- Challenge: In-situ data --> SOPHY format
+  - Worked through it and added Joy-Warren dataset
+             - Took lots of time and effort to do in Python and really better suited for Excel. Also needs a lot of follow ups since data is often missing values we need/want
+             - Next steps: Train Rishabh/Hannah how to do this task, slow burn working through the datasets
+
+
 ### Complex data transformation functions
 - FINISH SECTION; INCLUDE CODE SNIPPETS
 - Can combine a common format of phytoplankton taxa data into our format
