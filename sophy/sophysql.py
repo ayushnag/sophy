@@ -6,7 +6,7 @@ import time
 import pandas as pd
 from pandas import DataFrame
 
-con = sqlite3.connect("sophy.db")
+con = sqlite3.connect("../data/out/sophy.db")
 con.row_factory = sqlite3.Row
 cur = con.cursor()
 

@@ -3,6 +3,7 @@ __author__ = 'Ayush Nag'
 
 import os
 import sqlite3
+import time
 import pandas as pd
 import numpy as np
 import geolabel
@@ -10,16 +11,16 @@ import sophytaxa
 from pandas import DataFrame
 from tqdm.notebook import tqdm
 
-con = sqlite3.connect("sophy.db")
+con = sqlite3.connect("../data/out/sophy.db")
 cur = con.cursor()
 
-worms_folder: str = '../data/worms/'
-lter_file: str = '../data/datasets/mod/lter.csv'
-phytobase_file: str = '../data/datasets/mod/phytobase.csv'
-joywarren_file: str = '../data/datasets/mod/joy_warren.csv'
-joywarren_chemtax_file: str = '../data/datasets/modified/joy_warren_chemtax.csv'
-joywarren_microscopy_file: str = '../data/datasets/mod/joy_warren_microscopy.csv'
-alderkamp_file: str = '../data/datasets/modified/alderkamp.csv'
+worms_folder: str = '../data/in/worms/'
+lter_file: str = '../data/in/datasets/mod/lter.csv'
+phytobase_file: str = '../data/in/datasets/mod/phytobase.csv'
+joywarren_file: str = '../data/in/datasets/mod/joy_warren.csv'
+joywarren_chemtax_file: str = '../data/in/datasets/modified/joy_warren_chemtax.csv'
+joywarren_microscopy_file: str = '../data/in/datasets/mod/joy_warren_microscopy.csv'
+alderkamp_file: str = '../data/in/datasets/modified/alderkamp.csv'
 
 
 def write_lter() -> None:
@@ -42,7 +43,7 @@ def write_phytobase() -> None:
     occ_df: DataFrame = pd.read_csv(phytobase_file)
     occ_df['timestamp'] = pd.to_datetime(occ_df['timestamp'], errors='coerce')
     # get full taxonomy of microscopy data as dataframe
-    taxa_df: DataFrame = pd.read_csv('../data/worms/phytobase_worms.csv')[['original', 'AphiaID']]
+    taxa_df: DataFrame = pd.read_csv('../data/in/worms/phytobase_worms.csv')[['original', 'AphiaID']]
     # join on sample and taxonomy (by aphia_id), only keep cols in the occurrence table (filter out order, genus, etc)
     occ_df = pd.merge(occ_df, taxa_df, left_on='scientific_name', right_on='original')
     occ_df = occ_df.rename(columns=sophytaxa.worms_sql).filter(get_table_cols("occurrence"))
@@ -95,6 +96,13 @@ def get_table_cols(table: str) -> tuple:
     else:
         raise ValueError(f"Table {table} does not exist in the database")
 
+def query(query: str) -> DataFrame:
+    """Readonly is enabled by default so that assure user database will be preserved with each query"""
+    start = time.time()
+    result: DataFrame = pd.read_sql(query, con=con)
+    print(f"SOPHY SQL: {round(time.time() - start, 5)} seconds")
+    return result
+
 
 def write_dataset(data: DataFrame, table_name: str) -> None:
     """Writes DataFrame to the SQLite table table_name:param"""
@@ -112,9 +120,9 @@ def write_dataset(data: DataFrame, table_name: str) -> None:
 def write_taxonomy() -> None:
     """Writes stored WoRMS queries to database"""
     result = None
-    for file in os.listdir('../data/worms/'):
+    for file in os.listdir('../data/in/worms/'):
         if file.endswith(".csv"):
-            new = pd.read_csv('../data/worms/' + file, encoding='utf-8').drop_duplicates(subset=['AphiaID']).rename(
+            new = pd.read_csv('../data/in/worms/' + file, encoding='utf-8').drop_duplicates(subset=['AphiaID']).rename(
                 columns=sophytaxa.worms_sql)
             result = pd.concat([result, new], ignore_index=True)
     result = result.drop_duplicates(subset=['aphia_id'])

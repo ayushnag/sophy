@@ -6,22 +6,21 @@ import sqlite3
 import pandas as pd
 import numpy as np
 import geolabel
-import sophysql
-import sophytaxa
+from sophy import sophytaxa, sophysql
 from pandas import DataFrame
 from tqdm.notebook import tqdm
 
-con = sqlite3.connect("sophy.db")
+con = sqlite3.connect("../../data/out/sophy.db")
 cur = con.cursor()
 sophysql.create_tables()
 
 worms_folder: str = '../data/worms/'
-lter_file: str = '../data/datasets/modified/lter.csv'
-phytobase_file: str = '../data/datasets/mod/phytobase.csv'
-joywarren_file: str = '../data/datasets/modified/joy_warren.csv'
-joywarren_chemtax_file: str = '../data/datasets/modified/joy_warren_chemtax.csv'
-joywarren_microscopy_file: str = '../data/datasets/modified/joy_warren_microscopy.csv'
-alderkamp_file: str = '../data/datasets/modified/alderkamp.csv'
+lter_file: str = '../../data/in/datasets/modified/lter.csv'
+phytobase_file: str = '../../data/in/datasets/mod/phytobase.csv'
+joywarren_file: str = '../../data/in/datasets/modified/joy_warren.csv'
+joywarren_chemtax_file: str = '../../data/in/datasets/modified/joy_warren_chemtax.csv'
+joywarren_microscopy_file: str = '../../data/in/datasets/modified/joy_warren_microscopy.csv'
+alderkamp_file: str = '../../data/in/datasets/modified/alderkamp.csv'
 
 sample_cols: tuple = sophysql.get_table_cols("sample")
 occurrence_cols: tuple = sophysql.get_table_cols("occurrence")
@@ -61,7 +60,7 @@ def write_phytobase() -> None:
     occ_df = occ_df.drop(columns=['year', 'month', 'day'])
 
     # get full taxonomy of microscopy data as dataframe
-    taxa_df: DataFrame = pd.read_csv('../data/worms/phytobase_worms.csv')[['original', 'AphiaID']]
+    taxa_df: DataFrame = pd.read_csv('../../data/in/worms/phytobase_worms.csv')[['original', 'AphiaID']]
     # join on sample and taxonomy (by aphia_id), only keep cols in the occurrence table (filter out order, genus, etc)
     occ_df = pd.merge(occ_df, taxa_df, left_on='scientific_name', right_on='original').filter(occurrence_cols)
 
@@ -80,7 +79,7 @@ def write_joy_warren() -> None:
                      'silicoflagellate': 'silicoflagellate'}
     microscopy['category'] = microscopy['taxa'].replace(replace)
     are_taxa = ~microscopy['taxa'].isin(replace.keys())
-    taxa: DataFrame = pd.read_csv("../data/worms/joy_warren_worms.csv", encoding='utf-8').rename(sophytaxa.worms_sql)
+    taxa: DataFrame = pd.read_csv("../../data/in/worms/joy_warren_worms.csv", encoding='utf-8').rename(sophytaxa.worms_sql)
     # ----------------------------------
     category_conditions: list = [
         (taxa['class'] == 'Bacillariophyceae'),  # diatom
@@ -147,7 +146,7 @@ def write_joy_warren() -> None:
 
 def write_alderkamp() -> None:
     """Writes Alderkamp 2019 dataset to database"""
-    sample_df: DataFrame = pd.read_csv('../data/datasets/modified/alderkamp.csv', encoding='utf-8')
+    sample_df: DataFrame = pd.read_csv('../../data/in/datasets/modified/alderkamp.csv', encoding='utf-8')
     sample_df['source_name'] = 'alderkamp'
     alderkamp_categories = ['category_phaeocystis', 'category_diatom', 'category_other']
     sample_df[alderkamp_categories] = sample_df[alderkamp_categories].div(100)
@@ -166,7 +165,8 @@ def write_taxonomy() -> None:
     """Writes stored WoRMS queries to database"""
     for file in os.listdir(worms_folder):
         if file.endswith(".csv"):
-            m = pd.read_csv(worms_folder + file, encoding='utf-8').drop_duplicates(subset=['AphiaID']).rename(sophytaxa.worms_sql)
+            m = pd.read_csv(worms_folder + file, encoding='utf-8').drop_duplicates(subset=['AphiaID']).rename(
+                sophytaxa.worms_sql)
             sophysql.write_dataset(m, table_name='taxonomy')
 
 

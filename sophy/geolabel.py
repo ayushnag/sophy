@@ -16,11 +16,11 @@ from pyproj import Transformer
 from geopandas import GeoDataFrame
 from pandas import DataFrame, Series
 
-kim_orsi_file: str = '../data/fronts/ys_fronts.mat'
-nsidc_sea_ice_file: str = '../data/sea_ice/mean.sep.1979-2021.s'
-gray_fronts_file: str = '../data/fronts/fronts_Gray.mat'
-fronts_shapefile: str = '../data/shapefiles/fronts/so_fronts.shp'
-zones_shapefile: str = '../data/shapefiles/zones/so_zones.shp'
+kim_orsi_file: str = '../data/in/fronts/ys_fronts.mat'
+nsidc_sea_ice_file: str = '../data/in/sea_ice/mean.sep.1979-2021.s'
+gray_fronts_file: str = '../data/in/fronts/fronts_Gray.mat'
+fronts_shapefile: str = '../data/in/shapefiles/fronts/so_fronts.shp'
+zones_shapefile: str = '../data/in/shapefiles/zones/so_zones.shp'
 project: Transformer = pyproj.Transformer.from_crs(pyproj.CRS('EPSG:4326'), ccrs.SouthPolarStereo(),
                                                    always_xy=True)
 
@@ -131,17 +131,11 @@ def get_sie() -> Polygon:
     return transform(project.transform, sie)
 
 
-def get_zone(lon: float, lat: float) -> str:
-    """Find zone that given point (lon, lat) is in"""
-    assert lat <= -30, "Provided latitude is not in the Southern Ocean (must be less than -30 degrees)"
-    # Calls label_fronts with lat, lon pair as DataFrame
-    return label_zones(pd.DataFrame([(lon, lat)], columns=['lon', 'lat']), 'lon', 'lat')['zone'][0]
-
-
 def label_zones(data: DataFrame, lon_col: str, lat_col: str) -> DataFrame:
     """Labels provided data with fronts"""
     assert {lon_col, lat_col}.issubset(
         data.columns), f'"{lon_col}" or "{lat_col}"are not present in the provided DataFrame'
+    assert data[lat_col] <= -30, "Provided latitude is not in the Southern Ocean (must be less than -30 degrees)"
     assert exists(
         zones_shapefile), 'missing frontal zones shapefile; try running create_fronts_zones_shapes()'
 
@@ -154,16 +148,10 @@ def label_zones(data: DataFrame, lon_col: str, lat_col: str) -> DataFrame:
     return DataFrame(result.drop(columns='geometry'))
 
 
-def get_sector(lon: float, lat: float) -> str:
-    """Gets sector for provided lat, lon. Useful for testing"""
-    assert lat <= -30, "Provided latitude is not in the Southern Ocean (must be less than -30 degrees)"
-    # Calls label_fronts with lat, lon pair as DataFrame
-    return label_sectors(DataFrame([(lon, lat)], columns=['lon', 'lat']), 'lon')['sector'][0]
-
-
 def label_sectors(data: DataFrame, lon_col: str) -> DataFrame:
     """Labels provided data with sectors"""
     assert lon_col in data.columns, f'"{lon_col}" is not present in the provided DataFrame'
+    assert data[lon_col].between(-180, 180).all(), f"Data includes longitudes outside of range [-180, 180]"
     # Labels data by sectors (bins) and their latitude range
     # Ross Sea sector overlaps with the start and end of range: [-180, 180] so it is defined with two split ranges
     sectors_series: Series = pd.cut(data[lon_col], bins=[-180, -130, -60, 20, 90, 160, 180],

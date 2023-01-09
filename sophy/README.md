@@ -5,6 +5,11 @@
 ## sophy.py
 - Builds sophy.db file from modified datasets
 
+## sophy.xlsx
+- Excel version of SQLite database
+- Tables are represented as seperate sheets
+- Can be used with Excel's built-in data query system (joins, filters, etc.) 
+
 ## geolabel.py
 - Defines static methods that generate shapefiles for Southern Ocean fronts and sectors
 - Also labels data points by front/sector with geospatial joins
