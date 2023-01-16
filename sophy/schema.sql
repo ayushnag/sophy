@@ -34,6 +34,7 @@ create table if not exists occurrence (
     id integer primary key autoincrement,
     source_name text references source(name),
     aphia_id integer references taxonomy(aphia_id),
+    name text,
     latitude text,
     longitude real,
     timestamp real,

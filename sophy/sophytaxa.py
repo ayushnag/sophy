@@ -10,7 +10,7 @@ from pandas import DataFrame
 
 # worms output -> sql col name. Also include columns from the original data that are needed but don't need renaming
 # Ex: "class" -> "class" means col name is correct but class column is needed for calculations and/or used in database
-worms_sql: dict = {"AphiaID": "aphia_id", "scientificname": "scientific_name", "authority": "authority",
+worms_sql: dict = {"AphiaID": "aphia_id", "scientificname": "name", "authority": "authority",
                    "superkingdom": "superkingdom",
                    "kingdom": "kingdom", "phylum": "phylum", "subphylum": "subphylum", "superclass": "superclass",
                    "class": "class", "subclass": "subclass", "superorder": "superorder", "order": "orders",

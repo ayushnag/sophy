@@ -1,48 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="outputs sophy.db as an xlsx file with multiple sheets">
-      <change afterPath="$PROJECT_DIR$/sophy/dataformat.ipynb" afterDir="false" />
+    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Wrote dataformat.ipynb to contain future data formatting">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f57b9b34-e3b9-41a3-b0be-ff19a694e58c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f57b9b34-e3b9-41a3-b0be-ff19a694e58c.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datasets/metadata.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/datasets/metadata.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datasets/mod/joy_warren.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/datasets/mod/joy_warren.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datasets/mod/joy_warren_microscopy.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/datasets/mod/joy_warren_microscopy.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datasets/mod/lter.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/datasets/mod/lter.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datasets/mod/phytobase.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/datasets/mod/phytobase.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datasets/modified/alderkamp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/datasets/modified/alderkamp.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datasets/modified/joy_warren.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/datasets/modified/joy_warren.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datasets/modified/joy_warren_chemtax.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/datasets/modified/joy_warren_chemtax.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datasets/modified/joy_warren_microscopy.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/datasets/modified/joy_warren_microscopy.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datasets/modified/lter.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/datasets/modified/lter.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datasets/sample_worms.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/datasets/sample_worms.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datasets/unmodified/nunes_physchem.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/datasets/unmodified/nunes_physchem.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datasets/unmodified/nunes_sample.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/datasets/unmodified/nunes_sample.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/fronts/fronts_Gray.mat" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/fronts/fronts_Gray.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/fronts/ys_fronts.mat" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/fronts/ys_fronts.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/sea_ice/mean.sep.1979-2021.s" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/sea_ice/mean.sep.1979-2021.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/sea_ice/mean.sep.1979-2021.s.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/sea_ice/mean.sep.1979-2021.s.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shapefiles/fronts/so_fronts.cpg" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/shapefiles/fronts/so_fronts.cpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shapefiles/fronts/so_fronts.dbf" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/shapefiles/fronts/so_fronts.dbf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shapefiles/fronts/so_fronts.prj" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/shapefiles/fronts/so_fronts.prj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shapefiles/fronts/so_fronts.shp" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/shapefiles/fronts/so_fronts.shp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shapefiles/fronts/so_fronts.shx" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/shapefiles/fronts/so_fronts.shx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shapefiles/zones/so_zones.cpg" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/shapefiles/zones/so_zones.cpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shapefiles/zones/so_zones.dbf" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/shapefiles/zones/so_zones.dbf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shapefiles/zones/so_zones.prj" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/shapefiles/zones/so_zones.prj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shapefiles/zones/so_zones.shp" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/shapefiles/zones/so_zones.shp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/shapefiles/zones/so_zones.shx" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/shapefiles/zones/so_zones.shx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/worms/joy_warren_worms.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/worms/joy_warren_worms.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/worms/phytobase_worms.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/worms/phytobase_worms.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/create.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy_v0.5/create.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/geolabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/geolabel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/in/datasets/mod/phytobase.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/datasets/mod/phytobase.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/out/sophy.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/out/sophy.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/dataformat.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/dataformat.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/sophy.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy.drawio" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sophy/sophy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/sophy.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/sophy.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/out/sophy.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/sophysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophysql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/sophytaxa.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophytaxa.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,24 +45,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Project.color": "344640",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "full.screen.before.presentation.mode": "false",
-    "last_opened_file_path": "C:/Users/Ayush Nag/vault/sophy/sophy/test.db",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Project.color&quot;: &quot;344640&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ayush Nag/vault/cse446&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Ayush Nag\vault\sophy\data\datasets\mod" />
@@ -281,14 +252,14 @@
       <workItem from="1672364844742" duration="50000" />
       <workItem from="1672973219190" duration="15228000" />
       <workItem from="1673131831770" duration="15766000" />
-      <workItem from="1673212863002" duration="20856000" />
-    </task>
-    <task id="LOCAL-00001" summary="Buf fixes in create.py and geolabel.py">
-      <created>1660069576418</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1660069576418</updated>
+      <workItem from="1673212863002" duration="23170000" />
+      <workItem from="1673292502988" duration="5766000" />
+      <workItem from="1673378807785" duration="375000" />
+      <workItem from="1673506701760" duration="79000" />
+      <workItem from="1673508814876" duration="741000" />
+      <workItem from="1673553235427" duration="20000" />
+      <workItem from="1673646588786" duration="713000" />
+      <workItem from="1673895011867" duration="3367000" />
     </task>
     <task id="LOCAL-00002" summary="Updated geolabel.py to use the NSIDC SMMR v3 for sea ice concentration">
       <created>1660587702693</created>
@@ -619,7 +590,21 @@
       <option name="project" value="LOCAL" />
       <updated>1672997231104</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="reorganized data outputs">
+      <created>1673251231816</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1673251231816</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Wrote dataformat.ipynb to contain future data formatting">
+      <created>1673251295535</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1673251295535</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -648,8 +633,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updates to sandbox and multi-dataset plotting" />
-    <MESSAGE value="Renamed from create_tables.sql" />
     <MESSAGE value="Created sample queries to test use cases" />
     <MESSAGE value="general updates; added new group/category feature to microscopy" />
     <MESSAGE value="Added new class sophytaxa.py to manage taxa interactions/transformations" />
@@ -673,7 +656,9 @@
     <MESSAGE value="Started progress on shift to multi-format database (xlsx and datasette)" />
     <MESSAGE value="updated README" />
     <MESSAGE value="outputs sophy.db as an xlsx file with multiple sheets" />
-    <option name="LAST_COMMIT_MESSAGE" value="outputs sophy.db as an xlsx file with multiple sheets" />
+    <MESSAGE value="reorganized data outputs" />
+    <MESSAGE value="Wrote dataformat.ipynb to contain future data formatting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Wrote dataformat.ipynb to contain future data formatting" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
