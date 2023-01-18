@@ -30,20 +30,13 @@ def create_fronts_zones_shapes():
 
     # Initialize variables and helper shapes
     shapes: dict = {}
-    world: GeoDataFrame = gpd.read_file(gpd.datasets.get_path("naturalearth_lowres")).to_crs(crs=ccrs.SouthPolarStereo())
     # Roughly represents the Southern Ocean as a circle along latitude = -29.5
     southern_ocean: Polygon = transform(project.transform, Polygon(
         zip(np.append(np.linspace(start=0, stop=360, num=1000), 0), np.full(1000, -29.5))))
-    # Unary union takes outer edge of country, rather than including inner boundaries
-    antarctica: Polygon = world[world['continent'] == 'Antarctica'].unary_union
-    south_america: Polygon = world[world['continent'] == 'South America'].unary_union
-    oceania: Polygon = world[world['continent'] == 'Oceania'].unary_union
-    fr_south_lands: Polygon = world[world['name'] == 'Fr. S. Antarctic Lands'].unary_union
 
     # Create shapely objects for each front
-    southern_ocean = southern_ocean - south_america - oceania
     stf: Polygon = get_stf()
-    shapes['STF'] = stf - south_america
+    shapes['STF'] = stf
 
     orsi_fronts: list = get_orsi_fronts()
     shapes['SAF'], shapes['PF'], shapes['SACC'] = orsi_fronts
@@ -57,11 +50,13 @@ def create_fronts_zones_shapes():
 
     # Zones are the intersection between the two closest fronts
     zones: list = [southern_ocean - shapes['STF'], shapes['STF'] - shapes['SAF'],
-                   shapes['SAF'] - shapes['PF'] - fr_south_lands, shapes['PF'] - shapes['SACC'],
-                   shapes['SACC'] - shapes['SIE'], shapes['SIE'] - antarctica]
+                   shapes['SAF'] - shapes['PF'], shapes['PF'] - shapes['SACC'],
+                   shapes['SACC'] - shapes['SIE'], shapes['SIE']]
     names: list = ['STZ', 'SAZ', 'PFZ', 'ASZ', 'SOZ', 'SIZ']
 
     zones_gdf = GeoDataFrame({'front_zone': names, 'geometry': zones}, crs=ccrs.SouthPolarStereo())
+    world: GeoDataFrame = gpd.read_file(gpd.datasets.get_path("naturalearth_lowres")).to_crs(crs=ccrs.SouthPolarStereo())
+    zones_gdf = zones_gdf.overlay(world, how='difference')  # remove land
     zones_gdf.to_file(zones_shapefile)
     print('Success! Shapefiles generated')
 

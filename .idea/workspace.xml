@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Wrote dataformat.ipynb to contain future data formatting">
+    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Switched sophy.ipynb to use xlsx source for SQLite build">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f57b9b34-e3b9-41a3-b0be-ff19a694e58c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f57b9b34-e3b9-41a3-b0be-ff19a694e58c.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/in/datasets/mod/phytobase.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/datasets/mod/phytobase.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/out/sophy.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/out/sophy.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/dataformat.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/dataformat.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/sophy.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/sophy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/sophytaxa.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophytaxa.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,14 +249,7 @@
       <workItem from="1673508814876" duration="741000" />
       <workItem from="1673553235427" duration="20000" />
       <workItem from="1673646588786" duration="713000" />
-      <workItem from="1673895011867" duration="3367000" />
-    </task>
-    <task id="LOCAL-00002" summary="Updated geolabel.py to use the NSIDC SMMR v3 for sea ice concentration">
-      <created>1660587702693</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1660587702693</updated>
+      <workItem from="1673895011867" duration="5305000" />
     </task>
     <task id="LOCAL-00003" summary="Added STF to geolabel.py w/ data from Gray et al. 2018">
       <created>1660636122552</created>
@@ -604,7 +587,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673251295535</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Switched sophy.ipynb to use xlsx source for SQLite build">
+      <created>1673898979689</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1673898979691</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -633,7 +623,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Created sample queries to test use cases" />
     <MESSAGE value="general updates; added new group/category feature to microscopy" />
     <MESSAGE value="Added new class sophytaxa.py to manage taxa interactions/transformations" />
     <MESSAGE value="Shifted around files and created demo Jupyter NBs" />
@@ -658,7 +647,8 @@
     <MESSAGE value="outputs sophy.db as an xlsx file with multiple sheets" />
     <MESSAGE value="reorganized data outputs" />
     <MESSAGE value="Wrote dataformat.ipynb to contain future data formatting" />
-    <option name="LAST_COMMIT_MESSAGE" value="Wrote dataformat.ipynb to contain future data formatting" />
+    <MESSAGE value="Switched sophy.ipynb to use xlsx source for SQLite build" />
+    <option name="LAST_COMMIT_MESSAGE" value="Switched sophy.ipynb to use xlsx source for SQLite build" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
