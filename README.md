@@ -18,10 +18,11 @@ In situ observations combined with phytoplankton taxonomies, ocean fronts, and o
 Create new environment
 - [Miniconda](https://docs.conda.io/en/latest/miniconda.html) is recommended
 
-To explore the data in table form through a web browser ([Datasette](https://datasette.io/))
+To explore the data in table form through a web browser using [Datasette](https://datasette.io/)
 1) ```conda create -n sophyvenv datasette pandas jupyter tqdm```
 2) ```conda activate sophyvenv```
-3) ```datasette sophy.db -o```
+3) Run the cell for Option 1 in [sophy.ipynb](sophy/sophy.ipynb) to build sophy.db
+4) ```datasette sophy.db -o```
 
 
 <p align="center">
@@ -33,4 +34,10 @@ To explore the data in table form through a web browser ([Datasette](https://dat
 To visualize the data using a Jupyter Notebook
 1) ```conda create -n sophyvenv geopandas cartopy jupyter seaborn tqdm```
 2) ```conda activate sophyvenv```
-3) Plotting and query functions available in [sophy.ipynb](sophy/sophy.ipynb)
+3) Follow the steps in [sophy.ipynb](sophy/sophy.ipynb) for sample queries and plotting
+
+<p align="center">
+  <img 
+    width="700"
+    src="notes/img/jupyter.png" >
+</p>
