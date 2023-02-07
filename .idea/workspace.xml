@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Switched sophy.ipynb to use xlsx source for SQLite build">
+      <change afterPath="$PROJECT_DIR$/sophy/geolabel.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/320983db-ffed-4714-9d37-5a1586897fd3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/39b59c8a-61ed-4d7b-b7a0-a978b929933d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/39b59c8a-61ed-4d7b-b7a0-a978b929933d.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b2916e2f-c782-4f65-8e51-c64ecc2b7efb.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f57b9b34-e3b9-41a3-b0be-ff19a694e58c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f57b9b34-e3b9-41a3-b0be-ff19a694e58c.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/dataformat.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/dataformat.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/geolabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy_v0.5/geolabel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/samples.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy_v0.5/samples.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/sophy.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/sophy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/sophy.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy_v0.5/sophy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/sophysandbox.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sandbox.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/sophysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy_v0.5/sophysql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/sophytaxa.py" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy_v0.5/sophytaxa.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,9 +60,14 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ayush Nag/vault/cse446&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ayush Nag/vault/sophy/sophyml&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
@@ -58,10 +80,10 @@
       <recent name="C:\Users\Ayush Nag\vault\sophy\data\datasets\mod" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ayush Nag\vault\sophy\sophy\sophy_v0.5" />
       <recent name="C:\Users\Ayush Nag\vault\sophy\sophy" />
       <recent name="C:\Users\Ayush Nag\vault\sophy\data\out" />
       <recent name="C:\Users\Ayush Nag\vault\sophy\data\in" />
-      <recent name="C:\Users\Ayush Nag\vault\sophy\sophy\sophy_v0.5" />
       <recent name="C:\Users\Ayush Nag\vault\sophy\data" />
     </key>
   </component>
@@ -145,7 +167,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sophy/sophy.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Ayush Nag\vault\sophy\sophy\sophy_v0.5\sophy.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -250,6 +272,17 @@
       <workItem from="1673553235427" duration="20000" />
       <workItem from="1673646588786" duration="713000" />
       <workItem from="1673895011867" duration="5305000" />
+      <workItem from="1675111181267" duration="121000" />
+      <workItem from="1675477099274" duration="32000" />
+      <workItem from="1675539564834" duration="45000" />
+      <workItem from="1675548746236" duration="129000" />
+      <workItem from="1675549000378" duration="123000" />
+      <workItem from="1675549207771" duration="48000" />
+      <workItem from="1675549288866" duration="1558000" />
+      <workItem from="1675553009842" duration="29000" />
+      <workItem from="1675560630138" duration="313000" />
+      <workItem from="1675650589596" duration="31000" />
+      <workItem from="1675708815927" duration="4815000" />
     </task>
     <task id="LOCAL-00003" summary="Added STF to geolabel.py w/ data from Gray et al. 2018">
       <created>1660636122552</created>
@@ -714,7 +747,7 @@
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/sophy/sophytaxa.py</url>
+          <url>file://$PROJECT_DIR$/sophy/sophy_v0.5/sophytaxa.py</url>
           <line>28</line>
           <option name="timeStamp" value="55" />
         </line-breakpoint>
