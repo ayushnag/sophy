@@ -1,0 +1,24 @@
+﻿column,units
+latitude,degrees S
+longitude,degrees W
+front_zone,"STZ=Sub Tropical Zone, SAZ=Subantarctic Zone, PFZ=Polar Frontal Zone, ASZ=Antarctic-Southern Zone, SoZ=ACC Southern Zone, SIZ=Seasonal Ice Zone (conc > 15%)"
+sector,"BA=Bellingshausen/Amundsen, WPO=Western Pacific Ocean, Ross=Ross Sea, Indian=Indian Ocean, Wedell=Wedell Sea"
+percent_phaeo,percentage of sample
+percent_diatom,percentage of sample
+percent_other,percentage of sample
+chemtax_haptophytes,percentage of sample; CHEMTAX output
+chemtax_diatoms,percentage of sample; CHEMTAX output
+chemtax_chlorophytes,percentage of sample; CHEMTAX output
+chemtax_cryptophytes,percentage of sample; CHEMTAX output
+chemtax_prasinoophytes,percentage of sample; CHEMTAX output
+chemtax_mixed_flagellates,percentage of sample; CHEMTAX output
+depth,m
+chl_a,mg/m^3
+salinity,psu
+temperature,degrees C
+mld,m
+par,
+nitrate,umol/L
+nitrite,umol/L
+phosphate,umol/L
+silicate,umol/L

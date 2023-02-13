@@ -1,4 +1,4 @@
-﻿station,depth,chla_ugL,chlorophytes,mixed_flagellates,cryptophytes,haptophytes,diatoms
+﻿station,depth,chla_ugL,chemtax_chlorophytes,chemtax_mixed_flagellates,chemtax_cryptophytes,chemtax_haptophytes,chemtax_diatoms
 002_02,3.5,0.246388438,0.04839615,0.023012999,0.034700266,0.423519922,0.470370663
 002_02,9.8,0.236540621,0.00149006,1.71E-06,0.032421091,0.478822397,0.487264739
 002_02,24.7,0.226501992,0.001382647,0.000829531,0.028900595,0.350909533,0.617977693

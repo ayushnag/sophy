@@ -14,6 +14,12 @@ create table if not exists sample (
     percent_phaeo real,
     percent_diatom real,
     percent_other real,
+    chemtax_prasinophytes real,
+    chemtax_cryptophytes real,
+    chemtax_chlorophytes real,
+    chemtax_mixed_flagellates real,
+    chemtax_diatoms real,
+    chemtax_haptophytes real,
 
     -- chem/phys variables
     depth real,
