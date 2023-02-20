@@ -4,29 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Moved files into v0.5 dir">
-      <change afterPath="$PROJECT_DIR$/data/out/README.md" afterDir="false" />
+    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Release v1">
       <change afterPath="$PROJECT_DIR$/sophyml/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sophyml/data/species_predict2.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/in/datasets/modified/joy_warren_chemtax.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/datasets/modified/joy_warren_chemtax.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/in/shapefiles/fronts/so_fronts.cpg" beforeDir="false" afterPath="$PROJECT_DIR$/data/out/shapefiles/fronts/so_fronts.cpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/in/shapefiles/fronts/so_fronts.dbf" beforeDir="false" afterPath="$PROJECT_DIR$/data/out/shapefiles/fronts/so_fronts.dbf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/in/shapefiles/fronts/so_fronts.prj" beforeDir="false" afterPath="$PROJECT_DIR$/data/out/shapefiles/fronts/so_fronts.prj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/in/shapefiles/fronts/so_fronts.shp" beforeDir="false" afterPath="$PROJECT_DIR$/data/out/shapefiles/fronts/so_fronts.shp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/in/shapefiles/fronts/so_fronts.shx" beforeDir="false" afterPath="$PROJECT_DIR$/data/out/shapefiles/fronts/so_fronts.shx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/in/shapefiles/zones/so_zones.cpg" beforeDir="false" afterPath="$PROJECT_DIR$/data/out/shapefiles/zones/so_zones.cpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/in/shapefiles/zones/so_zones.dbf" beforeDir="false" afterPath="$PROJECT_DIR$/data/out/shapefiles/zones/so_zones.dbf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/in/shapefiles/zones/so_zones.prj" beforeDir="false" afterPath="$PROJECT_DIR$/data/out/shapefiles/zones/so_zones.prj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/in/shapefiles/zones/so_zones.shp" beforeDir="false" afterPath="$PROJECT_DIR$/data/out/shapefiles/zones/so_zones.shp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/in/shapefiles/zones/so_zones.shx" beforeDir="false" afterPath="$PROJECT_DIR$/data/out/shapefiles/zones/so_zones.shx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/out/sophy.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/out/sophy.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sophy/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/dataformat.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/dataformat.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/geolabel.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/geolabel.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/sandbox.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sandbox.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/sophy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sophyml/regression_test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophyml/species_prediction.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,29 +43,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Project.color": "344640",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "full.screen.before.presentation.mode": "false",
-    "last_opened_file_path": "C:/Users/Ayush Nag/vault/sophy/sophyml",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.notebooks.jupyter.connections.configuration.JupyterServerConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Project.color&quot;: &quot;344640&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ayush Nag/vault/sophy/sophyml&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.notebooks.jupyter.connections.configuration.JupyterServerConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Ayush Nag\vault\sophy\data\datasets\mod" />
@@ -292,13 +276,9 @@
       <workItem from="1675708815927" duration="8588000" />
       <workItem from="1675891772574" duration="6627000" />
       <workItem from="1676154960872" duration="21566000" />
-    </task>
-    <task id="LOCAL-00004" summary="Wrote feature to label sectors in geolabel.py">
-      <created>1660636517969</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1660636517969</updated>
+      <workItem from="1676324795074" duration="6701000" />
+      <workItem from="1676481558966" duration="21528000" />
+      <workItem from="1676752274264" duration="15971000" />
     </task>
     <task id="LOCAL-00005" summary="Added fronts_Gray.mat from Gray et al. 2018">
       <created>1660636577127</created>
@@ -636,7 +616,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675760488969</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Release v1">
+      <created>1676324939890</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1676324939890</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -665,7 +652,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added new class sophytaxa.py to manage taxa interactions/transformations" />
     <MESSAGE value="Shifted around files and created demo Jupyter NBs" />
     <MESSAGE value="Refactored schema to hold JSON data as extra cols" />
     <MESSAGE value="Sandbox update" />
@@ -690,7 +676,8 @@
     <MESSAGE value="Wrote dataformat.ipynb to contain future data formatting" />
     <MESSAGE value="Switched sophy.ipynb to use xlsx source for SQLite build" />
     <MESSAGE value="Moved files into v0.5 dir" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved files into v0.5 dir" />
+    <MESSAGE value="Release v1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Release v1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

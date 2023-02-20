@@ -1,4 +1,6 @@
+
 # SOPHY: Southern Ocean Phytoplankton Database
+[license][https://badgen.net/github/license/micromatch/micromatch]
 - UW Oceanography
 - Made by Ayush Nag and Hannah Joy-Warren
 

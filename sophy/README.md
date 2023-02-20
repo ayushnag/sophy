@@ -13,3 +13,5 @@
 ## schema.sql
 - SQL database schema
 - Defines data tables and types for each column
+
+## TODO: ADD DESCRIPTION FOR EACH FILE
