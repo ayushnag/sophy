@@ -26,6 +26,8 @@ create table if not exists sample (
     chl_a real,
     salinity real,
     temperature real,
+    part_org_carbon real,
+    oxygen real,
     mld real,
     par real,
     nitrate real,

@@ -1,12 +1,39 @@
 # SOPHY Notes - Ayush Nag
 
+### Lasso Week 2
+- The RandomForest Regressor with hyperparamter tuning on the SOPhy dataset achieves a 0.52 R^2 score to predict percent_phaeo
+<img src="img/rf_phaeo.png" width=300>
+
+### Lasso Week 1
+- So to first visualize the features here is a pairplot with all the data
+- <img src="img/lter_pairplots.png" alt= “” width=600>
+- There are some trends visible, but the variance of data is extremely high for large ranges. For example when salinity is 0, percent_pheo could be anywhere from 0 to 0.8.
+- This raised some concerns about the quality of the data so I excluded the LTER dataset which has most of the data. I then tried the same process for only the Joy-Warren dataset
+- <img src="img/joyw_pairplots.png" alt= “” width=600>
+- These plots make much more sense since there looks to be a valid function that could describe the data
+- Next I ran Lasso on this data and got an $R^2$ score of 0.19 (ideal=1). However there are quite a few outliers in the data that may be skewing the fit. I experimented with different thresholds of outlier removal and got increasingly better results up to an $R^2$ score of 0.4.
+- Outliers were removed using the z-score method. Thresholds tested were: none, zscore < 3, zscore < 1.5
+<p float="left">
+  <img src="img/lasso_all_outliers.png" alt= “” width=200>
+  <img src="img/lasso_some_outliers.png" alt= “” width=200>
+  <img src="img/lasso_few_outliers.png" alt= “” width=200>
+</p>
+
+- The next step I tried is to add more data from other sources to see if that can help improve the accuracy of the model. The datasets added were the Alderkamp and Garibotti datasets
+### Species Prediction Initial Ideas
+- Lasso Regression to help identify the important features and make an early model
+- Temperature, salinity, chl_a, nitrate, oxygen, month, and depth to predict percent_phaeo
+- Technically species composition is (phaeo + diatoms + other) = 100% but to start with I will try and just predict one of the percentages (phaeo)
+- The dataset will be sophy.xlsx with primarily LTER and Joy-Warren datasets
+
+
 ### Quarter Recap
 - Make sure David is in the loop for the 496 grading
 - Lay out what was accomplished by me and Hannah (mention her progress on clusters and GMM)
 - Challenge: In-situ data --> SOPHY format
   - Worked through it and added Joy-Warren dataset
              - Took lots of time and effort to do in Python and really better suited for Excel. Also needs a lot of follow ups since data is often missing values we need/want
-             - Next steps: Train Rishabh/Hannah how to do this task, slow burn working through the datasets
+             - Next steps: Train Rishabh how to do this task, slow burn working through the datasets
 
 
 ### Complex data transformation functions

@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="Release v1">
-      <change afterPath="$PROJECT_DIR$/sophyml/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sophyml/data/species_predict2.ipynb" afterDir="false" />
+    <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="moved to correct dir">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/in/datasets/modified/joy_warren.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/datasets/modified/joy_warren.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/out/sophy.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/out/sophy.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophyml/regression_test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophyml/species_prediction.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notes/sophy_ayush.md" beforeDir="false" afterPath="$PROJECT_DIR$/notes/sophy_ayush.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/dataformat.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/dataformat.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophyml/species_predict2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophyml/species_predict2.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +51,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ayush Nag/vault/sophy/sophyml&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ayush Nag/vault/sophy/notes/img&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -71,11 +71,11 @@
       <recent name="C:\Users\Ayush Nag\vault\sophy\data\datasets\mod" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ayush Nag\vault\sophy\sophyml" />
       <recent name="C:\Users\Ayush Nag\vault\sophy\data\in\datasets" />
       <recent name="C:\Users\Ayush Nag\vault\sophy\data\in\worms" />
       <recent name="C:\Users\Ayush Nag\vault\sophy\data\out" />
       <recent name="C:\Users\Ayush Nag\vault\sophy\sophy\sophy_v0.5" />
-      <recent name="C:\Users\Ayush Nag\vault\sophy\sophy" />
     </key>
   </component>
   <component name="RunManager" selected="Python.sophy">
@@ -278,21 +278,10 @@
       <workItem from="1676154960872" duration="21566000" />
       <workItem from="1676324795074" duration="6701000" />
       <workItem from="1676481558966" duration="21528000" />
-      <workItem from="1676752274264" duration="15971000" />
-    </task>
-    <task id="LOCAL-00005" summary="Added fronts_Gray.mat from Gray et al. 2018">
-      <created>1660636577127</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1660636577127</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Converted large create_fronts_zone_shapes() into more modular parts">
-      <created>1660676280559</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1660676280559</updated>
+      <workItem from="1676752274264" duration="20417000" />
+      <workItem from="1676941777528" duration="968000" />
+      <workItem from="1677443677524" duration="373000" />
+      <workItem from="1677525921964" duration="39000" />
     </task>
     <task id="LOCAL-00007" summary="Updated schema and code to split data into sample and occurrence tables">
       <created>1660717392422</created>
@@ -623,7 +612,21 @@
       <option name="project" value="LOCAL" />
       <updated>1676324939890</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Testing lasso regresion on joyw dataset">
+      <created>1676932437140</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1676932437140</updated>
+    </task>
+    <task id="LOCAL-00055" summary="moved to correct dir">
+      <created>1676932504692</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1676932504692</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -652,8 +655,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Shifted around files and created demo Jupyter NBs" />
-    <MESSAGE value="Refactored schema to hold JSON data as extra cols" />
     <MESSAGE value="Sandbox update" />
     <MESSAGE value="Created shell function for microscopy -&gt; categories" />
     <MESSAGE value="Added modified source datasets" />
@@ -677,7 +678,9 @@
     <MESSAGE value="Switched sophy.ipynb to use xlsx source for SQLite build" />
     <MESSAGE value="Moved files into v0.5 dir" />
     <MESSAGE value="Release v1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Release v1" />
+    <MESSAGE value="Testing lasso regresion on joyw dataset" />
+    <MESSAGE value="moved to correct dir" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved to correct dir" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
