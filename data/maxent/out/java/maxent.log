@@ -1,0 +1,1450 @@
+Mon Apr 24 23:29:37 PDT 2023
+MaxEnt version 3.4.4
+Checking header of C:\Users\Ayush Nag\vault\sophy\data\out\cnn_input_layers\max_ent_layers_in\chlorophyll.asc
+Checking header of C:\Users\Ayush Nag\vault\sophy\data\out\cnn_input_layers\max_ent_layers_in\nitrate.asc
+Checking header of C:\Users\Ayush Nag\vault\sophy\data\out\cnn_input_layers\max_ent_layers_in\oxygen.asc
+Checking header of C:\Users\Ayush Nag\vault\sophy\data\out\cnn_input_layers\max_ent_layers_in\salinity.asc
+Checking header of C:\Users\Ayush Nag\vault\sophy\data\out\cnn_input_layers\max_ent_layers_in\sea_ice_extent.asc
+Checking header of C:\Users\Ayush Nag\vault\sophy\data\out\cnn_input_layers\max_ent_layers_in\sst.asc
+Reading samples from phytobase_occurrence_classes_mercator.csv
+Read samples: max memory 477626368, total allocated 209190912, free 41862496, used 167328416, increment -29489784
+Warning: Sample at -2.0037508342789244E7, -1.3897042051391566E7 in phytobase_occurrence_classes_mercator.csv is outside the bounding box of environmental data, skipping
+Warning: Sample at -2.0037508342789244E7, -1.4152545132765234E7 in phytobase_occurrence_classes_mercator.csv is outside the bounding box of environmental data, skipping
+Warning: Sample at -1.9594913179344267E7, -1.4349887132751117E7 in phytobase_occurrence_classes_mercator.csv is outside the bounding box of environmental data, skipping
+Warning: Sample at -1.9597774090257656E7, -1.432260295284274E7 in phytobase_occurrence_classes_mercator.csv is outside the bounding box of environmental data, skipping
+Warning: Sample at -1.9597774090257656E7, -1.432260295284274E7 in phytobase_occurrence_classes_mercator.csv is outside the bounding box of environmental data, skipping
+Time since start: 12.085
+Extractor: max memory 477626368, total allocated 216530944, free 24892872, used 191638072, increment 24309656
+Extracting random background and sample data
+Warning: Sample at 1.966422069431216E7, -4527586.923500046 in phytobase_occurrence_classes_mercator.csv is missing some environmental data (e.g. nitrate)
+Warning: Skipping sample at 1.966422069431216E7, -4527586.923500046
+Warning: Sample at 1.966422069431216E7, -4527586.923500046 in phytobase_occurrence_classes_mercator.csv is missing some environmental data (e.g. nitrate)
+Warning: Skipping sample at 1.966422069431216E7, -4527586.923500046
+Warning: Sample at 1.966422069431216E7, -4527586.923500046 in phytobase_occurrence_classes_mercator.csv is missing some environmental data (e.g. nitrate)
+Warning: Skipping sample at 1.966422069431216E7, -4527586.923500046
+Time since start: 14.127
+941272 points with values for all grids
+Adding samples to background in feature space
+Command line used: 
+Command line to repeat: java density.MaxEnt nowarnings noprefixes responsecurves jackknife "outputdirectory=C:\Users\Ayush Nag\vault\sophy\data\out\max_ent_out" "samplesfile=C:\Users\Ayush Nag\vault\sophy\data\out\cnn_input_layers\phytobase_occurrence_classes_mercator.csv" "environmentallayers=C:\Users\Ayush Nag\vault\sophy\data\out\cnn_input_layers\max_ent_layers_in" randomtestpoints=20
+Species: Bacillariophyceae Coccolithophyceae Cyanophyceae Dinophyceae Prymnesiophyceae
+Layers: chlorophyll nitrate oxygen salinity sea_ice_extent sst
+Layertypes: Continuous Continuous Continuous Continuous Continuous Continuous
+responsecurves: true
+jackknife: true
+outputdirectory: C:\Users\Ayush Nag\vault\sophy\data\out\max_ent_out
+samplesfile: C:\Users\Ayush Nag\vault\sophy\data\out\cnn_input_layers\phytobase_occurrence_classes_mercator.csv
+environmentallayers: C:\Users\Ayush Nag\vault\sophy\data\out\cnn_input_layers\max_ent_layers_in
+randomtestpoints: 20
+
+getSamples: max memory 477626368, total allocated 224395264, free 48323648, used 176071616, increment -15566456
+Time since start: 15.977
+Making features
+makeFeatures: max memory 477626368, total allocated 224395264, free 45840832, used 178554432, increment 2482816
+Bacillariophyceae: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+742 samples
+Density: max memory 477626368, total allocated 224395264, free 35733440, used 188661824, increment 10107392
+linearPredictor: max memory 477626368, total allocated 224395264, free 35647520, used 188747744, increment 85920
+FeaturedSpace: max memory 477626368, total allocated 224395264, free 35647520, used 188747744, increment 0
+Sequential: max memory 477626368, total allocated 224395264, free 35647520, used 188747744, increment 0
+Initial loss: 9.281544130982514
+Initial test loss: 9.281544130982514
+Time since start: 27.941
+500: time = 11.850000 loss = 8.664990 testLoss 8.575776
+Resulting gain: 0.6165536706092105
+Projecting...
+Writing file C:\Users\Ayush Nag\vault\sophy\data\out\max_ent_out\Bacillariophyceae.asc
+Time since start: 33.697
+Writing C:\Users\Ayush Nag\vault\sophy\data\out\max_ent_out\plots\Bacillariophyceae.png
+Bacillariophyceae response curves
+Time since start: 34.758
+Response curve: only chlorophyll
+Making features
+makeFeatures: max memory 477626368, total allocated 183500800, free 85945640, used 97555160, increment -91192584
+Bacillariophyceae chlorophyll: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+742 samples
+Density: max memory 477626368, total allocated 183500800, free 84360856, used 99139944, increment 1584784
+linearPredictor: max memory 477626368, total allocated 183500800, free 84360856, used 99139944, increment 0
+FeaturedSpace: max memory 477626368, total allocated 183500800, free 84360856, used 99139944, increment 0
+Sequential: max memory 477626368, total allocated 183500800, free 84360856, used 99139944, increment 0
+Initial loss: 9.281544130982514
+Time since start: 38.015
+500: time = 3.238000 loss = 9.115680
+Resulting gain: 0.16586442251661637
+Bacillariophyceae response curves
+Response curve: only nitrate
+Making features
+makeFeatures: max memory 477626368, total allocated 159907840, free 91272736, used 68635104, increment -30504840
+Bacillariophyceae nitrate: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+742 samples
+Density: max memory 477626368, total allocated 159907840, free 89892584, used 70015256, increment 1380152
+linearPredictor: max memory 477626368, total allocated 159907840, free 89892584, used 70015256, increment 0
+FeaturedSpace: max memory 477626368, total allocated 159907840, free 89892584, used 70015256, increment 0
+Sequential: max memory 477626368, total allocated 159907840, free 89892584, used 70015256, increment 0
+Initial loss: 9.281544130982514
+Time since start: 41.555
+500: time = 3.465000 loss = 9.182937
+Resulting gain: 0.09860711372225595
+Bacillariophyceae response curves
+Response curve: only oxygen
+Making features
+makeFeatures: max memory 477626368, total allocated 143654912, free 63236976, used 80417936, increment 10402680
+Bacillariophyceae oxygen: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+742 samples
+Density: max memory 477626368, total allocated 143654912, free 61356376, used 82298536, increment 1880600
+linearPredictor: max memory 477626368, total allocated 143654912, free 61270456, used 82384456, increment 85920
+FeaturedSpace: max memory 477626368, total allocated 143654912, free 61270456, used 82384456, increment 0
+Sequential: max memory 477626368, total allocated 143654912, free 61270456, used 82384456, increment 0
+Initial loss: 9.281544130982514
+Time since start: 43.464
+300: time = 1.836000 loss = 9.176627
+Resulting gain: 0.1049166609680885
+Bacillariophyceae response curves
+Response curve: only salinity
+Making features
+makeFeatures: max memory 477626368, total allocated 135790592, free 36022792, used 99767800, increment 17383344
+Bacillariophyceae salinity: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+742 samples
+Density: max memory 477626368, total allocated 135790592, free 65232432, used 70558160, increment -29209640
+linearPredictor: max memory 477626368, total allocated 135790592, free 64598952, used 71191640, increment 633480
+FeaturedSpace: max memory 477626368, total allocated 135790592, free 64598952, used 71191640, increment 0
+Sequential: max memory 477626368, total allocated 135790592, free 64598952, used 71191640, increment 0
+Initial loss: 9.281544130982514
+Time since start: 45.8
+380: time = 2.251000 loss = 9.074037
+Resulting gain: 0.20750744694581869
+Bacillariophyceae response curves
+Response curve: only sea_ice_extent
+Making features
+makeFeatures: max memory 477626368, total allocated 135790592, free 55544528, used 80246064, increment 9054424
+Bacillariophyceae sea_ice_extent: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+742 samples
+Density: max memory 477626368, total allocated 135790592, free 54201432, used 81589160, increment 1343096
+linearPredictor: max memory 477626368, total allocated 135790592, free 54201432, used 81589160, increment 0
+FeaturedSpace: max memory 477626368, total allocated 135790592, free 54201432, used 81589160, increment 0
+Sequential: max memory 477626368, total allocated 135790592, free 54201432, used 81589160, increment 0
+Initial loss: 9.281544130982514
+80: time = 0.421000 loss = 9.200882
+Resulting gain: 0.08066234739278677
+Bacillariophyceae response curves
+Response curve: only sst
+Making features
+makeFeatures: max memory 477626368, total allocated 136314880, free 54444704, used 81870176, increment 281016
+Bacillariophyceae sst: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+742 samples
+Density: max memory 477626368, total allocated 136314880, free 52510168, used 83804712, increment 1934536
+linearPredictor: max memory 477626368, total allocated 136314880, free 52510168, used 83804712, increment 0
+FeaturedSpace: max memory 477626368, total allocated 136314880, free 52510168, used 83804712, increment 0
+Sequential: max memory 477626368, total allocated 136314880, free 52510168, used 83804712, increment 0
+Initial loss: 9.281544130982514
+Time since start: 49.925
+500: time = 3.550000 loss = 9.041832
+Resulting gain: 0.23971181094456462
+Bacillariophyceae response curves
+Jackknife: leave chlorophyll out
+Making features
+makeFeatures: max memory 477626368, total allocated 147324928, free 38091400, used 109233528, increment 25428816
+Bacillariophyceae chlorophyll: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+742 samples
+Density: max memory 477626368, total allocated 147324928, free 30267288, used 117057640, increment 7824112
+linearPredictor: max memory 477626368, total allocated 147324928, free 30181368, used 117143560, increment 85920
+FeaturedSpace: max memory 477626368, total allocated 147324928, free 30181368, used 117143560, increment 0
+Sequential: max memory 477626368, total allocated 147324928, free 30181368, used 117143560, increment 0
+Initial loss: 9.281544130982514
+Initial test loss: 9.281544130982514
+Time since start: 60.932
+500: time = 10.176000 loss = 8.761892 testLoss 8.720362
+Jackknife: leave nitrate out
+Making features
+makeFeatures: max memory 477626368, total allocated 146800640, free 49896496, used 96904144, increment -20239416
+Bacillariophyceae nitrate: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+742 samples
+Density: max memory 477626368, total allocated 146800640, free 41624960, used 105175680, increment 8271536
+linearPredictor: max memory 477626368, total allocated 146800640, free 41539040, used 105261600, increment 85920
+FeaturedSpace: max memory 477626368, total allocated 146800640, free 41539040, used 105261600, increment 0
+Sequential: max memory 477626368, total allocated 146800640, free 41539040, used 105261600, increment 0
+Initial loss: 9.281544130982514
+Initial test loss: 9.281544130982514
+Time since start: 73.633
+500: time = 12.578000 loss = 8.782589 testLoss 8.697730
+Jackknife: leave oxygen out
+Making features
+makeFeatures: max memory 477626368, total allocated 166723584, free 72509968, used 94213616, increment -11047984
+Bacillariophyceae oxygen: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+742 samples
+Density: max memory 477626368, total allocated 166723584, free 64255928, used 102467656, increment 8254040
+linearPredictor: max memory 477626368, total allocated 166723584, free 64255928, used 102467656, increment 0
+FeaturedSpace: max memory 477626368, total allocated 166723584, free 64255928, used 102467656, increment 0
+Sequential: max memory 477626368, total allocated 166723584, free 64255928, used 102467656, increment 0
+Initial loss: 9.281544130982514
+Initial test loss: 9.281544130982514
+Time since start: 84.419
+500: time = 10.653000 loss = 8.680576 testLoss 8.587544
+Jackknife: leave salinity out
+Making features
+makeFeatures: max memory 477626368, total allocated 155189248, free 7032880, used 148156368, increment 45688712
+Bacillariophyceae salinity: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+742 samples
+Density: max memory 477626368, total allocated 154140672, free 46067352, used 108073320, increment -40083048
+linearPredictor: max memory 477626368, total allocated 154140672, free 45981432, used 108159240, increment 85920
+FeaturedSpace: max memory 477626368, total allocated 154140672, free 45981432, used 108159240, increment 0
+Sequential: max memory 477626368, total allocated 154140672, free 45981432, used 108159240, increment 0
+Initial loss: 9.281544130982514
+Initial test loss: 9.281544130982514
+Time since start: 95.008
+500: time = 10.452000 loss = 8.721889 testLoss 8.624691
+Jackknife: leave sea_ice_extent out
+Making features
+makeFeatures: max memory 477626368, total allocated 145227776, free 89343656, used 55884120, increment -52275120
+Bacillariophyceae sea_ice_extent: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+742 samples
+Density: max memory 477626368, total allocated 145227776, free 80400048, used 64827728, increment 8943608
+linearPredictor: max memory 477626368, total allocated 145227776, free 80314128, used 64913648, increment 85920
+FeaturedSpace: max memory 477626368, total allocated 145227776, free 80314128, used 64913648, increment 0
+Sequential: max memory 477626368, total allocated 145227776, free 80314128, used 64913648, increment 0
+Initial loss: 9.281544130982514
+Initial test loss: 9.281544130982514
+Time since start: 106.399
+500: time = 11.289000 loss = 8.674980 testLoss 8.588663
+Jackknife: leave sst out
+Making features
+makeFeatures: max memory 477626368, total allocated 160432128, free 77394064, used 83038064, increment 18124416
+Bacillariophyceae sst: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+742 samples
+Density: max memory 477626368, total allocated 160432128, free 69139192, used 91292936, increment 8254872
+linearPredictor: max memory 477626368, total allocated 160432128, free 69053272, used 91378856, increment 85920
+FeaturedSpace: max memory 477626368, total allocated 160432128, free 69053272, used 91378856, increment 0
+Sequential: max memory 477626368, total allocated 160432128, free 69053272, used 91378856, increment 0
+Initial loss: 9.281544130982514
+Initial test loss: 9.281544130982514
+Time since start: 116.069
+500: time = 9.552000 loss = 8.780230 testLoss 8.704735
+Jackknife: only chlorophyll
+Making features
+makeFeatures: max memory 477626368, total allocated 149946368, free 54236056, used 95710312, increment 4331456
+Bacillariophyceae chlorophyll: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+742 samples
+Density: max memory 477626368, total allocated 149946368, free 52885440, used 97060928, increment 1350616
+linearPredictor: max memory 477626368, total allocated 149946368, free 52799520, used 97146848, increment 85920
+FeaturedSpace: max memory 477626368, total allocated 149946368, free 52799520, used 97146848, increment 0
+Sequential: max memory 477626368, total allocated 149946368, free 52799520, used 97146848, increment 0
+Initial loss: 9.281544130982514
+Initial test loss: 9.281544130982514
+Time since start: 119.357
+500: time = 3.251000 loss = 9.115680 testLoss 9.078658
+Res.gain: 0.16586442251661637
+Jackknife: only nitrate
+Making features
+makeFeatures: max memory 477626368, total allocated 147324928, free 75137272, used 72187656, increment -24959192
+Bacillariophyceae nitrate: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+742 samples
+Density: max memory 477626368, total allocated 147324928, free 73335904, used 73989024, increment 1801368
+linearPredictor: max memory 477626368, total allocated 147324928, free 73249984, used 74074944, increment 85920
+FeaturedSpace: max memory 477626368, total allocated 147324928, free 73249984, used 74074944, increment 0
+Sequential: max memory 477626368, total allocated 147324928, free 73249984, used 74074944, increment 0
+Initial loss: 9.281544130982514
+Initial test loss: 9.281544130982514
+Time since start: 122.715
+500: time = 3.331000 loss = 9.182937 testLoss 9.146908
+Res.gain: 0.09860711372225595
+Jackknife: only oxygen
+Making features
+makeFeatures: max memory 477626368, total allocated 140509184, free 52576472, used 87932712, increment 13857768
+Bacillariophyceae oxygen: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+742 samples
+Density: max memory 477626368, total allocated 140509184, free 50993960, used 89515224, increment 1582512
+linearPredictor: max memory 477626368, total allocated 140509184, free 50908040, used 89601144, increment 85920
+FeaturedSpace: max memory 477626368, total allocated 140509184, free 50908040, used 89601144, increment 0
+Sequential: max memory 477626368, total allocated 140509184, free 50908040, used 89601144, increment 0
+Initial loss: 9.281544130982514
+Initial test loss: 9.281544130982514
+Time since start: 124.852
+300: time = 2.105000 loss = 9.176627 testLoss 9.195493
+Res.gain: 0.1049166609680885
+Jackknife: only salinity
+Making features
+makeFeatures: max memory 477626368, total allocated 140509184, free 66997416, used 73511768, increment -16089376
+Bacillariophyceae salinity: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+742 samples
+Density: max memory 477626368, total allocated 140509184, free 65318472, used 75190712, increment 1678944
+linearPredictor: max memory 477626368, total allocated 140509184, free 65232552, used 75276632, increment 85920
+FeaturedSpace: max memory 477626368, total allocated 140509184, free 65232552, used 75276632, increment 0
+Sequential: max memory 477626368, total allocated 140509184, free 65232552, used 75276632, increment 0
+Initial loss: 9.281544130982514
+Initial test loss: 9.281544130982514
+Time since start: 127.379
+380: time = 2.499000 loss = 9.074037 testLoss 9.046907
+Res.gain: 0.20750744694581869
+Jackknife: only sea_ice_extent
+Making features
+makeFeatures: max memory 477626368, total allocated 140509184, free 47696960, used 92812224, increment 17535592
+Bacillariophyceae sea_ice_extent: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+742 samples
+Density: max memory 477626368, total allocated 140509184, free 46345536, used 94163648, increment 1351424
+linearPredictor: max memory 477626368, total allocated 140509184, free 46345536, used 94163648, increment 0
+FeaturedSpace: max memory 477626368, total allocated 140509184, free 46345536, used 94163648, increment 0
+Sequential: max memory 477626368, total allocated 140509184, free 46345536, used 94163648, increment 0
+Initial loss: 9.281544130982514
+Initial test loss: 9.281544130982514
+80: time = 0.655000 loss = 9.200882 testLoss 9.175364
+Res.gain: 0.08066234739278677
+Jackknife: only sst
+Making features
+makeFeatures: max memory 477626368, total allocated 140509184, free 48106608, used 92402576, increment -1761072
+Bacillariophyceae sst: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+742 samples
+Density: max memory 477626368, total allocated 140509184, free 46450912, used 94058272, increment 1655696
+linearPredictor: max memory 477626368, total allocated 140509184, free 46364992, used 94144192, increment 85920
+FeaturedSpace: max memory 477626368, total allocated 140509184, free 46364992, used 94144192, increment 0
+Sequential: max memory 477626368, total allocated 140509184, free 46364992, used 94144192, increment 0
+Initial loss: 9.281544130982514
+Initial test loss: 9.281544130982514
+Time since start: 132.613
+500: time = 4.489000 loss = 9.041832 testLoss 9.010607
+Res.gain: 0.23971181094456462
+getSamples: max memory 477626368, total allocated 140509184, free 60852056, used 79657128, increment -14487064
+Making features
+makeFeatures: max memory 477626368, total allocated 140509184, free 58515008, used 81994176, increment 2337048
+Coccolithophyceae: 
+Regularization values: linear/quadratic/product: 0.157, categorical: 0.250, threshold: 1.150, hinge: 0.500
+85 samples
+Density: max memory 477626368, total allocated 140509184, free 49361560, used 91147624, increment 9153448
+linearPredictor: max memory 477626368, total allocated 140509184, free 49280872, used 91228312, increment 80688
+FeaturedSpace: max memory 477626368, total allocated 140509184, free 49280872, used 91228312, increment 0
+Sequential: max memory 477626368, total allocated 140509184, free 49280872, used 91228312, increment 0
+Initial loss: 9.218705288307811
+Initial test loss: 9.218705288307811
+Time since start: 145.215
+500: time = 12.325000 loss = 8.531089 testLoss 8.251032
+Resulting gain: 0.6876159658877548
+Projecting...
+Writing file C:\Users\Ayush Nag\vault\sophy\data\out\max_ent_out\Coccolithophyceae.asc
+Time since start: 148.415
+Writing C:\Users\Ayush Nag\vault\sophy\data\out\max_ent_out\plots\Coccolithophyceae.png
+Coccolithophyceae response curves
+Response curve: only chlorophyll
+Making features
+makeFeatures: max memory 477626368, total allocated 191365120, free 36083680, used 155281440, increment 64053128
+Coccolithophyceae chlorophyll: 
+Regularization values: linear/quadratic/product: 0.157, categorical: 0.250, threshold: 1.150, hinge: 0.500
+85 samples
+Density: max memory 477626368, total allocated 191365120, free 34419288, used 156945832, increment 1664392
+linearPredictor: max memory 477626368, total allocated 191365120, free 34419288, used 156945832, increment 0
+FeaturedSpace: max memory 477626368, total allocated 191365120, free 34419288, used 156945832, increment 0
+Sequential: max memory 477626368, total allocated 191365120, free 34419288, used 156945832, increment 0
+Initial loss: 9.218705288307811
+Time since start: 150.454
+180: time = 1.070000 loss = 9.001261
+Resulting gain: 0.2174445005028378
+Coccolithophyceae response curves
+Response curve: only nitrate
+Making features
+makeFeatures: max memory 477626368, total allocated 200802304, free 91598424, used 109203880, increment -47741952
+Coccolithophyceae nitrate: 
+Regularization values: linear/quadratic/product: 0.157, categorical: 0.250, threshold: 1.150, hinge: 0.500
+85 samples
+Density: max memory 477626368, total allocated 200802304, free 89781400, used 111020904, increment 1817024
+linearPredictor: max memory 477626368, total allocated 200802304, free 89781400, used 111020904, increment 0
+FeaturedSpace: max memory 477626368, total allocated 200802304, free 89781400, used 111020904, increment 0
+Sequential: max memory 477626368, total allocated 200802304, free 89781400, used 111020904, increment 0
+Initial loss: 9.218705288307811
+160: time = 0.919000 loss = 8.787251
+Resulting gain: 0.43145417882060677
+Coccolithophyceae response curves
+Time since start: 151.502
+Response curve: only oxygen
+Making features
+makeFeatures: max memory 477626368, total allocated 191889408, free 70941400, used 120948008, increment 9927104
+Coccolithophyceae oxygen: 
+Regularization values: linear/quadratic/product: 0.157, categorical: 0.250, threshold: 1.150, hinge: 0.500
+85 samples
+Density: max memory 477626368, total allocated 191889408, free 69141248, used 122748160, increment 1800152
+linearPredictor: max memory 477626368, total allocated 191889408, free 69141248, used 122748160, increment 0
+FeaturedSpace: max memory 477626368, total allocated 191889408, free 69141248, used 122748160, increment 0
+Sequential: max memory 477626368, total allocated 191889408, free 69141248, used 122748160, increment 0
+Initial loss: 9.218705288307811
+Time since start: 153.024
+300: time = 1.509000 loss = 8.851915
+Resulting gain: 0.36678994320402225
+Coccolithophyceae response curves
+Response curve: only salinity
+Making features
+makeFeatures: max memory 477626368, total allocated 175112192, free 78655040, used 96457152, increment -26291008
+Coccolithophyceae salinity: 
+Regularization values: linear/quadratic/product: 0.157, categorical: 0.250, threshold: 1.150, hinge: 0.500
+85 samples
+Density: max memory 477626368, total allocated 175112192, free 77317960, used 97794232, increment 1337080
+linearPredictor: max memory 477626368, total allocated 175112192, free 77317960, used 97794232, increment 0
+FeaturedSpace: max memory 477626368, total allocated 175112192, free 77317960, used 97794232, increment 0
+Sequential: max memory 477626368, total allocated 175112192, free 77317960, used 97794232, increment 0
+Initial loss: 9.218705288307811
+Time since start: 155.586
+500: time = 2.496000 loss = 8.821395
+Resulting gain: 0.3973105286823042
+Coccolithophyceae response curves
+Response curve: only sea_ice_extent
+Making features
+makeFeatures: max memory 477626368, total allocated 159383552, free 61280672, used 98102880, increment 308648
+Coccolithophyceae sea_ice_extent: 
+Regularization values: linear/quadratic/product: 0.157, categorical: 0.250, threshold: 1.150, hinge: 0.500
+85 samples
+Density: max memory 477626368, total allocated 159383552, free 60143584, used 99239968, increment 1137088
+linearPredictor: max memory 477626368, total allocated 159383552, free 60062896, used 99320656, increment 80688
+FeaturedSpace: max memory 477626368, total allocated 159383552, free 60062896, used 99320656, increment 0
+Sequential: max memory 477626368, total allocated 159383552, free 60062896, used 99320656, increment 0
+Initial loss: 9.218705288307811
+60: time = 0.335000 loss = 8.984699
+Resulting gain: 0.23400674612166128
+Coccolithophyceae response curves
+Response curve: only sst
+Making features
+makeFeatures: max memory 477626368, total allocated 158859264, free 61046696, used 97812568, increment -1508088
+Coccolithophyceae sst: 
+Regularization values: linear/quadratic/product: 0.157, categorical: 0.250, threshold: 1.150, hinge: 0.500
+85 samples
+Density: max memory 477626368, total allocated 158859264, free 58951384, used 99907880, increment 2095312
+linearPredictor: max memory 477626368, total allocated 158859264, free 58951384, used 99907880, increment 0
+FeaturedSpace: max memory 477626368, total allocated 158859264, free 58951384, used 99907880, increment 0
+Sequential: max memory 477626368, total allocated 158859264, free 58951384, used 99907880, increment 0
+Initial loss: 9.218705288307811
+Time since start: 157.281
+220: time = 1.210000 loss = 8.719896
+Resulting gain: 0.4988088132004158
+Coccolithophyceae response curves
+Jackknife: leave chlorophyll out
+Making features
+makeFeatures: max memory 477626368, total allocated 161480704, free 60414568, used 101066136, increment 1158256
+Coccolithophyceae chlorophyll: 
+Regularization values: linear/quadratic/product: 0.157, categorical: 0.250, threshold: 1.150, hinge: 0.500
+85 samples
+Density: max memory 477626368, total allocated 161480704, free 52139104, used 109341600, increment 8275464
+linearPredictor: max memory 477626368, total allocated 161480704, free 52139104, used 109341600, increment 0
+FeaturedSpace: max memory 477626368, total allocated 161480704, free 52139104, used 109341600, increment 0
+Sequential: max memory 477626368, total allocated 161480704, free 52139104, used 109341600, increment 0
+Initial loss: 9.218705288307811
+Initial test loss: 9.218705288307811
+Time since start: 167.02
+500: time = 9.379000 loss = 8.557005 testLoss 8.332414
+Jackknife: leave nitrate out
+Making features
+makeFeatures: max memory 477626368, total allocated 163577856, free 59525616, used 104052240, increment -5289360
+Coccolithophyceae nitrate: 
+Regularization values: linear/quadratic/product: 0.157, categorical: 0.250, threshold: 1.150, hinge: 0.500
+85 samples
+Density: max memory 477626368, total allocated 163577856, free 51742808, used 111835048, increment 7782808
+linearPredictor: max memory 477626368, total allocated 163577856, free 51742808, used 111835048, increment 0
+FeaturedSpace: max memory 477626368, total allocated 163577856, free 51742808, used 111835048, increment 0
+Sequential: max memory 477626368, total allocated 163577856, free 51742808, used 111835048, increment 0
+Initial loss: 9.218705288307811
+Initial test loss: 9.218705288307811
+Time since start: 178.428
+500: time = 11.292000 loss = 8.574828 testLoss 8.301648
+Jackknife: leave oxygen out
+Making features
+makeFeatures: max memory 477626368, total allocated 141033472, free 84729984, used 56303488, increment -55531560
+Coccolithophyceae oxygen: 
+Regularization values: linear/quadratic/product: 0.157, categorical: 0.250, threshold: 1.150, hinge: 0.500
+85 samples
+Density: max memory 477626368, total allocated 141033472, free 77253288, used 63780184, increment 7476696
+linearPredictor: max memory 477626368, total allocated 141033472, free 76418256, used 64615216, increment 835032
+FeaturedSpace: max memory 477626368, total allocated 141033472, free 76418256, used 64615216, increment 0
+Sequential: max memory 477626368, total allocated 141033472, free 76418256, used 64615216, increment 0
+Initial loss: 9.218705288307811
+Initial test loss: 9.218705288307811
+Time since start: 187.279
+500: time = 8.759000 loss = 8.536731 testLoss 8.271977
+Jackknife: leave salinity out
+Making features
+makeFeatures: max memory 477626368, total allocated 151519232, free 105290880, used 46228352, increment -18386864
+Coccolithophyceae salinity: 
+Regularization values: linear/quadratic/product: 0.157, categorical: 0.250, threshold: 1.150, hinge: 0.500
+85 samples
+Density: max memory 477626368, total allocated 151519232, free 97291232, used 54228000, increment 7999648
+linearPredictor: max memory 477626368, total allocated 151519232, free 97291232, used 54228000, increment 0
+FeaturedSpace: max memory 477626368, total allocated 151519232, free 97291232, used 54228000, increment 0
+Sequential: max memory 477626368, total allocated 151519232, free 97291232, used 54228000, increment 0
+Initial loss: 9.218705288307811
+Initial test loss: 9.218705288307811
+Time since start: 198.481
+380: time = 11.116000 loss = 8.616229 testLoss 8.209217
+Jackknife: leave sea_ice_extent out
+Making features
+makeFeatures: max memory 477626368, total allocated 159383552, free 86428808, used 72954744, increment 18726744
+Coccolithophyceae sea_ice_extent: 
+Regularization values: linear/quadratic/product: 0.157, categorical: 0.250, threshold: 1.150, hinge: 0.500
+85 samples
+Density: max memory 477626368, total allocated 159383552, free 77994848, used 81388704, increment 8433960
+linearPredictor: max memory 477626368, total allocated 159383552, free 77994848, used 81388704, increment 0
+FeaturedSpace: max memory 477626368, total allocated 159383552, free 77994848, used 81388704, increment 0
+Sequential: max memory 477626368, total allocated 159383552, free 77994848, used 81388704, increment 0
+Initial loss: 9.218705288307811
+Initial test loss: 9.218705288307811
+Time since start: 208.829
+500: time = 10.271000 loss = 8.538228 testLoss 8.256966
+Jackknife: leave sst out
+Making features
+makeFeatures: max memory 477626368, total allocated 166723584, free 63462416, used 103261168, increment 21872464
+Coccolithophyceae sst: 
+Regularization values: linear/quadratic/product: 0.157, categorical: 0.250, threshold: 1.150, hinge: 0.500
+85 samples
+Density: max memory 477626368, total allocated 166723584, free 55319512, used 111404072, increment 8142904
+linearPredictor: max memory 477626368, total allocated 166723584, free 55319512, used 111404072, increment 0
+FeaturedSpace: max memory 477626368, total allocated 166723584, free 55319512, used 111404072, increment 0
+Sequential: max memory 477626368, total allocated 166723584, free 55319512, used 111404072, increment 0
+Initial loss: 9.218705288307811
+Initial test loss: 9.218705288307811
+Time since start: 216.473
+440: time = 7.556000 loss = 8.564511 testLoss 8.192632
+Jackknife: only chlorophyll
+Making features
+makeFeatures: max memory 477626368, total allocated 171442176, free 36464776, used 134977400, increment 23573328
+Coccolithophyceae chlorophyll: 
+Regularization values: linear/quadratic/product: 0.157, categorical: 0.250, threshold: 1.150, hinge: 0.500
+85 samples
+Density: max memory 477626368, total allocated 171442176, free 33565560, used 137876616, increment 2899216
+linearPredictor: max memory 477626368, total allocated 171442176, free 33565560, used 137876616, increment 0
+FeaturedSpace: max memory 477626368, total allocated 171442176, free 33565560, used 137876616, increment 0
+Sequential: max memory 477626368, total allocated 171442176, free 33565560, used 137876616, increment 0
+Initial loss: 9.218705288307811
+Initial test loss: 9.218705288307811
+Time since start: 217.499
+180: time = 1.002000 loss = 9.001261 testLoss 8.769606
+Res.gain: 0.2174445005028378
+Jackknife: only nitrate
+Making features
+makeFeatures: max memory 477626368, total allocated 175112192, free 84025776, used 91086416, increment -46790200
+Coccolithophyceae nitrate: 
+Regularization values: linear/quadratic/product: 0.157, categorical: 0.250, threshold: 1.150, hinge: 0.500
+85 samples
+Density: max memory 477626368, total allocated 175112192, free 82257760, used 92854432, increment 1768016
+linearPredictor: max memory 477626368, total allocated 175112192, free 82177072, used 92935120, increment 80688
+FeaturedSpace: max memory 477626368, total allocated 175112192, free 82177072, used 92935120, increment 0
+Sequential: max memory 477626368, total allocated 175112192, free 82177072, used 92935120, increment 0
+Initial loss: 9.218705288307811
+Initial test loss: 9.218705288307811
+160: time = 0.860000 loss = 8.787251 testLoss 8.464948
+Res.gain: 0.43145417882060677
+Jackknife: only oxygen
+Making features
+makeFeatures: max memory 477626368, total allocated 182976512, free 56865048, used 126111464, increment 33176344
+Coccolithophyceae oxygen: 
+Regularization values: linear/quadratic/product: 0.157, categorical: 0.250, threshold: 1.150, hinge: 0.500
+85 samples
+Density: max memory 477626368, total allocated 182976512, free 54990672, used 127985840, increment 1874376
+linearPredictor: max memory 477626368, total allocated 182976512, free 54990672, used 127985840, increment 0
+FeaturedSpace: max memory 477626368, total allocated 182976512, free 54990672, used 127985840, increment 0
+Sequential: max memory 477626368, total allocated 182976512, free 54990672, used 127985840, increment 0
+Initial loss: 9.218705288307811
+Initial test loss: 9.218705288307811
+Time since start: 219.879
+300: time = 1.489000 loss = 8.851915 testLoss 8.580542
+Res.gain: 0.36678994320402225
+Jackknife: only salinity
+Making features
+makeFeatures: max memory 477626368, total allocated 168296448, free 56626112, used 111670336, increment -16315504
+Coccolithophyceae salinity: 
+Regularization values: linear/quadratic/product: 0.157, categorical: 0.250, threshold: 1.150, hinge: 0.500
+85 samples
+Density: max memory 477626368, total allocated 168296448, free 53839888, used 114456560, increment 2786224
+linearPredictor: max memory 477626368, total allocated 168296448, free 53839888, used 114456560, increment 0
+FeaturedSpace: max memory 477626368, total allocated 168296448, free 53839888, used 114456560, increment 0
+Sequential: max memory 477626368, total allocated 168296448, free 53839888, used 114456560, increment 0
+Initial loss: 9.218705288307811
+Initial test loss: 9.218705288307811
+Time since start: 222.395
+500: time = 2.500000 loss = 8.821395 testLoss 8.768809
+Res.gain: 0.3973105286823042
+Jackknife: only sea_ice_extent
+Making features
+makeFeatures: max memory 477626368, total allocated 153092096, free 25579080, used 127513016, increment 13056456
+Coccolithophyceae sea_ice_extent: 
+Regularization values: linear/quadratic/product: 0.157, categorical: 0.250, threshold: 1.150, hinge: 0.500
+85 samples
+Density: max memory 477626368, total allocated 151519232, free 71855840, used 79663392, increment -47849624
+linearPredictor: max memory 477626368, total allocated 151519232, free 71775152, used 79744080, increment 80688
+FeaturedSpace: max memory 477626368, total allocated 151519232, free 71775152, used 79744080, increment 0
+Sequential: max memory 477626368, total allocated 151519232, free 71775152, used 79744080, increment 0
+Initial loss: 9.218705288307811
+Initial test loss: 9.218705288307811
+60: time = 0.369000 loss = 8.984699 testLoss 8.880897
+Res.gain: 0.23400674612166128
+Jackknife: only sst
+Making features
+makeFeatures: max memory 477626368, total allocated 151519232, free 28195944, used 123323288, increment 43579208
+Coccolithophyceae sst: 
+Regularization values: linear/quadratic/product: 0.157, categorical: 0.250, threshold: 1.150, hinge: 0.500
+85 samples
+Density: max memory 477626368, total allocated 151519232, free 26182456, used 125336776, increment 2013488
+linearPredictor: max memory 477626368, total allocated 151519232, free 26182456, used 125336776, increment 0
+FeaturedSpace: max memory 477626368, total allocated 151519232, free 26182456, used 125336776, increment 0
+Sequential: max memory 477626368, total allocated 151519232, free 26182456, used 125336776, increment 0
+Initial loss: 9.218705288307811
+Initial test loss: 9.218705288307811
+Time since start: 224.112
+220: time = 1.292000 loss = 8.719896 testLoss 8.452831
+Res.gain: 0.4988088132004158
+getSamples: max memory 477626368, total allocated 180879360, free 43403904, used 137475456, increment 12138680
+Making features
+makeFeatures: max memory 477626368, total allocated 180879360, free 41050432, used 139828928, increment 2353472
+Cyanophyceae: 
+Regularization values: linear/quadratic/product: 0.207, categorical: 0.250, threshold: 1.550, hinge: 0.500
+45 samples
+Density: max memory 477626368, total allocated 180879360, free 31296720, used 149582640, increment 9753712
+linearPredictor: max memory 477626368, total allocated 180879360, free 31296720, used 149582640, increment 0
+FeaturedSpace: max memory 477626368, total allocated 180879360, free 31296720, used 149582640, increment 0
+Sequential: max memory 477626368, total allocated 180879360, free 31296720, used 149582640, increment 0
+Initial loss: 9.214830277249035
+Initial test loss: 9.214830277249035
+Time since start: 236.66
+500: time = 12.339000 loss = 8.732124 testLoss 8.618269
+Resulting gain: 0.48270651661053776
+Projecting...
+Writing file C:\Users\Ayush Nag\vault\sophy\data\out\max_ent_out\Cyanophyceae.asc
+Time since start: 241.788
+Writing C:\Users\Ayush Nag\vault\sophy\data\out\max_ent_out\plots\Cyanophyceae.png
+Cyanophyceae response curves
+Time since start: 243.182
+Response curve: only chlorophyll
+Making features
+makeFeatures: max memory 477626368, total allocated 188219392, free 12375976, used 175843416, increment 26260776
+Cyanophyceae chlorophyll: 
+Regularization values: linear/quadratic/product: 0.207, categorical: 0.250, threshold: 1.550, hinge: 0.500
+45 samples
+Density: max memory 477626368, total allocated 188219392, free 10520224, used 177699168, increment 1855752
+linearPredictor: max memory 477626368, total allocated 188219392, free 10520224, used 177699168, increment 0
+FeaturedSpace: max memory 477626368, total allocated 188219392, free 10520224, used 177699168, increment 0
+Sequential: max memory 477626368, total allocated 188219392, free 10520224, used 177699168, increment 0
+Initial loss: 9.214830277249035
+Time since start: 244.561
+180: time = 1.355000 loss = 9.209106
+Resulting gain: 0.005724052752887232
+Cyanophyceae response curves
+Response curve: only nitrate
+Making features
+makeFeatures: max memory 477626368, total allocated 197656576, free 82325160, used 115331416, increment -62367752
+Cyanophyceae nitrate: 
+Regularization values: linear/quadratic/product: 0.207, categorical: 0.250, threshold: 1.550, hinge: 0.500
+45 samples
+Density: max memory 477626368, total allocated 197656576, free 81988912, used 115667664, increment 336248
+linearPredictor: max memory 477626368, total allocated 197656576, free 81908536, used 115748040, increment 80376
+FeaturedSpace: max memory 477626368, total allocated 197656576, free 81908536, used 115748040, increment 0
+Sequential: max memory 477626368, total allocated 197656576, free 81908536, used 115748040, increment 0
+Initial loss: 9.214830277249035
+Time since start: 245.993
+200: time = 1.366000 loss = 9.192309
+Resulting gain: 0.02252167348892975
+Cyanophyceae response curves
+Response curve: only oxygen
+Making features
+makeFeatures: max memory 477626368, total allocated 180355072, free 126362096, used 53992976, increment -61755064
+Cyanophyceae oxygen: 
+Regularization values: linear/quadratic/product: 0.207, categorical: 0.250, threshold: 1.550, hinge: 0.500
+45 samples
+Density: max memory 477626368, total allocated 180355072, free 124682520, used 55672552, increment 1679576
+linearPredictor: max memory 477626368, total allocated 180355072, free 124682520, used 55672552, increment 0
+FeaturedSpace: max memory 477626368, total allocated 180355072, free 124682520, used 55672552, increment 0
+Sequential: max memory 477626368, total allocated 180355072, free 124682520, used 55672552, increment 0
+Initial loss: 9.214830277249035
+Time since start: 247.048
+160: time = 0.980000 loss = 9.196809
+Resulting gain: 0.018021622979528473
+Cyanophyceae response curves
+Response curve: only salinity
+Making features
+makeFeatures: max memory 477626368, total allocated 172490752, free 86534960, used 85955792, increment 30283240
+Cyanophyceae salinity: 
+Regularization values: linear/quadratic/product: 0.207, categorical: 0.250, threshold: 1.550, hinge: 0.500
+45 samples
+Density: max memory 477626368, total allocated 172490752, free 85055264, used 87435488, increment 1479696
+linearPredictor: max memory 477626368, total allocated 172490752, free 85055264, used 87435488, increment 0
+FeaturedSpace: max memory 477626368, total allocated 172490752, free 85055264, used 87435488, increment 0
+Sequential: max memory 477626368, total allocated 172490752, free 85055264, used 87435488, increment 0
+Initial loss: 9.214830277249035
+80: time = 0.467000 loss = 9.208375
+Resulting gain: 0.006455450401249507
+Cyanophyceae response curves
+Response curve: only sea_ice_extent
+Making features
+makeFeatures: max memory 477626368, total allocated 169345024, free 91221688, used 78123336, increment -9312152
+Cyanophyceae sea_ice_extent: 
+Regularization values: linear/quadratic/product: 0.207, categorical: 0.250, threshold: 1.550, hinge: 0.500
+45 samples
+Density: max memory 477626368, total allocated 169345024, free 89803336, used 79541688, increment 1418352
+linearPredictor: max memory 477626368, total allocated 169345024, free 89803336, used 79541688, increment 0
+FeaturedSpace: max memory 477626368, total allocated 169345024, free 89803336, used 79541688, increment 0
+Sequential: max memory 477626368, total allocated 169345024, free 89803336, used 79541688, increment 0
+Initial loss: 9.214830277249035
+Time since start: 248.278
+180: time = 0.600000 loss = 9.130092
+Resulting gain: 0.08473865126585345
+Cyanophyceae response curves
+Response curve: only sst
+Making features
+makeFeatures: max memory 477626368, total allocated 166199296, free 92916392, used 73282904, increment -6258784
+Cyanophyceae sst: 
+Regularization values: linear/quadratic/product: 0.207, categorical: 0.250, threshold: 1.550, hinge: 0.500
+45 samples
+Density: max memory 477626368, total allocated 166199296, free 90036344, used 76162952, increment 2880048
+linearPredictor: max memory 477626368, total allocated 166199296, free 90036344, used 76162952, increment 0
+FeaturedSpace: max memory 477626368, total allocated 166199296, free 90036344, used 76162952, increment 0
+Sequential: max memory 477626368, total allocated 166199296, free 90036344, used 76162952, increment 0
+Initial loss: 9.214830277249035
+Time since start: 250.607
+360: time = 2.256000 loss = 9.111201
+Resulting gain: 0.10362941496345357
+Cyanophyceae response curves
+Jackknife: leave chlorophyll out
+Making features
+makeFeatures: max memory 477626368, total allocated 149422080, free 78694064, used 70728016, increment -5434936
+Cyanophyceae chlorophyll: 
+Regularization values: linear/quadratic/product: 0.207, categorical: 0.250, threshold: 1.550, hinge: 0.500
+45 samples
+Density: max memory 477626368, total allocated 149422080, free 70982552, used 78439528, increment 7711512
+linearPredictor: max memory 477626368, total allocated 149422080, free 70982552, used 78439528, increment 0
+FeaturedSpace: max memory 477626368, total allocated 149422080, free 70982552, used 78439528, increment 0
+Sequential: max memory 477626368, total allocated 149422080, free 70982552, used 78439528, increment 0
+Initial loss: 9.214830277249035
+Initial test loss: 9.214830277249035
+Time since start: 261.22
+500: time = 10.173000 loss = 8.751405 testLoss 8.663068
+Jackknife: leave nitrate out
+Making features
+makeFeatures: max memory 477626368, total allocated 154664960, free 101838712, used 52826248, increment -25613280
+Cyanophyceae nitrate: 
+Regularization values: linear/quadratic/product: 0.207, categorical: 0.250, threshold: 1.550, hinge: 0.500
+45 samples
+Density: max memory 477626368, total allocated 154664960, free 94060560, used 60604400, increment 7778152
+linearPredictor: max memory 477626368, total allocated 154664960, free 94060560, used 60604400, increment 0
+FeaturedSpace: max memory 477626368, total allocated 154664960, free 94060560, used 60604400, increment 0
+Sequential: max memory 477626368, total allocated 154664960, free 94060560, used 60604400, increment 0
+Initial loss: 9.214830277249035
+Initial test loss: 9.214830277249035
+Time since start: 271.009
+500: time = 9.701000 loss = 8.899918 testLoss 9.010111
+Jackknife: leave oxygen out
+Making features
+makeFeatures: max memory 477626368, total allocated 163577856, free 46900720, used 116677136, increment 56072736
+Cyanophyceae oxygen: 
+Regularization values: linear/quadratic/product: 0.207, categorical: 0.250, threshold: 1.550, hinge: 0.500
+45 samples
+Density: max memory 477626368, total allocated 176160768, free 113256872, used 62903896, increment -53773240
+linearPredictor: max memory 477626368, total allocated 176160768, free 113256872, used 62903896, increment 0
+FeaturedSpace: max memory 477626368, total allocated 176160768, free 113256872, used 62903896, increment 0
+Sequential: max memory 477626368, total allocated 176160768, free 113256872, used 62903896, increment 0
+Initial loss: 9.214830277249035
+Initial test loss: 9.214830277249035
+Time since start: 279.911
+500: time = 8.803000 loss = 8.768994 testLoss 8.689208
+Jackknife: leave salinity out
+Making features
+makeFeatures: max memory 477626368, total allocated 181403648, free 90643264, used 90760384, increment 27856488
+Cyanophyceae salinity: 
+Regularization values: linear/quadratic/product: 0.207, categorical: 0.250, threshold: 1.550, hinge: 0.500
+45 samples
+Density: max memory 477626368, total allocated 181403648, free 82277064, used 99126584, increment 8366200
+linearPredictor: max memory 477626368, total allocated 181403648, free 82277064, used 99126584, increment 0
+FeaturedSpace: max memory 477626368, total allocated 181403648, free 82277064, used 99126584, increment 0
+Sequential: max memory 477626368, total allocated 181403648, free 82277064, used 99126584, increment 0
+Initial loss: 9.214830277249035
+Initial test loss: 9.214830277249035
+Time since start: 289.456
+500: time = 9.468000 loss = 8.738678 testLoss 8.630461
+Jackknife: leave sea_ice_extent out
+Making features
+makeFeatures: max memory 477626368, total allocated 175112192, free 45418736, used 129693456, increment 30566872
+Cyanophyceae sea_ice_extent: 
+Regularization values: linear/quadratic/product: 0.207, categorical: 0.250, threshold: 1.550, hinge: 0.500
+45 samples
+Density: max memory 477626368, total allocated 175112192, free 37281808, used 137830384, increment 8136928
+linearPredictor: max memory 477626368, total allocated 175112192, free 37281808, used 137830384, increment 0
+FeaturedSpace: max memory 477626368, total allocated 175112192, free 37281808, used 137830384, increment 0
+Sequential: max memory 477626368, total allocated 175112192, free 37281808, used 137830384, increment 0
+Initial loss: 9.214830277249035
+Initial test loss: 9.214830277249035
+Time since start: 299.672
+500: time = 10.142000 loss = 8.850388 testLoss 8.549898
+Jackknife: leave sst out
+Making features
+makeFeatures: max memory 477626368, total allocated 170917888, free 45180504, used 125737384, increment -12093000
+Cyanophyceae sst: 
+Regularization values: linear/quadratic/product: 0.207, categorical: 0.250, threshold: 1.550, hinge: 0.500
+45 samples
+Density: max memory 477626368, total allocated 170917888, free 37301256, used 133616632, increment 7879248
+linearPredictor: max memory 477626368, total allocated 170917888, free 37301256, used 133616632, increment 0
+FeaturedSpace: max memory 477626368, total allocated 170917888, free 37301256, used 133616632, increment 0
+Sequential: max memory 477626368, total allocated 170917888, free 37301256, used 133616632, increment 0
+Initial loss: 9.214830277249035
+Initial test loss: 9.214830277249035
+Time since start: 307.538
+420: time = 7.778000 loss = 8.988544 testLoss 8.971759
+Jackknife: only chlorophyll
+Making features
+makeFeatures: max memory 477626368, total allocated 184549376, free 78960624, used 105588752, increment -28027880
+Cyanophyceae chlorophyll: 
+Regularization values: linear/quadratic/product: 0.207, categorical: 0.250, threshold: 1.550, hinge: 0.500
+45 samples
+Density: max memory 477626368, total allocated 184549376, free 77226976, used 107322400, increment 1733648
+linearPredictor: max memory 477626368, total allocated 184549376, free 77226976, used 107322400, increment 0
+FeaturedSpace: max memory 477626368, total allocated 184549376, free 77226976, used 107322400, increment 0
+Sequential: max memory 477626368, total allocated 184549376, free 77226976, used 107322400, increment 0
+Initial loss: 9.214830277249035
+Initial test loss: 9.214830277249035
+Time since start: 308.749
+180: time = 1.182000 loss = 9.209106 testLoss 9.208263
+Res.gain: 0.005724052752887232
+Jackknife: only nitrate
+Making features
+makeFeatures: max memory 477626368, total allocated 174587904, free 79222800, used 95365104, increment -11957296
+Cyanophyceae nitrate: 
+Regularization values: linear/quadratic/product: 0.207, categorical: 0.250, threshold: 1.550, hinge: 0.500
+45 samples
+Density: max memory 477626368, total allocated 174587904, free 77708360, used 96879544, increment 1514440
+linearPredictor: max memory 477626368, total allocated 174587904, free 77627984, used 96959920, increment 80376
+FeaturedSpace: max memory 477626368, total allocated 174587904, free 77627984, used 96959920, increment 0
+Sequential: max memory 477626368, total allocated 174587904, free 77627984, used 96959920, increment 0
+Initial loss: 9.214830277249035
+Initial test loss: 9.214830277249035
+Time since start: 309.963
+200: time = 1.194000 loss = 9.192309 testLoss 9.167953
+Res.gain: 0.02252167348892975
+Jackknife: only oxygen
+Making features
+makeFeatures: max memory 477626368, total allocated 165150720, free 53717664, used 111433056, increment 14473136
+Cyanophyceae oxygen: 
+Regularization values: linear/quadratic/product: 0.207, categorical: 0.250, threshold: 1.550, hinge: 0.500
+45 samples
+Density: max memory 477626368, total allocated 165150720, free 52348320, used 112802400, increment 1369344
+linearPredictor: max memory 477626368, total allocated 165150720, free 52348320, used 112802400, increment 0
+FeaturedSpace: max memory 477626368, total allocated 165150720, free 52348320, used 112802400, increment 0
+Sequential: max memory 477626368, total allocated 165150720, free 52348320, used 112802400, increment 0
+Initial loss: 9.214830277249035
+Initial test loss: 9.214830277249035
+160: time = 0.941000 loss = 9.196809 testLoss 9.147277
+Res.gain: 0.018021622979528473
+Jackknife: only salinity
+Making features
+makeFeatures: max memory 477626368, total allocated 157810688, free 18958080, used 138852608, increment 26050208
+Cyanophyceae salinity: 
+Regularization values: linear/quadratic/product: 0.207, categorical: 0.250, threshold: 1.550, hinge: 0.500
+45 samples
+Density: max memory 477626368, total allocated 157810688, free 17643616, used 140167072, increment 1314464
+linearPredictor: max memory 477626368, total allocated 157810688, free 17643616, used 140167072, increment 0
+FeaturedSpace: max memory 477626368, total allocated 157810688, free 17643616, used 140167072, increment 0
+Sequential: max memory 477626368, total allocated 157810688, free 17643616, used 140167072, increment 0
+Initial loss: 9.214830277249035
+Initial test loss: 9.214830277249035
+Time since start: 311.383
+80: time = 0.445000 loss = 9.208375 testLoss 9.161956
+Res.gain: 0.006455450401249507
+Jackknife: only sea_ice_extent
+Making features
+makeFeatures: max memory 477626368, total allocated 155713536, free 56351952, used 99361584, increment -40805488
+Cyanophyceae sea_ice_extent: 
+Regularization values: linear/quadratic/product: 0.207, categorical: 0.250, threshold: 1.550, hinge: 0.500
+45 samples
+Density: max memory 477626368, total allocated 155713536, free 55145344, used 100568192, increment 1206608
+linearPredictor: max memory 477626368, total allocated 155713536, free 55145344, used 100568192, increment 0
+FeaturedSpace: max memory 477626368, total allocated 155713536, free 55145344, used 100568192, increment 0
+Sequential: max memory 477626368, total allocated 155713536, free 55145344, used 100568192, increment 0
+Initial loss: 9.214830277249035
+Initial test loss: 9.214830277249035
+180: time = 0.565000 loss = 9.130092 testLoss 9.260775
+Res.gain: 0.08473865126585345
+Jackknife: only sst
+Making features
+makeFeatures: max memory 477626368, total allocated 152567808, free 32296488, used 120271320, increment 19703128
+Cyanophyceae sst: 
+Regularization values: linear/quadratic/product: 0.207, categorical: 0.250, threshold: 1.550, hinge: 0.500
+45 samples
+Density: max memory 477626368, total allocated 152567808, free 30778840, used 121788968, increment 1517648
+linearPredictor: max memory 477626368, total allocated 152567808, free 30778840, used 121788968, increment 0
+FeaturedSpace: max memory 477626368, total allocated 152567808, free 30778840, used 121788968, increment 0
+Sequential: max memory 477626368, total allocated 152567808, free 30778840, used 121788968, increment 0
+Initial loss: 9.214830277249035
+Initial test loss: 9.214830277249035
+Time since start: 314.194
+360: time = 2.206000 loss = 9.111201 testLoss 9.137194
+Res.gain: 0.10362941496345357
+getSamples: max memory 477626368, total allocated 149946368, free 9034304, used 140912064, increment 19123096
+Making features
+makeFeatures: max memory 477626368, total allocated 148897792, free 54017416, used 94880376, increment -46031688
+Dinophyceae: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+377 samples
+Density: max memory 477626368, total allocated 148897792, free 44785688, used 104112104, increment 9231728
+linearPredictor: max memory 477626368, total allocated 148897792, free 44785688, used 104112104, increment 0
+FeaturedSpace: max memory 477626368, total allocated 148897792, free 44785688, used 104112104, increment 0
+Sequential: max memory 477626368, total allocated 148897792, free 44785688, used 104112104, increment 0
+Initial loss: 9.247057954911346
+Initial test loss: 9.247057954911346
+Time since start: 326.728
+500: time = 12.295000 loss = 8.732690 testLoss 8.703711
+Resulting gain: 0.5143681957831792
+Projecting...
+Writing file C:\Users\Ayush Nag\vault\sophy\data\out\max_ent_out\Dinophyceae.asc
+Time since start: 331.512
+Writing C:\Users\Ayush Nag\vault\sophy\data\out\max_ent_out\plots\Dinophyceae.png
+Dinophyceae response curves
+Time since start: 332.534
+Response curve: only chlorophyll
+Making features
+makeFeatures: max memory 477626368, total allocated 175636480, free 132195488, used 43440992, increment -60671112
+Dinophyceae chlorophyll: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+377 samples
+Density: max memory 477626368, total allocated 175636480, free 131724384, used 43912096, increment 471104
+linearPredictor: max memory 477626368, total allocated 175636480, free 131641376, used 43995104, increment 83008
+FeaturedSpace: max memory 477626368, total allocated 175636480, free 131641376, used 43995104, increment 0
+Sequential: max memory 477626368, total allocated 175636480, free 131641376, used 43995104, increment 0
+Initial loss: 9.247057954911346
+Time since start: 334.257
+260: time = 1.706000 loss = 9.047081
+Resulting gain: 0.19997645513731221
+Dinophyceae response curves
+Response curve: only nitrate
+Making features
+makeFeatures: max memory 477626368, total allocated 179306496, free 57536344, used 121770152, increment 77775048
+Dinophyceae nitrate: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+377 samples
+Density: max memory 477626368, total allocated 179306496, free 55687552, used 123618944, increment 1848792
+linearPredictor: max memory 477626368, total allocated 179306496, free 55687552, used 123618944, increment 0
+FeaturedSpace: max memory 477626368, total allocated 179306496, free 55687552, used 123618944, increment 0
+Sequential: max memory 477626368, total allocated 179306496, free 55687552, used 123618944, increment 0
+Initial loss: 9.247057954911346
+Time since start: 336.327
+300: time = 1.990000 loss = 9.028424
+Resulting gain: 0.21863408679775986
+Dinophyceae response curves
+Response curve: only oxygen
+Making features
+makeFeatures: max memory 477626368, total allocated 162004992, free 88593768, used 73411224, increment -50207720
+Dinophyceae oxygen: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+377 samples
+Density: max memory 477626368, total allocated 162004992, free 87297120, used 74707872, increment 1296648
+linearPredictor: max memory 477626368, total allocated 162004992, free 87297120, used 74707872, increment 0
+FeaturedSpace: max memory 477626368, total allocated 162004992, free 87297120, used 74707872, increment 0
+Sequential: max memory 477626368, total allocated 162004992, free 87297120, used 74707872, increment 0
+Initial loss: 9.247057954911346
+Time since start: 338.415
+320: time = 2.013000 loss = 9.105265
+Resulting gain: 0.14179282610411192
+Dinophyceae response curves
+Response curve: only salinity
+Making features
+makeFeatures: max memory 477626368, total allocated 148373504, free 65151432, used 83222072, increment 8514200
+Dinophyceae salinity: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+377 samples
+Density: max memory 477626368, total allocated 148373504, free 63046384, used 85327120, increment 2105048
+linearPredictor: max memory 477626368, total allocated 148373504, free 63046384, used 85327120, increment 0
+FeaturedSpace: max memory 477626368, total allocated 148373504, free 63046384, used 85327120, increment 0
+Sequential: max memory 477626368, total allocated 148373504, free 63046384, used 85327120, increment 0
+Initial loss: 9.247057954911346
+Time since start: 341.337
+500: time = 2.848000 loss = 9.137543
+Resulting gain: 0.10951540046990971
+Dinophyceae response curves
+Response curve: only sea_ice_extent
+Making features
+makeFeatures: max memory 477626368, total allocated 135790592, free 54843592, used 80947000, increment -4380120
+Dinophyceae sea_ice_extent: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+377 samples
+Density: max memory 477626368, total allocated 135790592, free 53965120, used 81825472, increment 878472
+linearPredictor: max memory 477626368, total allocated 135790592, free 53965120, used 81825472, increment 0
+FeaturedSpace: max memory 477626368, total allocated 135790592, free 53965120, used 81825472, increment 0
+Sequential: max memory 477626368, total allocated 135790592, free 53965120, used 81825472, increment 0
+Initial loss: 9.247057954911346
+120: time = 0.510000 loss = 9.138082
+Resulting gain: 0.10897579521992107
+Dinophyceae response curves
+Response curve: only sst
+Making features
+makeFeatures: max memory 477626368, total allocated 134742016, free 75677240, used 59064776, increment -22760696
+Dinophyceae sst: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+377 samples
+Density: max memory 477626368, total allocated 134742016, free 74104856, used 60637160, increment 1572384
+linearPredictor: max memory 477626368, total allocated 134742016, free 74104856, used 60637160, increment 0
+FeaturedSpace: max memory 477626368, total allocated 134742016, free 74104856, used 60637160, increment 0
+Sequential: max memory 477626368, total allocated 134742016, free 74104856, used 60637160, increment 0
+Initial loss: 9.247057954911346
+Time since start: 343.035
+140: time = 1.018000 loss = 9.032583
+Resulting gain: 0.21447480851306722
+Dinophyceae response curves
+Jackknife: leave chlorophyll out
+Making features
+makeFeatures: max memory 477626368, total allocated 158334976, free 51407224, used 106927752, increment 46290592
+Dinophyceae chlorophyll: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+377 samples
+Density: max memory 477626368, total allocated 157286400, free 97657040, used 59629360, increment -47298392
+linearPredictor: max memory 477626368, total allocated 157286400, free 97657040, used 59629360, increment 0
+FeaturedSpace: max memory 477626368, total allocated 157286400, free 97657040, used 59629360, increment 0
+Sequential: max memory 477626368, total allocated 157286400, free 97657040, used 59629360, increment 0
+Initial loss: 9.247057954911346
+Initial test loss: 9.247057954911346
+Time since start: 353.188
+500: time = 9.618000 loss = 8.827983 testLoss 8.804151
+Jackknife: leave nitrate out
+Making features
+makeFeatures: max memory 477626368, total allocated 164626432, free 65475816, used 99150616, increment 39521256
+Dinophyceae nitrate: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+377 samples
+Density: max memory 477626368, total allocated 164626432, free 57105616, used 107520816, increment 8370200
+linearPredictor: max memory 477626368, total allocated 164626432, free 57105616, used 107520816, increment 0
+FeaturedSpace: max memory 477626368, total allocated 164626432, free 57105616, used 107520816, increment 0
+Sequential: max memory 477626368, total allocated 164626432, free 57105616, used 107520816, increment 0
+Initial loss: 9.247057954911346
+Initial test loss: 9.247057954911346
+Time since start: 363.138
+500: time = 9.858000 loss = 8.793270 testLoss 8.762583
+Jackknife: leave oxygen out
+Making features
+makeFeatures: max memory 477626368, total allocated 163053568, free 34327400, used 128726168, increment 21205352
+Dinophyceae oxygen: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+377 samples
+Density: max memory 477626368, total allocated 161480704, free 85684168, used 75796536, increment -52929632
+linearPredictor: max memory 477626368, total allocated 161480704, free 85684168, used 75796536, increment 0
+FeaturedSpace: max memory 477626368, total allocated 161480704, free 85684168, used 75796536, increment 0
+Sequential: max memory 477626368, total allocated 161480704, free 85684168, used 75796536, increment 0
+Initial loss: 9.247057954911346
+Initial test loss: 9.247057954911346
+Time since start: 373.898
+500: time = 10.661000 loss = 8.759619 testLoss 8.713459
+Jackknife: leave salinity out
+Making features
+makeFeatures: max memory 477626368, total allocated 153616384, free 77150616, used 76465768, increment 669232
+Dinophyceae salinity: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+377 samples
+Density: max memory 477626368, total allocated 153616384, free 68882752, used 84733632, increment 8267864
+linearPredictor: max memory 477626368, total allocated 153616384, free 68882752, used 84733632, increment 0
+FeaturedSpace: max memory 477626368, total allocated 153616384, free 68882752, used 84733632, increment 0
+Sequential: max memory 477626368, total allocated 153616384, free 68882752, used 84733632, increment 0
+Initial loss: 9.247057954911346
+Initial test loss: 9.247057954911346
+Time since start: 386.283
+500: time = 12.286000 loss = 8.759193 testLoss 8.737656
+Jackknife: leave sea_ice_extent out
+Making features
+makeFeatures: max memory 477626368, total allocated 149946368, free 45262112, used 104684256, increment 19950624
+Dinophyceae sea_ice_extent: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+377 samples
+Density: max memory 477626368, total allocated 149946368, free 36737656, used 113208712, increment 8524456
+linearPredictor: max memory 477626368, total allocated 149946368, free 36654648, used 113291720, increment 83008
+FeaturedSpace: max memory 477626368, total allocated 149946368, free 36654648, used 113291720, increment 0
+Sequential: max memory 477626368, total allocated 149946368, free 36654648, used 113291720, increment 0
+Initial loss: 9.247057954911346
+Initial test loss: 9.247057954911346
+Time since start: 397.597
+500: time = 11.220000 loss = 8.737382 testLoss 8.711437
+Jackknife: leave sst out
+Making features
+makeFeatures: max memory 477626368, total allocated 158859264, free 13509400, used 145349864, increment 32058144
+Dinophyceae sst: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+377 samples
+Density: max memory 477626368, total allocated 166199296, free 122361808, used 43837488, increment -101512376
+linearPredictor: max memory 477626368, total allocated 166199296, free 122278800, used 43920496, increment 83008
+FeaturedSpace: max memory 477626368, total allocated 166199296, free 122278800, used 43920496, increment 0
+Sequential: max memory 477626368, total allocated 166199296, free 122278800, used 43920496, increment 0
+Initial loss: 9.247057954911346
+Initial test loss: 9.247057954911346
+Time since start: 409.157
+500: time = 11.434000 loss = 8.747471 testLoss 8.726175
+Jackknife: only chlorophyll
+Making features
+makeFeatures: max memory 477626368, total allocated 167772160, free 121337920, used 46434240, increment 2513744
+Dinophyceae chlorophyll: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+377 samples
+Density: max memory 477626368, total allocated 167772160, free 119815264, used 47956896, increment 1522656
+linearPredictor: max memory 477626368, total allocated 167772160, free 119732256, used 48039904, increment 83008
+FeaturedSpace: max memory 477626368, total allocated 167772160, free 119732256, used 48039904, increment 0
+Sequential: max memory 477626368, total allocated 167772160, free 119732256, used 48039904, increment 0
+Initial loss: 9.247057954911346
+Initial test loss: 9.247057954911346
+Time since start: 411.443
+260: time = 2.256000 loss = 9.047081 testLoss 9.035909
+Res.gain: 0.19997645513731221
+Jackknife: only nitrate
+Making features
+makeFeatures: max memory 477626368, total allocated 157286400, free 88091568, used 69194832, increment 21154928
+Dinophyceae nitrate: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+377 samples
+Density: max memory 477626368, total allocated 157286400, free 86804624, used 70481776, increment 1286944
+linearPredictor: max memory 477626368, total allocated 157286400, free 86721616, used 70564784, increment 83008
+FeaturedSpace: max memory 477626368, total allocated 157286400, free 86721616, used 70564784, increment 0
+Sequential: max memory 477626368, total allocated 157286400, free 86721616, used 70564784, increment 0
+Initial loss: 9.247057954911346
+Initial test loss: 9.247057954911346
+Time since start: 415.037
+300: time = 3.560000 loss = 9.028424 testLoss 9.021338
+Res.gain: 0.21863408679775986
+Jackknife: only oxygen
+Making features
+makeFeatures: max memory 477626368, total allocated 184549376, free 88275368, used 96274008, increment 25709224
+Dinophyceae oxygen: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+377 samples
+Density: max memory 477626368, total allocated 184549376, free 86155248, used 98394128, increment 2120120
+linearPredictor: max memory 477626368, total allocated 184549376, free 86155248, used 98394128, increment 0
+FeaturedSpace: max memory 477626368, total allocated 184549376, free 86155248, used 98394128, increment 0
+Sequential: max memory 477626368, total allocated 184549376, free 86155248, used 98394128, increment 0
+Initial loss: 9.247057954911346
+Initial test loss: 9.247057954911346
+Time since start: 418.536
+320: time = 3.456000 loss = 9.105265 testLoss 9.134877
+Res.gain: 0.14179282610411192
+Jackknife: only salinity
+Making features
+makeFeatures: max memory 477626368, total allocated 168296448, free 83350304, used 84946144, increment -13447984
+Dinophyceae salinity: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+377 samples
+Density: max memory 477626368, total allocated 168296448, free 82062272, used 86234176, increment 1288032
+linearPredictor: max memory 477626368, total allocated 168296448, free 82062272, used 86234176, increment 0
+FeaturedSpace: max memory 477626368, total allocated 168296448, free 82062272, used 86234176, increment 0
+Sequential: max memory 477626368, total allocated 168296448, free 82062272, used 86234176, increment 0
+Initial loss: 9.247057954911346
+Initial test loss: 9.247057954911346
+Time since start: 422.553
+500: time = 3.952000 loss = 9.137543 testLoss 9.051308
+Res.gain: 0.10951540046990971
+Jackknife: only sea_ice_extent
+Making features
+makeFeatures: max memory 477626368, total allocated 152043520, free 97085856, used 54957664, increment -31276512
+Dinophyceae sea_ice_extent: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+377 samples
+Density: max memory 477626368, total allocated 152043520, free 96007176, used 56036344, increment 1078680
+linearPredictor: max memory 477626368, total allocated 152043520, free 95924168, used 56119352, increment 83008
+FeaturedSpace: max memory 477626368, total allocated 152043520, free 95924168, used 56119352, increment 0
+Sequential: max memory 477626368, total allocated 152043520, free 95924168, used 56119352, increment 0
+Initial loss: 9.247057954911346
+Initial test loss: 9.247057954911346
+120: time = 0.851000 loss = 9.138082 testLoss 9.139389
+Res.gain: 0.10897579521992107
+Jackknife: only sst
+Making features
+makeFeatures: max memory 477626368, total allocated 150994944, free 97804832, used 53190112, increment -2929240
+Dinophyceae sst: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+377 samples
+Density: max memory 477626368, total allocated 150994944, free 96436192, used 54558752, increment 1368640
+linearPredictor: max memory 477626368, total allocated 150994944, free 96353184, used 54641760, increment 83008
+FeaturedSpace: max memory 477626368, total allocated 150994944, free 96353184, used 54641760, increment 0
+Sequential: max memory 477626368, total allocated 150994944, free 96353184, used 54641760, increment 0
+Initial loss: 9.247057954911346
+Initial test loss: 9.247057954911346
+Time since start: 424.97
+140: time = 1.495000 loss = 9.032583 testLoss 9.024404
+Res.gain: 0.21447480851306722
+getSamples: max memory 477626368, total allocated 146800640, free 67684344, used 79116296, increment 24474536
+Making features
+makeFeatures: max memory 477626368, total allocated 146800640, free 65553592, used 81247048, increment 2130752
+Prymnesiophyceae: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+170 samples
+Density: max memory 477626368, total allocated 146800640, free 56153808, used 90646832, increment 9399784
+linearPredictor: max memory 477626368, total allocated 146800640, free 56153808, used 90646832, increment 0
+FeaturedSpace: max memory 477626368, total allocated 146800640, free 56153808, used 90646832, increment 0
+Sequential: max memory 477626368, total allocated 146800640, free 56153808, used 90646832, increment 0
+Initial loss: 9.227099155791137
+Initial test loss: 9.227099155791137
+Time since start: 438.752
+500: time = 13.439000 loss = 8.660471 testLoss 8.607146
+Resulting gain: 0.5666281890021772
+Projecting...
+Writing file C:\Users\Ayush Nag\vault\sophy\data\out\max_ent_out\Prymnesiophyceae.asc
+Time since start: 442.874
+Writing C:\Users\Ayush Nag\vault\sophy\data\out\max_ent_out\plots\Prymnesiophyceae.png
+Prymnesiophyceae response curves
+Time since start: 443.943
+Response curve: only chlorophyll
+Making features
+makeFeatures: max memory 477626368, total allocated 203948032, free 124296160, used 79651872, increment -10994960
+Prymnesiophyceae chlorophyll: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+170 samples
+Density: max memory 477626368, total allocated 203948032, free 122348056, used 81599976, increment 1948104
+linearPredictor: max memory 477626368, total allocated 203948032, free 122348056, used 81599976, increment 0
+FeaturedSpace: max memory 477626368, total allocated 203948032, free 122348056, used 81599976, increment 0
+Sequential: max memory 477626368, total allocated 203948032, free 122348056, used 81599976, increment 0
+Initial loss: 9.227099155791137
+Time since start: 445.054
+140: time = 1.101000 loss = 9.187693
+Resulting gain: 0.039406508670431606
+Prymnesiophyceae response curves
+Response curve: only nitrate
+Making features
+makeFeatures: max memory 477626368, total allocated 196083712, free 79751264, used 116332448, increment 34732472
+Prymnesiophyceae nitrate: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+170 samples
+Density: max memory 477626368, total allocated 196083712, free 77828456, used 118255256, increment 1922808
+linearPredictor: max memory 477626368, total allocated 196083712, free 77828456, used 118255256, increment 0
+FeaturedSpace: max memory 477626368, total allocated 196083712, free 77828456, used 118255256, increment 0
+Sequential: max memory 477626368, total allocated 196083712, free 77828456, used 118255256, increment 0
+Initial loss: 9.227099155791137
+Time since start: 446.791
+260: time = 1.664000 loss = 9.190201
+Resulting gain: 0.03689765984769089
+Prymnesiophyceae response curves
+Response curve: only oxygen
+Making features
+makeFeatures: max memory 477626368, total allocated 179830784, free 58586560, used 121244224, increment 2988968
+Prymnesiophyceae oxygen: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+170 samples
+Density: max memory 477626368, total allocated 179830784, free 56933024, used 122897760, increment 1653536
+linearPredictor: max memory 477626368, total allocated 179830784, free 56851656, used 122979128, increment 81368
+FeaturedSpace: max memory 477626368, total allocated 179830784, free 56851656, used 122979128, increment 0
+Sequential: max memory 477626368, total allocated 179830784, free 56851656, used 122979128, increment 0
+Initial loss: 9.227099155791137
+120: time = 0.756000 loss = 9.101947
+Resulting gain: 0.12515253166549378
+Prymnesiophyceae response curves
+Response curve: only salinity
+Making features
+makeFeatures: max memory 477626368, total allocated 173539328, free 76710720, used 96828608, increment -26150520
+Prymnesiophyceae salinity: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+170 samples
+Density: max memory 477626368, total allocated 173539328, free 73921632, used 99617696, increment 2789088
+linearPredictor: max memory 477626368, total allocated 173539328, free 73921632, used 99617696, increment 0
+FeaturedSpace: max memory 477626368, total allocated 173539328, free 73921632, used 99617696, increment 0
+Sequential: max memory 477626368, total allocated 173539328, free 73921632, used 99617696, increment 0
+Initial loss: 9.227099155791137
+Time since start: 448.764
+180: time = 1.062000 loss = 9.130729
+Resulting gain: 0.09636987199384706
+Prymnesiophyceae response curves
+Response curve: only sea_ice_extent
+Making features
+makeFeatures: max memory 477626368, total allocated 167247872, free 30260360, used 136987512, increment 37369816
+Prymnesiophyceae sea_ice_extent: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+170 samples
+Density: max memory 477626368, total allocated 167247872, free 30248824, used 136999048, increment 11536
+linearPredictor: max memory 477626368, total allocated 167247872, free 28938168, used 138309704, increment 1310656
+FeaturedSpace: max memory 477626368, total allocated 167247872, free 28938168, used 138309704, increment 0
+Sequential: max memory 477626368, total allocated 167247872, free 28938168, used 138309704, increment 0
+Initial loss: 9.227099155791137
+120: time = 0.450000 loss = 9.167288
+Resulting gain: 0.05981129715578959
+Prymnesiophyceae response curves
+Response curve: only sst
+Making features
+makeFeatures: max memory 477626368, total allocated 164626432, free 56488328, used 108138104, increment -30171600
+Prymnesiophyceae sst: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+170 samples
+Density: max memory 477626368, total allocated 164626432, free 55309840, used 109316592, increment 1178488
+linearPredictor: max memory 477626368, total allocated 164626432, free 55309840, used 109316592, increment 0
+FeaturedSpace: max memory 477626368, total allocated 164626432, free 55309840, used 109316592, increment 0
+Sequential: max memory 477626368, total allocated 164626432, free 55309840, used 109316592, increment 0
+Initial loss: 9.227099155791137
+Time since start: 453.533
+500: time = 4.160000 loss = 9.078239
+Resulting gain: 0.14886045417639515
+Prymnesiophyceae response curves
+Jackknife: leave chlorophyll out
+Making features
+makeFeatures: max memory 477626368, total allocated 153092096, free 50868312, used 102223784, increment -7092808
+Prymnesiophyceae chlorophyll: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+170 samples
+Density: max memory 477626368, total allocated 153092096, free 43111840, used 109980256, increment 7756472
+linearPredictor: max memory 477626368, total allocated 153092096, free 43111840, used 109980256, increment 0
+FeaturedSpace: max memory 477626368, total allocated 153092096, free 43111840, used 109980256, increment 0
+Sequential: max memory 477626368, total allocated 153092096, free 43111840, used 109980256, increment 0
+Initial loss: 9.227099155791137
+Initial test loss: 9.227099155791137
+Time since start: 465.023
+500: time = 10.780000 loss = 8.690730 testLoss 8.662888
+Jackknife: leave nitrate out
+Making features
+makeFeatures: max memory 477626368, total allocated 180879360, free 28010616, used 152868744, increment 42888488
+Prymnesiophyceae nitrate: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+170 samples
+Density: max memory 477626368, total allocated 180879360, free 19975424, used 160903936, increment 8035192
+linearPredictor: max memory 477626368, total allocated 180879360, free 19975424, used 160903936, increment 0
+FeaturedSpace: max memory 477626368, total allocated 180879360, free 19975424, used 160903936, increment 0
+Sequential: max memory 477626368, total allocated 180879360, free 19975424, used 160903936, increment 0
+Initial loss: 9.227099155791137
+Initial test loss: 9.227099155791137
+Time since start: 480.565
+500: time = 15.442000 loss = 8.867512 testLoss 8.824041
+Jackknife: leave oxygen out
+Making features
+makeFeatures: max memory 477626368, total allocated 158334976, free 47980152, used 110354824, increment -50549112
+Prymnesiophyceae oxygen: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+170 samples
+Density: max memory 477626368, total allocated 158334976, free 40315416, used 118019560, increment 7664736
+linearPredictor: max memory 477626368, total allocated 158334976, free 40234048, used 118100928, increment 81368
+FeaturedSpace: max memory 477626368, total allocated 158334976, free 40234048, used 118100928, increment 0
+Sequential: max memory 477626368, total allocated 158334976, free 40234048, used 118100928, increment 0
+Initial loss: 9.227099155791137
+Initial test loss: 9.227099155791137
+Time since start: 490.776
+500: time = 10.108000 loss = 8.811355 testLoss 8.878148
+Jackknife: leave salinity out
+Making features
+makeFeatures: max memory 477626368, total allocated 174063616, free 35299440, used 138764176, increment 20663248
+Prymnesiophyceae salinity: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+170 samples
+Density: max memory 477626368, total allocated 174063616, free 26963640, used 147099976, increment 8335800
+linearPredictor: max memory 477626368, total allocated 174063616, free 26963640, used 147099976, increment 0
+FeaturedSpace: max memory 477626368, total allocated 174063616, free 26963640, used 147099976, increment 0
+Sequential: max memory 477626368, total allocated 174063616, free 26963640, used 147099976, increment 0
+Initial loss: 9.227099155791137
+Initial test loss: 9.227099155791137
+Time since start: 503.785
+500: time = 12.802000 loss = 8.723524 testLoss 8.636620
+Jackknife: leave sea_ice_extent out
+Making features
+makeFeatures: max memory 477626368, total allocated 166723584, free 119573784, used 47149800, increment -99950176
+Prymnesiophyceae sea_ice_extent: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+170 samples
+Density: max memory 477626368, total allocated 166723584, free 111351320, used 55372264, increment 8222464
+linearPredictor: max memory 477626368, total allocated 166723584, free 111269952, used 55453632, increment 81368
+FeaturedSpace: max memory 477626368, total allocated 166723584, free 111269952, used 55453632, increment 0
+Sequential: max memory 477626368, total allocated 166723584, free 111269952, used 55453632, increment 0
+Initial loss: 9.227099155791137
+Initial test loss: 9.227099155791137
+Time since start: 515.217
+500: time = 11.344000 loss = 8.675910 testLoss 8.645809
+Jackknife: leave sst out
+Making features
+makeFeatures: max memory 477626368, total allocated 171442176, free 96449288, used 74992888, increment 19539256
+Prymnesiophyceae sst: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+170 samples
+Density: max memory 477626368, total allocated 171442176, free 87919280, used 83522896, increment 8530008
+linearPredictor: max memory 477626368, total allocated 171442176, free 87919280, used 83522896, increment 0
+FeaturedSpace: max memory 477626368, total allocated 171442176, free 87919280, used 83522896, increment 0
+Sequential: max memory 477626368, total allocated 171442176, free 87919280, used 83522896, increment 0
+Initial loss: 9.227099155791137
+Initial test loss: 9.227099155791137
+Time since start: 524.935
+500: time = 9.626000 loss = 8.712844 testLoss 8.696648
+Jackknife: only chlorophyll
+Making features
+makeFeatures: max memory 477626368, total allocated 157286400, free 61116096, used 96170304, increment 12647408
+Prymnesiophyceae chlorophyll: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+170 samples
+Density: max memory 477626368, total allocated 157286400, free 59453448, used 97832952, increment 1662648
+linearPredictor: max memory 477626368, total allocated 157286400, free 59453448, used 97832952, increment 0
+FeaturedSpace: max memory 477626368, total allocated 157286400, free 59453448, used 97832952, increment 0
+Sequential: max memory 477626368, total allocated 157286400, free 59453448, used 97832952, increment 0
+Initial loss: 9.227099155791137
+Initial test loss: 9.227099155791137
+140: time = 0.880000 loss = 9.187693 testLoss 9.241738
+Res.gain: 0.039406508670431606
+Jackknife: only nitrate
+Making features
+makeFeatures: max memory 477626368, total allocated 149946368, free 92360208, used 57586160, increment -40246792
+Prymnesiophyceae nitrate: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+170 samples
+Density: max memory 477626368, total allocated 149946368, free 90845344, used 59101024, increment 1514864
+linearPredictor: max memory 477626368, total allocated 149946368, free 90763976, used 59182392, increment 81368
+FeaturedSpace: max memory 477626368, total allocated 149946368, free 90763976, used 59182392, increment 0
+Sequential: max memory 477626368, total allocated 149946368, free 90763976, used 59182392, increment 0
+Initial loss: 9.227099155791137
+Initial test loss: 9.227099155791137
+Time since start: 527.323
+260: time = 1.471000 loss = 9.190201 testLoss 9.217435
+Res.gain: 0.03689765984769089
+Jackknife: only oxygen
+Making features
+makeFeatures: max memory 477626368, total allocated 163053568, free 56982392, used 106071176, increment 46888784
+Prymnesiophyceae oxygen: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+170 samples
+Density: max memory 477626368, total allocated 163053568, free 55223888, used 107829680, increment 1758504
+linearPredictor: max memory 477626368, total allocated 163053568, free 55142520, used 107911048, increment 81368
+FeaturedSpace: max memory 477626368, total allocated 163053568, free 55142520, used 107911048, increment 0
+Sequential: max memory 477626368, total allocated 163053568, free 55142520, used 107911048, increment 0
+Initial loss: 9.227099155791137
+Initial test loss: 9.227099155791137
+120: time = 0.762000 loss = 9.101947 testLoss 9.038258
+Res.gain: 0.12515253166549378
+Jackknife: only salinity
+Making features
+makeFeatures: max memory 477626368, total allocated 157810688, free 78487200, used 79323488, increment -28587560
+Prymnesiophyceae salinity: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+170 samples
+Density: max memory 477626368, total allocated 157810688, free 77130024, used 80680664, increment 1357176
+linearPredictor: max memory 477626368, total allocated 157810688, free 77048656, used 80762032, increment 81368
+FeaturedSpace: max memory 477626368, total allocated 157810688, free 77048656, used 80762032, increment 0
+Sequential: max memory 477626368, total allocated 157810688, free 77048656, used 80762032, increment 0
+Initial loss: 9.227099155791137
+Initial test loss: 9.227099155791137
+Time since start: 529.128
+180: time = 1.016000 loss = 9.130729 testLoss 9.169182
+Res.gain: 0.09636987199384706
+Jackknife: only sea_ice_extent
+Making features
+makeFeatures: max memory 477626368, total allocated 151519232, free 83657696, used 67861536, increment -12900496
+Prymnesiophyceae sea_ice_extent: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+170 samples
+Density: max memory 477626368, total allocated 151519232, free 82605160, used 68914072, increment 1052536
+linearPredictor: max memory 477626368, total allocated 151519232, free 82605160, used 68914072, increment 0
+FeaturedSpace: max memory 477626368, total allocated 151519232, free 82605160, used 68914072, increment 0
+Sequential: max memory 477626368, total allocated 151519232, free 82605160, used 68914072, increment 0
+Initial loss: 9.227099155791137
+Initial test loss: 9.227099155791137
+120: time = 0.426000 loss = 9.167288 testLoss 9.261719
+Res.gain: 0.05981129715578959
+Jackknife: only sst
+Making features
+makeFeatures: max memory 477626368, total allocated 150994944, free 42448328, used 108546616, increment 39632544
+Prymnesiophyceae sst: 
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500
+170 samples
+Density: max memory 477626368, total allocated 150470656, free 86981888, used 63488768, increment -45057848
+linearPredictor: max memory 477626368, total allocated 150470656, free 86981888, used 63488768, increment 0
+FeaturedSpace: max memory 477626368, total allocated 150470656, free 86981888, used 63488768, increment 0
+Sequential: max memory 477626368, total allocated 150470656, free 86981888, used 63488768, increment 0
+Initial loss: 9.227099155791137
+Initial test loss: 9.227099155791137
+Time since start: 532.976
+500: time = 3.374000 loss = 9.078239 testLoss 9.117950
+Res.gain: 0.14886045417639515
+Ending
