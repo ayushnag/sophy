@@ -6,12 +6,219 @@
   <component name="ChangeListManager">
     <list default="true" id="480e52a7-0858-4d1c-aca1-320b13008e4e" name="Changes" comment="moved to correct dir">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/in/datasets/modified/joy_warren.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/in/datasets/modified/joy_warren.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/out/sophy.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/data/out/sophy.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notes/sophy_ayush.md" beforeDir="false" afterPath="$PROJECT_DIR$/notes/sophy_ayush.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/dataformat.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/dataformat.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophy/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sophyml/species_predict2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophyml/species_predict2.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/chlorophyll_fall.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/chlorophyll_fall.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/chlorophyll_spring.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/chlorophyll_spring.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/chlorophyll_summer.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/chlorophyll_summer.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/chlorophyll_winter.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/chlorophyll_winter.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/nitrate_fall.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/nitrate_fall.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/nitrate_spring.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/nitrate_spring.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/nitrate_summer.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/nitrate_summer.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/nitrate_winter.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/nitrate_winter.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/oxygen_fall.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/oxygen_fall.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/oxygen_spring.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/oxygen_spring.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/oxygen_summer.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/oxygen_summer.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/oxygen_winter.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/oxygen_winter.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/salinity_fall.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/salinity_fall.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/salinity_spring.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/salinity_spring.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/salinity_summer.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/salinity_summer.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/salinity_winter.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/salinity_winter.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/sea_ice_extent_fall.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/sea_ice_extent_fall.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/sea_ice_extent_spring.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/sea_ice_extent_spring.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/sea_ice_extent_summer.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/sea_ice_extent_summer.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/sea_ice_extent_winter.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/sea_ice_extent_winter.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/temperature_fall.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/temperature_fall.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/temperature_spring.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/temperature_spring.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/temperature_summer.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/temperature_summer.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/temperature_winter.nc" beforeDir="false" afterPath="$PROJECT_DIR$/data/maxent/in/bsose_processed/netcdf/temperature_winter.nc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/sophy_presence_data/phytobase_occurrence.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/sophy_presence_data/phytobase_occurrence_classes.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/sophy_presence_data/phytobase_occurrence_classes_0_360.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/in/sophy_presence_data/phytobase_occurrence_classes_mercator.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Bacillariophyceae.asc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Bacillariophyceae.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Bacillariophyceae.lambdas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Bacillariophyceae_omission.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Bacillariophyceae_sampleAverages.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Bacillariophyceae_samplePredictions.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Coccolithophyceae.asc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Coccolithophyceae.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Coccolithophyceae.lambdas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Coccolithophyceae_omission.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Coccolithophyceae_sampleAverages.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Coccolithophyceae_samplePredictions.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Cyanophyceae.asc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Cyanophyceae.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Cyanophyceae.lambdas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Cyanophyceae_explain.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Cyanophyceae_omission.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Cyanophyceae_sampleAverages.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Cyanophyceae_samplePredictions.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Dinophyceae.asc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Dinophyceae.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Dinophyceae.lambdas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Dinophyceae_omission.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Dinophyceae_sampleAverages.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Dinophyceae_samplePredictions.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Prymnesiophyceae.asc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Prymnesiophyceae.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Prymnesiophyceae.lambdas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Prymnesiophyceae_omission.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Prymnesiophyceae_sampleAverages.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/Prymnesiophyceae_samplePredictions.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/maxent.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/maxentResults.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_chlorophyll.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_chlorophyll_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_chlorophyll_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_chlorophyll_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_jacknife.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_jacknife_auc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_jacknife_test.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_nitrate.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_nitrate_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_nitrate_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_nitrate_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_omission.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_oxygen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_oxygen_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_oxygen_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_oxygen_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_roc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_salinity.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_salinity_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_salinity_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_salinity_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_sea_ice_extent.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_sea_ice_extent_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_sea_ice_extent_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_sea_ice_extent_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_sst.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_sst_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_sst_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Bacillariophyceae_sst_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_chlorophyll.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_chlorophyll_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_chlorophyll_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_chlorophyll_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_jacknife.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_jacknife_auc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_jacknife_test.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_nitrate.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_nitrate_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_nitrate_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_nitrate_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_omission.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_oxygen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_oxygen_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_oxygen_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_oxygen_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_roc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_salinity.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_salinity_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_salinity_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_salinity_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_sea_ice_extent.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_sea_ice_extent_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_sea_ice_extent_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_sea_ice_extent_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_sst.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_sst_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_sst_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Coccolithophyceae_sst_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_chlorophyll.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_chlorophyll_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_chlorophyll_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_chlorophyll_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_jacknife.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_jacknife_auc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_jacknife_test.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_nitrate.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_nitrate_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_nitrate_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_nitrate_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_omission.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_oxygen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_oxygen_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_oxygen_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_oxygen_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_roc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_salinity.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_salinity_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_salinity_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_salinity_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_sea_ice_extent.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_sea_ice_extent_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_sea_ice_extent_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_sea_ice_extent_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_sst.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_sst_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_sst_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Cyanophyceae_sst_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_chlorophyll.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_chlorophyll_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_chlorophyll_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_chlorophyll_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_jacknife.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_jacknife_auc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_jacknife_test.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_nitrate.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_nitrate_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_nitrate_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_nitrate_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_omission.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_oxygen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_oxygen_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_oxygen_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_oxygen_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_roc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_salinity.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_salinity_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_salinity_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_salinity_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_sea_ice_extent.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_sea_ice_extent_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_sea_ice_extent_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_sea_ice_extent_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_sst.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_sst_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_sst_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Dinophyceae_sst_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_chlorophyll.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_chlorophyll_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_chlorophyll_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_chlorophyll_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_jacknife.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_jacknife_auc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_jacknife_test.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_nitrate.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_nitrate_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_nitrate_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_nitrate_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_omission.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_oxygen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_oxygen_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_oxygen_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_oxygen_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_roc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_salinity.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_salinity_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_salinity_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_salinity_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_sea_ice_extent.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_sea_ice_extent_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_sea_ice_extent_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_sea_ice_extent_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_sst.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_sst_only.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_sst_only_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maxent/out/java/plots/Prymnesiophyceae_sst_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/examples/max_ent.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/examples/max_ent.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sophy/sophy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sophy/sophy.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,6 +489,8 @@
       <workItem from="1676941777528" duration="968000" />
       <workItem from="1677443677524" duration="373000" />
       <workItem from="1677525921964" duration="39000" />
+      <workItem from="1682884782928" duration="792000" />
+      <workItem from="1683524249271" duration="49000" />
     </task>
     <task id="LOCAL-00007" summary="Updated schema and code to split data into sample and occurrence tables">
       <created>1660717392422</created>

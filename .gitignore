@@ -1,0 +1,6 @@
+data/in/datasets/
+data/maxent/in/bsose_processed/asc/
+data/maxent/in/bsose_raw/
+data/maxent/out/
+data/out/sophy.db
+sophy/examples/.ipynb_checkpoints/
