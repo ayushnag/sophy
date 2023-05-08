@@ -1,0 +1,733 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Southern Ocean Geospatial Analysis &#8212; SOPhy Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'geospatial';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Simple Regression Analysis of SOPhy Data" href="regression.html" />
+    <link rel="prev" title="SQLite Database for Southern Ocean Phytoplankton Data" href="database.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/labelled_sophy.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/labelled_sophy.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="conda_env.html">Conda Environment Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">SQLite Database for Southern Ocean Phytoplankton Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Southern Ocean Geospatial Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression.html">Simple Regression Analysis of SOPhy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmm.html">Gaussian Mixture Modeling (GMM) for southern ocean clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="max_ent.html">Maximum Entropy (MaxEnt) species distribution modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cnn.html">Using a Convolution Neural Network for Species Distribution Modeling</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fgeospatial.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/geospatial.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Southern Ocean Geospatial Analysis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-code">Sample Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-add-geolabel-ipynb-code-here">TODO: Add geolabel.ipynb code here</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nsidc-sea-ice-extent-data-challenge">NSIDC Sea Ice Extent data challenge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summer-2022-second-half-goals">Summer 2022 second half goals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geolabel-class">GeoLabel class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifications-to-kim-and-orsi-s-front-data">Modifications to Kim and Orsi’s front data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rg-climatology-to-southern-ocean-fronts">RG Climatology to Southern Ocean Fronts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-data-workflow">Spatial Data Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geopandas-and-geojson">GeoPandas and GeoJSON</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spatialite">SpatiaLite?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#point-inside-polygon-pip">Point Inside Polygon (PIP)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#southern-ocean-fronts-and-sectors">Southern Ocean Fronts and Sectors</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fronts">Fronts</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sectors">Sectors</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-geospatial-regions-in-the-southern-ocean">Defining geospatial regions in the Southern Ocean</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="southern-ocean-geospatial-analysis">
+<h1>Southern Ocean Geospatial Analysis<a class="headerlink" href="#southern-ocean-geospatial-analysis" title="Permalink to this headline">#</a></h1>
+<section id="sample-code">
+<h2>Sample Code<a class="headerlink" href="#sample-code" title="Permalink to this headline">#</a></h2>
+<section id="todo-add-geolabel-ipynb-code-here">
+<h3>TODO: Add geolabel.ipynb code here<a class="headerlink" href="#todo-add-geolabel-ipynb-code-here" title="Permalink to this headline">#</a></h3>
+</section>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h2>
+<section id="nsidc-sea-ice-extent-data-challenge">
+<h3>NSIDC Sea Ice Extent data challenge<a class="headerlink" href="#nsidc-sea-ice-extent-data-challenge" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>TODO: FINISH SECTION</p></li>
+<li><p>[Include images of the grid from NSIDC]</p></li>
+<li><p>Isolated boundary but the points were out of order. Solution to that problem</p></li>
+</ul>
+</section>
+<section id="summer-2022-second-half-goals">
+<h3>Summer 2022 second half goals<a class="headerlink" href="#summer-2022-second-half-goals" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Main goal is to enter data and make visualization/front end for the database</p></li>
+<li><p>Features still pending are metadata information when entering datasets and ways to visualize the different types of data</p></li>
+<li><p>Latest task completed was separating data into two different categories. Presence vs data with biological and chemical data present. Essentially a table that has our ideal datasets like LTER with HPLC + chlorophyll, etc. Then another table for datasets that have lat, lon, time, and species present only. Phytobase and OBIS have lots of data like that. All the data will still be there, it will just avoid having tons of data with no entry for our biological columns. It can also make grouping the data easier since we can just ignore the Phytobase type data when we are doing clustering later on.</p></li>
+<li><p>Current software progress:</p></li>
+</ul>
+<p align="center">
+  <img 
+    width="350"
+    src="img/fronts_shapes.png"
+></p>
+- All fronts/boundaries and their respective zones are shapefiles. Data is easily labelled with a spatial join to this GeoDataFrame</section>
+<section id="geolabel-class">
+<h3>GeoLabel class<a class="headerlink" href="#geolabel-class" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Class to label data by fronts and sector. Also creates the shapefiles with raw data</p></li>
+<li><p>Wrote hundreds of test lines over 2 weeks to get shapefiles and geopandas working</p></li>
+<li><p>Refactored several times to simplify the functions as much as possible. Zones are labeled with a simple geospatial join</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="n">zones_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">GeoLabel</span><span class="o">.</span><span class="n">zones_shapefile</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">data_gdf</span><span class="p">,</span> <span class="n">zones_gdf</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="modifications-to-kim-and-orsi-s-front-data">
+<h3>Modifications to Kim and Orsi’s front data<a class="headerlink" href="#modifications-to-kim-and-orsi-s-front-data" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Removed small extra dots included in the fronts</p></li>
+<li><p>Old versions have SBdy from Kim and Orsi. There is a large gap in the SBdy that is closed with a straight line by Shapely</p></li>
+<li><p>Data includes points from lat [-180, 360] but [-180, 180] is duplicate of [0, 360]; we kept [-180, 180]</p></li>
+</ul>
+</section>
+<section id="rg-climatology-to-southern-ocean-fronts">
+<h3>RG Climatology to Southern Ocean Fronts<a class="headerlink" href="#rg-climatology-to-southern-ocean-fronts" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>I have access to code that converts <a class="reference external" href="http://sio-argo.ucsd.edu/RG_Climatology.html">RG Climatology data</a> from Argo sensors into ocean front polygons</p></li>
+<li><p>The two options are:</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Rewrite all the code</p>
+<ul class="simple">
+<li><p>Code is well documented but not efficient and contains lots of extra steps, hardcoded values, and not very modular</p></li>
+<li><p>Meet with author and document every step/calculation. Then replicate process but with my own code</p></li>
+<li><p>Pros:</p>
+<ul>
+<li><p>High quality code. Easy to read, modify, and debug</p></li>
+</ul>
+</li>
+<li><p>Cons:</p>
+<ul>
+<li><p>Time (at least a week). I need to understand the program, new datastructures, new packages etc.</p></li>
+<li><p>If there are updates to the original code, I will not receive them (no longer a fork)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Make small updates to code</p>
+<ul class="simple">
+<li><p>Fix hard coding</p></li>
+<li><p>Pros:</p>
+<ul>
+<li><p>Code is already written and verified</p></li>
+<li><p>Saves me a lot of time</p></li>
+</ul>
+</li>
+<li><p>Cons:</p>
+<ul>
+<li><p>Leaves overall codebase vulnerable to bugs in that portion of code</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul class="simple">
+<li><p>My current choice is option 2. The core of this project is to make the most useful database possible, so I think my time is better spent building other features. I will still make updates to the code to avoid hardcoding and small performance issues as they come up. Now I can focus on tasks building around this code. Some examples include:</p>
+<ul>
+<li><p>Automatic data retrieval. Simply call a function or script and the database will download new climatology data, calculate the fronts, and update the database.</p></li>
+<li><p>NetCDF export/import. Add feature to export fronts as a NetCDF file, so it can be used for other research. In the future, if there are new ways of calculating fronts we can import the NetCDF from that calculation and keep the rest of the code the same.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="spatial-data-workflow">
+<h3>Spatial Data Workflow<a class="headerlink" href="#spatial-data-workflow" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>How will data flow from raw input data to queryable results at the front end?</p></li>
+<li><p>Geo data is different because points inside a shape are not directly stored (only the edges are)</p></li>
+<li><p>This section describes the different technologies that can be used and how they will interact</p></li>
+</ul>
+<section id="geopandas-and-geojson">
+<h4>GeoPandas and GeoJSON<a class="headerlink" href="#geopandas-and-geojson" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>GeoJSON is an open-source format for encoding a variety of geographic data structures such as Lines, Polygons, Inner/Outer Rings, etc</p></li>
+<li><p>Similar to the popular ESRI shape file, but it’s open source. It can also be easily modified and created with python/shapely</p></li>
+<li><p>GeoPandas allows for geospatial queries with GeoJSON’s and DataFrames</p></li>
+<li><p>For example PIP calculations can be done with a geospatial join using .contains(), .within(), .join(), etc.</p></li>
+<li><p>GeoPandas also allows for indexing GeoJSON’s for speeding up queries. <a class="reference external" href="https://geoffboeing.com/2016/10/r-tree-spatial-index-python/">This example</a> shows R-Tree Spatial Indexing in GeoPandas</p></li>
+</ul>
+</section>
+<section id="spatialite">
+<h4>SpatiaLite?<a class="headerlink" href="#spatialite" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Open-source extension to SQLite that allows for spatial data (like GeoJSON shapes) to be stored and queried from</p></li>
+<li><p>Has all the functionality of sqlite, so it doesn’t narrow the usability of the database</p></li>
+<li><p>This will only be used if we decide to keep shape files in the database for query use. Otherwise just labeling data serves the same purpose of having geospatial queries</p></li>
+</ul>
+</section>
+<section id="point-inside-polygon-pip">
+<h4>Point Inside Polygon (PIP)<a class="headerlink" href="#point-inside-polygon-pip" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Large amounts of data will need to be processed with PIP</p></li>
+<li><p>All data entries will be labeled with a zone (STZ, SAZ, etc.) and sector which could be expensive</p></li>
+<li><p>An alternative is to store the shapes and calculate PIP at runtime</p>
+<ul>
+<li><p>However, this is a runtime cost whereas I am trying to optimize for insert time costs</p></li>
+<li><p>This also adds complexity for the users since they need to understand what a polygon/shapefile is and how to use them in queries</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="southern-ocean-fronts-and-sectors">
+<h3>Southern Ocean Fronts and Sectors<a class="headerlink" href="#southern-ocean-fronts-and-sectors" title="Permalink to this headline">#</a></h3>
+<section id="fronts">
+<h4>Fronts<a class="headerlink" href="#fronts" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>“Boundary between two distinct water masses”</p></li>
+<li><p>Dividing line where ocean is physically different</p></li>
+<li><p>Change over time but data uses composite data to pick one line for a span of time (e.g. 1 year)</p></li>
+<li><p>Get raw data as series of points over time. Convert that to shape file (GeoJSON?). Load into python and geopandas</p></li>
+<li><p>Then users can add new front data if they want by simply replacing the file and calling an update on the database</p></li>
+</ul>
+<p align="center">
+  <img 
+    width="350"
+    src="img/fronts.png"
+>
+</p>
+</section>
+<section id="sectors">
+<h4>Sectors<a class="headerlink" href="#sectors" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Fixed sectors of the sea commonly used</p></li>
+<li><p>Arbitrarily defined so people have other definitions they use</p></li>
+<li><p>Similar to fronts, define a shape file and allow users to upload one of their own</p></li>
+</ul>
+<p align="center">
+  <img 
+    width="350"
+    src="img/sectors.png"
+  >
+</p>
+</section>
+</section>
+<section id="defining-geospatial-regions-in-the-southern-ocean">
+<h3>Defining geospatial regions in the Southern Ocean<a class="headerlink" href="#defining-geospatial-regions-in-the-southern-ocean" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>We want to be able to label rows with a certain regions like the one seen in the map:</p></li>
+</ul>
+<p align="center">
+  <img 
+    width="350"
+    src="img/southern_ocean.jpg"
+>
+</p>- Cannot use simple lat long filters since they are rectangular unlike our regions
+- Solutions inlcude ArcGIS filter/map or polygons that have predefined these regions
+- Main point is that there must be a mapping from latitude to region
+- If one is not available, we can explore how to create that mapping
+- Mapping can and should be done at insert time, not runtime to speed up queries that use this data
+- Some options are GeoPandas, [GeoJSON](https://handsondataviz.org/geojsonio.html), ArcGIS, PostGIS, pyshp, PyGIS, and arcpy
+- An issue with the Arc family is that they are not open-source unlike GeoJSON and others</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="database.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">SQLite Database for Southern Ocean Phytoplankton Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="regression.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Simple Regression Analysis of SOPhy Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-code">Sample Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-add-geolabel-ipynb-code-here">TODO: Add geolabel.ipynb code here</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nsidc-sea-ice-extent-data-challenge">NSIDC Sea Ice Extent data challenge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summer-2022-second-half-goals">Summer 2022 second half goals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geolabel-class">GeoLabel class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifications-to-kim-and-orsi-s-front-data">Modifications to Kim and Orsi’s front data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rg-climatology-to-southern-ocean-fronts">RG Climatology to Southern Ocean Fronts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-data-workflow">Spatial Data Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geopandas-and-geojson">GeoPandas and GeoJSON</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spatialite">SpatiaLite?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#point-inside-polygon-pip">Point Inside Polygon (PIP)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#southern-ocean-fronts-and-sectors">Southern Ocean Fronts and Sectors</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fronts">Fronts</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sectors">Sectors</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-geospatial-regions-in-the-southern-ocean">Defining geospatial regions in the Southern Ocean</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ayush Nag and Hannah Joy-Warren
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

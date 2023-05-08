@@ -1,0 +1,920 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>SQLite Database for Southern Ocean Phytoplankton Data &#8212; SOPhy Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'database';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Southern Ocean Geospatial Analysis" href="geospatial.html" />
+    <link rel="prev" title="Conda Environment Information" href="conda_env.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/labelled_sophy.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/labelled_sophy.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="conda_env.html">Conda Environment Information</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">SQLite Database for Southern Ocean Phytoplankton Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geospatial.html">Southern Ocean Geospatial Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regression.html">Simple Regression Analysis of SOPhy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmm.html">Gaussian Mixture Modeling (GMM) for southern ocean clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="max_ent.html">Maximum Entropy (MaxEnt) species distribution modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cnn.html">Using a Convolution Neural Network for Species Distribution Modeling</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdatabase.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/database.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>SQLite Database for Southern Ocean Phytoplankton Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-code">Sample Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-add-sophy-ipynb-code-here">TODO: Add sophy.ipynb code here</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-transformations">Data transformations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-add-dataformat-ipynb-code-here">TODO: Add dataformat.ipynb code here</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-data-transformation-functions">Complex data transformation functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updates-on-new-table-microscopy-in-schema-and-db-design">Updates on new table microscopy in schema and DB design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fall-2022-goals">Fall 2022 goals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lter-ml-model-focus">LTER ML model focus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-format-challenge">Data format challenge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-science-notebook-options">Data Science Notebook Options</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter">Jupyter</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab">Google Colab</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deepnote">Deepnote</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summer-2022-goals">Summer 2022 Goals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-ideas">Feature Ideas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spring-quarter-2022-wrap-up">Spring Quarter 2022 Wrap-Up</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterating-over-a-dataframe">Iterating over a Dataframe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-key-vs-aphiaid">Natural Key vs AphiaID</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-of-python-and-sqlite">Workflow of Python and SQLite</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#re-normalization-of-columns-major-fix">Re-normalization of columns: major fix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-key-setup">Primary Key Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tech-stack">Tech Stack</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#column-that-can-hold-id-of-two-possible-tables">Column that can hold id of two possible tables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phytoplankton-microscopy-vs-pigment-based-taxa-classification">Phytoplankton microscopy vs. pigment based taxa classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tags">Tags</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#worms-database">WoRMS Database</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#database-planning">Database Planning</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sqlite-database-for-southern-ocean-phytoplankton-data">
+<h1>SQLite Database for Southern Ocean Phytoplankton Data<a class="headerlink" href="#sqlite-database-for-southern-ocean-phytoplankton-data" title="Permalink to this headline">#</a></h1>
+<section id="sample-code">
+<h2>Sample Code<a class="headerlink" href="#sample-code" title="Permalink to this headline">#</a></h2>
+<section id="todo-add-sophy-ipynb-code-here">
+<h3>TODO: Add sophy.ipynb code here<a class="headerlink" href="#todo-add-sophy-ipynb-code-here" title="Permalink to this headline">#</a></h3>
+</section>
+</section>
+<section id="data-transformations">
+<h2>Data transformations<a class="headerlink" href="#data-transformations" title="Permalink to this headline">#</a></h2>
+<section id="todo-add-dataformat-ipynb-code-here">
+<h3>TODO: Add dataformat.ipynb code here<a class="headerlink" href="#todo-add-dataformat-ipynb-code-here" title="Permalink to this headline">#</a></h3>
+</section>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">#</a></h2>
+<section id="complex-data-transformation-functions">
+<h3>Complex data transformation functions<a class="headerlink" href="#complex-data-transformation-functions" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>FINISH SECTION; INCLUDE CODE SNIPPETS</p></li>
+<li><p>Can combine a common format of phytoplankton taxa data into our format</p></li>
+<li><p>Includes row averaging system, multi-key joins, and JSON compression</p></li>
+</ul>
+<p>Purpose: Starting point for sqlite observational datasets. give example features/how to build your database, example advanced queries that can be done, examples of how the results can be plotted</p>
+<ul class="simple">
+<li><p>Advanced queries with SQL and plotting with python</p></li>
+<li><p>Rather than doing a bunch of data transformations in pandas, you can use the existing, quick, platform of sqlite</p></li>
+<li><p>With Jupyter, database is a command line like interface that allows for lots of experimentation</p></li>
+<li><p>Can help you create a relational database with a cell in jupyter that generates your current schema (eralchemy package?). Then you can experiment with create_tables.sql and see the visual right away</p></li>
+</ul>
+</section>
+<section id="updates-on-new-table-microscopy-in-schema-and-db-design">
+<h3>Updates on new table microscopy in schema and DB design<a class="headerlink" href="#updates-on-new-table-microscopy-in-schema-and-db-design" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>FINISH SECTION</p></li>
+<li><p>Some datasets provide microscopy data with many columns of taxa information that were all measured in the same sample. There is one row in the sample table that they match to so I needed another table to avoid storing these taxa redundantly in the sample table.</p></li>
+<li><p>Microscopy table allows for many taxa to be grouped under the same sample with a foreign key</p></li>
+</ul>
+</section>
+<section id="fall-2022-goals">
+<h3>Fall 2022 goals<a class="headerlink" href="#fall-2022-goals" title="Permalink to this headline">#</a></h3>
+<p>SOPhy database</p>
+<ul class="simple">
+<li><p>Continue adding datasets from papers</p>
+<ul>
+<li><p>Add phytoplankton groups feature and modify schema to accommodate variety of data</p></li>
+</ul>
+</li>
+<li><p>Make frontend for visualizations and data use</p>
+<ul>
+<li><p>GitHub pages, Jupyter Notebook, or Python to visualization packages</p></li>
+</ul>
+</li>
+<li><p>Publish database</p>
+<ul>
+<li><p>Hosted on GitHub or Zenodo repository</p></li>
+<li><p>Publish paper</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="lter-ml-model-focus">
+<h3>LTER ML model focus<a class="headerlink" href="#lter-ml-model-focus" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>The LTER dataset is the golden standard in terms of format and amount of data (30,000 data points over 30 years)</p></li>
+<li><p>The rest of the datasets will contain ~150 data points total and seem insufficient to train the niche model</p></li>
+<li><p>Idea: Make the niche model a proof of concept using only the LTER dataset</p>
+<ul>
+<li><p>Continue with original plan of clustering using BGC-ARGO floats</p></li>
+<li><p>Then instead of training niche model on the entire dataset just use LTER</p></li>
+<li><p>If successful, we will have a proof of concept for the core idea</p></li>
+<li><p>Once NASA PACE is online we will have significantly more data and can apply the same techniques to all available data</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="data-format-challenge">
+<h3>Data format challenge<a class="headerlink" href="#data-format-challenge" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>I have started working through the datasets that can be entered in the database</p></li>
+<li><p>The issue is that their formats are significantly different</p>
+<ul>
+<li><p>Some contain ratios of values where we expect a quantity</p></li>
+<li><p>Some contain a mix of CHEMTAX and microscopy in one row</p></li>
+<li><p>Some average values over a certain region and don’t publish the individual points, so we cannot use it</p></li>
+<li><p>In general, many essential fields are missing (lat, depth) that need to be tracked down</p></li>
+</ul>
+</li>
+<li><p>We will have to come up with a new approach to entering data, since there are oceanography decisions to be made when entering data where I don’t have experience.</p></li>
+</ul>
+</section>
+<section id="data-science-notebook-options">
+<h3>Data Science Notebook Options<a class="headerlink" href="#data-science-notebook-options" title="Permalink to this headline">#</a></h3>
+<section id="jupyter">
+<h4>Jupyter<a class="headerlink" href="#jupyter" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Runs locally so no internet connection needed after download</p></li>
+<li><p>Dataset has to be stored on local machine</p></li>
+</ul>
+</section>
+<section id="google-colab">
+<h4>Google Colab<a class="headerlink" href="#google-colab" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Ease of use to share and use</p></li>
+<li><p>Backend performance of Google servers</p>
+<ul>
+<li><p>Particularly important for ML models which actually need extra power</p></li>
+</ul>
+</li>
+<li><p>Modules are pre-installed</p></li>
+<li><p>Easy versioning with Google and GitHub integration</p></li>
+</ul>
+</section>
+<section id="deepnote">
+<h4>Deepnote<a class="headerlink" href="#deepnote" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Designed for collaboration. Multiple people can live edit a notebook</p></li>
+<li><p>Many code “intelligence” features like auto install packages and autocomplete</p></li>
+</ul>
+<p>Current pick is to create Jupyter file and work in Intellij. Then if storage/performance becomes an issue, we can easily port the document into Google Colab. UW provides Google Drive storage which could be an option to store the database and then connect to Colab. If the database is stored on GitHub (regular Jupyter Notebook), file size may become an issue.</p>
+</section>
+</section>
+<section id="summer-2022-goals">
+<h3>Summer 2022 Goals<a class="headerlink" href="#summer-2022-goals" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Add more data to SOPHY</p>
+<ul>
+<li><p>Start with LTER and Phytobase. LTER is the most ideal format to test and Phytobase has by far the most microscopy data</p></li>
+</ul>
+</li>
+<li><p>Define regions and tags for data</p>
+<ul>
+<li><p>Use GeoJSON/GeoPandas to label data</p></li>
+<li><p>Brainstorm all the regions that are needed (oceans, fronts, etc.)</p></li>
+</ul>
+</li>
+<li><p>Create Jupyter notebook or Google Colab front end</p>
+<ul>
+<li><p>Custom python functions for common oceanography use cases of this data</p></li>
+<li><p>Direct SQLite editor for advanced users</p></li>
+<li><p>Map visualization of all data</p></li>
+<li><p>UW Research Computing Club has access to Azure, AWS, etc. servers for ML</p></li>
+</ul>
+</li>
+<li><p>Start niche model/ML/Objective 3</p>
+<ul>
+<li><p>An idea is to start with unsupervised learning and then switching to supervised. Lets the ML project get started and potentially find trends we were not expecting.</p></li>
+<li><p>Could use synthetic data while real data is not there</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="feature-ideas">
+<h3>Feature Ideas<a class="headerlink" href="#feature-ideas" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Think about how this could be adapted to the future of phytoplankton data</p>
+<ul>
+<li><p>For example if Argo floats may start having taxa data</p></li>
+<li><p>Or just any sensor based data that includes taxa because our current model is just for <em>in situ</em> observations</p></li>
+</ul>
+</li>
+<li><p>What are side ‘features/products’ that can be made for SOPHY and general use</p>
+<ul>
+<li><p>Adapter class that provides starter code for converting dataset into SQLite</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="spring-quarter-2022-wrap-up">
+<h3>Spring Quarter 2022 Wrap-Up<a class="headerlink" href="#spring-quarter-2022-wrap-up" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Feature List:</p>
+<ul>
+<li><p>Main script can add two full data to database (~1.3 mil rows)</p>
+<ul>
+<li><p><em>LTER</em> and <em>Phytobase</em> were chosen since they cover the two different formats of taxonomy data (microscopy and CHEMTAX)</p></li>
+<li><p>Also adds foreign keys from microscopy table (Phytobase)</p></li>
+</ul>
+</li>
+<li><p>Query WoRMS database for taxa records</p>
+<ul>
+<li><p>Converts result from pyworms package into formatted dataframe</p></li>
+</ul>
+</li>
+<li><p><strong>Modular code</strong> that easily translates to other data</p>
+<ul>
+<li><p>Code from this quarter is quite short since I have reviewed each operation several times to prioritize simplicity and performance as a setup for the summer</p></li>
+<li><p>The formula is made for how to add new data; data read, modify, write, and fk setup</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Next steps:</p>
+<ul>
+<li><p>Support for location, source, and tag tables as part of data insert</p></li>
+<li><p>Work on test suite even though code format may change (new classes/functions)</p></li>
+<li><p>Build collection of data we want to add to SOPHY</p>
+<ul>
+<li><p>Can be done concurrently with writing new code</p></li>
+<li><p>The schema and code will adapt to deal with new challenges or design changes</p></li>
+</ul>
+</li>
+<li><p>How to interact with the database?</p>
+<ul>
+<li><p>Research how scientific databases are usually presented (GUI, Jupyter, etc.)</p></li>
+<li><p>We can make pre-built use cases for common operations</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="iterating-over-a-dataframe">
+<h3>Iterating over a Dataframe<a class="headerlink" href="#iterating-over-a-dataframe" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>I was finding methods to iterate over a dataframe such as itterows(), but operations seemed to be taking longer than expected (~2s)</p></li>
+<li><p>Across several functions, I was incorrectly iterating over a dataframe rather than <strong>vectorization</strong> and using pandas built in indexing</p></li>
+<li><p><strong>Vectorization</strong> means using pre-defined, highly optimized methods to process data</p></li>
+<li><p>The time complexity and runtime is orders of magnitude lower when using vectorization since DataFrame’s are meant to use it</p></li>
+</ul>
+</section>
+<section id="natural-key-vs-aphiaid">
+<h3>Natural Key vs AphiaID<a class="headerlink" href="#natural-key-vs-aphiaid" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Datasets that contain microscopy data will most likely contain a ‘scientific_name’ field that we will also have a corresponding AphiaID we will get from the WoRMS database</p></li>
+<li><p>sci_name is a key for aphia_id and vice versa, so we should only store one of them in the main table</p></li>
+<li><p>However not all microscopy data goes to the level of sci_name and may only go down to genus</p></li>
+<li><p>In that case the aphia_id approach is correct since we can keep the aphia_id for the genus and then have access to it’s full taxa through the microscopy table whereas that would not be possible with only a sci_name col in the main table</p></li>
+<li><p>This approach also correctly handles the issue of when two names are different in Python or just visually, but actually represent the same species (WoRMS flags species name as unaccepted)</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyworms</span>
+<span class="n">pyworms</span><span class="o">.</span><span class="n">aphiaRecordsByMatchNames</span><span class="p">(</span><span class="s1">&#39;Coccopterum labyrinthus&#39;</span><span class="p">)</span>  <span class="c1"># accepted name</span>
+<span class="n">pyworms</span><span class="o">.</span><span class="n">aphiaRecordsByMatchNames</span><span class="p">(</span><span class="s1">&#39;Coccopterum_labyrinthus&#39;</span><span class="p">)</span>  <span class="c1"># slightly different formatting</span>
+<span class="n">pyworms</span><span class="o">.</span><span class="n">aphiaRecordsByMatchNames</span><span class="p">(</span><span class="s1">&#39;Pterosperma labyrinthus&#39;</span><span class="p">)</span>  <span class="c1"># unaccepted name, but same species</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>A rank column may also be useful however it seems like data that can be inferred from what data is present and not present, so TBD</p></li>
+</ul>
+</section>
+<section id="workflow-of-python-and-sqlite">
+<h3>Workflow of Python and SQLite<a class="headerlink" href="#workflow-of-python-and-sqlite" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Both have a way of storing large amounts of 2D data(dataframes vs. tables) so it can be confusing when to use which</p></li>
+<li><p>Dataframes are much easier to modify, can be used alongside python code, and keeps history of operation</p></li>
+<li><p>SQLite is <a class="reference external" href="https://www.thedataincubator.com/blog/2018/05/23/sqlite-vs-pandas-performance-benchmarks/">much faster</a> at select style operations</p></li>
+<li><p>Data loading, cleanup, and write to database will be done in Python with dataframes</p></li>
+<li><p>Then queries only with SQLite</p></li>
+</ul>
+</section>
+<section id="re-normalization-of-columns-major-fix">
+<h3>Re-normalization of columns: major fix<a class="headerlink" href="#re-normalization-of-columns-major-fix" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Updated schema to avoid normalizing much more than needed (3 FK’s in schema)</p></li>
+<li><p>I used to create a whole new cruise table since I thought repeating a string in the same column was repeated data that needed to be fixed</p></li>
+<li><p><strong>Normalization means when one column can allow you to infer other columns</strong></p>
+<ul>
+<li><p>For example when knowing the source name (LTER) can tell you author, doi, url, etc. and that data doesn’t need to be repeated across many columns</p></li>
+<li><p>One <strong>key</strong> gives you access to the other columns</p></li>
+<li><p>Then that data goes in a new table and the main table simply references that one key to have access to the rest of the data</p></li>
+<li><p>It’s ok to repeat values within a column, but there shouldn’t be columns that infer other columns within a table</p></li>
+</ul>
+</li>
+<li><p>This change has drastically reduced the number of tables in the DB (see schema v5 → v6)</p></li>
+</ul>
+</section>
+<section id="primary-key-setup">
+<h3>Primary Key Setup<a class="headerlink" href="#primary-key-setup" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>They can be auto-generated in SQLite, but is that the best way?</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="n">autoincrement</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Some alternatives are GUID, UUID, and natural keys</p></li>
+<li><p>The key does not need to be unique across the database so GUID is probably overkill</p></li>
+<li><p>Autoincrement is the best option for now since it also the default option in SQLite</p></li>
+</ul>
+</section>
+<section id="tech-stack">
+<h3>Tech Stack<a class="headerlink" href="#tech-stack" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Dataset(CSV) → DataFrame(Python) → sophy(SQLite)</p></li>
+<li><p>Sophy can be created in sqlite (createTables.sql) then saved as an .db file to insert data with Python</p></li>
+<li><p>First test is to load the LTER dataset through the tech stack</p></li>
+</ul>
+</section>
+<section id="column-that-can-hold-id-of-two-possible-tables">
+<h3>Column that can hold id of two possible tables<a class="headerlink" href="#column-that-can-hold-id-of-two-possible-tables" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>The problem is called Polymorphic Associations</p></li>
+<li><p>I would like to reference two tables to the same column with an FK</p>
+<ul>
+<li><p>For example microscopy id OR taxa id</p></li>
+</ul>
+</li>
+<li><p>One fix is to make a supertable that generates a primary key, then the two ‘sub’ tables reference their id from the super table</p></li>
+<li><p>This is essentially a PFK (primary foreign key) since each row in the sub tables is unique but technically still a foreign key</p></li>
+<li><p>The only issue is that it complicates the schema and doing queries since there is an extra table needed to do inserts</p></li>
+</ul>
+</section>
+<section id="phytoplankton-microscopy-vs-pigment-based-taxa-classification">
+<h3>Phytoplankton microscopy vs. pigment based taxa classification<a class="headerlink" href="#phytoplankton-microscopy-vs-pigment-based-taxa-classification" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>I originally thought  each (in situ) dataset would provide a species name that could be converted into a taxonomy tree (using microscopy)</p></li>
+<li><p>In reality they provide either microscopy OR pigment data. Both provide a classification of the taxonomy of each sample</p></li>
+<li><p>Pigments are the chemical method by using pigment markers and the CHEMTAX software to determine the species composition of a water sample. CHEMTAX gives the percentage of ~5 groups to determine species comp.</p></li>
+<li><p>The schema needs to be restructured to reflect this change. One row in one dataset represents a full water sample(pigments) but one row in another dataset represents the amount of each species found (microscopy). Since they are inherently different row structures, a new table may be needed.</p></li>
+</ul>
+</section>
+<section id="tags">
+<h3>Tags<a class="headerlink" href="#tags" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>We need to be able to classify rows with certain data like the method of sampling, quality of data, etc</p></li>
+<li><p>Tags are a great way to do this since we can create a tag, then reuse that same tag for several rows</p></li>
+<li><p>Represented by a many → many relationship in SQL.</p></li>
+</ul>
+</section>
+<section id="worms-database">
+<h3>WoRMS Database<a class="headerlink" href="#worms-database" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>We will be using <a class="reference external" href="https://www.marinespecies.org/">WoRMS</a> since it is the most relevant and established database for our research</p></li>
+<li><p>All taxonomy data will be sourced from there</p></li>
+<li><p>There is Python package that allows us to query the DB and get the full taxa of a species</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyworms</span>
+<span class="n">pyworms</span><span class="o">.</span><span class="n">aphiaRecordsByMatchNames</span><span class="p">(</span><span class="s1">&#39;Carteria marina&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="database-planning">
+<h3>Database Planning<a class="headerlink" href="#database-planning" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Who are the users?</p>
+<ul>
+<li><p>Researchers (oceanography most likely)</p></li>
+<li><p>They have experience with Python and Jupyter notebooks</p></li>
+<li><p>Should make a document on how to use the program</p></li>
+</ul>
+</li>
+<li><p>RDMS vs. Excel/CSV</p>
+<ul>
+<li><p>CSV will get slow in the range of millions of columns to even just search</p></li>
+<li><p>Major benefits will be seen when making the niche model</p>
+<ul>
+<li><p>Researchers may not have super complex queries but the niche model will</p></li>
+<li><p>The model will be <strong>significantly</strong> faster at runtime (visualization)</p></li>
+</ul>
+</li>
+<li><p>Data is also much easier to add since structure is clearly defined</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="conda_env.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Conda Environment Information</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="geospatial.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Southern Ocean Geospatial Analysis</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-code">Sample Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-add-sophy-ipynb-code-here">TODO: Add sophy.ipynb code here</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-transformations">Data transformations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#todo-add-dataformat-ipynb-code-here">TODO: Add dataformat.ipynb code here</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-data-transformation-functions">Complex data transformation functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updates-on-new-table-microscopy-in-schema-and-db-design">Updates on new table microscopy in schema and DB design</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fall-2022-goals">Fall 2022 goals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lter-ml-model-focus">LTER ML model focus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-format-challenge">Data format challenge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-science-notebook-options">Data Science Notebook Options</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter">Jupyter</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab">Google Colab</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deepnote">Deepnote</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summer-2022-goals">Summer 2022 Goals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-ideas">Feature Ideas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spring-quarter-2022-wrap-up">Spring Quarter 2022 Wrap-Up</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iterating-over-a-dataframe">Iterating over a Dataframe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-key-vs-aphiaid">Natural Key vs AphiaID</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-of-python-and-sqlite">Workflow of Python and SQLite</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#re-normalization-of-columns-major-fix">Re-normalization of columns: major fix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-key-setup">Primary Key Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tech-stack">Tech Stack</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#column-that-can-hold-id-of-two-possible-tables">Column that can hold id of two possible tables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phytoplankton-microscopy-vs-pigment-based-taxa-classification">Phytoplankton microscopy vs. pigment based taxa classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tags">Tags</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#worms-database">WoRMS Database</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#database-planning">Database Planning</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ayush Nag and Hannah Joy-Warren
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

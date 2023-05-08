@@ -1,0 +1,14 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: conda_env
+- file: database
+- file: geospatial
+- file: regression
+- file: gmm
+- file: max_ent
+- file: cnn
+- file: posters
