@@ -1,6 +1,6 @@
 create table if not exists sample (
     id integer primary key autoincrement,
-    source_name text references source(name),
+    source_name text,
     cruise text,
 
     -- location(s) and time
@@ -38,9 +38,10 @@ create table if not exists sample (
     extra_json text
 );
 
+-- occurence only data
 create table if not exists occurrence (
     id integer primary key autoincrement,
-    source_name text references source(name),
+    source_name text,
     aphia_id integer references taxonomy(aphia_id),
     name text,
     latitude text,
@@ -53,6 +54,7 @@ create table if not exists occurrence (
     notes text
 );
 
+-- additional microscopy data along with sample
 create table if not exists microscopy (
     sample_id integer references sample(id),
     aphia_id integer references taxonomy(aphia_id),
@@ -62,18 +64,12 @@ create table if not exists microscopy (
     concentration real
 );
 
-create table if not exists source (
-    name text primary key,
-    full_reference text,
-    date_accessed text,
-    date_ingested text
-);
-
 create table if not exists tag (
     sample_id integer references sample(id),
     name text
 );
 
+-- full taxonomy of species
 create table if not exists taxonomy (
     aphia_id integer primary key,
     scientific_name text,
@@ -86,7 +82,7 @@ create table if not exists taxonomy (
     class text,
     subclass text,
     superorder text,
-    orders text,
+    order_ text,
     suborder text,
     infraorder text,
     superfamily text,

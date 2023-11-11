@@ -1,5 +1,0 @@
-﻿origin_id,latitude,longitude,depth,temperature,salinity,chlorophyll_a,category_phaeocystis,category_diatom,category_other,diss_iron,nitrate,phosphate,silicate,mld,euphotic_depth,down_par,POC/chla,POC/PON,Fuco/chla,19' hex/chla,B-Car/chla,DD+DT/chla,PPP/PSP
-1,-77,177.5,10.2,-0.73,34.43,7.43,69,30,1,0.086,20.3,1.45,71.7,50,24,,78,6.8,0.38,0.48,0.016,0.12,0.07
-2,-77.316667,177.5,9.97,-0.99,34.4,6.51,36,61,3,0.067,23.2,1.61,70.8,38,22,,76,7.1,0.48,0.28,0.015,0.14,0.08
-3,-77,171,25.01,-0.52,34.43,5.27,54,46,0,0.09,21.7,1.53,70.1,12,23,,87,6.9,0.46,0.36,0.016,0.09,0.05
-4,-76.5,171,23.5,0.94,34.41,4.23,5,94,1,0.061,17.7,1.06,57.4,19,32,,147,6,0.66,0.09,0.02,0.22,0.13

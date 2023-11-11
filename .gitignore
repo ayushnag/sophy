@@ -1,6 +1,7 @@
-data/in/datasets/
+data/datasets/modified
 data/maxent/in/bsose_processed/asc/
 data/maxent/in/bsose_raw/
 data/maxent/out/
-data/out/sophy.db
-sophy/examples/.ipynb_checkpoints/
+data/sophy.db
+data/datasets/unmodified/Phytoplankton_harmonized_database_revised.csv
+data/datasets/unmodified/The_Australian_Phytoplankton_Database_(1844_-_2016)_-_abundance_and_biovolume_(SUPERSEDED_BY_ONGOING_COLLECTION).csv
