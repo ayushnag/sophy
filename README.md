@@ -1,6 +1,6 @@
 
 # SOPHY: Southern Ocean Phytoplankton Database
-[license][https://badgen.net/github/license/micromatch/micromatch]
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ayushnag/sophy/blob/main/LICENSE)
 - UW Oceanography
 - Made by Ayush Nag and Hannah Joy-Warren
 
@@ -13,7 +13,7 @@ In situ observations combined with phytoplankton taxonomies, ocean fronts, and o
 <p align="center">
   <img 
     width="600"
-    src="notes/img/labelled_sophy_bkg.jpg" >
+    src="sophy/notes/img/labelled_sophy_bkg.jpg" >
 </p>
 
 
@@ -31,7 +31,7 @@ To explore the data in table form through a web browser using [Datasette](https:
 <p align="center">
   <img 
     width="700"
-    src="notes/img/datasette.png" >
+    src="sophy/notes/img/datasette.png" >
 </p>
 
 To visualize the data using a Jupyter Notebook
@@ -42,7 +42,7 @@ To visualize the data using a Jupyter Notebook
 <p align="center">
   <img 
     width="700"
-    src="notes/img/jupyter.png" >
+    src="sophy/notes/img/jupyter.png" >
 </p>
 
 # Data Sources
