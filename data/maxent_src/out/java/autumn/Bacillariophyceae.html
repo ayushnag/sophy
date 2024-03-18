@@ -1,0 +1,76 @@
+<title>Maxent model for Bacillariophyceae</title>
+<CENTER><H1>Maxent model for Bacillariophyceae</H1></CENTER>
+<br> This page contains some analysis of the Maxent model for Bacillariophyceae, created Mon May 08 01:51:17 PDT 2023 using Maxent version 3.4.4.  If you would like to do further analyses, the raw data used here is linked to at the end of this page.<br>
+<br><HR><H2>Analysis of omission/commission</H2>
+The following picture shows the omission rate and predicted area as a function of the cumulative threshold.  The omission rate is is calculated both on the training presence records, and (if test data are used) on the test records.  The omission rate should be close to the predicted omission, because of the definition of the cumulative threshold.
+<br><img src="plots\Bacillariophyceae_omission.png"><br>
+<br> The next picture is the receiver operating characteristic (ROC) curve for the same data.  Note that the specificity is defined using predicted area, rather than true commission (see the paper by Phillips, Anderson and Schapire cited on the help page for discussion of what this means).  This implies that the maximum achievable AUC is less than 1.  If test data is drawn from the Maxent distribution itself, then the maximum possible test AUC would be 0.841 rather than 1; in practice the test AUC may exceed this bound.
+<br><img src="plots\Bacillariophyceae_roc.png"><br>
+<br>
+<br>
+Some common thresholds and corresponding omission rates are as follows.  If test data are available, binomial probabilities are calculated exactly if the number of test samples is at most 25, otherwise using a normal approximation to the binomial.  These are 1-sided p-values for the null hypothesis that test points are predicted no better than by a random prediction with the same fractional predicted area.  The "Balance" threshold minimizes 6 * training omission rate + .04 * cumulative threshold + 1.6 * fractional predicted area.<br>
+<br><table border cols=6 cellpadding=3><tr><th>Cumulative threshold</th><th>Cloglog threshold</th><th>Description</th><th>Fractional predicted area</th><th>Training omission rate</th><th>Test omission rate</th><th>P-value</th><tr align=center><td>1.000</td><td>0.039</td><td>Fixed cumulative value 1</td><td>0.736</td><td>0.005</td><td>0.020</td><td>2.286E-8</td><tr align=center><td>5.000</td><td>0.123</td><td>Fixed cumulative value 5</td><td>0.530</td><td>0.056</td><td>0.031</td><td>1.47E-18</td><tr align=center><td>10.000</td><td>0.203</td><td>Fixed cumulative value 10</td><td>0.417</td><td>0.104</td><td>0.143</td><td>4.536E-19</td><tr align=center><td>0.657</td><td>0.032</td><td>Minimum training presence</td><td>0.774</td><td>0.000</td><td>0.020</td><td>5.703E-7</td><tr align=center><td>9.673</td><td>0.198</td><td>10 percentile training presence</td><td>0.422</td><td>0.098</td><td>0.143</td><td>1.503E-18</td><tr align=center><td>25.210</td><td>0.369</td><td>Equal training sensitivity and specificity</td><td>0.235</td><td>0.235</td><td>0.296</td><td>3E-28</td><tr align=center><td>54.473</td><td>0.700</td><td>Maximum training sensitivity plus specificity</td><td>0.078</td><td>0.384</td><td>0.378</td><td>0E0</td><tr align=center><td>23.343</td><td>0.350</td><td>Equal test sensitivity and specificity</td><td>0.252</td><td>0.220</td><td>0.255</td><td>1.092E-29</td><tr align=center><td>54.240</td><td>0.698</td><td>Maximum test sensitivity plus specificity</td><td>0.079</td><td>0.384</td><td>0.367</td><td>0E0</td><tr align=center><td>1.587</td><td>0.053</td><td>Balance training omission, predicted area and threshold value</td><td>0.686</td><td>0.008</td><td>0.031</td><td>7.618E-10</td><tr align=center><td>11.001</td><td>0.217</td><td>Equate entropy of thresholded and original distributions</td><td>0.400</td><td>0.111</td><td>0.143</td><td>1.171E-20</td></table><br>
+<br><HR><H2>Pictures of the model</H2>
+This is a representation of the Maxent model for Bacillariophyceae.  Warmer colors show areas with better predicted conditions.  White dots show the presence locations used for training, while violet dots show test locations.  Click on the image for a full-size version.<br>
+<br><a href = "plots/Bacillariophyceae.png"> <img src="plots/Bacillariophyceae.png" width=600></a><br>
+<br>(A link to the Explain tool was not made for this model.  The model uses product features, while the Explain tool can only be used for additive models.)<br><br>
+<br><HR><H2>Response curves</H2>
+<br>These curves show how each environmental variable affects the Maxent prediction.
+The 
+curves show how the predicted probability of presence changes as each environmental variable is varied, keeping all other environmental variables at their average sample value. Click on a response curve to see a larger version.  Note that the curves can be hard to interpret if you have strongly correlated variables, as the model may depend on the correlations in ways that are not evident in the curves.  In other words, the curves show the marginal effect of changing exactly one variable, whereas the model may take advantage of sets of variables changing together.<br><br>
+<a href = "plots/Bacillariophyceae_chlorophyll_autumn.png"> <img src="plots/Bacillariophyceae_chlorophyll_autumn_thumb.png"></a>
+<a href = "plots/Bacillariophyceae_nitrate_autumn.png"> <img src="plots/Bacillariophyceae_nitrate_autumn_thumb.png"></a>
+<a href = "plots/Bacillariophyceae_oxygen_autumn.png"> <img src="plots/Bacillariophyceae_oxygen_autumn_thumb.png"></a>
+<a href = "plots/Bacillariophyceae_salinity_autumn.png"> <img src="plots/Bacillariophyceae_salinity_autumn_thumb.png"></a>
+<a href = "plots/Bacillariophyceae_sea_ice_extent_autumn.png"> <img src="plots/Bacillariophyceae_sea_ice_extent_autumn_thumb.png"></a>
+<a href = "plots/Bacillariophyceae_temperature_autumn.png"> <img src="plots/Bacillariophyceae_temperature_autumn_thumb.png"></a>
+<br>
+<br>In contrast to the above marginal response curves, each of the following curves represents a different model, namely, a Maxent model created using only the corresponding variable.  These plots reflect the dependence of predicted suitability both on the selected variable and on dependencies induced by correlations between the selected variable and other variables.  They may be easier to interpret if there are strong correlations between variables.<br><br>
+<a href = "plots/Bacillariophyceae_chlorophyll_autumn_only.png"> <img src="plots/Bacillariophyceae_chlorophyll_autumn_only_thumb.png"></a>
+<a href = "plots/Bacillariophyceae_nitrate_autumn_only.png"> <img src="plots/Bacillariophyceae_nitrate_autumn_only_thumb.png"></a>
+<a href = "plots/Bacillariophyceae_oxygen_autumn_only.png"> <img src="plots/Bacillariophyceae_oxygen_autumn_only_thumb.png"></a>
+<a href = "plots/Bacillariophyceae_salinity_autumn_only.png"> <img src="plots/Bacillariophyceae_salinity_autumn_only_thumb.png"></a>
+<a href = "plots/Bacillariophyceae_sea_ice_extent_autumn_only.png"> <img src="plots/Bacillariophyceae_sea_ice_extent_autumn_only_thumb.png"></a>
+<a href = "plots/Bacillariophyceae_temperature_autumn_only.png"> <img src="plots/Bacillariophyceae_temperature_autumn_only_thumb.png"></a>
+<br>
+<br><HR><H2>Analysis of variable contributions</H2><br>
+The following table gives estimates of relative contributions of the environmental variables to the Maxent model.  To determine the first estimate, in each iteration of the training algorithm, the increase in regularized gain is added to the contribution of the corresponding variable, or subtracted from it if the change to the absolute value of lambda is negative.  For the second estimate, for each environmental variable in turn, the values of that variable on training presence and background data are randomly permuted.  The model is reevaluated on the permuted data, and the resulting drop in training AUC is shown in the table, normalized to percentages.  As with the variable jackknife, variable contributions should be interpreted with caution when the predictor variables are correlated.<br>
+<br><table border cols=3><tr><th>Variable</th><th>Percent contribution</th><th>Permutation importance</th><tr align=right><td>chlorophyll_autumn</td><td>48</td><td>36.1</td></tr><tr align=right><td>nitrate_autumn</td><td>20.1</td><td>22.3</td></tr><tr align=right><td>temperature_autumn</td><td>12.2</td><td>30.2</td></tr><tr align=right><td>salinity_autumn</td><td>10.2</td><td>1.2</td></tr><tr align=right><td>oxygen_autumn</td><td>5.2</td><td>9.6</td></tr><tr align=right><td>sea_ice_extent_autumn</td><td>4.2</td><td>0.7</td></tr></table><br><br>
+The following picture shows the results of the jackknife test of variable importance.  The environmental variable with highest gain when used in isolation is chlorophyll_autumn, which therefore appears to have the most useful information by itself.  The environmental variable that decreases the gain the most when it is omitted is chlorophyll_autumn, which therefore appears to have the most information that isn't present in the other variables.<br>
+<br><img src="plots\Bacillariophyceae_jacknife.png"><br>
+<br>The next picture shows the same jackknife test, using test gain instead of training gain.  Note that conclusions about which variables are most important can change, now that we're looking at test data.
+<br><img src="plots\Bacillariophyceae_jacknife_test.png"><br>
+<br>Lastly, we have the same jackknife test, using AUC on test data.
+<br><img src="plots\Bacillariophyceae_jacknife_auc.png"><br>
+<br><HR><H2>Raw data outputs and control parameters</H2><br>
+The data used in the above analysis is contained in the next links.  Please see the Help button for more information on these.<br>
+<a href = "Bacillariophyceae.asc">The model applied to the training environmental layers</a><br>
+<a href = "Bacillariophyceae.lambdas">The coefficients of the model</a><br>
+<a href = "Bacillariophyceae_omission.csv">The omission and predicted area for varying cumulative and raw thresholds</a><br>
+<a href = "Bacillariophyceae_samplePredictions.csv">The prediction strength at the training and (optionally) test presence sites</a><br>
+<a href = "maxentResults.csv">Results for all species modeled in the same Maxent run, with summary statistics and (optionally) jackknife results</a><br>
+<br><br>
+Regularized training gain is 0.935, training AUC is 0.859, unregularized training gain is 1.085.<br>
+Unregularized test gain is 1.099.<br>
+Test AUC is 0.849, standard deviation is 0.020 (calculated as in DeLong, DeLong & Clarke-Pearson 1988, equation 2).<br>
+Algorithm terminated after 500 iterations (7 seconds).<br>
+<br>
+The follow settings were used during the run:<br>
+396 presence records used for training, 98 for testing.<br>
+10391 points used to determine the Maxent distribution (background points and presence points).<br>
+Environmental layers used (all continuous): chlorophyll_autumn nitrate_autumn oxygen_autumn salinity_autumn sea_ice_extent_autumn temperature_autumn<br>
+Regularization values: linear/quadratic/product: 0.050, categorical: 0.250, threshold: 1.000, hinge: 0.500<br>
+Feature types used: hinge product linear quadratic<br>
+responsecurves: true<br>
+jackknife: true<br>
+outputdirectory: ../../data/maxent/out/java/autumn<br>
+samplesfile: ../../data/maxent/in/sophy_presence_processed/sophy_mercator_autumn.csv<br>
+environmentallayers: ../../data/maxent/in/bsose_processed/asc/autumn<br>
+warnings: false<br>
+askoverwrite: false<br>
+randomtestpoints: 20<br>
+autorun: true<br>
+threads: 4<br>
+Command line used:  environmentallayers=../../data/maxent/in/bsose_processed/asc/autumn samplesfile=../../data/maxent/in/sophy_presence_processed/sophy_mercator_autumn.csv outputdirectory=../../data/maxent/out/java/autumn threads=4 randomtestpoints=20 responsecurves=True jackknife=True redoifexists=True autorun=True warnings=False<br>
+<br>
+Command line to repeat this species model: java density.MaxEnt nowarnings noprefixes -E "" -E Bacillariophyceae responsecurves jackknife outputdirectory=../../data/maxent/out/java/autumn samplesfile=../../data/maxent/in/sophy_presence_processed/sophy_mercator_autumn.csv environmentallayers=../../data/maxent/in/bsose_processed/asc/autumn nowarnings noaskoverwrite randomtestpoints=20 autorun threads=4<br>

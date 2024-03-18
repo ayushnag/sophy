@@ -1,0 +1,7 @@
+Predictor variable,Categorical,Sample average
+chlorophyll_summer,false,0.20124466899368498
+nitrate_summer,false,0.02176579580668153
+oxygen_summer,false,0.31180029842588636
+salinity_summer,false,34.04147042168511
+sea_ice_extent_summer,false,0.05279384068109923
+temperature_summer,false,6.190730239285363

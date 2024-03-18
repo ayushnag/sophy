@@ -5,7 +5,7 @@ import os
 import sqlite3
 import pandas as pd
 import numpy as np
-import geolabel
+import make_shapefiles
 from sophy import sophytaxa, sophysql
 from pandas import DataFrame
 from tqdm.notebook import tqdm
@@ -16,7 +16,7 @@ sophysql.create_tables()
 
 worms_folder: str = '../data/worms/'
 lter_file: str = '../../data/in/datasets/modified/lter.csv'
-phytobase_file: str = '../../data/in/datasets/mod/phytobase.csv'
+phytobase_file: str = '../../data/in/datasets/mod/phytobase_occurrence.csv'
 joywarren_file: str = '../../data/in/datasets/modified/joy_warren.csv'
 joywarren_chemtax_file: str = '../../data/in/datasets/modified/joy_warren_chemtax.csv'
 joywarren_microscopy_file: str = '../../data/in/datasets/modified/joy_warren_microscopy.csv'

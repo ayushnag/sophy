@@ -1,93 +1,147 @@
-create table if not exists sample (
-    id integer primary key autoincrement,
-    source_name text,
-    cruise text,
+CREATE TABLE IF NOT EXISTS sample (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    source TEXT,
+    cruise TEXT,
 
     -- location(s) and time
-    latitude real,
-    longitude real,
-    timestamp text,
-    front_zone text,
-    sector text,
-
-    -- species composition
-    percent_phaeo real,
-    percent_diatom real,
-    percent_other real,
-    chemtax_prasinophytes real,
-    chemtax_cryptophytes real,
-    chemtax_chlorophytes real,
-    chemtax_mixed_flagellates real,
-    chemtax_diatoms real,
-    chemtax_haptophytes real,
+    latitude REAL,
+    longitude REAL,
+    timestamp TEXT,
+    front_zone TEXT,
+    sector TEXT,
 
     -- chem/phys variables
-    depth real,
-    chl_a real,
-    salinity real,
-    temperature real,
-    part_org_carbon real,
-    oxygen real,
-    mld real,
-    par real,
-    nitrate real,
-    nitrite real,
-    phosphate real,
-    silicate real,
+    depth REAL,
+    chl_a_fluor REAL,
+    salinity REAL,
+    temperature REAL,
+    dic REAL,
+    tot_alkalinity REAL,
+    poc REAL,
+    oxygen REAL,
+    mld REAL,
+    euphotic_depth REAL,
+    par REAL,
+
+    -- nutrients
+    dfe REAL,
+    nitrate REAL,
+    nitrite REAL,
+    nitrate_nitrite REAL,
+    phosphate REAL,
+    silicate REAL,
+
+    -- species composition
+    chemtax_prasinophytes REAL,
+    chemtax_cryptophytes REAL,
+    chemtax_chlorophytes REAL,
+    chemtax_dinoflagellates REAL,
+    chemtax_mixed_flagellates REAL,
+    chemtax_diatoms REAL,
+    chemtax_haptophytes REAL,
+
+    -- primary pigments
+    hplc_allo REAL,
+    hplc_alpha_car REAL,
+    hplc_beta_car REAL,
+    hplc_alpha_beta_car REAL,
+    hplc_but_fuco REAL,
+    hplc_diadino REAL,
+    hplc_diato REAL,
+    hplc_fuco REAL,
+    hplc_hex_fuco REAL,
+    hplc_perid REAL,
+    hplc_tot_chl_a REAL,
+    hplc_tot_chl_b REAL,
+    hplc_tot_chl_c REAL,
+    hplc_zea REAL,
+
+    -- secondary pigments
+    hplc_chl_c3 REAL,
+    hplc_chlide_a REAL,
+    hplc_dv_chl_a REAL,
+    hplc_dv_chl_b REAL,
+    hplc_mv_chl_a REAL,
+    hplc_mv_chl_b REAL,
+    hplc_chl_c2 REAL,
+    hplc_mv_chl_c3 REAL,
+    hplc_chl_c12 REAL,
+    hplc_chl_c2_mgdg REAL,
+    hplc_chl_c2_mgdg_14 REAL,
+    hplc_chl_c2_mgdg_18 REAL,
+    hplc_mgdvp REAL,
+
+    -- tertiary pigments
+    hplc_lut REAL,
+    hplc_neo REAL,
+    hplc_phide_a REAL,
+    hplc_phide_b REAL,
+    hplc_phytin_a REAL,
+    hplc_phytin_b REAL,
+    hplc_pyrophaeo_a REAL,
+    hplc_pras REAL,
+    hplc_viola REAL,
+
+    -- ancillary pigment
+    hplc_gyro REAL,
+
+    -- measurement methods
+    hplc_present INTEGER,
+    chemtax_present INTEGER,
+    microscopy_present INTEGER,
+    flowcam_present INTEGER,
+    ifcb_present INTEGER,
+
     -- JSON extra column
-    extra_json text
-);
+    extra_json TEXT
+) STRICT;
 
--- occurence only data
-create table if not exists occurrence (
-    id integer primary key autoincrement,
-    source_name text,
-    aphia_id integer references taxonomy(aphia_id),
-    name text,
-    latitude text,
-    longitude real,
-    timestamp real,
-    front_zone text,
-    sector text,
-    depth real,
-    extra_json text,
-    notes text
-);
+-- occurrence only data
+CREATE TABLE IF NOT EXISTS occurrence (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    source TEXT,
+    aphia_id INTEGER REFERENCES taxonomy(aphia_id),
+    taxa TEXT,
+    latitude REAL,
+    longitude REAL,
+    depth REAL,
+    timestamp TEXT,
+    front_zone TEXT,
+    sector TEXT,
+    extra_json TEXT
+) STRICT;
 
--- additional microscopy data along with sample
-create table if not exists microscopy (
-    sample_id integer references sample(id),
-    aphia_id integer references taxonomy(aphia_id),
-    name text,
-    biovolume real,
-    biomass real,
-    concentration real
-);
-
-create table if not exists tag (
-    sample_id integer references sample(id),
-    name text
-);
+-- additional observational data along with sample
+CREATE TABLE IF NOT EXISTS sample_amount (
+    sample_id INTEGER REFERENCES sample(id),
+    aphia_id INTEGER REFERENCES taxonomy(aphia_id),
+    taxa TEXT,
+    biomass_per_L REAL,
+    biovolume_per_L REAL,
+    cells_per_L REAL,
+    count_per_L REAL,
+    measurement_method TEXT
+) STRICT;
 
 -- full taxonomy of species
-create table if not exists taxonomy (
-    aphia_id integer primary key,
-    scientific_name text,
-    authority text,
-    superkingdom text,
-    kingdom text,
-    phylum text,
-    subphylum text,
-    superclass text,
-    class text,
-    subclass text,
-    superorder text,
-    order_ text,
-    suborder text,
-    infraorder text,
-    superfamily text,
-    family text,
-    genus text,
-    species text,
-    modified text
-);
+CREATE TABLE IF NOT EXISTS taxonomy (
+    aphia_id INTEGER PRIMARY KEY,
+    scientific_name TEXT,
+    authority TEXT,
+    superkingdom TEXT,
+    kingdom TEXT,
+    phylum TEXT,
+    subphylum TEXT,
+    superclass TEXT,
+    class TEXT,
+    subclass TEXT,
+    superorder TEXT,
+    order_ TEXT,
+    suborder TEXT,
+    infraorder TEXT,
+    superfamily TEXT,
+    family TEXT,
+    genus TEXT,
+    species TEXT,
+    modified TEXT
+) STRICT;

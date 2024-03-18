@@ -1,0 +1,7 @@
+Predictor variable,Categorical,Sample average
+chlorophyll_winter,false,0.09387827152386308
+nitrate_winter,false,0.01009104069089517
+oxygen_winter,false,0.27579070441424847
+salinity_winter,false,35.01136589050293
+sea_ice_extent_winter,false,0.12000665068626404
+temperature_winter,false,11.022475950419903

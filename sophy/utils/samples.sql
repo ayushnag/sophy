@@ -26,7 +26,7 @@ where latitude > -67 and latitude < -60;
 
 select *
 from sample
-where latitude > 0
+where latitude > 0;
 
 select * from sample where scientific_name is not null;
 

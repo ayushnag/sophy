@@ -1,0 +1,2 @@
+java -mx2000m -cp "/C:/Users/Ayush Nag/vault/sophy/data/maxent/app/maxent.jar;../../data/maxent/app/maxent.jar" density.Explain -l "c:\Users\Ayush Nag\vault\sophy\sophy\examples\..\..\data\maxent\out\java\spring\Prymnesiophyceae.lambdas" -c "c:\Users\Ayush Nag\vault\sophy\sophy\examples\..\..\data\maxent\out\java\spring\Prymnesiophyceae.asc" "c:\Users\Ayush Nag\vault\sophy\sophy\examples\..\..\data\maxent\in\bsose_processed\asc\spring"
+@if errorlevel 1 pause

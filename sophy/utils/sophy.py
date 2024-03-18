@@ -5,8 +5,10 @@ import os
 import sqlite3
 import time
 import pandas as pd
+import pathlib
+import hashlib
 import numpy as np
-import geolabel
+import make_shapefiles
 import sophytaxa
 from pandas import DataFrame
 from tqdm.notebook import tqdm
@@ -16,7 +18,7 @@ cur = con.cursor()
 
 worms_folder: str = '../data/in/worms/'
 lter_file: str = '../../data/in/datasets/mod/lter.csv'
-phytobase_file: str = '../../data/in/datasets/mod/phytobase.csv'
+phytobase_file: str = '../../data/in/datasets/mod/phytobase_occurrence.csv'
 joywarren_file: str = '../../data/in/datasets/mod/joy_warren.csv'
 joywarren_chemtax_file: str = '../../data/in/datasets/modified/joy_warren_chemtax.csv'
 joywarren_microscopy_file: str = '../../data/in/datasets/mod/joy_warren_microscopy.csv'
@@ -127,6 +129,38 @@ def write_taxonomy() -> None:
             result = pd.concat([result, new], ignore_index=True)
     result = result.drop_duplicates(subset=['aphia_id'])
     write_dataset(result, table_name='taxonomy')
+
+    def get_modified_files(data_files: list[pathlib.Path], sha_files: list[pathlib.Path]) -> list[pathlib.Path]:
+        """Returns list of files that have been modified since last run"""
+        modified = []
+        for f in data_files:
+            match = [sha for sha in sha_files if f.stem == sha.stem.split(".")[0]]
+            if match:
+                # sha256 file found; compare checksums
+                with open(match[0], 'r') as sha_file:
+                    old_sha = sha_file.read()
+                    curr_sha = calc_checksum(f)
+                if old_sha != curr_sha:
+                    # checksum has changed; add to list of files to read
+                    modified.append(f)
+            else:
+                # no sha256 file found; add to list of files to read and make checksum file
+                modified.append(f)
+                with open(os.path.join(sha_cache_dir, f.stem + ".sha256.txt"), 'w') as sha_file:
+                    sha_file.write(calc_checksum(f))
+        return modified
+
+    def calc_checksum(filepath: pathlib.Path) -> str:
+        """
+        Generate checksum (SHA-256) for a file.
+        """
+        hasher = hashlib.sha256()
+        with open(filepath, 'rb') as file:
+            buffer = file.read(65536)  # Read file in chunks (64 KB) to handle large files
+            while len(buffer) > 0:
+                hasher.update(buffer)
+                buffer = file.read(65536)
+        return hasher.hexdigest()
 
 
 def csl(cols: list) -> str:
