@@ -1,0 +1,371 @@
+
+
+                                       KERFIX TIME SERIES
+
+[Image]                                  SEDIMENT TRAPS
+                                        Catherine JEANDEL
+
+
+
+---------------------------------------------------------------------------
+10-févr.-1999           [go Page Prev]           [Go Home page]
+---------------------------------------------------------------------------
+    Présentation                                    Paramètres mesurés
+
+  Fiche Analyses Kerfix: Flux de masse, C, N, pigments et pelotes fécales
+Fiche Analyses Kerfix: Al, Ba, Sr, Ca et traces (mat. piégée) + barytine en
+                                suspension
+          Fiche Analyses Kerfix: Si Lithogénique et Si biogénique
+             Fiche Analyses Kerfix :d15N et d13C particulaires
+    Fiche Analyses Kerfix: radionuclides (210Pb, 226Ra, éléments-trace)
+
+---------------------------------------------------------------------------
+
+               les lignes de mouillages et les pièges KERFIX
+
+
+
+Dans le cadre du programme KERFIX, deux lignes de mouillage ont été
+déployées sur le site:
+- la première entre Avril 1993 et Février 1994,
+- la seconde entre Février 1994 et Janvier 1995.
+
+Ces lignes étaient instrumentées par deux pièges à particules Technicap PPS
+5 (24 godets programmables, préalablement empoisonnés au formaldéhyde 5%,
+1m2 de diamètre) équipés chacun d’un courantomètre Aandera (RCM7 et RCM8).
+
+La résolution temporelle pour la collecte des particules est d'un mois en
+hiver et de 7 à 10 jours pendant les mois productifs de printemps et d'été.
+Chaque segment " piège-courantomètre " échantillonait de la matière
+particulaire et les vitesses et directions de courants, l’un autour de 200
+m et l’autre autour de 1000 m de profondeur. La tête de mouillage était
+située à 80 m sous la surface.
+
+Au cours de la première année, seul le piège situé à 200 m a fonctionné: le
+fil de connexion entre le moteur programmable et la batterie du piège
+" 1000 m " s’étant desoudé, probablement lors d’un choc au moment de la
+mise à l’eau en Avril 1993, qui s’est effectuée dans des conditions de gros
+temps. Les deux courantomètres ont fonctionné correctement.
+
+A l’issue de la seconde année, le vent a forci au cours de la manoeuvre de
+remontée de la ligne, et le câble d’acier galvanisé s’est rompu au moment
+de remonter le piège-1000 m à bord, qui s’est perdu. Tout le reste du
+matériel a fonctionné normalement et a été récupéré.
+
+
+
+     Le bilan final de ces deux années de collecte est donc:
+
+        * deux années de mesure de flux de matière et d’éléments en sortie
+          de couche mélangée (200 m) et
+        * deux années de courantomètrie à 200 m et à 1000 m.
+
+
+
+Les données de courantomètrie sont traitées et exploitées par Y. Park (LOP,
+MNHN, yhpark@cimrs1.mnhn.fr), voir section correspondante.
+
+
+
+Après tri et soustraction des nageurs, le matériel piégé a été lyophilisé
+pour détermination des paramètres qui sont résumés dans le tableau
+ci-dessous, ainsi que le nom et l’adresse de la personne responsable de
+chaque mesure.
+
+
+
+                                                         Début de document
+
+Paramètres mesurés sur le matériel piégé au site KERFIX et nom et
+coordonnées de la personne en charge de la mesure.
+
+
+
+           Mass flux, C, N, pigments,
+           Pelotes fécales                 JC Miquel (miquel@NAXOS.UNICE.FR)
+           SEM                             F. Dehairs (fdehairs@vnet3.vub.ac.be )
+           Micropaleontology               JJ Pichon (pichon@geocean.u-bordeaux.fr)
+           Radionuclides                   S. Schmidt (Schmidt@cfr.cnrs-gif.fr)
+           Si, Sibiogenique                B. Queguiner (queguine@univ-brest.fr)
+           d13C et d15N                    F. Dehairs
+           Al, Ca, Sr, Ba,Trace elements,
+           Nd                              C. Jeandel (Catherine.Jeandel@cnes.fr)
+           Traceurs organiques et UK37     MA Sicre (sicre@ccr.jussieu.fr)
+
+
+
+Dans le cadre de ce rapport, nous ne présenterons que les données de flux
+de masse et de carbone organique (Tableau 1 et Figure 1), les différents
+autres paramètres étant en cours d’acquisition. Cependant, nous avons
+rassemblé ci-après des fiches rappelant succintement les protocoles
+analytiques de paramètres clefs. Plus d’informations seront disponibles
+auprès du responsable de la mesure.
+
+
+
+                                                         Début de document
+
+---------------------------------------------------------------------------
+
+Fiche Analyses Kerfix: Flux de masse, C, N, pigments et pelotes fécales
+
+     1) Coordonnées détaillées du responsable:
+
+          Juan Carlos Miquel
+          IAEA - Marine Environment Laboratory
+          B.P. 800 - MC98012 Monaco
+          Tel: (377)92052222
+          Fax: (377)92057744
+          e-mail: miquel@unice.fr
+
+     2) Unité de mesure des flux : flux par m2/j
+
+     3) Protocoles résumés
+
+          - Mesure de C et N total par chromatographie gazeuse à
+          haute temperature (microanalyse CHN)
+
+          - Mesure de C organique: même methode, analyse faite
+          après décarbonatation des échantillons avec acide
+          orthophosphorique 1 M
+
+          - Mesure de C inorganique: par différence entre C total
+          et C organique; aussi par mesure directe par
+          coulomètrie.
+
+          - Pigments totaux: par spectrophotomètrie
+
+          - Pelotes fecales par microscopie et "modélisation"
+
+
+
+                                                         Début de document
+
+---------------------------------------------------------------------------
+
+Fiche Analyses Kerfix: Al, Ba, Sr, Ca et traces (mat. piégé) + barytine en
+suspension
+
+     1) Coordonnées détaillées du responsable:
+
+          Catherine JEANDEL et Frank DEHAIRS
+          UMR 5566
+          Observatoire Midi-Pyrénées
+          14, Ave E. Belin
+          31400 Toulouse Fr
+
+          email: Catherine.Jeandel@cnes.fr
+          ph: 33 5 61 33 29 33
+          fax: 33 5 61 25 32 05
+
+          Coordonnées DEHAIRS: voir fiches d15N et d13C.
+
+
+
+     2) Unité de mesure des flux : flux par m2/j, barytine en
+     suspension en pmoles Ba (barytine)/litre.
+
+     3) Protocoles résumés
+
+          - Digestion totale de 25 mg de matériel lyophilisé par
+          attaque (acides distillés HF/HNO3 (3:1), en salle
+          blanche et dans des vaisselles en téflon). reprise dans
+          10 ml HNO3 2% (solution d’attaque)
+
+          - Al: Dilution d’un aliquot (1 à 5% de la solution
+          d’attaque); mesure par Four Absorption Atomique dans
+          matrice HNO3 2%. Précision: 1 à 2%
+
+          - Ca: dilution d’un aliquot (<1% de la solution
+          d’attaque); mesure par Emission Atomique en Flamme.
+          Précision: 1 à 2%
+
+          - Sr, Ba et traces: 95% restant de la solution
+          d’attaque; mesure par ICPMS. Précisions: 2 à 10%, selon
+          l’élément concerné.
+
+
+
+          La barytine en suspension a été déterminée par
+          microspcopie électronique (analyse SEM-EMP d'un
+          fragment de filtre; 200X magnification). Les particules
+          de barytine ont été identifiées (présence de Ba, S et
+          brillance) et leur masse et volume déterminés.
+
+
+
+                                                         Début de document
+
+---------------------------------------------------------------------------
+
+Fiche Analyses Kerfix: Si Lithogénique et Si biogénique
+
+     1) Coordonnées détaillées du responsable:
+
+          Bernard QUEGUINER
+          UMR CNRS 6539 "BIOFLUX"
+          Domaine Océanique: Cycles Biogéochimiques
+          Institut Universitaire Europeen de la Mer
+          Université de Bretagne Occidentale
+          B.P. 809
+          F-29285 Brest (FRANCE)
+          tel (+33) (0)298 01 66 35
+          fax (+33) (0)298 01 66 36
+          Bernard.Queguiner@univ-brest.fr
+
+     2) Unité de mesure des flux : flux par m2/j
+
+     3) Protocoles résumés
+
+          La méthode d’attaque est celle de Ragueneau et Trèguer
+          (1994) modifiée.
+
+          Silice biogènique (BSi):
+
+          Attaque NaOH 0.2 M a chaud (100°C) pendant 60 minutes
+          et dosages, après centrifugation, des silicates
+          (autonalayseur Alpkem RFA-300, Gordon et Jennings,
+          1993) et de l'aluminium (ICP-AES).
+
+
+
+          Silice lithogènique (LSi):
+
+          Attaque du matériel résiduel par HF 2.9 M et nouveaux
+          dosages, après centrifugation, des silicates (methode
+          manuelle, Treguer et Le Corre, 1975) et de l'aluminium
+          (ICP-AES). Le dosage de l'aluminium permet de corriger
+          de l'interférence due à la dissolution d'une partie de
+          la silice lithogènique au cours de la première étape du
+          protocole (Kamatani and Tokano, 1984).
+
+
+
+          GORDON L.I. & J.C. JENNINGS. 1993. A suggested protocol
+          for continuous flow automated analysis of sea water
+          nutrients, WOCE Hydrographic Program Office, 35 pp.
+
+          KAMATANI A. & M. TAKANO. 1984. The behaviour of
+          dissolved silica during the mixing of river and sea
+          waters in Tokyo Bay. Est. Coast. Shelf Sci., 19:
+          505-512.
+
+          RAGUENEAU O. & P. TREGUER. 1994. Determination of
+          biogenic silica in coastal waters: applicability and
+          limits of the alkaline digestion method. Mar. Chem.,
+          45: 43-51.
+
+          TREGUER P. & P. LE CORRE. 1975. Manuel d'Analyse des
+          Sels Nutritifs dans l'Eau de Mer. Utilisation de
+          l'Auto-Analyzer II Technicon. Lab. Océanographie
+          Chimique, Université de Bretagne Occidentale, Brest,
+          110 pp
+
+
+
+
+
+                                                         Début de document
+
+---------------------------------------------------------------------------
+
+Fiche Analyses Kerfix: d13C et d15N particulaires (mat. piègée)
+
+     1) Coordonnées détaillées du responsable
+
+          Frank DEHAIRS
+          ANCH/VUB
+          Pleinlaan 2
+          B-1050, Bruxelles, Belgique
+          email: fdehairs@vnet3.vub.ac.be
+
+     2) Unité de mesure :
+
+          Les résultats de d13C sont exprimés (en%0) relativement
+          au standard de référence PDB. Les résultatsde d15N sont
+          exprimés relativement à la composition de l'azote
+          atmosphérique.
+
+     3) Protocoles résumés
+
+          CARBONE 13
+
+          Les analyses de d13C sur le matériel piégé ont été
+          réalisées sur environ 3 mg de matériel sec. Quelques
+          gouttes d'acide chlorhydrique 1N ont été ajoutées
+          pendant que les godets ont été chauffés à 80°C, pour
+          éliminer les carbonates. Cette opération a été répétée
+          jusqu'à ce qu'aucune effervescence ne soit plus
+          détectable. La combustion des échantillons est faite
+          dans un analyseur Carlo Erba NA 1500 CN. Le gaz
+          carbonique est piégé cryogéniquement dans une boite
+          montée en ligne entre le CN-analyseur et le
+          spectromètre de masse. Ensuite, le gaz carbonique
+          reconditionné est injecté dans le spectromètre de masse
+          (Finnigan-Mat Delta-E). Un matériel de référence (USG
+          24, graphite) a été analysé au début et à la fin de
+          chaque série d'analyses quotidiennes.
+
+
+
+          AZOTE 15
+
+          Pour les analyses de d15N, environ 15 mg de sédiment
+          sec de matériel piégé ont été pesés dans un bécher en
+          étain et calcinés dans un analyseur Carlo Erba NA 1500.
+          Le gaz N2 est ensuite piégé cryogéniquement, à la suite
+          du piégeage de la vapeur d'eau et du CO2.Les pièges
+          d'azote sont adaptés manuellement sur le spectromètre
+          de masse.Les standards de référence analysés pour
+          chaque série d'échantillons sont IAEA N-1 et N-2
+          (ammonium sulphate) .
+
+
+
+                                                         Début de document
+
+---------------------------------------------------------------------------
+
+Fiche Analyses Kerfix: radionuclides (210Pb, 226Ra, éléments-trace: U, Th,
+Sc, ..)
+
+     1) Coordonnées détaillées du responsable
+
+          Sabine SCHMIDT - Centre des Faibles Radioactivités
+          Avenue de la Terrasse,
+          91 198 Gif sur Yvette
+          Tel: 01 69 82 43 69;
+          Fax: 01 69 82 35 68
+          E-mail : Sabine.Schmidt@cfr.cnrs-gif
+
+     2) Unité de mesure :
+
+          Les données sont fournies en activités spécifiques: µg
+          / g pour les éléments en trace, et dpm/g (nombre de
+          désintégration par minute) pour les radionucléides.
+
+     3) Protocoles résumés
+
+          Souterrain de Modane. Les mesures sont réalisées
+          directement à partir de l’échantillon, sans traitement
+          préalable. Les detecteurs en service sont des détecteur
+          germanium de type puits à bas bruit de fond de 215 et
+          430 cm3, construits par Eurisys Mesures. Ils sont
+          calibrés à l’aide d’un étalon de sédiment marin enrichi
+          en uranium et en thorium (US standards NBS).
+
+          Les éléments en trace sont déterminés par activation
+          neutronique, sans traitement chimique préalable, sur 5
+          à 20 mg de particules. Les échantillons, les standards
+          (Mag-1) et les blancs sont irradiés dans les mêmes
+          conditions.
+
+
+
+                                                         Début de document
+
+---------------------------------------------------------------------------
+
+
+
+10-févr.-1999           [go Page Prev]           [Go Home page]
