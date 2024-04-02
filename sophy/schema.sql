@@ -1,12 +1,12 @@
 CREATE TABLE IF NOT EXISTS sample (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    source TEXT,
+    source_name TEXT,
     cruise TEXT,
 
     -- location(s) and time
     latitude REAL,
     longitude REAL,
-    timestamp TEXT,
+    date_time TEXT,
     front_zone TEXT,
     sector TEXT,
 
@@ -99,13 +99,13 @@ CREATE TABLE IF NOT EXISTS sample (
 -- occurrence only data
 CREATE TABLE IF NOT EXISTS occurrence (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    source TEXT,
+    source_name TEXT,
     aphia_id INTEGER REFERENCES taxonomy(aphia_id),
     taxa TEXT,
     latitude REAL,
     longitude REAL,
     depth REAL,
-    timestamp TEXT,
+    date_time TEXT,
     front_zone TEXT,
     sector TEXT,
     extra_json TEXT
@@ -145,3 +145,11 @@ CREATE TABLE IF NOT EXISTS taxonomy (
     species TEXT,
     modified TEXT
 ) STRICT;
+
+CREATE TABLE IF NOT EXISTS metadata (
+    table_name TEXT,
+    column_name TEXT,
+    data_type TEXT,
+    units TEXT,
+    description TEXT
+ ) STRICT;

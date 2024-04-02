@@ -9,7 +9,7 @@ Out: Dataset(s) matching Sophy SQL table format
 ## 2. Sample
 - Create dictionary that renames columns to match Sophy SQL table format 
 - Ensure units match 
-- Ensure essential columns like `latitude`, `longitude`, and `timestamp` are present 
+- Ensure essential columns like `latitude`, `longitude`, and `date_time` are present 
 - Add `source`, `cruise`, `hplc_present`, `chemtax_present`, `microscopy_present`, `flowcam_present`, and `ifcb_present`
 - If sample_amount is present have an `id` column (start with 1)
 - Plot data and check it matches expected locations
@@ -24,9 +24,14 @@ Out: Dataset(s) matching Sophy SQL table format
 - Add `measurement_method` column (e.g. microscopy, flowcam, ifcb, etc.)
 - Ensure essential columns like `sample_id`, `taxa`, and `measurement_method` are present (make sure that at least one of the measurement methods is present)
 ## 4. Occurrence
-
+- Ensure units match
+- Create dictionary that renames columns to match Sophy SQL table format
+- Ensure essential columns like `latitude`, `longitude`, and `date_time` are present 
+- Plot data and check it matches expected locations
 
 ## 5. Export all dataframes to `modified` folder
 
-## TODO: add section for files and fields to modify if x is changed
-- if sql column name is changed, what files or code need to be updated?
+## Questions
+**Where to fix column names if schema is changed?** \
+Visit all notebooks in the `transformations` folder and update the dictionary that renames columns to match Sophy SQL table format. Also update the metadata.csv file in the `sophy` folder.
+

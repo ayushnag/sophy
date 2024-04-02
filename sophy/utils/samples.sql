@@ -7,7 +7,7 @@ from sample
 where cryptophytes < 0.5 and latitude > -67.0 and latitude < -60.0 and prasinophytes > 0.1;
 
 -- find amount of entries per month of year
-select count(*) as entries, strftime('%Y-%m', timestamp) as year_month
+select count(*) as entries, strftime('%Y-%m', date_time) as year_month
 from sample
 group by year_month
 order by year_month asc;

@@ -1,0 +1,114 @@
+table_name,column_name,data_type,units,description
+sample,id,INTEGER,NaN,primary key for the sample table
+sample,source_name,TEXT,NaN,short name for data source
+sample,cruise,TEXT,NaN,cruise name
+sample,latitude,REAL,degrees S,latitude in decimal degrees
+sample,longitude,REAL,degrees W,longitude in decimal degrees
+sample,date_time,TEXT,NaN,yyyy-MM-dd HH:mm:ss
+sample,front_zone,TEXT,NaN,"STZ=Sub Tropical Zone, SAZ=Subantarctic Zone, PFZ=Polar Frontal Zone, ASZ=Antarctic-Southern Zone, SoZ=ACC Southern Zone, SIZ=Seasonal Ice Zone (conc > 15%)"
+sample,sector,TEXT,NaN,"BA=Bellingshausen/Amundsen, WPO=Western Pacific Ocean, Ross=Ross Sea, Indian=Indian Ocean, Wedell=Wedell Sea"
+sample,depth,REAL,meters,
+sample,chl_a_fluor,REAL,mg/m^3,chlorophll a measured via fluorometric analysis
+sample,salinity,REAL,psu,
+sample,temperature,REAL,degrees C,
+sample,dic,REAL,,dissolved inorganic carbon
+sample,tot_alkalinity,REAL,,
+sample,poc,REAL,,particulate organic carbon
+sample,oxygen,REAL,,
+sample,mld,REAL,meters,mixed layer depth
+sample,euphotic_depth,REAL,meters,
+sample,par,REAL,,photosynthetically active radiation
+sample,dfe,REAL,,dissolved iron
+sample,nitrate,REAL,umol/L,
+sample,nitrite,REAL,umol/L,
+sample,nitrate_nitrite,REAL,umol/L,
+sample,phosphate,REAL,umol/L,
+sample,silicate,REAL,umol/L,
+sample,chemtax_prasinophytes,REAL,unitless,fractions of sample; CHEMTAX output
+sample,chemtax_cryptophytes,REAL,unitless,fractions of sample; CHEMTAX output
+sample,chemtax_chlorophytes,REAL,unitless,fractions of sample; CHEMTAX output
+sample,chemtax_dinoflagellates,REAL,unitless,fractions of sample; CHEMTAX output
+sample,chemtax_mixed_flagellates,REAL,unitless,fractions of sample; CHEMTAX output
+sample,chemtax_diatoms,REAL,unitless,fractions of sample; CHEMTAX output
+sample,chemtax_haptophytes,REAL,unitless,fractions of sample; CHEMTAX output
+sample,hplc_allo,REAL,,
+sample,hplc_alpha_car,REAL,,
+sample,hplc_beta_car,REAL,,
+sample,hplc_alpha_beta_car,REAL,,
+sample,hplc_but_fuco,REAL,,
+sample,hplc_diadino,REAL,,
+sample,hplc_diato,REAL,,
+sample,hplc_fuco,REAL,,
+sample,hplc_hex_fuco,REAL,,
+sample,hplc_perid,REAL,,
+sample,hplc_tot_chl_a,REAL,,
+sample,hplc_tot_chl_b,REAL,,
+sample,hplc_tot_chl_c,REAL,,
+sample,hplc_zea,REAL,,
+sample,hplc_chl_c3,REAL,,
+sample,hplc_chlide_a,REAL,,
+sample,hplc_dv_chl_a,REAL,,
+sample,hplc_dv_chl_b,REAL,,
+sample,hplc_mv_chl_a,REAL,,
+sample,hplc_mv_chl_b,REAL,,
+sample,hplc_chl_c2,REAL,,
+sample,hplc_mv_chl_c3,REAL,,
+sample,hplc_chl_c12,REAL,,
+sample,hplc_chl_c2_mgdg,REAL,,
+sample,hplc_chl_c2_mgdg_14,REAL,,
+sample,hplc_chl_c2_mgdg_18,REAL,,
+sample,hplc_mgdvp,REAL,,
+sample,hplc_lut,REAL,,
+sample,hplc_neo,REAL,,
+sample,hplc_phide_a,REAL,,
+sample,hplc_phide_b,REAL,,
+sample,hplc_phytin_a,REAL,,
+sample,hplc_phytin_b,REAL,,
+sample,hplc_pyrophaeo_a,REAL,,
+sample,hplc_pras,REAL,,
+sample,hplc_viola,REAL,,
+sample,hplc_gyro,REAL,,
+sample,hplc_present,INTEGER,binary,
+sample,chemtax_present,INTEGER,binary,
+sample,microscopy_present,INTEGER,binary,
+sample,flowcam_present,INTEGER,binary,
+sample,ifcb_present,INTEGER,binary,
+sample,extra_json,TEXT,NaN,"extra columns not in sophy but present in the source dataset {""column1"": value,""column6"": value}"
+occurrence,id,INTEGER,NaN,primary key for the occurrence table
+occurrence,source_name,TEXT,NaN,short name for source of the data
+occurrence,aphia_id,INTEGER,NaN,unique marine taxa identifier used by WoRMS database
+occurrence,taxa,TEXT,NaN,scientific name of taxa
+occurrence,latitude,REAL,degrees S,latitude in decimal degrees
+occurrence,longitude,REAL,degrees W,longitude in decimal degrees
+occurrence,depth,REAL,meters,
+occurrence,date_time,TEXT,NaN,yyyy-MM-dd HH:mm:ss
+occurrence,front_zone,TEXT,NaN,"STZ=Sub Tropical Zone, SAZ=Subantarctic Zone, PFZ=Polar Frontal Zone, ASZ=Antarctic-Southern Zone, SoZ=ACC Southern Zone, SIZ=Seasonal Ice Zone (conc > 15%)"
+occurrence,sector,TEXT,NaN,"BA=Bellingshausen/Amundsen, WPO=Western Pacific Ocean, Ross=Ross Sea, Indian=Indian Ocean, Wedell=Wedell Sea"
+occurrence,extra_json,TEXT,NaN,"extra columns not in sophy but present in the source dataset {""column1"": value,""column6"": value}"
+sample_amount,sample_id,INTEGER,NaN,foreign key from sample table
+sample_amount,aphia_id,INTEGER,NaN,unique marine taxa identifier used by WoRMS database
+sample_amount,taxa,TEXT,NaN,scientific name of taxa
+sample_amount,biomass_per_L,REAL,,
+sample_amount,biovolume_per_L,REAL,,
+sample_amount,cells_per_L,REAL,,
+sample_amount,count_per_L,REAL,,
+sample_amount,measurement_method,TEXT,,"how this sample was measured. E.g. microscopy, flowcam"
+taxonomy,aphia_id,INTEGER,,unique marine taxa identifier used by WoRMS database
+taxonomy,scientific_name,TEXT,,
+taxonomy,authority,TEXT,,
+taxonomy,superkingdom,TEXT,,
+taxonomy,kingdom,TEXT,,
+taxonomy,phylum,TEXT,,
+taxonomy,subphylum,TEXT,,
+taxonomy,superclass,TEXT,,
+taxonomy,class,TEXT,,
+taxonomy,subclass,TEXT,,
+taxonomy,superorder,TEXT,,
+taxonomy,order_,TEXT,,
+taxonomy,suborder,TEXT,,
+taxonomy,infraorder,TEXT,,
+taxonomy,superfamily,TEXT,,
+taxonomy,family,TEXT,,
+taxonomy,genus,TEXT,,
+taxonomy,species,TEXT,,
+taxonomy,modified,TEXT,,

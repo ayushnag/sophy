@@ -1,4 +1,4 @@
-scientificname,longitude,latitude,depth,taxonRank,occurrenceStatus,phylum,class,timestamp,AphiaID
+scientificname,longitude,latitude,depth,taxonRank,occurrenceStatus,phylum,class,date_time,AphiaID
 Coccopterum labyrinthus,144.413,-42.6097,126.0,SPECIES,PRESENT,Chlorophyta,Prasinophyceae,2000-02-29,620590.0
 Coccopterum labyrinthus,144.413,-42.6097,17.0,SPECIES,PRESENT,Chlorophyta,Prasinophyceae,2000-02-29,620590.0
 Coccopterum labyrinthus,144.413,-42.6097,319.0,SPECIES,PRESENT,Chlorophyta,Prasinophyceae,2000-02-29,620590.0

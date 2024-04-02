@@ -5,10 +5,7 @@ format: jb-book
 root: intro
 chapters:
 - file: conda_env
-- file: database
-- file: geospatial
-- file: regression
-- file: gmm
+- file: sophy_example
 - file: max_ent
+- file: gmm
 - file: cnn
-- file: posters

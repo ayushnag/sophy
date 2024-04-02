@@ -1,16 +1,13 @@
-data/datasets/modified
 notes/
 data/maxent_src/out/java_first_run
 data/phytoclass/
 sophy.db
-test.db
-data/datasets/unmodified/righetti2020/Phytoplankton_harmonized_database_revised.csv
+data/datasets/unmodified/phytobase/Phytoplankton_harmonized_database_revised.csv
 data/datasets/unmodified/davies2016/The_Australian_Phytoplankton_Database_(1844_-_2016)_-_abundance_and_biovolume_(SUPERSEDED_BY_ONGOING_COLLECTION).csv
 sophy/utils/__pycache__/
-sophy/utils/sophy2.xlsx
-sophy/utils/test.db
+sophy/transformations/__pycache__/
+sophy/utils/sophytest.xlsx
+sophy/utils/sophytest.db
 .idea/
 .DS_Store
-
-# while working ignore the entire maxent_src directory
-# comment out when pushing to github
+*.log
